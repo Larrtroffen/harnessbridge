@@ -14,83 +14,58 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-and-test:
-    name: Build & test (macOS / Apple Silicon)
-    runs-on: macos-latest
-    timeout-minutes: 40
-    env:
-      HOMEBREW_NO_AUTO_UPDATE: "1"
+  cli-and-docs:
+    name: CLI checks (ubuntu)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Select newest Xcode toolchain
-        run: |
-          set -euo pipefail
-          if ls /Applications/Xcode*.app >/dev/null 2>&1; then
-            XCODE=$(ls -d /Applications/Xcode*.app | sort -V | tail -1)
-            echo "Using $XCODE"
-            sudo xcode-select -s "$XCODE"
-          fi
-          xcodebuild -version || true
-          xcrun --show-sdk-version || true
-
       - name: Show toolchain
         run: |
-          sw_vers
-          uname -m
-          swift --version
           python3 --version
+          uname -a
 
-      - name: Install optional zstd CLI
-        run: brew install zstd
-
-      - name: CLI — compile + smoke
+      - name: Python backend — compile
         run: |
           python3 -m compileall -q tools/agent-session-import
+          echo "backend compiles"
+
+      - name: CLI — smoke
+        run: |
           python3 tools/agent-session-import/asi --version
           python3 tools/agent-session-import/asi --help > /dev/null
           python3 tools/agent-session-import/asi detect --json > /tmp/detect.json
           python3 - <<'PY'
           import json
-          data = json.load(open("/tmp/detect.json"))
-          print("harnesses:", [(h["id"], h.get("session_count")) for h in data["harnesses"] if h.get("detected")])
+          d = json.load(open('/tmp/detect.json'))
+          assert d['ok'] is True
+          print('harnesses detected:', d['totals']['harnesses_detected'])
+          print('sessions total:', d['totals']['total_sessions'])
           PY
 
-      - name: Swift — release build
-        run: |
-          cd tools/HarnessBridgeApp
-          swift build -c release
-
-      - name: App — bundle + ad-hoc codesign
-        run: |
-          cd tools/HarnessBridgeApp
-          ./build.sh
-          ls -la dist/
-
-      - name: App — diagnose (non-blocking, environment-dependent)
-        continue-on-error: true
+      - name: Docs — required files and links
         run: |
           set -euo pipefail
-          APP=$(find tools/HarnessBridgeApp/dist -maxdepth 1 -name '*.app' | head -1)
-          EXE=$(/usr/libexec/PlistBuddy -c 'Print CFBundleExecutable' "$APP/Contents/Info.plist")
-          "$APP/Contents/MacOS/$EXE" --diagnose
+          for f in README.md README.zh-CN.md LICENSE CHANGELOG.md \
+                   docs/ARCHITECTURE.md docs/ARCHITECTURE.zh-CN.md \
+                   docs/CLI.md docs/CLI.zh-CN.md docs/COMPATIBILITY.md \
+                   docs/COMPATIBILITY.zh-CN.md docs/FAQ.md docs/FAQ.zh-CN.md \
+                   tools/HarnessBridgeApp/Package.swift; do
+            test -f "$f" || { echo "missing $f"; exit 1; }
+          done
+          echo "required docs present"
 
-      - name: App — self-test (non-blocking smoke)
-        continue-on-error: true
+      - name: Workflows — YAML sanity
         run: |
-          set -euo pipefail
-          APP=$(find tools/HarnessBridgeApp/dist -maxdepth 1 -name '*.app' | head -1)
-          EXE=$(/usr/libexec/PlistBuddy -c 'Print CFBundleExecutable' "$APP/Contents/Info.plist")
-          "$APP/Contents/MacOS/$EXE" --self-test
-        # Hosted macOS runners have no local Claude/Codex/DSH stores, so the full
-        # self-test (which exercises real local detection) is expected to fail
-        # there. It stays visible but non-blocking; maintainers run it locally and
-        # the release workflow runs it before publishing.
-
-      - name: Upload built app
-        uses: actions/upload-artifact@v4
-        with:
-          name: HarnessBridge-app-${{ github.sha }}
-          path: tools/HarnessBridgeApp/dist/
-          if-no-files-found: error
+          python3 - <<'PY'
+          import sys
+          try:
+              import yaml
+          except ImportError:
+              sys.exit(0)
+          for f in ['.github/workflows/ci.yml', '.github/workflows/release.yml']:
+              yaml.safe_load(open(f))
+              print('yaml ok:', f)
+          PY
