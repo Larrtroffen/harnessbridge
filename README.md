@@ -16,8 +16,19 @@
 
 </div>
 
-> **Screenshots:** the native app (welcome screen, session browser, timeline, migration wizard) is best experienced live.
-> We welcome PRs that add annotated screenshots under `docs/assets/screenshots/`; this repo intentionally ships with a banner only.
+## Screenshots
+
+| Home | Session browser |
+|---|---|
+| ![Home](docs/assets/screenshots/home.png) | ![Session browser](docs/assets/screenshots/browser.png) |
+
+| Session detail & timeline | One-click full migration |
+|---|---|
+| ![Session detail](docs/assets/screenshots/detail.png) | ![One-click migration](docs/assets/screenshots/one-click-migration.png) |
+
+| Migration wizard | |
+|---|---|
+| ![Migration wizard](docs/assets/screenshots/migration-wizard.png) | Screenshots use a temporary demo HOME with constructed sample sessions; no real user data. |
 
 ---
 
@@ -70,7 +81,17 @@ The app contains **no conversion logic of its own**: it is a thin, careful front
 
 ## Install
 
-### Option A — prebuilt macOS app (Apple Silicon)
+### Option A — Homebrew (Apple Silicon)
+
+```bash
+brew tap Larrtroffen/harnessbridge
+brew install --cask harnessbridge
+```
+
+The tap lives at [Larrtroffen/homebrew-harnessbridge](https://github.com/Larrtroffen/homebrew-harnessbridge).
+The cask installs the self-contained arm64 app and prints the Gatekeeper caveat.
+
+### Option B — prebuilt macOS app (Apple Silicon)
 
 1. Download `HarnessBridge-1.5.1-macos-arm64.dmg` from [Releases](https://github.com/Larrtroffen/harnessbridge/releases).
 2. Open the DMG and drag **HarnessBridge.app** into `/Applications`.
@@ -86,7 +107,7 @@ Each release also publishes a `.zip` and a `SHA256SUMS.txt`; verify before runni
 shasum -a 256 -c SHA256SUMS.txt
 ```
 
-### Option B — build from source
+### Option C — build from source
 
 Requirements: macOS 13+, Xcode Command Line Tools (`swift --version`), Python 3.10+, and the `zstd` CLI (`brew install zstd`) for compressed DeepSeek Harness artifacts.
 
