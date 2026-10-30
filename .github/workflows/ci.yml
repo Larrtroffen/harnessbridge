@@ -15,8 +15,8 @@ concurrency:
 
 jobs:
   build-and-test:
-    name: Build & test (macOS 15 / Apple Silicon)
-    runs-on: macos-15
+    name: Build & test (macOS / Apple Silicon)
+    runs-on: macos-latest
     timeout-minutes: 40
     env:
       HOMEBREW_NO_AUTO_UPDATE: "1"
