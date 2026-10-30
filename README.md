@@ -85,6 +85,7 @@ The app contains **no conversion logic of its own**: it is a thin, careful front
 
 ```bash
 brew tap Larrtroffen/harnessbridge
+brew trust Larrtroffen/harnessbridge   # Homebrew 7: explicitly trust this tap
 brew install --cask harnessbridge
 ```
 
