@@ -1,0 +1,356 @@
+{
+ "schema": "asi-batch3-matrix/v1",
+ "asi_version": "0.1.0",
+ "generated_at": "2026-10-29T19:41:20Z",
+ "root": "samples/batch2/public-fixtures",
+ "out_dir": "/tmp/asi-batch3-final",
+ "evidence_level": "FIXTURE",
+ "evidence_note": "FIXTURE: public synthetic/trimmed fixtures, not real sessions; no native CLI load is claimed (B3-F2 is DSH-only real load).",
+ "summary": {
+  "harnesses": 6,
+  "pass": 1,
+  "partial": 5,
+  "fail": 0,
+  "evidence_level": "FIXTURE"
+ },
+ "entries": [
+  {
+   "harness": "copilot",
+   "evidence_level": "FIXTURE",
+   "fixture_path": "samples/batch2/public-fixtures/atifact/test-fixtures/copilot-cli-simple.jsonl",
+   "fixture_type": "public-fixture (synthetic/trimmed)",
+   "source_session_id": "session-xyz-789",
+   "model": "claude-sonnet-4.6",
+   "messages": 1,
+   "tool_calls": 1,
+   "ir_counts": {
+    "events": 4,
+    "user_messages": 1,
+    "assistant_messages": 2,
+    "reasoning_blocks": 1,
+    "tool_calls": 1,
+    "tool_results": 1,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "lossy": [
+    "copilot:delta-merge",
+    "message_grouping_normalized"
+   ],
+   "warnings": [
+    "missing-session-start",
+    "copilot:cwd-unresolved"
+   ],
+   "dsh_session_id": "session-cbae31e7-1b44-5f46-b557-02b089d4fbc6",
+   "l0": {
+    "ok": true,
+    "events": 4,
+    "note": "reader -> IR"
+   },
+   "f1": {
+    "ok": true,
+    "steps": 3,
+    "detail": null,
+    "lossy": []
+   },
+   "f2": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=16 messages=4",
+    "artifact": "/tmp/asi-batch3-final/copilot/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-cbae31e7-1b44-5f46-b557-02b089d4fbc6/session.v4.jsonl.zstd"
+   },
+   "f3": {
+    "ok": true,
+    "detail": {
+     "note": "equal at block level; only assistant message grouping differs"
+    },
+    "lossy": [
+     "message_grouping_normalized"
+    ],
+    "artifact": "/tmp/asi-batch3-final/copilot/target/session-state/cbae31e7-1b44-5f46-b557-02b089d4fbc6/events.jsonl",
+    "native_lines": 7,
+    "format": "copilot-events-jsonl",
+    "placeholder_results_normalized": 0
+   },
+   "status": "partial"
+  },
+  {
+   "harness": "gemini",
+   "evidence_level": "FIXTURE",
+   "fixture_path": "samples/batch2/public-fixtures/agent-sessions/stage0/gemini/small.json",
+   "fixture_type": "public-fixture (synthetic/trimmed)",
+   "source_session_id": "session-2026-01-16T18-34-3739ef95",
+   "model": "gemini-3-flash-preview",
+   "messages": 1,
+   "tool_calls": 0,
+   "ir_counts": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 1,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "lossy": [
+    "gemini:thoughts-merged",
+    "gemini:title-derived"
+   ],
+   "warnings": [
+    "gemini:cwd-unresolved"
+   ],
+   "dsh_session_id": "session-e300a26a-7bab-542a-bf2c-784711d374fa",
+   "l0": {
+    "ok": true,
+    "events": 2,
+    "note": "reader -> IR"
+   },
+   "f1": {
+    "ok": true,
+    "steps": 2,
+    "detail": null,
+    "lossy": []
+   },
+   "f2": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=11 messages=2",
+    "artifact": "/tmp/asi-batch3-final/gemini/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-e300a26a-7bab-542a-bf2c-784711d374fa/session.v4.jsonl.zstd"
+   },
+   "f3": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch3-final/gemini/target/tmp/255a6ebad959349d897ac3adf38ddcf8fb2995fd81c83376bd656c4edfb9df88/chats/session-2026-01-16T18-34-00-e300a2.json",
+    "native_lines": 2,
+    "format": "gemini-chat-json",
+    "placeholder_results_normalized": 0
+   },
+   "status": "partial"
+  },
+  {
+   "harness": "aider",
+   "evidence_level": "FIXTURE",
+   "fixture_path": "samples/batch2/public-fixtures/sessionport/tests-fixtures/aider/history/abc123.md",
+   "fixture_type": "public-fixture (synthetic/trimmed)",
+   "source_session_id": "abc123",
+   "model": "",
+   "messages": 2,
+   "tool_calls": 0,
+   "ir_counts": {
+    "events": 4,
+    "user_messages": 2,
+    "assistant_messages": 2,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "lossy": [
+    "aider:no-timestamps",
+    "aider:no-tool-events"
+   ],
+   "warnings": [],
+   "dsh_session_id": "session-bdc276ab-6947-5802-b753-bdd7e4011616",
+   "l0": {
+    "ok": true,
+    "events": 4,
+    "note": "reader -> IR"
+   },
+   "f1": {
+    "ok": true,
+    "steps": 4,
+    "detail": null,
+    "lossy": []
+   },
+   "f2": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=17 messages=4",
+    "artifact": "/tmp/asi-batch3-final/aider/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-bdc276ab-6947-5802-b753-bdd7e4011616/session.v4.jsonl.zstd"
+   },
+   "f3": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch3-final/aider/target/history/255a6eba.md",
+    "native_lines": 2,
+    "format": "aider-markdown-history",
+    "placeholder_results_normalized": 0
+   },
+   "status": "partial"
+  },
+  {
+   "harness": "cursor",
+   "evidence_level": "FIXTURE",
+   "fixture_path": "samples/batch2/public-fixtures/agent-sessions/stage0/cursor/small.jsonl",
+   "fixture_type": "public-fixture (synthetic/trimmed)",
+   "source_session_id": "small",
+   "model": "",
+   "messages": 2,
+   "tool_calls": 1,
+   "ir_counts": {
+    "events": 6,
+    "user_messages": 2,
+    "assistant_messages": 2,
+    "reasoning_blocks": 0,
+    "tool_calls": 1,
+    "tool_results": 1,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "lossy": [
+    "cursor:no-timestamps",
+    "cursor:tool-result-missing",
+    "turn_abort_dropped_by_target"
+   ],
+   "warnings": [],
+   "dsh_session_id": "session-f395cb45-cebd-5eac-b069-f088683f5228",
+   "l0": {
+    "ok": true,
+    "events": 6,
+    "note": "reader -> IR"
+   },
+   "f1": {
+    "ok": true,
+    "steps": 4,
+    "detail": null,
+    "lossy": [
+     "turn_abort_dropped_by_target"
+    ]
+   },
+   "f2": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=19 messages=5",
+    "artifact": "/tmp/asi-batch3-final/cursor/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-f395cb45-cebd-5eac-b069-f088683f5228/session.v4.jsonl.zstd"
+   },
+   "f3": {
+    "ok": true,
+    "detail": null,
+    "lossy": [
+     "turn_abort_dropped_by_target"
+    ],
+    "artifact": "/tmp/asi-batch3-final/cursor/target/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/agent-transcripts/f395cb45-cebd-5eac-b069-f088683f5228/f395cb45-cebd-5eac-b069-f088683f5228.jsonl",
+    "native_lines": 7,
+    "format": "cursor-transcript-jsonl",
+    "placeholder_results_normalized": 1
+   },
+   "status": "partial"
+  },
+  {
+   "harness": "qwen",
+   "evidence_level": "FIXTURE",
+   "fixture_path": "samples/batch2/public-fixtures/agent-sessions/stage0/qwen/019f0000000070008000000000000003.jsonl",
+   "fixture_type": "public-fixture (synthetic/trimmed)",
+   "source_session_id": "019f0000000070008000000000000003",
+   "model": "",
+   "messages": 1,
+   "tool_calls": 0,
+   "ir_counts": {
+    "events": 1,
+    "user_messages": 1,
+    "assistant_messages": 0,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "lossy": [],
+   "warnings": [],
+   "dsh_session_id": "session-cba8f740-be8a-52c1-9a9e-d59d956c115e",
+   "l0": {
+    "ok": true,
+    "events": 1,
+    "note": "reader -> IR"
+   },
+   "f1": {
+    "ok": true,
+    "steps": 1,
+    "detail": null,
+    "lossy": []
+   },
+   "f2": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=10 messages=1",
+    "artifact": "/tmp/asi-batch3-final/qwen/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-cba8f740-be8a-52c1-9a9e-d59d956c115e/session.v4.jsonl.zstd"
+   },
+   "f3": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch3-final/qwen/target/projects/-tmp-as-qwen-fixture-compact-project/chats/cba8f740-be8a-52c1-9a9e-d59d956c115e.jsonl",
+    "native_lines": 1,
+    "format": "qwen-claude-derived-jsonl",
+    "placeholder_results_normalized": 0
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "pi",
+   "evidence_level": "FIXTURE",
+   "fixture_path": "samples/batch2/public-fixtures/agent-sessions/stage0/pi/small.jsonl",
+   "fixture_type": "public-fixture (synthetic/trimmed)",
+   "source_session_id": "019e19b4-eb48-746a-aa6b-8dfcfa37954b",
+   "model": "pi-fixture-model",
+   "messages": 3,
+   "tool_calls": 2,
+   "ir_counts": {
+    "events": 12,
+    "user_messages": 3,
+    "assistant_messages": 5,
+    "reasoning_blocks": 1,
+    "tool_calls": 2,
+    "tool_results": 2,
+    "unpaired_tool_calls": 0,
+    "compactions": 2,
+    "system_messages": 0
+   },
+   "lossy": [
+    "compaction_dropped_by_target"
+   ],
+   "warnings": [],
+   "dsh_session_id": "session-7a7faec5-ef19-56ba-a6a0-dbd70438b2a1",
+   "l0": {
+    "ok": true,
+    "events": 12,
+    "note": "reader -> IR"
+   },
+   "f1": {
+    "ok": true,
+    "steps": 10,
+    "detail": null,
+    "lossy": [
+     "compaction_dropped_by_target"
+    ]
+   },
+   "f2": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=33 messages=10",
+    "artifact": "/tmp/asi-batch3-final/pi/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-7a7faec5-ef19-56ba-a6a0-dbd70438b2a1/session.v4.jsonl.zstd"
+   },
+   "f3": {
+    "ok": true,
+    "detail": null,
+    "lossy": [
+     "compaction_dropped_by_target"
+    ],
+    "artifact": "/tmp/asi-batch3-final/pi/target/sessions/-tmp-as-agent-fixture-project/2026-05-12T01-02-27-657Z_7a7faec5-ef19-56ba-a6a0-dbd70438b2a1.jsonl",
+    "native_lines": 14,
+    "format": "pi-tree-jsonl",
+    "placeholder_results_normalized": 1
+   },
+   "status": "partial"
+  }
+ ]
+}

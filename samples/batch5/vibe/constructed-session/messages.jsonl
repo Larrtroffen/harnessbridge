@@ -1,0 +1,4 @@
+{"role": "user", "content": "List the files in the project.", "images": null, "injected": false, "message_id": "m1"}
+{"role": "assistant", "content": "I'll list them.", "tool_calls": [{"id": "call_1", "name": "bash", "arguments": {"command": "ls"}}], "reasoning_content": null, "message_id": "m2"}
+{"role": "tool", "content": "README.md\nsrc/", "tool_call_id": "call_1", "name": "bash", "message_id": "m3"}
+{"role": "assistant", "content": "There is a README and a src directory.", "tool_calls": null, "message_id": "m4"}

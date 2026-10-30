@@ -1,0 +1,4 @@
+{"type": "message", "role": "user", "timestamp": 1781821844178, "cwd": "/Users/demo/app", "sessionId": "sess-text", "content": [{"type": "input_text", "text": "你会做什么"}]}
+{"type": "ai-title", "timestamp": 1781821846252, "aiTitle": "能力询问", "cwd": "/Users/demo/app", "sessionId": "sess-text"}
+{"type": "reasoning", "timestamp": 1781821848958, "cwd": "/Users/demo/app", "sessionId": "sess-text", "rawContent": [{"type": "reasoning_text", "text": "thinking about it"}], "providerData": {"requestModelName": "GLM-5.1"}}
+{"type": "message", "role": "assistant", "timestamp": 1781821848958, "cwd": "/Users/demo/app", "sessionId": "sess-text", "content": [{"type": "output_text", "text": "我是 CodeBuddy"}], "providerData": {"requestModelName": "GLM-5.1", "model": "glm-5.1", "rawUsage": {"prompt_tokens": 24049, "completion_tokens": 267, "total_tokens": 24316, "prompt_tokens_details": {"cached_tokens": 12800}}}}

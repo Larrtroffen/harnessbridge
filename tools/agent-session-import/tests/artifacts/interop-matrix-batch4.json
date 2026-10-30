@@ -1,0 +1,450 @@
+{
+ "schema": "asi-batch4-matrix/v1",
+ "asi_version": "0.1.0",
+ "generated_at": "2026-10-29T19:47:53Z",
+ "root": "samples/batch2/public-fixtures",
+ "out_dir": "/tmp/asi-batch4-final",
+ "evidence_note": "FIXTURE / FIXTURE-LOW / FIXTURE-CONSTRUCTED only; no NATIVE claim. Constructed SQLite DBs have partly unverified column names and are not upstream fixtures.",
+ "summary": {
+  "harnesses": 8,
+  "pass": 8,
+  "partial": 0,
+  "fail": 0,
+  "evidence_levels": [
+   "FIXTURE",
+   "FIXTURE-CONSTRUCTED",
+   "FIXTURE-LOW"
+  ],
+  "constructed": 3,
+  "reader_only": 1
+ },
+ "entries": [
+  {
+   "harness": "openclaw",
+   "evidence_level": "FIXTURE",
+   "reader_only": false,
+   "constructed": false,
+   "fixture_path": "samples/batch2/public-fixtures/agent-sessions/stage0/openclaw/small.jsonl",
+   "fixture_type": "public fixture (synthetic/trimmed)",
+   "source_session_id": "openclaw-stage0-small",
+   "model": "openclaw-small",
+   "messages": 1,
+   "tool_calls": 1,
+   "ir_counts": {
+    "events": 3,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 1,
+    "tool_results": 1,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "lossy": [],
+   "warnings": [],
+   "dsh_session_id": "session-c840038a-6e15-5910-aa27-37f8a052ec11",
+   "f0": {
+    "ok": true,
+    "events": 3
+   },
+   "f1": {
+    "ok": true,
+    "steps": 2,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=13 messages=3",
+    "artifact": "/tmp/asi-batch4-final/openclaw/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-c840038a-6e15-5910-aa27-37f8a052ec11/session.v4.jsonl.zstd"
+   },
+   "f2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch4-final/openclaw/target/sessions/c840038a-6e15-5910-aa27-37f8a052ec11.jsonl",
+    "format": "openclaw-pi-tree-jsonl",
+    "evidence_level": "FIXTURE"
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "kimi",
+   "evidence_level": "FIXTURE",
+   "reader_only": false,
+   "constructed": false,
+   "fixture_path": "samples/batch2/public-fixtures/agent-sessions/stage0/kimi/small.jsonl",
+   "fixture_type": "public fixture (synthetic/trimmed)",
+   "source_session_id": "small",
+   "model": "moonshot-ai/kimi-k2.7-code",
+   "messages": 1,
+   "tool_calls": 1,
+   "ir_counts": {
+    "events": 3,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 1,
+    "tool_calls": 1,
+    "tool_results": 1,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "lossy": [
+    "kimi:synthetic-time"
+   ],
+   "warnings": [
+    "kimi:unknown-event:turn.ended"
+   ],
+   "dsh_session_id": "session-5e4af132-3a90-5c51-b927-5ee5351f8bb6",
+   "f0": {
+    "ok": true,
+    "events": 3
+   },
+   "f1": {
+    "ok": true,
+    "steps": 2,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=13 messages=3",
+    "artifact": "/tmp/asi-batch4-final/kimi/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-5e4af132-3a90-5c51-b927-5ee5351f8bb6/session.v4.jsonl.zstd"
+   },
+   "f2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch4-final/kimi/target/sessions/5e4af132-3a90-5c51-b927-5ee5351f8bb6.jsonl",
+    "format": "kimi-events-jsonl",
+    "evidence_level": "FIXTURE"
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "grok",
+   "evidence_level": "FIXTURE",
+   "reader_only": false,
+   "constructed": false,
+   "fixture_path": "samples/batch2/public-fixtures/agent-sessions/stage0/grok/chat_history.jsonl",
+   "fixture_type": "public fixture (synthetic/trimmed)",
+   "source_session_id": "019f6851-7ec4-7ef0-97d3-03f3eee38756",
+   "model": "grok-4.5",
+   "messages": 1,
+   "tool_calls": 1,
+   "ir_counts": {
+    "events": 4,
+    "user_messages": 1,
+    "assistant_messages": 2,
+    "reasoning_blocks": 0,
+    "tool_calls": 1,
+    "tool_results": 1,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "lossy": [
+    "grok:row-ts-derived"
+   ],
+   "warnings": [
+    "grok:subagent-session"
+   ],
+   "dsh_session_id": "session-29a325f5-c2f7-5360-8a33-c6991d2e7785",
+   "f0": {
+    "ok": true,
+    "events": 4
+   },
+   "f1": {
+    "ok": true,
+    "steps": 3,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=16 messages=4",
+    "artifact": "/tmp/asi-batch4-final/grok/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-29a325f5-c2f7-5360-8a33-c6991d2e7785/session.v4.jsonl.zstd"
+   },
+   "f2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch4-final/grok/target/sessions/-tmp-as-agent-lab-grok-project/29a325f5-c2f7-5360-8a33-c6991d2e7785/chat_history.jsonl",
+    "format": "grok-summary+chat-history",
+    "evidence_level": "FIXTURE"
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "droid",
+   "evidence_level": "FIXTURE",
+   "reader_only": false,
+   "constructed": false,
+   "fixture_path": "samples/batch2/public-fixtures/agent-sessions/stage0/droid/stream_json_small.jsonl",
+   "fixture_type": "public fixture (synthetic/trimmed)",
+   "source_session_id": "sid_stage0_small",
+   "model": "",
+   "messages": 1,
+   "tool_calls": 1,
+   "ir_counts": {
+    "events": 4,
+    "user_messages": 1,
+    "assistant_messages": 2,
+    "reasoning_blocks": 0,
+    "tool_calls": 1,
+    "tool_results": 1,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "lossy": [],
+   "warnings": [
+    "droid:cwd-missing"
+   ],
+   "dsh_session_id": "session-067a0c6d-b632-59fc-b210-1b49b5dc3e6d",
+   "f0": {
+    "ok": true,
+    "events": 4
+   },
+   "f1": {
+    "ok": true,
+    "steps": 3,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=16 messages=4",
+    "artifact": "/tmp/asi-batch4-final/droid/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-067a0c6d-b632-59fc-b210-1b49b5dc3e6d/session.v4.jsonl.zstd"
+   },
+   "f2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch4-final/droid/target/cli-stream/067a0c6d-b632-59fc-b210-1b49b5dc3e6d.jsonl",
+    "format": "droid-cli-stream-json",
+    "evidence_level": "FIXTURE"
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "antigravity",
+   "evidence_level": "FIXTURE-LOW",
+   "reader_only": true,
+   "constructed": false,
+   "fixture_path": "samples/batch2/public-fixtures/agent-sessions/stage0/antigravity/desktop_small.jsonl",
+   "fixture_type": "public fixture (synthetic/trimmed)",
+   "source_session_id": "desktop_small",
+   "model": "",
+   "messages": 1,
+   "tool_calls": 2,
+   "ir_counts": {
+    "events": 6,
+    "user_messages": 1,
+    "assistant_messages": 3,
+    "reasoning_blocks": 1,
+    "tool_calls": 2,
+    "tool_results": 2,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "lossy": [
+    "antigravity:inferred-pairing",
+    "antigravity:user-envelope"
+   ],
+   "warnings": [
+    "antigravity:cwd-missing"
+   ],
+   "dsh_session_id": "session-2999341e-23f3-51bd-8fb8-c059d6957e88",
+   "f0": {
+    "ok": true,
+    "events": 6
+   },
+   "f1": {
+    "ok": true,
+    "steps": 4,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=21 messages=6",
+    "artifact": "/tmp/asi-batch4-final/antigravity/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-2999341e-23f3-51bd-8fb8-c059d6957e88/session.v4.jsonl.zstd"
+   },
+   "f2": {
+    "ok": null,
+    "detail": "N/A: reader-only (native .pb writer BLOCKED)"
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "hermes",
+   "evidence_level": "FIXTURE-CONSTRUCTED",
+   "reader_only": false,
+   "constructed": true,
+   "fixture_path": "samples/batch2/public-fixtures/agent-sessions/stage0/hermes/small.json",
+   "fixture_type": "logical JSON projection (constructed DB below)",
+   "source_session_id": "20260429_hermes_small",
+   "model": "claude-sonnet-4-6",
+   "messages": 1,
+   "tool_calls": 0,
+   "ir_counts": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "lossy": [
+    "hermes:json-projection-not-native"
+   ],
+   "warnings": [],
+   "dsh_session_id": "session-5836895a-1922-5f67-bf36-30e125bfd864",
+   "f0": {
+    "ok": true,
+    "events": 2
+   },
+   "f1": {
+    "ok": true,
+    "steps": 2,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=11 messages=2",
+    "artifact": "/tmp/asi-batch4-final/hermes/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-5836895a-1922-5f67-bf36-30e125bfd864/session.v4.jsonl.zstd"
+   },
+   "f2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch4-final/hermes/target/constructed/hermes/5836895a-1922-5f67-bf36-30e125bfd864.db",
+    "format": "constructed-sqlite-golden-db",
+    "evidence_level": "FIXTURE-CONSTRUCTED"
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "devin",
+   "evidence_level": "FIXTURE-CONSTRUCTED",
+   "reader_only": false,
+   "constructed": true,
+   "fixture_path": "samples/batch2/public-fixtures/agent-sessions/stage0/devin/small.json",
+   "fixture_type": "logical JSON projection (constructed DB below)",
+   "source_session_id": "bald-ketch",
+   "model": "swe-1-7",
+   "messages": 1,
+   "tool_calls": 1,
+   "ir_counts": {
+    "events": 3,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 1,
+    "tool_calls": 1,
+    "tool_results": 1,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "lossy": [
+    "devin:json-projection-not-native"
+   ],
+   "warnings": [],
+   "dsh_session_id": "session-9623790f-0dff-5264-b0a5-3e99056bc2b2",
+   "f0": {
+    "ok": true,
+    "events": 3
+   },
+   "f1": {
+    "ok": true,
+    "steps": 2,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=13 messages=3",
+    "artifact": "/tmp/asi-batch4-final/devin/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-9623790f-0dff-5264-b0a5-3e99056bc2b2/session.v4.jsonl.zstd"
+   },
+   "f2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch4-final/devin/target/constructed/devin/9623790f-0dff-5264-b0a5-3e99056bc2b2.db",
+    "format": "constructed-sqlite-golden-db",
+    "evidence_level": "FIXTURE-CONSTRUCTED"
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "opencode",
+   "evidence_level": "FIXTURE-CONSTRUCTED",
+   "reader_only": false,
+   "constructed": true,
+   "fixture_path": "samples/batch2/public-fixtures/agent-sessions/stage0/opencode/001.json",
+   "fixture_type": "logical JSON projection (constructed DB below)",
+   "source_session_id": "001.json",
+   "model": "",
+   "messages": 1,
+   "tool_calls": 0,
+   "ir_counts": {
+    "events": 1,
+    "user_messages": 1,
+    "assistant_messages": 0,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "lossy": [
+    "opencode:orphan-part"
+   ],
+   "warnings": [
+    "opencode:orphan-part"
+   ],
+   "dsh_session_id": "session-656b59ec-abc5-51cf-a874-08736ff40580",
+   "f0": {
+    "ok": true,
+    "events": 1
+   },
+   "f1": {
+    "ok": true,
+    "steps": 1,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=10 messages=1",
+    "artifact": "/tmp/asi-batch4-final/opencode/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-656b59ec-abc5-51cf-a874-08736ff40580/session.v4.jsonl.zstd"
+   },
+   "f2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch4-final/opencode/target/constructed/opencode/656b59ec-abc5-51cf-a874-08736ff40580.db",
+    "format": "constructed-sqlite-golden-db",
+    "evidence_level": "FIXTURE-CONSTRUCTED"
+   },
+   "status": "pass"
+  }
+ ]
+}

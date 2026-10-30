@@ -1,0 +1,2 @@
+{"kind": "UserPromptEvent", "timestampMs": 1793400000000, "prompt": "Batch 5 constructed sample: list the repository files.", "presentablePrompt": "Batch 5 constructed sample: list the repository files."}
+{"kind": "SessionA2uxEvent", "timestampMs": 1793400001000, "event": {"agentEvent": {"kind": "MarkdownBlockUpdatedEvent", "stepId": "step-1", "markdown": "Batch 5 constructed sample: the repository contains two files."}}}

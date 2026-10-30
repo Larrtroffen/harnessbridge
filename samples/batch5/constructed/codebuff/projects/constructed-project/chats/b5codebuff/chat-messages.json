@@ -1,0 +1,22 @@
+[
+ {
+  "variant": "user",
+  "blocks": [
+   {
+    "type": "text",
+    "text": "Batch 5 constructed sample: list the repository files."
+   }
+  ],
+  "timestamp": 1793400000000
+ },
+ {
+  "variant": "ai",
+  "blocks": [
+   {
+    "type": "text",
+    "text": "Batch 5 constructed sample: the repository contains two files."
+   }
+  ],
+  "timestamp": 1793400001000
+ }
+]

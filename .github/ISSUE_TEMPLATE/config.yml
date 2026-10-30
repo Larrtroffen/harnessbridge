@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: "Security vulnerability (private)"
+    url: "https://github.com/Larrtroffen/harnessbridge/security/advisories/new"
+    about: "Please report security issues privately — do not open a public issue. See SECURITY.md."
+  - name: "Documentation: FAQ & compatibility"
+    url: "https://github.com/Larrtroffen/harnessbridge/blob/main/docs/FAQ.md"
+    about: "Gatekeeper, restart/visibility, move/restore, token usage, experimental harnesses."
+  - name: "Contribution guide"
+    url: "https://github.com/Larrtroffen/harnessbridge/blob/main/CONTRIBUTING.md"
+    about: "Development setup, adapter contributions, test policy and PR expectations."

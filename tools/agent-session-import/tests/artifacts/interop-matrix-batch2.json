@@ -1,0 +1,1809 @@
+{
+ "schema": "asi-oss-batch2-matrix/v1",
+ "asi_version": "0.1.0",
+ "generated_at": "2026-10-29T19:25:43Z",
+ "root": "../../samples/batch2/oss",
+ "out_dir": "/tmp/asi-batch2-final",
+ "target_cwd": "tools/agent-session-import",
+ "summary": {
+  "harnesses": 18,
+  "pass": 17,
+  "partial": 1,
+  "fail": 0,
+  "formats": {
+   "anthropic-messages": {
+    "total": 16,
+    "pass": 15
+   },
+   "openai-responses": {
+    "total": 1,
+    "pass": 1
+   },
+   "openai-chat": {
+    "total": 1,
+    "pass": 1
+   }
+  },
+  "l3_dsh": 18
+ },
+ "entries": [
+  {
+   "harness": "aider",
+   "model": "claude-opus-5",
+   "harness_version": "2.0.0",
+   "harness_confidence": "medium",
+   "messages_format": "anthropic-messages",
+   "source_session_id": "019f978d-26da-7000-afea-1cca36d65c7a",
+   "source_path": "../../samples/batch2/oss/aider__claude-opus-5__019f978d-26da-7000-afea-1cca36d65c7a.jsonl",
+   "source_messages": 96,
+   "bucket": "traj-st-delivery-1010",
+   "region": "cn-hangzhou",
+   "dsh_session_id": "session-26283b26-30c5-5cc6-83a5-9ed1e7a28552",
+   "l0": {
+    "ok": true,
+    "events": 108,
+    "ir_stats": {
+     "events": 108,
+     "user_messages": 2,
+     "assistant_messages": 48,
+     "reasoning_blocks": 37,
+     "tool_calls": 58,
+     "tool_results": 58,
+     "unpaired_tool_calls": 0,
+     "compactions": 0,
+     "system_messages": 0
+    },
+    "warnings": [],
+    "extra": {
+     "source_harness": "aider",
+     "harness_version": "2.0.0",
+     "messages_format": "anthropic-messages",
+     "bucket": "traj-st-delivery-1010",
+     "region": "cn-hangzhou",
+     "key_prefix": "",
+     "quality": {
+      "garbled": false,
+      "truncated": false,
+      "multi_model": false,
+      "incomplete_stream": true,
+      "http_errors": 22,
+      "derived_records": false,
+      "reconstructed_requests": false,
+      "flags": [
+       "unrecognized_stream",
+       "unmerged_stream",
+       "stream_error_event",
+       "stream_error_upstream_error",
+       "incomplete_stream"
+      ]
+     }
+    }
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "validate_errors": [],
+    "atif_steps": 50
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch2-final/aider/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-26283b26-30c5-5cc6-83a5-9ed1e7a28552/session.v4.jsonl.zstd"
+   },
+   "l3": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=271 messages=108",
+    "evidence": "/tmp/asi-batch2-final/aider/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-26283b26-30c5-5cc6-83a5-9ed1e7a28552/session.v4.jsonl.zstd"
+   },
+   "l2_format": {
+    "claude": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/aider/claude/claude/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/26283b26-30c5-5cc6-83a5-9ed1e7a28552.jsonl"
+    },
+    "codex": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/aider/codex/codex/sessions/2026/07/25/rollout-2026-07-25T04-34-55-26283b26-30c5-5cc6-83a5-9ed1e7a28552.jsonl"
+    },
+    "omp": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/aider/omp/omp/-Documents-deepseek-harness-default-workspace-tools-agent-session-import/2026-07-25T04-34-55-000Z_26283b26-30c5-5cc6-83a5-9ed1e7a28552.jsonl"
+    },
+    "qoder": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/aider/qoder/qoder/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/26283b26-30c5-5cc6-83a5-9ed1e7a28552.jsonl"
+    }
+   },
+   "format_ok": true,
+   "lossy": [],
+   "status": "pass"
+  },
+  {
+   "harness": "cherry-studio",
+   "model": "claude-opus-5",
+   "harness_version": "1.9.12",
+   "harness_confidence": "high",
+   "messages_format": "anthropic-messages",
+   "source_session_id": "0bce898063f3ebfae3d6f66acf9954c1",
+   "source_path": "../../samples/batch2/oss/cherry-studio__claude-opus-5__0bce898063f3ebfae3d6f66acf9954c1.jsonl",
+   "source_messages": 40,
+   "bucket": "traj-st-delivery-1010",
+   "region": "cn-hangzhou",
+   "dsh_session_id": "session-f33f2ec1-713f-553d-9b3d-70c0f533af0a",
+   "l0": {
+    "ok": true,
+    "events": 40,
+    "ir_stats": {
+     "events": 40,
+     "user_messages": 20,
+     "assistant_messages": 20,
+     "reasoning_blocks": 0,
+     "tool_calls": 0,
+     "tool_results": 0,
+     "unpaired_tool_calls": 0,
+     "compactions": 0,
+     "system_messages": 0
+    },
+    "warnings": [],
+    "extra": {
+     "source_harness": "cherry-studio",
+     "harness_version": "1.9.12",
+     "messages_format": "anthropic-messages",
+     "bucket": "traj-st-delivery-1010",
+     "region": "cn-hangzhou",
+     "key_prefix": "node-6/raw/20260726/",
+     "quality": {
+      "garbled": false,
+      "truncated": false,
+      "multi_model": false,
+      "incomplete_stream": false,
+      "http_errors": 0,
+      "derived_records": false,
+      "reconstructed_requests": false,
+      "flags": [
+       "synthetic_session_id"
+      ]
+     }
+    }
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "validate_errors": [],
+    "atif_steps": 40
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch2-final/cherry-studio/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-f33f2ec1-713f-553d-9b3d-70c0f533af0a/session.v4.jsonl.zstd"
+   },
+   "l3": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=125 messages=40",
+    "evidence": "/tmp/asi-batch2-final/cherry-studio/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-f33f2ec1-713f-553d-9b3d-70c0f533af0a/session.v4.jsonl.zstd"
+   },
+   "l2_format": {
+    "claude": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/cherry-studio/claude/claude/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/f33f2ec1-713f-553d-9b3d-70c0f533af0a.jsonl"
+    },
+    "codex": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/cherry-studio/codex/codex/sessions/2026/07/26/rollout-2026-07-26T19-55-50-f33f2ec1-713f-553d-9b3d-70c0f533af0a.jsonl"
+    },
+    "omp": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/cherry-studio/omp/omp/-Documents-deepseek-harness-default-workspace-tools-agent-session-import/2026-07-26T19-55-50-000Z_f33f2ec1-713f-553d-9b3d-70c0f533af0a.jsonl"
+    },
+    "qoder": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/cherry-studio/qoder/qoder/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/f33f2ec1-713f-553d-9b3d-70c0f533af0a.jsonl"
+    }
+   },
+   "format_ok": true,
+   "lossy": [],
+   "status": "pass"
+  },
+  {
+   "harness": "claude-code",
+   "model": "claude-opus-4-6",
+   "harness_version": "2.1.4",
+   "harness_confidence": "high",
+   "messages_format": "anthropic-messages",
+   "source_session_id": "019e14ea-17a2-7f12-9577-27737863a8b9",
+   "source_path": "../../samples/batch2/oss/game-claude-code__019e14ea-17a2-7f.jsonl",
+   "source_messages": 422,
+   "bucket": "traj-game-multi-model-claude-20261007",
+   "region": "cn-shanghai",
+   "dsh_session_id": "session-3f55eb60-5935-56e2-88c8-177abae772e1",
+   "l0": {
+    "ok": true,
+    "events": 388,
+    "ir_stats": {
+     "events": 388,
+     "user_messages": 53,
+     "assistant_messages": 240,
+     "reasoning_blocks": 55,
+     "tool_calls": 95,
+     "tool_results": 95,
+     "unpaired_tool_calls": 0,
+     "compactions": 0,
+     "system_messages": 0
+    },
+    "warnings": [
+     "deduplicated 34 repeated capture row(s)"
+    ],
+    "extra": {
+     "source_harness": "claude-code",
+     "harness_version": "2.1.4",
+     "messages_format": "anthropic-messages",
+     "bucket": "traj-game-multi-model-claude-20261007",
+     "region": "cn-shanghai",
+     "key_prefix": "claude-opus-4-6/019e14ea-17a2-7f12-9577-27737863a8b9/",
+     "quality": {
+      "garbled": false,
+      "truncated": false,
+      "multi_model": false,
+      "incomplete_stream": false,
+      "http_errors": 0,
+      "derived_records": true,
+      "reconstructed_requests": true,
+      "flags": [
+       "derived_records",
+       "native_request_unavailable"
+      ]
+     }
+    }
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "validate_errors": [],
+    "atif_steps": 293
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch2-final/claude-code/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-3f55eb60-5935-56e2-88c8-177abae772e1/session.v4.jsonl.zstd"
+   },
+   "l3": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=1094 messages=388",
+    "evidence": "/tmp/asi-batch2-final/claude-code/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-3f55eb60-5935-56e2-88c8-177abae772e1/session.v4.jsonl.zstd"
+   },
+   "l2_format": {
+    "claude": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/claude-code/claude/claude/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/3f55eb60-5935-56e2-88c8-177abae772e1.jsonl"
+    },
+    "codex": {
+     "ok": true,
+     "lossy": [
+      "message_grouping_normalized"
+     ],
+     "detail": {
+      "note": "equal at block level; only assistant message grouping differs"
+     },
+     "artifact": "/tmp/asi-batch2-final/claude-code/codex/codex/sessions/2026/05/11/rollout-2026-05-11T02-45-14-3f55eb60-5935-56e2-88c8-177abae772e1.jsonl"
+    },
+    "omp": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/claude-code/omp/omp/-Documents-deepseek-harness-default-workspace-tools-agent-session-import/2026-05-11T02-45-14-246Z_3f55eb60-5935-56e2-88c8-177abae772e1.jsonl"
+    },
+    "qoder": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/claude-code/qoder/qoder/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/3f55eb60-5935-56e2-88c8-177abae772e1.jsonl"
+    }
+   },
+   "format_ok": true,
+   "lossy": [
+    "message_grouping_normalized"
+   ],
+   "status": "partial"
+  },
+  {
+   "harness": "cline",
+   "model": "claude-opus-5",
+   "harness_version": null,
+   "harness_confidence": "medium",
+   "messages_format": "anthropic-messages",
+   "source_session_id": "5a1af369fffabae3a460dbb89ce682d4",
+   "source_path": "../../samples/batch2/oss/cline__claude-opus-5__5a1af369fffabae3a460dbb89ce682d4.jsonl",
+   "source_messages": 35,
+   "bucket": "traj-st-delivery-1010",
+   "region": "cn-hangzhou",
+   "dsh_session_id": "session-0d1d38a9-75be-55f6-a126-7f7f6ae54282",
+   "l0": {
+    "ok": true,
+    "events": 56,
+    "ir_stats": {
+     "events": 56,
+     "user_messages": 18,
+     "assistant_messages": 17,
+     "reasoning_blocks": 0,
+     "tool_calls": 21,
+     "tool_results": 21,
+     "unpaired_tool_calls": 0,
+     "compactions": 0,
+     "system_messages": 0
+    },
+    "warnings": [],
+    "extra": {
+     "source_harness": "cline",
+     "harness_version": null,
+     "messages_format": "anthropic-messages",
+     "bucket": "traj-st-delivery-1010",
+     "region": "cn-hangzhou",
+     "key_prefix": "node-7/raw/20260729/",
+     "quality": {
+      "garbled": false,
+      "truncated": false,
+      "multi_model": false,
+      "incomplete_stream": false,
+      "http_errors": 0,
+      "derived_records": false,
+      "reconstructed_requests": false,
+      "flags": [
+       "synthetic_session_id",
+       "unrecognized_stream",
+       "unmerged_stream"
+      ]
+     }
+    }
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "validate_errors": [],
+    "atif_steps": 35
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch2-final/cline/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-0d1d38a9-75be-55f6-a126-7f7f6ae54282/session.v4.jsonl.zstd"
+   },
+   "l3": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=154 messages=56",
+    "evidence": "/tmp/asi-batch2-final/cline/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-0d1d38a9-75be-55f6-a126-7f7f6ae54282/session.v4.jsonl.zstd"
+   },
+   "l2_format": {
+    "claude": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/cline/claude/claude/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/0d1d38a9-75be-55f6-a126-7f7f6ae54282.jsonl"
+    },
+    "codex": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/cline/codex/codex/sessions/2026/07/29/rollout-2026-07-29T12-19-54-0d1d38a9-75be-55f6-a126-7f7f6ae54282.jsonl"
+    },
+    "omp": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/cline/omp/omp/-Documents-deepseek-harness-default-workspace-tools-agent-session-import/2026-07-29T12-19-54-000Z_0d1d38a9-75be-55f6-a126-7f7f6ae54282.jsonl"
+    },
+    "qoder": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/cline/qoder/qoder/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/0d1d38a9-75be-55f6-a126-7f7f6ae54282.jsonl"
+    }
+   },
+   "format_ok": true,
+   "lossy": [],
+   "status": "pass"
+  },
+  {
+   "harness": "codex",
+   "model": "gpt-5.6-sol",
+   "harness_version": null,
+   "harness_confidence": "high",
+   "messages_format": "openai-responses",
+   "source_session_id": "dk3dxk65dulm",
+   "source_path": "../../samples/batch2/oss/shitou-codex__dk3dxk65dulm.jsonl",
+   "source_messages": 55,
+   "bucket": "traj-shitou-multi-model-gpt-claude-20261005",
+   "region": "cn-beijing",
+   "dsh_session_id": "session-8b3580e5-1b1d-53a1-a221-db2299987e42",
+   "l0": {
+    "ok": true,
+    "events": 30,
+    "ir_stats": {
+     "events": 30,
+     "user_messages": 5,
+     "assistant_messages": 13,
+     "reasoning_blocks": 0,
+     "tool_calls": 12,
+     "tool_results": 12,
+     "unpaired_tool_calls": 0,
+     "compactions": 0,
+     "system_messages": 0
+    },
+    "warnings": [
+     "unsupported responses item skipped: 'additional_tools'",
+     "unsupported responses item skipped: 'agent_message'",
+     "unsupported responses item skipped: 'agent_message'",
+     "deduplicated 1 repeated capture row(s)"
+    ],
+    "extra": {
+     "source_harness": "codex",
+     "harness_version": null,
+     "messages_format": "openai-responses",
+     "bucket": "traj-shitou-multi-model-gpt-claude-20261005",
+     "region": "cn-beijing",
+     "key_prefix": "gpt-5.6-sol/dk3dxk65dulm/",
+     "quality": {
+      "garbled": false,
+      "truncated": false,
+      "multi_model": false,
+      "incomplete_stream": false,
+      "http_errors": 0,
+      "derived_records": false,
+      "reconstructed_requests": false,
+      "flags": [
+       "probe_incomplete"
+      ]
+     }
+    }
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "validate_errors": [],
+    "atif_steps": 18
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch2-final/codex/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-8b3580e5-1b1d-53a1-a221-db2299987e42/session.v4.jsonl.zstd"
+   },
+   "l3": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=89 messages=30",
+    "evidence": "/tmp/asi-batch2-final/codex/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-8b3580e5-1b1d-53a1-a221-db2299987e42/session.v4.jsonl.zstd"
+   },
+   "l2_format": {
+    "claude": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/codex/claude/claude/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/8b3580e5-1b1d-53a1-a221-db2299987e42.jsonl"
+    },
+    "codex": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/codex/codex/codex/sessions/2026/07/20/rollout-2026-07-20T12-08-20-8b3580e5-1b1d-53a1-a221-db2299987e42.jsonl"
+    },
+    "omp": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/codex/omp/omp/-Documents-deepseek-harness-default-workspace-tools-agent-session-import/2026-07-20T12-08-20-669Z_8b3580e5-1b1d-53a1-a221-db2299987e42.jsonl"
+    },
+    "qoder": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/codex/qoder/qoder/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/8b3580e5-1b1d-53a1-a221-db2299987e42.jsonl"
+    }
+   },
+   "format_ok": true,
+   "lossy": [],
+   "status": "pass"
+  },
+  {
+   "harness": "cursor",
+   "model": "claude-opus-5",
+   "harness_version": "1.0.25",
+   "harness_confidence": "medium",
+   "messages_format": "anthropic-messages",
+   "source_session_id": "0073857d8e8cec5b81c7a8ef7103413d",
+   "source_path": "../../samples/batch2/oss/cursor__claude-opus-5__0073857d8e8cec5b81c7a8ef7103413d.jsonl",
+   "source_messages": 1544,
+   "bucket": "traj-st-delivery-1010",
+   "region": "cn-hangzhou",
+   "dsh_session_id": "session-d2efe8a3-3f6b-54b7-84fc-a01e5369d595",
+   "l0": {
+    "ok": true,
+    "events": 1579,
+    "ir_stats": {
+     "events": 1579,
+     "user_messages": 365,
+     "assistant_messages": 609,
+     "reasoning_blocks": 45,
+     "tool_calls": 605,
+     "tool_results": 605,
+     "unpaired_tool_calls": 0,
+     "compactions": 0,
+     "system_messages": 0
+    },
+    "warnings": [],
+    "extra": {
+     "source_harness": "cursor",
+     "harness_version": "1.0.25",
+     "messages_format": "anthropic-messages",
+     "bucket": "traj-st-delivery-1010",
+     "region": "cn-hangzhou",
+     "key_prefix": "node-9/raw/20260727/",
+     "quality": {
+      "garbled": false,
+      "truncated": false,
+      "multi_model": false,
+      "incomplete_stream": false,
+      "http_errors": 0,
+      "derived_records": false,
+      "reconstructed_requests": false,
+      "flags": [
+       "synthetic_session_id"
+      ]
+     }
+    }
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "validate_errors": [],
+    "atif_steps": 974
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch2-final/cursor/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-d2efe8a3-3f6b-54b7-84fc-a01e5369d595/session.v4.jsonl.zstd"
+   },
+   "l3": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=4739 messages=1579",
+    "evidence": "/tmp/asi-batch2-final/cursor/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-d2efe8a3-3f6b-54b7-84fc-a01e5369d595/session.v4.jsonl.zstd"
+   },
+   "l2_format": {
+    "claude": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/cursor/claude/claude/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/d2efe8a3-3f6b-54b7-84fc-a01e5369d595.jsonl"
+    },
+    "codex": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/cursor/codex/codex/sessions/2026/07/27/rollout-2026-07-27T00-55-35-d2efe8a3-3f6b-54b7-84fc-a01e5369d595.jsonl"
+    },
+    "omp": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/cursor/omp/omp/-Documents-deepseek-harness-default-workspace-tools-agent-session-import/2026-07-27T00-55-35-000Z_d2efe8a3-3f6b-54b7-84fc-a01e5369d595.jsonl"
+    },
+    "qoder": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/cursor/qoder/qoder/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/d2efe8a3-3f6b-54b7-84fc-a01e5369d595.jsonl"
+    }
+   },
+   "format_ok": true,
+   "lossy": [],
+   "status": "pass"
+  },
+  {
+   "harness": "factory-droid",
+   "model": "claude-opus-5",
+   "harness_version": null,
+   "harness_confidence": "medium",
+   "messages_format": "anthropic-messages",
+   "source_session_id": "0db99fdb5748fa1323a9e09e4e813db1",
+   "source_path": "../../samples/batch2/oss/factory-droid__claude-opus-5__0db99fdb5748fa1323a9e09e4e813db1.jsonl",
+   "source_messages": 479,
+   "bucket": "traj-st-delivery-1010",
+   "region": "cn-hangzhou",
+   "dsh_session_id": "session-6f963de2-184e-56f9-83a4-c17d8252c8d3",
+   "l0": {
+    "ok": true,
+    "events": 502,
+    "ir_stats": {
+     "events": 502,
+     "user_messages": 35,
+     "assistant_messages": 225,
+     "reasoning_blocks": 1,
+     "tool_calls": 242,
+     "tool_results": 242,
+     "unpaired_tool_calls": 0,
+     "compactions": 0,
+     "system_messages": 0
+    },
+    "warnings": [
+     "deduplicated 6 repeated capture row(s)"
+    ],
+    "extra": {
+     "source_harness": "factory-droid",
+     "harness_version": null,
+     "messages_format": "anthropic-messages",
+     "bucket": "traj-st-delivery-1010",
+     "region": "cn-hangzhou",
+     "key_prefix": "node-4/raw/20260728/",
+     "quality": {
+      "garbled": false,
+      "truncated": false,
+      "multi_model": false,
+      "incomplete_stream": false,
+      "http_errors": 0,
+      "derived_records": false,
+      "reconstructed_requests": false,
+      "flags": [
+       "synthetic_session_id"
+      ]
+     }
+    }
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "validate_errors": [],
+    "atif_steps": 260
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch2-final/factory-droid/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-6f963de2-184e-56f9-83a4-c17d8252c8d3/session.v4.jsonl.zstd"
+   },
+   "l3": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=1297 messages=502",
+    "evidence": "/tmp/asi-batch2-final/factory-droid/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-6f963de2-184e-56f9-83a4-c17d8252c8d3/session.v4.jsonl.zstd"
+   },
+   "l2_format": {
+    "claude": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/factory-droid/claude/claude/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/6f963de2-184e-56f9-83a4-c17d8252c8d3.jsonl"
+    },
+    "codex": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/factory-droid/codex/codex/sessions/2026/07/28/rollout-2026-07-28T05-30-48-6f963de2-184e-56f9-83a4-c17d8252c8d3.jsonl"
+    },
+    "omp": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/factory-droid/omp/omp/-Documents-deepseek-harness-default-workspace-tools-agent-session-import/2026-07-28T05-30-48-000Z_6f963de2-184e-56f9-83a4-c17d8252c8d3.jsonl"
+    },
+    "qoder": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/factory-droid/qoder/qoder/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/6f963de2-184e-56f9-83a4-c17d8252c8d3.jsonl"
+    }
+   },
+   "format_ok": true,
+   "lossy": [],
+   "status": "pass"
+  },
+  {
+   "harness": "hermes",
+   "model": "claude-opus-5",
+   "harness_version": null,
+   "harness_confidence": "medium",
+   "messages_format": "anthropic-messages",
+   "source_session_id": "041762f8cacef9b8eb30c8541ec508f8",
+   "source_path": "../../samples/batch2/oss/hermes__claude-opus-5__041762f8cacef9b8eb30c8541ec508f8.jsonl",
+   "source_messages": 378,
+   "bucket": "traj-st-delivery-1010",
+   "region": "cn-hangzhou",
+   "dsh_session_id": "session-1739adc7-e141-5e3b-b9f2-88416c5f8360",
+   "l0": {
+    "ok": true,
+    "events": 405,
+    "ir_stats": {
+     "events": 405,
+     "user_messages": 26,
+     "assistant_messages": 189,
+     "reasoning_blocks": 0,
+     "tool_calls": 190,
+     "tool_results": 190,
+     "unpaired_tool_calls": 0,
+     "compactions": 0,
+     "system_messages": 0
+    },
+    "warnings": [],
+    "extra": {
+     "source_harness": "hermes",
+     "harness_version": null,
+     "messages_format": "anthropic-messages",
+     "bucket": "traj-st-delivery-1010",
+     "region": "cn-hangzhou",
+     "key_prefix": "node-7/raw/20260725/",
+     "quality": {
+      "garbled": false,
+      "truncated": false,
+      "multi_model": false,
+      "incomplete_stream": false,
+      "http_errors": 0,
+      "derived_records": false,
+      "reconstructed_requests": false,
+      "flags": [
+       "synthetic_session_id"
+      ]
+     }
+    }
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "validate_errors": [],
+    "atif_steps": 215
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch2-final/hermes/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-1739adc7-e141-5e3b-b9f2-88416c5f8360/session.v4.jsonl.zstd"
+   },
+   "l3": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=1030 messages=405",
+    "evidence": "/tmp/asi-batch2-final/hermes/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-1739adc7-e141-5e3b-b9f2-88416c5f8360/session.v4.jsonl.zstd"
+   },
+   "l2_format": {
+    "claude": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/hermes/claude/claude/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/1739adc7-e141-5e3b-b9f2-88416c5f8360.jsonl"
+    },
+    "codex": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/hermes/codex/codex/sessions/2026/07/25/rollout-2026-07-25T06-45-43-1739adc7-e141-5e3b-b9f2-88416c5f8360.jsonl"
+    },
+    "omp": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/hermes/omp/omp/-Documents-deepseek-harness-default-workspace-tools-agent-session-import/2026-07-25T06-45-43-000Z_1739adc7-e141-5e3b-b9f2-88416c5f8360.jsonl"
+    },
+    "qoder": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/hermes/qoder/qoder/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/1739adc7-e141-5e3b-b9f2-88416c5f8360.jsonl"
+    }
+   },
+   "format_ok": true,
+   "lossy": [],
+   "status": "pass"
+  },
+  {
+   "harness": "kilo-code",
+   "model": "claude-opus-5",
+   "harness_version": null,
+   "harness_confidence": "medium",
+   "messages_format": "anthropic-messages",
+   "source_session_id": "325c57adfe75027448db4f1a4068e49e",
+   "source_path": "../../samples/batch2/oss/kilo-code__claude-opus-5__325c57adfe75027448db4f1a4068e49e.jsonl",
+   "source_messages": 220,
+   "bucket": "traj-st-delivery-1010",
+   "region": "cn-hangzhou",
+   "dsh_session_id": "session-aaa2e6df-6a9f-54ab-ac09-8b86dab84613",
+   "l0": {
+    "ok": true,
+    "events": 262,
+    "ir_stats": {
+     "events": 262,
+     "user_messages": 4,
+     "assistant_messages": 109,
+     "reasoning_blocks": 0,
+     "tool_calls": 149,
+     "tool_results": 149,
+     "unpaired_tool_calls": 0,
+     "compactions": 0,
+     "system_messages": 0
+    },
+    "warnings": [],
+    "extra": {
+     "source_harness": "kilo-code",
+     "harness_version": null,
+     "messages_format": "anthropic-messages",
+     "bucket": "traj-st-delivery-1010",
+     "region": "cn-hangzhou",
+     "key_prefix": "node-10/raw/20260726/",
+     "quality": {
+      "garbled": false,
+      "truncated": false,
+      "multi_model": false,
+      "incomplete_stream": false,
+      "http_errors": 0,
+      "derived_records": false,
+      "reconstructed_requests": false,
+      "flags": [
+       "synthetic_session_id"
+      ]
+     }
+    }
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "validate_errors": [],
+    "atif_steps": 113
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch2-final/kilo-code/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-aaa2e6df-6a9f-54ab-ac09-8b86dab84613/session.v4.jsonl.zstd"
+   },
+   "l3": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=642 messages=262",
+    "evidence": "/tmp/asi-batch2-final/kilo-code/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-aaa2e6df-6a9f-54ab-ac09-8b86dab84613/session.v4.jsonl.zstd"
+   },
+   "l2_format": {
+    "claude": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/kilo-code/claude/claude/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/aaa2e6df-6a9f-54ab-ac09-8b86dab84613.jsonl"
+    },
+    "codex": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/kilo-code/codex/codex/sessions/2026/07/26/rollout-2026-07-26T07-53-37-aaa2e6df-6a9f-54ab-ac09-8b86dab84613.jsonl"
+    },
+    "omp": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/kilo-code/omp/omp/-Documents-deepseek-harness-default-workspace-tools-agent-session-import/2026-07-26T07-53-37-000Z_aaa2e6df-6a9f-54ab-ac09-8b86dab84613.jsonl"
+    },
+    "qoder": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/kilo-code/qoder/qoder/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/aaa2e6df-6a9f-54ab-ac09-8b86dab84613.jsonl"
+    }
+   },
+   "format_ok": true,
+   "lossy": [],
+   "status": "pass"
+  },
+  {
+   "harness": "opencode",
+   "model": "claude-opus-5",
+   "harness_version": null,
+   "harness_confidence": "medium",
+   "messages_format": "anthropic-messages",
+   "source_session_id": "00cf439e342fe764443b815c740c7e2a",
+   "source_path": "../../samples/batch2/oss/opencode__claude-opus-5__00cf439e342fe764443b815c740c7e2a.jsonl",
+   "source_messages": 567,
+   "bucket": "traj-st-delivery-1010",
+   "region": "cn-hangzhou",
+   "dsh_session_id": "session-c46e482d-9fb4-53af-90e8-8f983d4af79a",
+   "l0": {
+    "ok": true,
+    "events": 723,
+    "ir_stats": {
+     "events": 723,
+     "user_messages": 17,
+     "assistant_messages": 282,
+     "reasoning_blocks": 0,
+     "tool_calls": 424,
+     "tool_results": 424,
+     "unpaired_tool_calls": 0,
+     "compactions": 0,
+     "system_messages": 0
+    },
+    "warnings": [],
+    "extra": {
+     "source_harness": "opencode",
+     "harness_version": null,
+     "messages_format": "anthropic-messages",
+     "bucket": "traj-st-delivery-1010",
+     "region": "cn-hangzhou",
+     "key_prefix": "node-2/raw/20260725/",
+     "quality": {
+      "garbled": false,
+      "truncated": false,
+      "multi_model": false,
+      "incomplete_stream": false,
+      "http_errors": 0,
+      "derived_records": false,
+      "reconstructed_requests": false,
+      "flags": [
+       "synthetic_session_id"
+      ]
+     }
+    }
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "validate_errors": [],
+    "atif_steps": 299
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch2-final/opencode/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-c46e482d-9fb4-53af-90e8-8f983d4af79a/session.v4.jsonl.zstd"
+   },
+   "l3": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=1750 messages=723",
+    "evidence": "/tmp/asi-batch2-final/opencode/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-c46e482d-9fb4-53af-90e8-8f983d4af79a/session.v4.jsonl.zstd"
+   },
+   "l2_format": {
+    "claude": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/opencode/claude/claude/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/c46e482d-9fb4-53af-90e8-8f983d4af79a.jsonl"
+    },
+    "codex": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/opencode/codex/codex/sessions/2026/07/25/rollout-2026-07-25T13-39-29-c46e482d-9fb4-53af-90e8-8f983d4af79a.jsonl"
+    },
+    "omp": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/opencode/omp/omp/-Documents-deepseek-harness-default-workspace-tools-agent-session-import/2026-07-25T13-39-29-000Z_c46e482d-9fb4-53af-90e8-8f983d4af79a.jsonl"
+    },
+    "qoder": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/opencode/qoder/qoder/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/c46e482d-9fb4-53af-90e8-8f983d4af79a.jsonl"
+    }
+   },
+   "format_ok": true,
+   "lossy": [],
+   "status": "pass"
+  },
+  {
+   "harness": "opencraw",
+   "model": "claude-opus-5",
+   "harness_version": "1.0.5",
+   "harness_confidence": "medium",
+   "messages_format": "anthropic-messages",
+   "source_session_id": "03f2f5e6516c05e8e52a5ae18b2edc1a",
+   "source_path": "../../samples/batch2/oss/opencraw__claude-opus-5__03f2f5e6516c05e8e52a5ae18b2edc1a.jsonl",
+   "source_messages": 473,
+   "bucket": "traj-st-delivery-1010",
+   "region": "cn-hangzhou",
+   "dsh_session_id": "session-2532c741-ee9c-5682-975a-02c317a70f0a",
+   "l0": {
+    "ok": true,
+    "events": 523,
+    "ir_stats": {
+     "events": 523,
+     "user_messages": 27,
+     "assistant_messages": 233,
+     "reasoning_blocks": 1,
+     "tool_calls": 263,
+     "tool_results": 263,
+     "unpaired_tool_calls": 0,
+     "compactions": 0,
+     "system_messages": 0
+    },
+    "warnings": [
+     "deduplicated 1 repeated capture row(s)"
+    ],
+    "extra": {
+     "source_harness": "opencraw",
+     "harness_version": "1.0.5",
+     "messages_format": "anthropic-messages",
+     "bucket": "traj-st-delivery-1010",
+     "region": "cn-hangzhou",
+     "key_prefix": "node-1/raw/20260726/",
+     "quality": {
+      "garbled": false,
+      "truncated": false,
+      "multi_model": false,
+      "incomplete_stream": false,
+      "http_errors": 0,
+      "derived_records": false,
+      "reconstructed_requests": false,
+      "flags": [
+       "synthetic_session_id"
+      ]
+     }
+    }
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "validate_errors": [],
+    "atif_steps": 260
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch2-final/opencraw/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-2532c741-ee9c-5682-975a-02c317a70f0a/session.v4.jsonl.zstd"
+   },
+   "l3": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=1317 messages=523",
+    "evidence": "/tmp/asi-batch2-final/opencraw/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-2532c741-ee9c-5682-975a-02c317a70f0a/session.v4.jsonl.zstd"
+   },
+   "l2_format": {
+    "claude": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/opencraw/claude/claude/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/2532c741-ee9c-5682-975a-02c317a70f0a.jsonl"
+    },
+    "codex": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/opencraw/codex/codex/sessions/2026/07/26/rollout-2026-07-26T08-34-09-2532c741-ee9c-5682-975a-02c317a70f0a.jsonl"
+    },
+    "omp": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/opencraw/omp/omp/-Documents-deepseek-harness-default-workspace-tools-agent-session-import/2026-07-26T08-34-09-000Z_2532c741-ee9c-5682-975a-02c317a70f0a.jsonl"
+    },
+    "qoder": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/opencraw/qoder/qoder/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/2532c741-ee9c-5682-975a-02c317a70f0a.jsonl"
+    }
+   },
+   "format_ok": true,
+   "lossy": [],
+   "status": "pass"
+  },
+  {
+   "harness": "other",
+   "model": "claude-opus-5",
+   "harness_version": null,
+   "harness_confidence": "medium",
+   "messages_format": "openai-chat",
+   "source_session_id": "0025f217fbc9e43f4f49e6a59fa361c8",
+   "source_path": "../../samples/batch2/oss/other__claude-opus-5__0025f217fbc9e43f4f49e6a59fa361c8.jsonl",
+   "source_messages": 52,
+   "bucket": "traj-st-delivery-1010",
+   "region": "cn-hangzhou",
+   "dsh_session_id": "session-a3965b60-f7e4-5634-b98d-99f8c70f30bb",
+   "l0": {
+    "ok": true,
+    "events": 51,
+    "ir_stats": {
+     "events": 51,
+     "user_messages": 31,
+     "assistant_messages": 20,
+     "reasoning_blocks": 0,
+     "tool_calls": 0,
+     "tool_results": 0,
+     "unpaired_tool_calls": 0,
+     "compactions": 0,
+     "system_messages": 0
+    },
+    "warnings": [],
+    "extra": {
+     "source_harness": "other",
+     "harness_version": null,
+     "messages_format": "openai-chat",
+     "bucket": "traj-st-delivery-1010",
+     "region": "cn-hangzhou",
+     "key_prefix": "node-8/raw/20260725/",
+     "quality": {
+      "garbled": false,
+      "truncated": false,
+      "multi_model": false,
+      "incomplete_stream": false,
+      "http_errors": 0,
+      "derived_records": false,
+      "reconstructed_requests": false,
+      "flags": [
+       "synthetic_session_id"
+      ]
+     }
+    }
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "validate_errors": [],
+    "atif_steps": 51
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch2-final/other/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-a3965b60-f7e4-5634-b98d-99f8c70f30bb/session.v4.jsonl.zstd"
+   },
+   "l3": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=180 messages=51",
+    "evidence": "/tmp/asi-batch2-final/other/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-a3965b60-f7e4-5634-b98d-99f8c70f30bb/session.v4.jsonl.zstd"
+   },
+   "l2_format": {
+    "claude": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/other/claude/claude/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/a3965b60-f7e4-5634-b98d-99f8c70f30bb.jsonl"
+    },
+    "codex": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/other/codex/codex/sessions/2026/07/25/rollout-2026-07-25T16-56-46-a3965b60-f7e4-5634-b98d-99f8c70f30bb.jsonl"
+    },
+    "omp": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/other/omp/omp/-Documents-deepseek-harness-default-workspace-tools-agent-session-import/2026-07-25T16-56-46-000Z_a3965b60-f7e4-5634-b98d-99f8c70f30bb.jsonl"
+    },
+    "qoder": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/other/qoder/qoder/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/a3965b60-f7e4-5634-b98d-99f8c70f30bb.jsonl"
+    }
+   },
+   "format_ok": true,
+   "lossy": [],
+   "status": "pass"
+  },
+  {
+   "harness": "pi",
+   "model": "claude-opus-5",
+   "harness_version": null,
+   "harness_confidence": "medium",
+   "messages_format": "anthropic-messages",
+   "source_session_id": "00deb5a254fecfb4ea71dbeccbbd29a4",
+   "source_path": "../../samples/batch2/oss/pi__claude-opus-5__00deb5a254fecfb4ea71dbeccbbd29a4.jsonl",
+   "source_messages": 1573,
+   "bucket": "traj-st-delivery-1010",
+   "region": "cn-hangzhou",
+   "dsh_session_id": "session-f32a9d0a-b7e3-5309-aa6c-dca9be8f813b",
+   "l0": {
+    "ok": true,
+    "events": 1764,
+    "ir_stats": {
+     "events": 1764,
+     "user_messages": 67,
+     "assistant_messages": 786,
+     "reasoning_blocks": 0,
+     "tool_calls": 911,
+     "tool_results": 911,
+     "unpaired_tool_calls": 0,
+     "compactions": 0,
+     "system_messages": 0
+    },
+    "warnings": [],
+    "extra": {
+     "source_harness": "pi",
+     "harness_version": null,
+     "messages_format": "anthropic-messages",
+     "bucket": "traj-st-delivery-1010",
+     "region": "cn-hangzhou",
+     "key_prefix": "node-4/raw/20260729/",
+     "quality": {
+      "garbled": false,
+      "truncated": false,
+      "multi_model": false,
+      "incomplete_stream": false,
+      "http_errors": 0,
+      "derived_records": false,
+      "reconstructed_requests": false,
+      "flags": [
+       "synthetic_session_id",
+       "unrecognized_stream",
+       "unmerged_stream"
+      ]
+     }
+    }
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "validate_errors": [],
+    "atif_steps": 853
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch2-final/pi/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-f32a9d0a-b7e3-5309-aa6c-dca9be8f813b/session.v4.jsonl.zstd"
+   },
+   "l3": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=4388 messages=1764",
+    "evidence": "/tmp/asi-batch2-final/pi/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-f32a9d0a-b7e3-5309-aa6c-dca9be8f813b/session.v4.jsonl.zstd"
+   },
+   "l2_format": {
+    "claude": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/pi/claude/claude/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/f32a9d0a-b7e3-5309-aa6c-dca9be8f813b.jsonl"
+    },
+    "codex": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/pi/codex/codex/sessions/2026/07/29/rollout-2026-07-29T15-49-25-f32a9d0a-b7e3-5309-aa6c-dca9be8f813b.jsonl"
+    },
+    "omp": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/pi/omp/omp/-Documents-deepseek-harness-default-workspace-tools-agent-session-import/2026-07-29T15-49-25-000Z_f32a9d0a-b7e3-5309-aa6c-dca9be8f813b.jsonl"
+    },
+    "qoder": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/pi/qoder/qoder/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/f32a9d0a-b7e3-5309-aa6c-dca9be8f813b.jsonl"
+    }
+   },
+   "format_ok": true,
+   "lossy": [],
+   "status": "pass"
+  },
+  {
+   "harness": "qoder",
+   "model": "claude-opus-5",
+   "harness_version": null,
+   "harness_confidence": "medium",
+   "messages_format": "anthropic-messages",
+   "source_session_id": "57ebdf79607c099993cf3c65bb2a79e1",
+   "source_path": "../../samples/batch2/oss/qoder__claude-opus-5__57ebdf79607c099993cf3c65bb2a79e1.jsonl",
+   "source_messages": 508,
+   "bucket": "traj-st-delivery-1010",
+   "region": "cn-hangzhou",
+   "dsh_session_id": "session-7657ca7f-f493-51fd-92f8-05fa14e0919e",
+   "l0": {
+    "ok": true,
+    "events": 531,
+    "ir_stats": {
+     "events": 531,
+     "user_messages": 38,
+     "assistant_messages": 254,
+     "reasoning_blocks": 22,
+     "tool_calls": 239,
+     "tool_results": 239,
+     "unpaired_tool_calls": 0,
+     "compactions": 0,
+     "system_messages": 0
+    },
+    "warnings": [],
+    "extra": {
+     "source_harness": "qoder",
+     "harness_version": null,
+     "messages_format": "anthropic-messages",
+     "bucket": "traj-st-delivery-1010",
+     "region": "cn-hangzhou",
+     "key_prefix": "node-3/raw/20260727/",
+     "quality": {
+      "garbled": false,
+      "truncated": false,
+      "multi_model": false,
+      "incomplete_stream": false,
+      "http_errors": 0,
+      "derived_records": false,
+      "reconstructed_requests": false,
+      "flags": [
+       "synthetic_session_id"
+      ]
+     }
+    }
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "validate_errors": [],
+    "atif_steps": 292
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch2-final/qoder/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-7657ca7f-f493-51fd-92f8-05fa14e0919e/session.v4.jsonl.zstd"
+   },
+   "l3": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=1359 messages=531",
+    "evidence": "/tmp/asi-batch2-final/qoder/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-7657ca7f-f493-51fd-92f8-05fa14e0919e/session.v4.jsonl.zstd"
+   },
+   "l2_format": {
+    "claude": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/qoder/claude/claude/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/7657ca7f-f493-51fd-92f8-05fa14e0919e.jsonl"
+    },
+    "codex": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/qoder/codex/codex/sessions/2026/07/27/rollout-2026-07-27T05-53-46-7657ca7f-f493-51fd-92f8-05fa14e0919e.jsonl"
+    },
+    "omp": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/qoder/omp/omp/-Documents-deepseek-harness-default-workspace-tools-agent-session-import/2026-07-27T05-53-46-000Z_7657ca7f-f493-51fd-92f8-05fa14e0919e.jsonl"
+    },
+    "qoder": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/qoder/qoder/qoder/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/7657ca7f-f493-51fd-92f8-05fa14e0919e.jsonl"
+    }
+   },
+   "format_ok": true,
+   "lossy": [],
+   "status": "pass"
+  },
+  {
+   "harness": "trae",
+   "model": "claude-opus-5",
+   "harness_version": null,
+   "harness_confidence": "medium",
+   "messages_format": "anthropic-messages",
+   "source_session_id": "070bd8f05797059172d2c38b8939a1b8",
+   "source_path": "../../samples/batch2/oss/trae__claude-opus-5__070bd8f05797059172d2c38b8939a1b8.jsonl",
+   "source_messages": 612,
+   "bucket": "traj-st-delivery-1010",
+   "region": "cn-hangzhou",
+   "dsh_session_id": "session-f43e6849-19b7-5374-89cc-a89d81580e9e",
+   "l0": {
+    "ok": true,
+    "events": 611,
+    "ir_stats": {
+     "events": 611,
+     "user_messages": 30,
+     "assistant_messages": 270,
+     "reasoning_blocks": 0,
+     "tool_calls": 311,
+     "tool_results": 311,
+     "unpaired_tool_calls": 0,
+     "compactions": 0,
+     "system_messages": 0
+    },
+    "warnings": [],
+    "extra": {
+     "source_harness": "trae",
+     "harness_version": null,
+     "messages_format": "anthropic-messages",
+     "bucket": "traj-st-delivery-1010",
+     "region": "cn-hangzhou",
+     "key_prefix": "node-9/raw/20260728/",
+     "quality": {
+      "garbled": false,
+      "truncated": false,
+      "multi_model": false,
+      "incomplete_stream": true,
+      "http_errors": 0,
+      "derived_records": false,
+      "reconstructed_requests": false,
+      "flags": [
+       "synthetic_session_id",
+       "stream_error_event",
+       "stream_error_upstream_error",
+       "incomplete_stream"
+      ]
+     }
+    }
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "validate_errors": [],
+    "atif_steps": 300
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch2-final/trae/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-f43e6849-19b7-5374-89cc-a89d81580e9e/session.v4.jsonl.zstd"
+   },
+   "l3": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=1529 messages=611",
+    "evidence": "/tmp/asi-batch2-final/trae/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-f43e6849-19b7-5374-89cc-a89d81580e9e/session.v4.jsonl.zstd"
+   },
+   "l2_format": {
+    "claude": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/trae/claude/claude/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/f43e6849-19b7-5374-89cc-a89d81580e9e.jsonl"
+    },
+    "codex": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/trae/codex/codex/sessions/2026/07/28/rollout-2026-07-28T02-18-13-f43e6849-19b7-5374-89cc-a89d81580e9e.jsonl"
+    },
+    "omp": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/trae/omp/omp/-Documents-deepseek-harness-default-workspace-tools-agent-session-import/2026-07-28T02-18-13-000Z_f43e6849-19b7-5374-89cc-a89d81580e9e.jsonl"
+    },
+    "qoder": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/trae/qoder/qoder/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/f43e6849-19b7-5374-89cc-a89d81580e9e.jsonl"
+    }
+   },
+   "format_ok": true,
+   "lossy": [],
+   "status": "pass"
+  },
+  {
+   "harness": "windsurf",
+   "model": "claude-opus-5",
+   "harness_version": null,
+   "harness_confidence": "high",
+   "messages_format": "anthropic-messages",
+   "source_session_id": "0c1ef2aa9e5d025cae0acc06b7d2c268",
+   "source_path": "../../samples/batch2/oss/windsurf__claude-opus-5__0c1ef2aa9e5d025cae0acc06b7d2c268.jsonl",
+   "source_messages": 144,
+   "bucket": "traj-st-delivery-1010",
+   "region": "cn-hangzhou",
+   "dsh_session_id": "session-4d8cfd39-0625-5a72-84ee-99d43d00f90d",
+   "l0": {
+    "ok": true,
+    "events": 164,
+    "ir_stats": {
+     "events": 164,
+     "user_messages": 10,
+     "assistant_messages": 72,
+     "reasoning_blocks": 0,
+     "tool_calls": 82,
+     "tool_results": 82,
+     "unpaired_tool_calls": 0,
+     "compactions": 0,
+     "system_messages": 0
+    },
+    "warnings": [],
+    "extra": {
+     "source_harness": "windsurf",
+     "harness_version": null,
+     "messages_format": "anthropic-messages",
+     "bucket": "traj-st-delivery-1010",
+     "region": "cn-hangzhou",
+     "key_prefix": "node-8/raw/20260725/",
+     "quality": {
+      "garbled": false,
+      "truncated": false,
+      "multi_model": false,
+      "incomplete_stream": false,
+      "http_errors": 0,
+      "derived_records": false,
+      "reconstructed_requests": false,
+      "flags": [
+       "synthetic_session_id"
+      ]
+     }
+    }
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "validate_errors": [],
+    "atif_steps": 82
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch2-final/windsurf/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-4d8cfd39-0625-5a72-84ee-99d43d00f90d/session.v4.jsonl.zstd"
+   },
+   "l3": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=415 messages=164",
+    "evidence": "/tmp/asi-batch2-final/windsurf/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-4d8cfd39-0625-5a72-84ee-99d43d00f90d/session.v4.jsonl.zstd"
+   },
+   "l2_format": {
+    "claude": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/windsurf/claude/claude/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/4d8cfd39-0625-5a72-84ee-99d43d00f90d.jsonl"
+    },
+    "codex": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/windsurf/codex/codex/sessions/2026/07/25/rollout-2026-07-25T04-39-25-4d8cfd39-0625-5a72-84ee-99d43d00f90d.jsonl"
+    },
+    "omp": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/windsurf/omp/omp/-Documents-deepseek-harness-default-workspace-tools-agent-session-import/2026-07-25T04-39-25-000Z_4d8cfd39-0625-5a72-84ee-99d43d00f90d.jsonl"
+    },
+    "qoder": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/windsurf/qoder/qoder/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/4d8cfd39-0625-5a72-84ee-99d43d00f90d.jsonl"
+    }
+   },
+   "format_ok": true,
+   "lossy": [],
+   "status": "pass"
+  },
+  {
+   "harness": "workbuddy",
+   "model": "claude-opus-5",
+   "harness_version": "2.1.165",
+   "harness_confidence": "medium",
+   "messages_format": "anthropic-messages",
+   "source_session_id": "019f972b-e8e7-7000-883f-9afc5addff83",
+   "source_path": "../../samples/batch2/oss/workbuddy__claude-opus-5__019f972b-e8e7-7000-883f-9afc5addff83.jsonl",
+   "source_messages": 57,
+   "bucket": "traj-st-delivery-1010",
+   "region": "cn-hangzhou",
+   "dsh_session_id": "session-7bde53dd-0822-5f31-93eb-443a7dcd3656",
+   "l0": {
+    "ok": true,
+    "events": 77,
+    "ir_stats": {
+     "events": 77,
+     "user_messages": 12,
+     "assistant_messages": 26,
+     "reasoning_blocks": 23,
+     "tool_calls": 39,
+     "tool_results": 39,
+     "unpaired_tool_calls": 0,
+     "compactions": 0,
+     "system_messages": 0
+    },
+    "warnings": [],
+    "extra": {
+     "source_harness": "workbuddy",
+     "harness_version": "2.1.165",
+     "messages_format": "anthropic-messages",
+     "bucket": "traj-st-delivery-1010",
+     "region": "cn-hangzhou",
+     "key_prefix": "",
+     "quality": {
+      "garbled": false,
+      "truncated": false,
+      "multi_model": false,
+      "incomplete_stream": true,
+      "http_errors": 7,
+      "derived_records": false,
+      "reconstructed_requests": false,
+      "flags": [
+       "stream_error_event",
+       "stream_error_upstream_error",
+       "incomplete_stream"
+      ]
+     }
+    }
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "validate_errors": [],
+    "atif_steps": 38
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch2-final/workbuddy/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-7bde53dd-0822-5f31-93eb-443a7dcd3656/session.v4.jsonl.zstd"
+   },
+   "l3": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=207 messages=77",
+    "evidence": "/tmp/asi-batch2-final/workbuddy/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-7bde53dd-0822-5f31-93eb-443a7dcd3656/session.v4.jsonl.zstd"
+   },
+   "l2_format": {
+    "claude": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/workbuddy/claude/claude/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/7bde53dd-0822-5f31-93eb-443a7dcd3656.jsonl"
+    },
+    "codex": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/workbuddy/codex/codex/sessions/2026/07/25/rollout-2026-07-25T02-48-00-7bde53dd-0822-5f31-93eb-443a7dcd3656.jsonl"
+    },
+    "omp": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/workbuddy/omp/omp/-Documents-deepseek-harness-default-workspace-tools-agent-session-import/2026-07-25T02-48-00-000Z_7bde53dd-0822-5f31-93eb-443a7dcd3656.jsonl"
+    },
+    "qoder": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/workbuddy/qoder/qoder/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/7bde53dd-0822-5f31-93eb-443a7dcd3656.jsonl"
+    }
+   },
+   "format_ok": true,
+   "lossy": [],
+   "status": "pass"
+  },
+  {
+   "harness": "zcode",
+   "model": "claude-fable-5",
+   "harness_version": "3.5.2",
+   "harness_confidence": "high",
+   "messages_format": "anthropic-messages",
+   "source_session_id": "76394f1a-27f9-4b87-b9be-237a3c6bc957",
+   "source_path": "../../samples/batch2/oss/zcode__claude-fable-5__76394f1a-27f9-4b87-b9be-237a3c6bc957.jsonl",
+   "source_messages": 779,
+   "bucket": "traj-st-delivery-1010",
+   "region": "cn-hangzhou",
+   "dsh_session_id": "session-bb77840e-3be4-5aa8-90ab-3640b7010c25",
+   "l0": {
+    "ok": true,
+    "events": 859,
+    "ir_stats": {
+     "events": 859,
+     "user_messages": 52,
+     "assistant_messages": 389,
+     "reasoning_blocks": 0,
+     "tool_calls": 418,
+     "tool_results": 418,
+     "unpaired_tool_calls": 0,
+     "compactions": 0,
+     "system_messages": 0
+    },
+    "warnings": [],
+    "extra": {
+     "source_harness": "zcode",
+     "harness_version": "3.5.2",
+     "messages_format": "anthropic-messages",
+     "bucket": "traj-st-delivery-1010",
+     "region": "cn-hangzhou",
+     "key_prefix": "",
+     "quality": {
+      "garbled": false,
+      "truncated": false,
+      "multi_model": false,
+      "incomplete_stream": false,
+      "http_errors": 2,
+      "derived_records": false,
+      "reconstructed_requests": false,
+      "flags": [
+       "no_successful_call",
+       "assistant_reply_missing"
+      ]
+     }
+    }
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "validate_errors": [],
+    "atif_steps": 441
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "artifact": "/tmp/asi-batch2-final/zcode/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-bb77840e-3be4-5aa8-90ab-3640b7010c25/session.v4.jsonl.zstd"
+   },
+   "l3": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=2166 messages=859",
+    "evidence": "/tmp/asi-batch2-final/zcode/dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import--/session-bb77840e-3be4-5aa8-90ab-3640b7010c25/session.v4.jsonl.zstd"
+   },
+   "l2_format": {
+    "claude": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/zcode/claude/claude/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/bb77840e-3be4-5aa8-90ab-3640b7010c25.jsonl"
+    },
+    "codex": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/zcode/codex/codex/sessions/2026/07/26/rollout-2026-07-26T16-50-37-bb77840e-3be4-5aa8-90ab-3640b7010c25.jsonl"
+    },
+    "omp": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/zcode/omp/omp/-Documents-deepseek-harness-default-workspace-tools-agent-session-import/2026-07-26T16-50-37-000Z_bb77840e-3be4-5aa8-90ab-3640b7010c25.jsonl"
+    },
+    "qoder": {
+     "ok": true,
+     "lossy": [],
+     "detail": null,
+     "artifact": "/tmp/asi-batch2-final/zcode/qoder/qoder/projects/-Users-larr-Documents-deepseek-harness-default-workspace-tools-agent-session-import/bb77840e-3be4-5aa8-90ab-3640b7010c25.jsonl"
+    }
+   },
+   "format_ok": true,
+   "lossy": [],
+   "status": "pass"
+  }
+ ]
+}

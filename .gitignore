@@ -1,0 +1,46 @@
+# macOS
+.DS_Store
+._*
+Icon?
+.AppleDouble
+.LSOverride
+
+# SwiftPM / Xcode
+.build/
+dist/
+*.xcuserstate
+xcuserdata/
+.swiftpm/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+
+# CLI default working dirs (keep repo clean)
+asi-out/
+asi-migrate/
+tools/agent-session-import/asi-out/
+tools/agent-session-import/asi-migrate/
+
+# Release/build products (tracked evidence artifacts under tests/ are intentional)
+*.dmg
+*.zip
+*.sha256
+
+# Editor / OS cruft
+.idea/
+.vscode/
+*.swp
+*~
+
+# Local test sandboxes
+hb-test/
+
+# Portable build cache (python-build-standalone)
+vendor/
+
+# Generated backend coverage artifacts are committed; ignore transient sandboxes

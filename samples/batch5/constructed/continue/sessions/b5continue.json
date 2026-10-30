@@ -1,0 +1,20 @@
+{
+ "sessionId": "b5continue",
+ "title": "Batch 5 constructed sample: list the repository files.",
+ "dateCreated": 1793400000000,
+ "workspaceDirectory": "/tmp/as-agent-lab/batch5/project",
+ "history": [
+  {
+   "message": {
+    "role": "user",
+    "content": "Batch 5 constructed sample: list the repository files."
+   }
+  },
+  {
+   "message": {
+    "role": "assistant",
+    "content": "Batch 5 constructed sample: the repository contains two files."
+   }
+  }
+ ]
+}

@@ -1,0 +1,133 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing tag to (re)build/release, e.g. v1.5.0"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Build macOS release (arm64)
+    runs-on: macos-14
+    timeout-minutes: 60
+    env:
+      HOMEBREW_NO_AUTO_UPDATE: "1"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve version and tag
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            TAG="${{ inputs.tag }}"
+          else
+            TAG="${GITHUB_REF_NAME}"
+          fi
+          VERSION="${TAG#v}"
+          if ! printf '%s' "$VERSION" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+([-+][0-9A-Za-z.-]+)?$'; then
+            echo "::error::tag '$TAG' is not a semver-like version (expected vX.Y.Z)"
+            exit 2
+          fi
+          echo "TAG=$TAG" >> "$GITHUB_ENV"
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          echo "Building HarnessBridge v$VERSION ($TAG) on $(uname -m)"
+
+      - name: Install zstd
+        run: brew install zstd
+
+      - name: Show toolchain
+        run: |
+          sw_vers
+          uname -m
+          swift --version
+          python3 --version
+
+      - name: Sync app version from tag
+        run: |
+          set -euo pipefail
+          BUILD_SH="tools/HarnessBridgeApp/build.sh"
+          sed -i '' "s/^VERSION=.*/VERSION=\"${VERSION}\"/" "$BUILD_SH"
+          grep -n '^VERSION=' "$BUILD_SH"
+
+      - name: Swift release build + bundle + ad-hoc sign
+        run: |
+          cd tools/HarnessBridgeApp
+          swift build -c release
+          ./build.sh
+          ls -la dist/
+
+      - name: Normalize bundle name and verify signature
+        run: |
+          set -euo pipefail
+          SRC=$(find tools/HarnessBridgeApp/dist -maxdepth 1 -name '*.app' | head -1)
+          test -n "$SRC"
+          APP="$RUNNER_TEMP/HarnessBridge.app"
+          rm -rf "$APP"
+          ditto "$SRC" "$APP"
+          codesign --verify --deep --strict --verbose=2 "$APP"
+          echo "APP_PATH=$APP" >> "$GITHUB_ENV"
+          echo "Built bundle: $APP"
+
+      - name: Self-test (non-blocking smoke)
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          EXE=$(/usr/libexec/PlistBuddy -c 'Print CFBundleExecutable' "$APP_PATH/Contents/Info.plist")
+          "$APP_PATH/Contents/MacOS/$EXE" --self-test
+
+      - name: Create DMG and ZIP
+        run: |
+          set -euo pipefail
+          DMG="HarnessBridge-${VERSION}-macos-arm64.dmg"
+          ZIP="HarnessBridge-${VERSION}-macos-arm64.zip"
+          hdiutil create -volname "HarnessBridge" -srcfolder "$APP_PATH" -ov -format UDZO "$DMG"
+          ditto -c -k --keepParent "$APP_PATH" "$ZIP"
+          shasum -a 256 "$DMG" "$ZIP" > SHA256SUMS.txt
+          cat SHA256SUMS.txt
+          shasum -a 256 -c SHA256SUMS.txt
+
+      - name: Upload workflow artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: HarnessBridge-${{ env.VERSION }}-macos-arm64
+          path: |
+            HarnessBridge-${{ env.VERSION }}-macos-arm64.dmg
+            HarnessBridge-${{ env.VERSION }}-macos-arm64.zip
+            SHA256SUMS.txt
+          if-no-files-found: error
+
+      - name: Publish GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          NOTES="RELEASE_NOTES/${TAG}.md"
+          if [ ! -f "$NOTES" ]; then NOTES="RELEASE_NOTES/v1.5.0.md"; fi
+          DMG="HarnessBridge-${VERSION}-macos-arm64.dmg"
+          ZIP="HarnessBridge-${VERSION}-macos-arm64.zip"
+          ASSETS=("$DMG" "$ZIP" "SHA256SUMS.txt")
+          if gh release view "$TAG" > /dev/null 2>&1; then
+            echo "Release $TAG already exists — uploading/updating assets."
+            gh release upload "$TAG" "${ASSETS[@]}" --clobber
+          else
+            gh release create "$TAG" \
+              --title "HarnessBridge v${VERSION}" \
+              --notes-file "$NOTES" \
+              "${ASSETS[@]}"
+          fi
+          gh release view "$TAG"

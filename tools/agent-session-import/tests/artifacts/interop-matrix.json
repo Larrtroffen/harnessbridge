@@ -1,0 +1,1037 @@
+{
+ "schema": "asi-interop-matrix/v1",
+ "asi_version": "0.1.0",
+ "generated_at": "2026-10-29T19:10:51Z",
+ "sources": [
+  "claude",
+  "codex",
+  "dsh",
+  "omp",
+  "qoder"
+ ],
+ "out_dir": "/tmp/asi-matrix-t11b",
+ "sessions": {
+  "claude": {
+   "source_session_id": "b59c58e1-17c5-4758-8d69-2a0e98bd8bee",
+   "path": "/tmp/home/.claude/projects/-Users-larr/b59c58e1-17c5-4758-8d69-2a0e98bd8bee.jsonl",
+   "title": "Downloads/tb4-loop-orchestrator/HANDOFF.md 了解一下现在的状况，然后你想一想，能不能比较好地解决目前的卡点问题。就是镜像构建的问题。",
+   "cwd": "/tmp/home",
+   "ir_stats": {
+    "events": 3,
+    "user_messages": 2,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   }
+  },
+  "codex": {
+   "source_session_id": "01a0fc68-e093-77e3-b7a5-4af866e8d83c",
+   "path": "/tmp/home/.codex/sessions/2026/10/02/rollout-2026-10-02T19-38-46-01a0fc68-e093-77e3-b7a5-4af866e8d83c.jsonl",
+   "title": "Reply with exactly: SMOKE_OK",
+   "cwd": "/private/tmp/codex-smoke",
+   "ir_stats": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   }
+  },
+  "dsh": {
+   "source_session_id": "session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07",
+   "path": "/tmp/home/.dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace--/session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07/session.v4.jsonl.zstd",
+   "title": "向上游说明数据要求和文件结构",
+   "cwd": "/tmp/harnessbridge-repo",
+   "ir_stats": {
+    "events": 7,
+    "user_messages": 5,
+    "assistant_messages": 2,
+    "reasoning_blocks": 2,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   }
+  },
+  "omp": {
+   "source_session_id": "01a05c99-970e-7000-bb3c-a304919f20cd",
+   "path": "/tmp/home/.omp/agent/sessions/-Research_Assistant-习思想/2026-09-01T10-52-44-686Z_01a05c99-970e-7000-bb3c-a304919f20cd.jsonl",
+   "title": "总结一下总书记的人民城市相关论述",
+   "cwd": "/tmp/home/Research_Assistant/习思想",
+   "ir_stats": {
+    "events": 14,
+    "user_messages": 1,
+    "assistant_messages": 6,
+    "reasoning_blocks": 6,
+    "tool_calls": 7,
+    "tool_results": 7,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   }
+  },
+  "qoder": {
+   "source_session_id": "9f5ddbce-ab66-4213-9c38-c466301d64d3",
+   "path": "/tmp/home/.qoder/projects/-Users-larr-Documents-Qoder-2026-10-26-9f5ddbce/9f5ddbce-ab66-4213-9c38-c466301d64d3.jsonl",
+   "title": "把https://github.com/Entropyorder/exploitbench-code.git clone到/tmp/home/Entropyorder/projects下，可以用proxy",
+   "cwd": "/tmp/home/Documents/Qoder/2026-10-26/9f5ddbce",
+   "ir_stats": {
+    "events": 8,
+    "user_messages": 1,
+    "assistant_messages": 4,
+    "reasoning_blocks": 3,
+    "tool_calls": 3,
+    "tool_results": 3,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   }
+  }
+ },
+ "summary": {
+  "directions_total": 20,
+  "pass": 12,
+  "partial": 8,
+  "fail": 0,
+  "atif_self_pass": 5,
+  "atif_self_total": 5
+ },
+ "directions": [
+  {
+   "from": "claude",
+   "to": "codex",
+   "source_session_id": "b59c58e1-17c5-4758-8d69-2a0e98bd8bee",
+   "source_path": "/tmp/home/.claude/projects/-Users-larr/b59c58e1-17c5-4758-8d69-2a0e98bd8bee.jsonl",
+   "ir_counts": {
+    "user_message": 2,
+    "assistant_message": 1
+   },
+   "l0": {
+    "ok": true,
+    "detail": "reader=claude events=3"
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true,
+    "artifact": "/tmp/asi-matrix-t11b/directions/claude_to_codex/codex/sessions/2026/10/23/rollout-2026-10-23T06-52-11-5a5d836d-be2c-5c14-939d-887397622976.jsonl",
+    "native_lines": 13
+   },
+   "l3": {
+    "ok": "partial",
+    "tool": "codex CLI resume TUI",
+    "command": "CODEX_HOME=/tmp/asi-matrix-t11b/directions/claude_to_codex/codex codex --no-alt-screen resume --include-non-interactive (picker) (PTY)",
+    "detail": "codex resume TUI launched on staged CODEX_HOME but source text was not visible (picker 0/0: Codex 0.164 paginated thread store does not scan bare rollout files); app-server path also did not materialize conversation items: codex app-server thread/resume(path) + thread/items/list returned 0 item(s); but no source text found",
+    "evidence": "/tmp/asi-matrix-t11b/directions/claude_to_codex/codex/sessions/2026/10/23/rollout-2026-10-23T06-52-11-5a5d836d-be2c-5c14-939d-887397622976.jsonl",
+    "output_excerpt": "Update available · 0.164.0 → 0.165.0Release notes: https://github.com/openai/codex/releases/latest› 1. Update now (runs `brew upgrade --cask codex`)                                                                                          2.Skip3.Skipuntilnextversionenter continue · esc skip"
+   },
+   "lossy": [],
+   "warnings": [],
+   "evidence_path": "/tmp/asi-matrix-t11b/directions/claude_to_codex/codex/sessions/2026/10/23/rollout-2026-10-23T06-52-11-5a5d836d-be2c-5c14-939d-887397622976.jsonl",
+   "status": "partial"
+  },
+  {
+   "from": "claude",
+   "to": "dsh",
+   "source_session_id": "b59c58e1-17c5-4758-8d69-2a0e98bd8bee",
+   "source_path": "/tmp/home/.claude/projects/-Users-larr/b59c58e1-17c5-4758-8d69-2a0e98bd8bee.jsonl",
+   "ir_counts": {
+    "user_message": 2,
+    "assistant_message": 1
+   },
+   "l0": {
+    "ok": true,
+    "detail": "reader=claude events=3"
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true,
+    "artifact": "/tmp/asi-matrix-t11b/directions/claude_to_dsh/dsh/sessions/--Users-larr--/session-9a9fe313-a50f-532c-b8ed-a5e79be5c11c/session.v4.jsonl.zstd",
+    "native_lines": 16
+   },
+   "l3": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "command": "node tests/e2e_load.mjs session.v4.jsonl.zstd",
+    "detail": "Session.fromRestore OK: seq=16 messages=3",
+    "evidence": "/tmp/asi-matrix-t11b/directions/claude_to_dsh/dsh/sessions/--Users-larr--/session-9a9fe313-a50f-532c-b8ed-a5e79be5c11c/session.v4.jsonl.zstd",
+    "info": {
+     "sessionId": "session-9a9fe313-a50f-532c-b8ed-a5e79be5c11c",
+     "seq": 16,
+     "events": 16,
+     "messages": 3,
+     "roles": [
+      "user",
+      "assistant",
+      "user"
+     ],
+     "firstUserText": "Downloads/tb4-loop-orchestrator/HANDOFF.md 了解一下现在的状况，然后你想一想，能不能比较好地解决目前的卡点问题。就是镜像构建的问题。"
+    }
+   },
+   "lossy": [],
+   "warnings": [],
+   "evidence_path": "/tmp/asi-matrix-t11b/directions/claude_to_dsh/dsh/sessions/--Users-larr--/session-9a9fe313-a50f-532c-b8ed-a5e79be5c11c/session.v4.jsonl.zstd",
+   "status": "pass"
+  },
+  {
+   "from": "claude",
+   "to": "omp",
+   "source_session_id": "b59c58e1-17c5-4758-8d69-2a0e98bd8bee",
+   "source_path": "/tmp/home/.claude/projects/-Users-larr/b59c58e1-17c5-4758-8d69-2a0e98bd8bee.jsonl",
+   "ir_counts": {
+    "user_message": 2,
+    "assistant_message": 1
+   },
+   "l0": {
+    "ok": true,
+    "detail": "reader=claude events=3"
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true,
+    "artifact": "/tmp/asi-matrix-t11b/directions/claude_to_omp/omp/-/2026-10-23T06-52-11-873Z_c4a817b3-7e6b-5d7d-9f15-f49a8e3f68b2.jsonl",
+    "native_lines": 6
+   },
+   "l3": {
+    "ok": true,
+    "tool": "omp --mode=rpc -r <file>",
+    "command": "omp --session-dir <staging> --mode=rpc -r <file>",
+    "detail": "omp accepted the transcript in --mode=rpc (no model call; process stayed alive waiting for input=False)",
+    "evidence": "/tmp/asi-matrix-t11b/directions/claude_to_omp/omp/-/2026-10-23T06-52-11-873Z_c4a817b3-7e6b-5d7d-9f15-f49a8e3f68b2.jsonl",
+    "output_excerpt": "{\"type\":\"ready\",\"protocolVersion\":1,\"supportedProtocolVersions\":[1,2],\"maxFrameBytes\":1048576,\"maxReassembledFrameBytes\":67108864}\n{\"type\":\"extension_ui_request\",\"id\":\"15b9913a4c731cc8\",\"method\":\"setW"
+   },
+   "lossy": [],
+   "warnings": [],
+   "evidence_path": "/tmp/asi-matrix-t11b/directions/claude_to_omp/omp/-/2026-10-23T06-52-11-873Z_c4a817b3-7e6b-5d7d-9f15-f49a8e3f68b2.jsonl",
+   "status": "pass"
+  },
+  {
+   "from": "claude",
+   "to": "qoder",
+   "source_session_id": "b59c58e1-17c5-4758-8d69-2a0e98bd8bee",
+   "source_path": "/tmp/home/.claude/projects/-Users-larr/b59c58e1-17c5-4758-8d69-2a0e98bd8bee.jsonl",
+   "ir_counts": {
+    "user_message": 2,
+    "assistant_message": 1
+   },
+   "l0": {
+    "ok": true,
+    "detail": "reader=claude events=3"
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true,
+    "artifact": "/tmp/asi-matrix-t11b/directions/claude_to_qoder/qoder/projects/-Users-larr/57675093-3ead-520f-8dfe-b02d58a65178.jsonl",
+    "native_lines": 9
+   },
+   "l3": {
+    "ok": null,
+    "tool": null,
+    "command": null,
+    "detail": "Qoder CLI is not installed (IDE-only); native discovery unverifiable -> format-level verification via reader round-trip only",
+    "evidence": "/tmp/asi-matrix-t11b/directions/claude_to_qoder/qoder/projects/-Users-larr/57675093-3ead-520f-8dfe-b02d58a65178.jsonl"
+   },
+   "lossy": [],
+   "warnings": [],
+   "evidence_path": "/tmp/asi-matrix-t11b/directions/claude_to_qoder/qoder/projects/-Users-larr/57675093-3ead-520f-8dfe-b02d58a65178.jsonl",
+   "status": "partial"
+  },
+  {
+   "from": "codex",
+   "to": "claude",
+   "source_session_id": "01a0fc68-e093-77e3-b7a5-4af866e8d83c",
+   "source_path": "/tmp/home/.codex/sessions/2026/10/02/rollout-2026-10-02T19-38-46-01a0fc68-e093-77e3-b7a5-4af866e8d83c.jsonl",
+   "ir_counts": {
+    "user_message": 1,
+    "assistant_message": 1
+   },
+   "l0": {
+    "ok": true,
+    "detail": "reader=codex events=2"
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true,
+    "artifact": "/tmp/asi-matrix-t11b/directions/codex_to_claude/claude/projects/-private-tmp-codex-smoke/b76e3f40-8d94-554e-b73a-607413612902.jsonl",
+    "native_lines": 5
+   },
+   "l3": {
+    "ok": true,
+    "tool": "claude CLI resume (PTY, no prompt)",
+    "command": "HOME=/tmp/asi-matrix-t11b/directions/codex_to_claude/home CLAUDE_CONFIG_DIR=/tmp/asi-matrix-t11b/directions/codex_to_claude/claude ANTHROPIC_API_KEY=<fake> claude --bare --resume b76e3f40-8d94-554e-b73a-607413612902.jsonl",
+    "detail": "claude TUI rendered source session content (first user text 'Reply with exactly: SMOKE_OK')",
+    "evidence": "/tmp/asi-matrix-t11b/directions/codex_to_claude/claude/projects/-private-tmp-codex-smoke/b76e3f40-8d94-554e-b73a-607413612902.jsonl",
+    "output_excerpt": "78▐▛███▛█ClaudeCodev2.1.308▝▜██████▀Opus5.5·APIUsageBilling▝▝▝▝/private/tmp/asi-matrix-t11b/directions/codex_to_claude/cwd⚠Remotemanagedsettingsfailedtoload(accessdenied(403))·noremotepolicyapplied·/statusfordetails❯Replywithexactly:SMOKE_OK⏺SMOKE_OK⏺Sessionmodelgpt-6.1-solcouldnotberestored(notamodelthisversionofClaudeCoderecognizes)—usingthedefaultmodelinstead.◐medium·/effort────────────────────"
+   },
+   "lossy": [],
+   "warnings": [],
+   "evidence_path": "/tmp/asi-matrix-t11b/directions/codex_to_claude/claude/projects/-private-tmp-codex-smoke/b76e3f40-8d94-554e-b73a-607413612902.jsonl",
+   "status": "pass"
+  },
+  {
+   "from": "codex",
+   "to": "dsh",
+   "source_session_id": "01a0fc68-e093-77e3-b7a5-4af866e8d83c",
+   "source_path": "/tmp/home/.codex/sessions/2026/10/02/rollout-2026-10-02T19-38-46-01a0fc68-e093-77e3-b7a5-4af866e8d83c.jsonl",
+   "ir_counts": {
+    "user_message": 1,
+    "assistant_message": 1
+   },
+   "l0": {
+    "ok": true,
+    "detail": "reader=codex events=2"
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true,
+    "artifact": "/tmp/asi-matrix-t11b/directions/codex_to_dsh/dsh/sessions/--private-tmp-codex-smoke--/session-98c8ac4d-89ca-546c-bcf2-63098e9063ff/session.v4.jsonl.zstd",
+    "native_lines": 11
+   },
+   "l3": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "command": "node tests/e2e_load.mjs session.v4.jsonl.zstd",
+    "detail": "Session.fromRestore OK: seq=11 messages=2",
+    "evidence": "/tmp/asi-matrix-t11b/directions/codex_to_dsh/dsh/sessions/--private-tmp-codex-smoke--/session-98c8ac4d-89ca-546c-bcf2-63098e9063ff/session.v4.jsonl.zstd",
+    "info": {
+     "sessionId": "session-98c8ac4d-89ca-546c-bcf2-63098e9063ff",
+     "seq": 11,
+     "events": 11,
+     "messages": 2,
+     "roles": [
+      "user",
+      "assistant"
+     ],
+     "firstUserText": "Reply with exactly: SMOKE_OK"
+    }
+   },
+   "lossy": [],
+   "warnings": [],
+   "evidence_path": "/tmp/asi-matrix-t11b/directions/codex_to_dsh/dsh/sessions/--private-tmp-codex-smoke--/session-98c8ac4d-89ca-546c-bcf2-63098e9063ff/session.v4.jsonl.zstd",
+   "status": "pass"
+  },
+  {
+   "from": "codex",
+   "to": "omp",
+   "source_session_id": "01a0fc68-e093-77e3-b7a5-4af866e8d83c",
+   "source_path": "/tmp/home/.codex/sessions/2026/10/02/rollout-2026-10-02T19-38-46-01a0fc68-e093-77e3-b7a5-4af866e8d83c.jsonl",
+   "ir_counts": {
+    "user_message": 1,
+    "assistant_message": 1
+   },
+   "l0": {
+    "ok": true,
+    "detail": "reader=codex events=2"
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true,
+    "artifact": "/tmp/asi-matrix-t11b/directions/codex_to_omp/omp/-private-tmp-codex-smoke/2026-10-02T11-38-46-896Z_dc5f4347-8abf-568c-ab03-97cdda7510c6.jsonl",
+    "native_lines": 5
+   },
+   "l3": {
+    "ok": true,
+    "tool": "omp --mode=rpc -r <file>",
+    "command": "omp --session-dir <staging> --mode=rpc -r <file> --model 'gpt-6.1-sol'",
+    "detail": "omp accepted the transcript in --mode=rpc (no model call; process stayed alive waiting for input=False)",
+    "evidence": "/tmp/asi-matrix-t11b/directions/codex_to_omp/omp/-private-tmp-codex-smoke/2026-10-02T11-38-46-896Z_dc5f4347-8abf-568c-ab03-97cdda7510c6.jsonl",
+    "output_excerpt": "{\"type\":\"ready\",\"protocolVersion\":1,\"supportedProtocolVersions\":[1,2],\"maxFrameBytes\":1048576,\"maxReassembledFrameBytes\":67108864}\n{\"type\":\"extension_ui_request\",\"id\":\"15b9914dc4c614f9\",\"method\":\"setW"
+   },
+   "lossy": [],
+   "warnings": [],
+   "evidence_path": "/tmp/asi-matrix-t11b/directions/codex_to_omp/omp/-private-tmp-codex-smoke/2026-10-02T11-38-46-896Z_dc5f4347-8abf-568c-ab03-97cdda7510c6.jsonl",
+   "status": "pass"
+  },
+  {
+   "from": "codex",
+   "to": "qoder",
+   "source_session_id": "01a0fc68-e093-77e3-b7a5-4af866e8d83c",
+   "source_path": "/tmp/home/.codex/sessions/2026/10/02/rollout-2026-10-02T19-38-46-01a0fc68-e093-77e3-b7a5-4af866e8d83c.jsonl",
+   "ir_counts": {
+    "user_message": 1,
+    "assistant_message": 1
+   },
+   "l0": {
+    "ok": true,
+    "detail": "reader=codex events=2"
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true,
+    "artifact": "/tmp/asi-matrix-t11b/directions/codex_to_qoder/qoder/projects/-private-tmp-codex-smoke/2b49f7f0-805f-52c8-a4f2-b3c6aa40e806.jsonl",
+    "native_lines": 7
+   },
+   "l3": {
+    "ok": null,
+    "tool": null,
+    "command": null,
+    "detail": "Qoder CLI is not installed (IDE-only); native discovery unverifiable -> format-level verification via reader round-trip only",
+    "evidence": "/tmp/asi-matrix-t11b/directions/codex_to_qoder/qoder/projects/-private-tmp-codex-smoke/2b49f7f0-805f-52c8-a4f2-b3c6aa40e806.jsonl"
+   },
+   "lossy": [],
+   "warnings": [],
+   "evidence_path": "/tmp/asi-matrix-t11b/directions/codex_to_qoder/qoder/projects/-private-tmp-codex-smoke/2b49f7f0-805f-52c8-a4f2-b3c6aa40e806.jsonl",
+   "status": "partial"
+  },
+  {
+   "from": "dsh",
+   "to": "claude",
+   "source_session_id": "session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07",
+   "source_path": "/tmp/home/.dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace--/session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07/session.v4.jsonl.zstd",
+   "ir_counts": {
+    "user_message": 5,
+    "assistant_message": 2
+   },
+   "l0": {
+    "ok": true,
+    "detail": "reader=dsh events=7"
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true,
+    "artifact": "/tmp/asi-matrix-t11b/directions/dsh_to_claude/claude/projects/-Users-larr-Documents-deepseek-harness-default-workspace/b3aa03ed-5999-564d-a33e-e51715b99799.jsonl",
+    "native_lines": 15
+   },
+   "l3": {
+    "ok": true,
+    "tool": "claude CLI resume (PTY, no prompt)",
+    "command": "HOME=/tmp/asi-matrix-t11b/directions/dsh_to_claude/home CLAUDE_CONFIG_DIR=/tmp/asi-matrix-t11b/directions/dsh_to_claude/claude ANTHROPIC_API_KEY=<fake> claude --bare --resume b3aa03ed-5999-564d-a33e-e51715b99799.jsonl",
+    "detail": "claude TUI rendered source session content (first user text '[image attachment not imported]\\n[image a')",
+    "evidence": "/tmp/asi-matrix-t11b/directions/dsh_to_claude/claude/projects/-Users-larr-Documents-deepseek-harness-default-workspace/b3aa03ed-5999-564d-a33e-e51715b99799.jsonl",
+    "output_excerpt": "78❯Timesampledwhilepreparingturn1,step1:2026-10-20T16:36:05+08:00[Asia/Shanghai]Browsertimezoneforthisrequest:Asia/Shanghai.Interpretotherwise-unqualifieddatesandtimesinthiszone.Elapsedsincetheprecedingmodel-visiblemessage:unavailable.Thoughtfor8s⏺一条数据就一个文件夹，命名「类型_编号」（类型只要建模、Unity、UE三类，纯代码不收），里面放四样：①需求描述——客户原话或提示词，说清要做什么、什么要求；②初始文件——开工前的原始工程/源文件；③交付文件——做完的最终工程，要能打开、能编辑，素材、依赖、源文件都带上，别只给截图或导出图；④订单截图"
+   },
+   "lossy": [],
+   "warnings": [],
+   "evidence_path": "/tmp/asi-matrix-t11b/directions/dsh_to_claude/claude/projects/-Users-larr-Documents-deepseek-harness-default-workspace/b3aa03ed-5999-564d-a33e-e51715b99799.jsonl",
+   "status": "pass"
+  },
+  {
+   "from": "dsh",
+   "to": "codex",
+   "source_session_id": "session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07",
+   "source_path": "/tmp/home/.dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace--/session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07/session.v4.jsonl.zstd",
+   "ir_counts": {
+    "user_message": 5,
+    "assistant_message": 2
+   },
+   "l0": {
+    "ok": true,
+    "detail": "reader=dsh events=7"
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true,
+    "artifact": "/tmp/asi-matrix-t11b/directions/dsh_to_codex/codex/sessions/2026/10/20/rollout-2026-10-20T08-36-05-005893c4-de08-5586-a71b-5673dc8f2899.jsonl",
+    "native_lines": 34
+   },
+   "l3": {
+    "ok": "partial",
+    "tool": "codex CLI resume TUI",
+    "command": "CODEX_HOME=/tmp/asi-matrix-t11b/directions/dsh_to_codex/codex codex --no-alt-screen resume --include-non-interactive (picker) (PTY)",
+    "detail": "codex resume TUI launched on staged CODEX_HOME but source text was not visible (picker 0/0: Codex 0.164 paginated thread store does not scan bare rollout files); app-server path also did not materialize conversation items: codex app-server thread/resume(path) + thread/items/list returned 0 item(s); but no source text found",
+    "evidence": "/tmp/asi-matrix-t11b/directions/dsh_to_codex/codex/sessions/2026/10/20/rollout-2026-10-20T08-36-05-005893c4-de08-5586-a71b-5673dc8f2899.jsonl",
+    "output_excerpt": "Update available · 0.164.0 → 0.165.0Release notes: https://github.com/openai/codex/releases/latest› 1. Update now (runs `brew upgrade --cask codex`)                                                                                          2.Skip3.Skipuntilnextversionenter continue · esc skip"
+   },
+   "lossy": [],
+   "warnings": [],
+   "evidence_path": "/tmp/asi-matrix-t11b/directions/dsh_to_codex/codex/sessions/2026/10/20/rollout-2026-10-20T08-36-05-005893c4-de08-5586-a71b-5673dc8f2899.jsonl",
+   "status": "partial"
+  },
+  {
+   "from": "dsh",
+   "to": "omp",
+   "source_session_id": "session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07",
+   "source_path": "/tmp/home/.dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace--/session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07/session.v4.jsonl.zstd",
+   "ir_counts": {
+    "user_message": 5,
+    "assistant_message": 2
+   },
+   "l0": {
+    "ok": true,
+    "detail": "reader=dsh events=7"
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true,
+    "artifact": "/tmp/asi-matrix-t11b/directions/dsh_to_omp/omp/-Documents-deepseek-harness-default-workspace/2026-10-20T08-36-05-908Z_1ba2b058-c354-5f59-a7e5-52ca0274dba9.jsonl",
+    "native_lines": 10
+   },
+   "l3": {
+    "ok": true,
+    "tool": "omp --mode=rpc -r <file>",
+    "command": "omp --session-dir <staging> --mode=rpc -r <file>",
+    "detail": "omp accepted the transcript in --mode=rpc (no model call; process stayed alive waiting for input=False)",
+    "evidence": "/tmp/asi-matrix-t11b/directions/dsh_to_omp/omp/-Documents-deepseek-harness-default-workspace/2026-10-20T08-36-05-908Z_1ba2b058-c354-5f59-a7e5-52ca0274dba9.jsonl",
+    "output_excerpt": "{\"type\":\"ready\",\"protocolVersion\":1,\"supportedProtocolVersions\":[1,2],\"maxFrameBytes\":1048576,\"maxReassembledFrameBytes\":67108864}\n{\"type\":\"extension_ui_request\",\"id\":\"15b991843d9aaf68\",\"method\":\"setW"
+   },
+   "lossy": [],
+   "warnings": [],
+   "evidence_path": "/tmp/asi-matrix-t11b/directions/dsh_to_omp/omp/-Documents-deepseek-harness-default-workspace/2026-10-20T08-36-05-908Z_1ba2b058-c354-5f59-a7e5-52ca0274dba9.jsonl",
+   "status": "pass"
+  },
+  {
+   "from": "dsh",
+   "to": "qoder",
+   "source_session_id": "session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07",
+   "source_path": "/tmp/home/.dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace--/session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07/session.v4.jsonl.zstd",
+   "ir_counts": {
+    "user_message": 5,
+    "assistant_message": 2
+   },
+   "l0": {
+    "ok": true,
+    "detail": "reader=dsh events=7"
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true,
+    "artifact": "/tmp/asi-matrix-t11b/directions/dsh_to_qoder/qoder/projects/-Users-larr-Documents-deepseek-harness-default-workspace/35a8c3cb-0460-58ed-ba90-930a9ce1ad41.jsonl",
+    "native_lines": 19
+   },
+   "l3": {
+    "ok": null,
+    "tool": null,
+    "command": null,
+    "detail": "Qoder CLI is not installed (IDE-only); native discovery unverifiable -> format-level verification via reader round-trip only",
+    "evidence": "/tmp/asi-matrix-t11b/directions/dsh_to_qoder/qoder/projects/-Users-larr-Documents-deepseek-harness-default-workspace/35a8c3cb-0460-58ed-ba90-930a9ce1ad41.jsonl"
+   },
+   "lossy": [],
+   "warnings": [],
+   "evidence_path": "/tmp/asi-matrix-t11b/directions/dsh_to_qoder/qoder/projects/-Users-larr-Documents-deepseek-harness-default-workspace/35a8c3cb-0460-58ed-ba90-930a9ce1ad41.jsonl",
+   "status": "partial"
+  },
+  {
+   "from": "omp",
+   "to": "claude",
+   "source_session_id": "01a05c99-970e-7000-bb3c-a304919f20cd",
+   "source_path": "/tmp/home/.omp/agent/sessions/-Research_Assistant-习思想/2026-09-01T10-52-44-686Z_01a05c99-970e-7000-bb3c-a304919f20cd.jsonl",
+   "ir_counts": {
+    "user_message": 1,
+    "assistant_message": 6,
+    "tool_result": 7
+   },
+   "l0": {
+    "ok": true,
+    "detail": "reader=omp events=14"
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true,
+    "artifact": "/tmp/asi-matrix-t11b/directions/omp_to_claude/claude/projects/-Users-larr-Research-Assistant----/371cb872-5b08-546f-8ad3-ef788eee9edb.jsonl",
+    "native_lines": 29
+   },
+   "l3": {
+    "ok": true,
+    "tool": "claude CLI resume (PTY, no prompt)",
+    "command": "HOME=/tmp/asi-matrix-t11b/directions/omp_to_claude/home CLAUDE_CONFIG_DIR=/tmp/asi-matrix-t11b/directions/omp_to_claude/claude ANTHROPIC_API_KEY=<fake> claude --bare --resume 371cb872-5b08-546f-8ad3-ef788eee9edb.jsonl",
+    "detail": "claude TUI rendered source session content (first user text '总结一下总书记的人民城市相关论述')",
+    "evidence": "/tmp/asi-matrix-t11b/directions/omp_to_claude/claude/projects/-Users-larr-Research-Assistant----/371cb872-5b08-546f-8ad3-ef788eee9edb.jsonl",
+    "output_excerpt": "78▐▛███▛█ClaudeCodev2.1.308▝▜██████▀Opus5.5·APIUsageBilling▝▝▝▝/private/tmp/asi-matrix-t11b/directions/omp_to_claude/cwd⚠Remotemanagedsettingsfailedtoload(accessdenied(403))·noremotepolicyapplied·/statusfordetails❯总结一下总书记的人民城市相关论述Thoughtfor1sThoughtfor1sThoughtfor4s⏺Alreadyhavea人民城市研究projectin输出/.Letmecheckexistingprojectsandcorpus.⎿ Error:Path'输出/人民城市研究'notfoundThoughtfor2sThoughtfor2s⏺人民城市研究.zip"
+   },
+   "lossy": [],
+   "warnings": [],
+   "evidence_path": "/tmp/asi-matrix-t11b/directions/omp_to_claude/claude/projects/-Users-larr-Research-Assistant----/371cb872-5b08-546f-8ad3-ef788eee9edb.jsonl",
+   "status": "pass"
+  },
+  {
+   "from": "omp",
+   "to": "codex",
+   "source_session_id": "01a05c99-970e-7000-bb3c-a304919f20cd",
+   "source_path": "/tmp/home/.omp/agent/sessions/-Research_Assistant-习思想/2026-09-01T10-52-44-686Z_01a05c99-970e-7000-bb3c-a304919f20cd.jsonl",
+   "ir_counts": {
+    "user_message": 1,
+    "assistant_message": 6,
+    "tool_result": 7
+   },
+   "l0": {
+    "ok": true,
+    "detail": "reader=omp events=14"
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true,
+    "artifact": "/tmp/asi-matrix-t11b/directions/omp_to_codex/codex/sessions/2026/09/01/rollout-2026-09-01T10-52-57-5d8e6082-8dc0-5a42-acac-61e6614ebcd9.jsonl",
+    "native_lines": 36
+   },
+   "l3": {
+    "ok": "partial",
+    "tool": "codex CLI resume TUI",
+    "command": "CODEX_HOME=/tmp/asi-matrix-t11b/directions/omp_to_codex/codex codex --no-alt-screen resume --include-non-interactive (picker) (PTY)",
+    "detail": "codex resume TUI launched on staged CODEX_HOME but source text was not visible (picker 0/0: Codex 0.164 paginated thread store does not scan bare rollout files); app-server path also did not materialize conversation items: codex app-server thread/resume(path) + thread/items/list returned 0 item(s); but no source text found",
+    "evidence": "/tmp/asi-matrix-t11b/directions/omp_to_codex/codex/sessions/2026/09/01/rollout-2026-09-01T10-52-57-5d8e6082-8dc0-5a42-acac-61e6614ebcd9.jsonl",
+    "output_excerpt": "Update available · 0.164.0 → 0.165.0Release notes: https://github.com/openai/codex/releases/latest› 1. Update now (runs `brew upgrade --cask codex`)                                                                                          2.Skip3.Skipuntilnextversionenter continue · esc skip"
+   },
+   "lossy": [],
+   "warnings": [],
+   "evidence_path": "/tmp/asi-matrix-t11b/directions/omp_to_codex/codex/sessions/2026/09/01/rollout-2026-09-01T10-52-57-5d8e6082-8dc0-5a42-acac-61e6614ebcd9.jsonl",
+   "status": "partial"
+  },
+  {
+   "from": "omp",
+   "to": "dsh",
+   "source_session_id": "01a05c99-970e-7000-bb3c-a304919f20cd",
+   "source_path": "/tmp/home/.omp/agent/sessions/-Research_Assistant-习思想/2026-09-01T10-52-44-686Z_01a05c99-970e-7000-bb3c-a304919f20cd.jsonl",
+   "ir_counts": {
+    "user_message": 1,
+    "assistant_message": 6,
+    "tool_result": 7
+   },
+   "l0": {
+    "ok": true,
+    "detail": "reader=omp events=14"
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true,
+    "artifact": "/tmp/asi-matrix-t11b/directions/omp_to_dsh/dsh/sessions/--Users-larr-Research_Assistant-~4E60~601D~60F3--/session-41b28296-a678-5418-94fa-94a7da7b5e52/session.v4.jsonl.zstd",
+    "native_lines": 40
+   },
+   "l3": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "command": "node tests/e2e_load.mjs session.v4.jsonl.zstd",
+    "detail": "Session.fromRestore OK: seq=40 messages=14",
+    "evidence": "/tmp/asi-matrix-t11b/directions/omp_to_dsh/dsh/sessions/--Users-larr-Research_Assistant-~4E60~601D~60F3--/session-41b28296-a678-5418-94fa-94a7da7b5e52/session.v4.jsonl.zstd",
+    "info": {
+     "sessionId": "session-41b28296-a678-5418-94fa-94a7da7b5e52",
+     "seq": 40,
+     "events": 40,
+     "messages": 14,
+     "roles": [
+      "user",
+      "assistant",
+      "tool",
+      "assistant",
+      "tool",
+      "tool",
+      "assistant",
+      "tool",
+      "tool",
+      "assistant",
+      "tool",
+      "assistant",
+      "tool",
+      "assistant"
+     ],
+     "firstUserText": "总结一下总书记的人民城市相关论述"
+    }
+   },
+   "lossy": [],
+   "warnings": [],
+   "evidence_path": "/tmp/asi-matrix-t11b/directions/omp_to_dsh/dsh/sessions/--Users-larr-Research_Assistant-~4E60~601D~60F3--/session-41b28296-a678-5418-94fa-94a7da7b5e52/session.v4.jsonl.zstd",
+   "status": "pass"
+  },
+  {
+   "from": "omp",
+   "to": "qoder",
+   "source_session_id": "01a05c99-970e-7000-bb3c-a304919f20cd",
+   "source_path": "/tmp/home/.omp/agent/sessions/-Research_Assistant-习思想/2026-09-01T10-52-44-686Z_01a05c99-970e-7000-bb3c-a304919f20cd.jsonl",
+   "ir_counts": {
+    "user_message": 1,
+    "assistant_message": 6,
+    "tool_result": 7
+   },
+   "l0": {
+    "ok": true,
+    "detail": "reader=omp events=14"
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true,
+    "artifact": "/tmp/asi-matrix-t11b/directions/omp_to_qoder/qoder/projects/-Users-larr-Research-Assistant----/f9c82b68-df0c-5f39-b46a-b2132a6e09a2.jsonl",
+    "native_lines": 40
+   },
+   "l3": {
+    "ok": null,
+    "tool": null,
+    "command": null,
+    "detail": "Qoder CLI is not installed (IDE-only); native discovery unverifiable -> format-level verification via reader round-trip only",
+    "evidence": "/tmp/asi-matrix-t11b/directions/omp_to_qoder/qoder/projects/-Users-larr-Research-Assistant----/f9c82b68-df0c-5f39-b46a-b2132a6e09a2.jsonl"
+   },
+   "lossy": [],
+   "warnings": [],
+   "evidence_path": "/tmp/asi-matrix-t11b/directions/omp_to_qoder/qoder/projects/-Users-larr-Research-Assistant----/f9c82b68-df0c-5f39-b46a-b2132a6e09a2.jsonl",
+   "status": "partial"
+  },
+  {
+   "from": "qoder",
+   "to": "claude",
+   "source_session_id": "9f5ddbce-ab66-4213-9c38-c466301d64d3",
+   "source_path": "/tmp/home/.qoder/projects/-Users-larr-Documents-Qoder-2026-10-26-9f5ddbce/9f5ddbce-ab66-4213-9c38-c466301d64d3.jsonl",
+   "ir_counts": {
+    "user_message": 1,
+    "assistant_message": 4,
+    "tool_result": 3
+   },
+   "l0": {
+    "ok": true,
+    "detail": "reader=qoder events=8"
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true,
+    "artifact": "/tmp/asi-matrix-t11b/directions/qoder_to_claude/claude/projects/-Users-larr-Documents-Qoder-2026-10-26-9f5ddbce/a149a611-aaaa-5f87-9129-2ec8d5be486a.jsonl",
+    "native_lines": 17
+   },
+   "l3": {
+    "ok": true,
+    "tool": "claude CLI resume (PTY, no prompt)",
+    "command": "HOME=/tmp/asi-matrix-t11b/directions/qoder_to_claude/home CLAUDE_CONFIG_DIR=/tmp/asi-matrix-t11b/directions/qoder_to_claude/claude ANTHROPIC_API_KEY=<fake> claude --bare --resume a149a611-aaaa-5f87-9129-2ec8d5be486a.jsonl",
+    "detail": "claude TUI rendered source session content (first user text '把https://github.com/Entropyorder/exploit')",
+    "evidence": "/tmp/asi-matrix-t11b/directions/qoder_to_claude/claude/projects/-Users-larr-Documents-Qoder-2026-10-26-9f5ddbce/a149a611-aaaa-5f87-9129-2ec8d5be486a.jsonl",
+    "output_excerpt": "78▐▛███▛█ClaudeCodev2.1.308▝▜██████▀Opus5.5·APIUsageBilling▝▝▝▝/private/tmp/asi-matrix-t11b/directions/qoder_to_claude/cwd⚠Remotemanagedsettingsfailedtoload(accessdenied(403))·noremotepolicyapplied·/statusfordetails❯把https://github.com/Entropyorder/exploitbench-code.gitclone到/tmp/home/Entropyorder/projects下，可以用proxyThoughtfor4s,listed1directory⏺目标目录已存在且无同名仓库，用本地代理127.0.0.1:7890克隆。Thoughtfor1m13s"
+   },
+   "lossy": [],
+   "warnings": [],
+   "evidence_path": "/tmp/asi-matrix-t11b/directions/qoder_to_claude/claude/projects/-Users-larr-Documents-Qoder-2026-10-26-9f5ddbce/a149a611-aaaa-5f87-9129-2ec8d5be486a.jsonl",
+   "status": "pass"
+  },
+  {
+   "from": "qoder",
+   "to": "codex",
+   "source_session_id": "9f5ddbce-ab66-4213-9c38-c466301d64d3",
+   "source_path": "/tmp/home/.qoder/projects/-Users-larr-Documents-Qoder-2026-10-26-9f5ddbce/9f5ddbce-ab66-4213-9c38-c466301d64d3.jsonl",
+   "ir_counts": {
+    "user_message": 1,
+    "assistant_message": 4,
+    "tool_result": 3
+   },
+   "l0": {
+    "ok": true,
+    "detail": "reader=qoder events=8"
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true,
+    "artifact": "/tmp/asi-matrix-t11b/directions/qoder_to_codex/codex/sessions/2026/10/26/rollout-2026-10-26T05-15-52-88f76683-b41c-5d4b-acca-aee59b4acf05.jsonl",
+    "native_lines": 22
+   },
+   "l3": {
+    "ok": "partial",
+    "tool": "codex CLI resume TUI",
+    "command": "CODEX_HOME=/tmp/asi-matrix-t11b/directions/qoder_to_codex/codex codex --no-alt-screen resume --include-non-interactive (picker) (PTY)",
+    "detail": "codex resume TUI launched on staged CODEX_HOME but source text was not visible (picker 0/0: Codex 0.164 paginated thread store does not scan bare rollout files); app-server path also did not materialize conversation items: codex app-server thread/resume(path) + thread/items/list returned 0 item(s); but no source text found",
+    "evidence": "/tmp/asi-matrix-t11b/directions/qoder_to_codex/codex/sessions/2026/10/26/rollout-2026-10-26T05-15-52-88f76683-b41c-5d4b-acca-aee59b4acf05.jsonl",
+    "output_excerpt": "Update available · 0.164.0 → 0.165.0Release notes: https://github.com/openai/codex/releases/latest› 1. Update now (runs `brew upgrade --cask codex`)                                                                                          2.Skip3.Skipuntilnextversionenter continue · esc skip"
+   },
+   "lossy": [],
+   "warnings": [],
+   "evidence_path": "/tmp/asi-matrix-t11b/directions/qoder_to_codex/codex/sessions/2026/10/26/rollout-2026-10-26T05-15-52-88f76683-b41c-5d4b-acca-aee59b4acf05.jsonl",
+   "status": "partial"
+  },
+  {
+   "from": "qoder",
+   "to": "dsh",
+   "source_session_id": "9f5ddbce-ab66-4213-9c38-c466301d64d3",
+   "source_path": "/tmp/home/.qoder/projects/-Users-larr-Documents-Qoder-2026-10-26-9f5ddbce/9f5ddbce-ab66-4213-9c38-c466301d64d3.jsonl",
+   "ir_counts": {
+    "user_message": 1,
+    "assistant_message": 4,
+    "tool_result": 3
+   },
+   "l0": {
+    "ok": true,
+    "detail": "reader=qoder events=8"
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true,
+    "artifact": "/tmp/asi-matrix-t11b/directions/qoder_to_dsh/dsh/sessions/--Users-larr-Documents-Qoder-2026-10-26-9f5ddbce--/session-f9044588-13b6-5a69-8e11-074d6251d3f6/session.v4.jsonl.zstd",
+    "native_lines": 26
+   },
+   "l3": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "command": "node tests/e2e_load.mjs session.v4.jsonl.zstd",
+    "detail": "Session.fromRestore OK: seq=26 messages=8",
+    "evidence": "/tmp/asi-matrix-t11b/directions/qoder_to_dsh/dsh/sessions/--Users-larr-Documents-Qoder-2026-10-26-9f5ddbce--/session-f9044588-13b6-5a69-8e11-074d6251d3f6/session.v4.jsonl.zstd",
+    "info": {
+     "sessionId": "session-f9044588-13b6-5a69-8e11-074d6251d3f6",
+     "seq": 26,
+     "events": 26,
+     "messages": 8,
+     "roles": [
+      "user",
+      "assistant",
+      "tool",
+      "assistant",
+      "tool",
+      "assistant",
+      "tool",
+      "assistant"
+     ],
+     "firstUserText": "把https://github.com/Entropyorder/exploitbench-code.git clone到/tmp/home/Entropyorder/projects下，可以用proxy"
+    }
+   },
+   "lossy": [],
+   "warnings": [],
+   "evidence_path": "/tmp/asi-matrix-t11b/directions/qoder_to_dsh/dsh/sessions/--Users-larr-Documents-Qoder-2026-10-26-9f5ddbce--/session-f9044588-13b6-5a69-8e11-074d6251d3f6/session.v4.jsonl.zstd",
+   "status": "pass"
+  },
+  {
+   "from": "qoder",
+   "to": "omp",
+   "source_session_id": "9f5ddbce-ab66-4213-9c38-c466301d64d3",
+   "source_path": "/tmp/home/.qoder/projects/-Users-larr-Documents-Qoder-2026-10-26-9f5ddbce/9f5ddbce-ab66-4213-9c38-c466301d64d3.jsonl",
+   "ir_counts": {
+    "user_message": 1,
+    "assistant_message": 4,
+    "tool_result": 3
+   },
+   "l0": {
+    "ok": true,
+    "detail": "reader=qoder events=8"
+   },
+   "l1": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true
+   },
+   "l2": {
+    "ok": true,
+    "detail": null,
+    "lossy": [],
+    "timestamp_ok": true,
+    "artifact": "/tmp/asi-matrix-t11b/directions/qoder_to_omp/omp/-Documents-Qoder-2026-10-26-9f5ddbce/2026-10-26T05-15-52-343Z_2e5becf3-5631-58c9-aec0-66cf17e34f83.jsonl",
+    "native_lines": 11
+   },
+   "l3": {
+    "ok": true,
+    "tool": "omp --mode=rpc -r <file>",
+    "command": "omp --session-dir <staging> --mode=rpc -r <file> --model 'magpie/deepseek/deepseek-flash'",
+    "detail": "omp accepted the transcript in --mode=rpc (no model call; process stayed alive waiting for input=False)",
+    "evidence": "/tmp/asi-matrix-t11b/directions/qoder_to_omp/omp/-Documents-Qoder-2026-10-26-9f5ddbce/2026-10-26T05-15-52-343Z_2e5becf3-5631-58c9-aec0-66cf17e34f83.jsonl",
+    "output_excerpt": "{\"type\":\"ready\",\"protocolVersion\":1,\"supportedProtocolVersions\":[1,2],\"maxFrameBytes\":1048576,\"maxReassembledFrameBytes\":67108864}\n{\"type\":\"extension_ui_request\",\"id\":\"15b991f19bb67b49\",\"method\":\"setW"
+   },
+   "lossy": [],
+   "warnings": [],
+   "evidence_path": "/tmp/asi-matrix-t11b/directions/qoder_to_omp/omp/-Documents-Qoder-2026-10-26-9f5ddbce/2026-10-26T05-15-52-343Z_2e5becf3-5631-58c9-aec0-66cf17e34f83.jsonl",
+   "status": "pass"
+  }
+ ],
+ "atif_self_roundtrip": [
+  {
+   "source": "claude",
+   "source_session_id": "b59c58e1-17c5-4758-8d69-2a0e98bd8bee",
+   "ok": true,
+   "validate_errors": [],
+   "lossy": [],
+   "counts": {
+    "user_message": 2,
+    "assistant_message": 1
+   },
+   "detail": null
+  },
+  {
+   "source": "codex",
+   "source_session_id": "01a0fc68-e093-77e3-b7a5-4af866e8d83c",
+   "ok": true,
+   "validate_errors": [],
+   "lossy": [],
+   "counts": {
+    "user_message": 1,
+    "assistant_message": 1
+   },
+   "detail": null
+  },
+  {
+   "source": "dsh",
+   "source_session_id": "session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07",
+   "ok": true,
+   "validate_errors": [],
+   "lossy": [],
+   "counts": {
+    "user_message": 5,
+    "assistant_message": 2
+   },
+   "detail": null
+  },
+  {
+   "source": "omp",
+   "source_session_id": "01a05c99-970e-7000-bb3c-a304919f20cd",
+   "ok": true,
+   "validate_errors": [],
+   "lossy": [],
+   "counts": {
+    "user_message": 1,
+    "assistant_message": 6,
+    "tool_result": 7
+   },
+   "detail": null
+  },
+  {
+   "source": "qoder",
+   "source_session_id": "9f5ddbce-ab66-4213-9c38-c466301d64d3",
+   "ok": true,
+   "validate_errors": [],
+   "lossy": [],
+   "counts": {
+    "user_message": 1,
+    "assistant_message": 4,
+    "tool_result": 3
+   },
+   "detail": null
+  }
+ ]
+}

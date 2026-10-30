@@ -1,0 +1,770 @@
+{
+ "schema": "asi-batch5-matrix/v2",
+ "asi_version": "0.1.0",
+ "generated_at": "2026-10-29T20:10:30Z",
+ "out_dir": "/tmp/asi-batch5-63",
+ "summary": {
+  "harnesses": 17,
+  "pass": 16,
+  "partial": 1,
+  "fail": 0,
+  "real_local": 2,
+  "constructed": 10,
+  "upgraded": 1,
+  "new_sources": 3
+ },
+ "entries": [
+  {
+   "harness": "gemini",
+   "evidence_level": "REAL-LOCAL",
+   "constructed": false,
+   "fixture_path": "/tmp/home/.gemini/tmp/larr/chats/session-2026-10-14T17-52-e0fcd273.jsonl",
+   "source_session_id": "e0fcd273-838d-482c-bb77-118d07c644a6",
+   "ir_counts": {
+    "events": 1,
+    "user_messages": 1,
+    "assistant_messages": 0,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "model": "",
+   "messages": 1,
+   "tool_calls": 0,
+   "f0": {
+    "ok": true,
+    "events": 1
+   },
+   "f1": {
+    "ok": true,
+    "steps": 1,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=10 messages=1"
+   },
+   "f2": {
+    "ok": true,
+    "detail": null,
+    "format": "gemini-chat-json",
+    "artifact": "/tmp/asi-batch5-63/gemini/target/tmp/255a6ebad959349d897ac3adf38ddcf8fb2995fd81c83376bd656c4edfb9df88/chats/session-2026-10-14T17-52-48-e0dfd6.json",
+    "lossy": []
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "pi",
+   "evidence_level": "REAL-LOCAL",
+   "constructed": false,
+   "fixture_path": "/tmp/home/.pi/agent/sessions/--Users-larr-Research_Assistant-【1014】数字政府报告--/2026-10-14T18-32-47-813Z_01a13bb0-3bc5-74bd-808d-36d65448b80e.jsonl",
+   "source_session_id": "01a13bb0-3bc5-74bd-808d-36d65448b80e",
+   "ir_counts": {
+    "events": 96,
+    "user_messages": 2,
+    "assistant_messages": 43,
+    "reasoning_blocks": 0,
+    "tool_calls": 51,
+    "tool_results": 51,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "model": "gemini-4-argon",
+   "messages": 2,
+   "tool_calls": 51,
+   "f0": {
+    "ok": true,
+    "events": 96
+   },
+   "f1": {
+    "ok": true,
+    "steps": 45,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=242 messages=96"
+   },
+   "f2": {
+    "ok": true,
+    "detail": null,
+    "format": "pi-tree-jsonl",
+    "artifact": "/tmp/asi-batch5-63/pi/target/sessions/-Users-larr-Research-Assistant--1014-------/2026-10-14T18-32-47-813Z_0c03f7c4-fbbd-5e91-80ea-fb121bd7e2d1.jsonl",
+    "lossy": []
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "goose",
+   "evidence_level": "FIXTURE-CONSTRUCTED",
+   "constructed": true,
+   "fixture_path": "samples/batch5/constructed/goose/sessions/sessions.db",
+   "source_session_id": "b5goose",
+   "ir_counts": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "model": "",
+   "messages": 1,
+   "tool_calls": 0,
+   "f0": {
+    "ok": true,
+    "events": 2
+   },
+   "f1": {
+    "ok": true,
+    "steps": 2,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=11 messages=2"
+   },
+   "f2": {
+    "ok": true,
+    "detail": null,
+    "format": "goose-sqlite-official-schema",
+    "artifact": "/tmp/asi-batch5-63/goose/target/goose/sessions/sessions.db",
+    "lossy": []
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "continue",
+   "evidence_level": "FIXTURE-CONSTRUCTED",
+   "constructed": true,
+   "fixture_path": "samples/batch5/constructed/continue/sessions/b5continue.json",
+   "source_session_id": "b5continue",
+   "ir_counts": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "model": "",
+   "messages": 1,
+   "tool_calls": 0,
+   "f0": {
+    "ok": true,
+    "events": 2
+   },
+   "f1": {
+    "ok": true,
+    "steps": 2,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=11 messages=2"
+   },
+   "f2": {
+    "ok": true,
+    "detail": null,
+    "format": "continue-session-json",
+    "artifact": "/tmp/asi-batch5-63/continue/target/continue/sessions/a2381598-81b8-5709-8820-906a6e1d92d4.json",
+    "lossy": []
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "junie",
+   "evidence_level": "FIXTURE-CONSTRUCTED",
+   "constructed": true,
+   "fixture_path": "samples/batch5/constructed/junie/sessions/b5junie/events.jsonl",
+   "source_session_id": "b5junie",
+   "ir_counts": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "model": "",
+   "messages": 1,
+   "tool_calls": 0,
+   "f0": {
+    "ok": true,
+    "events": 2
+   },
+   "f1": {
+    "ok": true,
+    "steps": 2,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=11 messages=2"
+   },
+   "f2": {
+    "ok": true,
+    "detail": null,
+    "format": "junie-events-jsonl+state",
+    "artifact": "/tmp/asi-batch5-63/junie/target/junie/sessions/c043c2e6-34f2-5445-8b0a-a474cfb44c99/events.jsonl",
+    "lossy": []
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "kiro",
+   "evidence_level": "FIXTURE-LOW",
+   "constructed": true,
+   "fixture_path": "samples/batch5/kiro/sessions/7787f985-7083-420e-b99d-a74ccce5c00f/session.jsonl",
+   "source_session_id": "7787f985-7083-420e-b99d-a74ccce5c00f",
+   "ir_counts": {
+    "events": 7,
+    "user_messages": 2,
+    "assistant_messages": 3,
+    "reasoning_blocks": 1,
+    "tool_calls": 1,
+    "tool_results": 2,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "model": "",
+   "messages": 2,
+   "tool_calls": 1,
+   "f0": {
+    "ok": true,
+    "events": 7
+   },
+   "f1": {
+    "ok": true,
+    "steps": 5,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=22 messages=6"
+   },
+   "f2": {
+    "ok": true,
+    "detail": {
+     "index": 2,
+     "expected": "('tool', '', '{\"toolUseId\": \"tooluse_1\", \"content\": [{\"kind\": \"text\", \"data\": \"User denied tool execution\"}], \"status\": \"error\"}', False)",
+     "actual": "('assistant', 'DONE', ())"
+    },
+    "format": "kiro-cli-v1-jsonl",
+    "artifact": "/tmp/asi-batch5-63/kiro/target/kiro/sessions/session-94c46ff7-21a0-5b18-81a0-c0d8e4715a72/session.jsonl",
+    "lossy": [
+     "text-only-roundtrip(image/tool blocks not persisted)"
+    ]
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "crush",
+   "evidence_level": "FIXTURE-CONSTRUCTED",
+   "constructed": true,
+   "fixture_path": "samples/batch5/constructed/crush/project/.crush/crush.db",
+   "source_session_id": "b5crush",
+   "ir_counts": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "model": "",
+   "messages": 1,
+   "tool_calls": 0,
+   "f0": {
+    "ok": true,
+    "events": 2
+   },
+   "f1": {
+    "ok": true,
+    "steps": 2,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=11 messages=2"
+   },
+   "f2": {
+    "ok": true,
+    "detail": null,
+    "format": "crush-sqlite",
+    "artifact": "/tmp/asi-batch5-63/crush/target/crush/project/.crush/crush.db",
+    "lossy": []
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "cline",
+   "evidence_level": "FIXTURE-CONSTRUCTED",
+   "constructed": true,
+   "fixture_path": "samples/batch5/constructed/cline/data/sessions/b5cline/b5cline.messages.json",
+   "source_session_id": "b5cline",
+   "ir_counts": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "model": "batch5-constructed-model",
+   "messages": 1,
+   "tool_calls": 0,
+   "f0": {
+    "ok": true,
+    "events": 2
+   },
+   "f1": {
+    "ok": true,
+    "steps": 2,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=11 messages=2"
+   },
+   "f2": {
+    "ok": true,
+    "detail": null,
+    "format": "cline-cli-session-json+cline.messages.json",
+    "artifact": "/tmp/asi-batch5-63/cline/target/cline/data/sessions/ccf23c31-9e5b-5044-abc0-e28e25f6957d/ccf23c31-9e5b-5044-abc0-e28e25f6957d.messages.json",
+    "lossy": []
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "roo",
+   "evidence_level": "FIXTURE-CONSTRUCTED",
+   "constructed": true,
+   "fixture_path": "samples/batch5/constructed/roo/data/sessions/b5roo/b5roo.messages.json",
+   "source_session_id": "b5roo",
+   "ir_counts": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "model": "batch5-constructed-model",
+   "messages": 1,
+   "tool_calls": 0,
+   "f0": {
+    "ok": true,
+    "events": 2
+   },
+   "f1": {
+    "ok": true,
+    "steps": 2,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=11 messages=2"
+   },
+   "f2": {
+    "ok": true,
+    "detail": null,
+    "format": "roo-cli-session-json+roo.messages.json",
+    "artifact": "/tmp/asi-batch5-63/roo/target/roo/data/sessions/7e1e0855-17a8-5621-838f-cbd8d398b44c/7e1e0855-17a8-5621-838f-cbd8d398b44c.messages.json",
+    "lossy": []
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "kilo-code",
+   "evidence_level": "FIXTURE-CONSTRUCTED",
+   "constructed": true,
+   "fixture_path": "samples/batch5/constructed/kilo-code/data/sessions/b5kilo-code/b5kilo-code.messages.json",
+   "source_session_id": "b5kilo-code",
+   "ir_counts": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "model": "batch5-constructed-model",
+   "messages": 1,
+   "tool_calls": 0,
+   "f0": {
+    "ok": true,
+    "events": 2
+   },
+   "f1": {
+    "ok": true,
+    "steps": 2,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=11 messages=2"
+   },
+   "f2": {
+    "ok": true,
+    "detail": null,
+    "format": "kilo-code-cli-session-json+kilo-code.messages.json",
+    "artifact": "/tmp/asi-batch5-63/kilo-code/target/kilo-code/data/sessions/6424f966-c460-5e2b-bd90-aa193f1dc905/6424f966-c460-5e2b-bd90-aa193f1dc905.messages.json",
+    "lossy": []
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "codebuff",
+   "evidence_level": "FIXTURE-CONSTRUCTED",
+   "constructed": true,
+   "fixture_path": "samples/batch5/constructed/codebuff/projects/constructed-project/chats/b5codebuff/chat-messages.json",
+   "source_session_id": "b5codebuff",
+   "ir_counts": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "model": "",
+   "messages": 1,
+   "tool_calls": 0,
+   "f0": {
+    "ok": true,
+    "events": 2
+   },
+   "f1": {
+    "ok": true,
+    "steps": 2,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=11 messages=2"
+   },
+   "f2": {
+    "ok": true,
+    "detail": null,
+    "format": "codebuff-chat-messages-json",
+    "artifact": "/tmp/asi-batch5-63/codebuff/target/codebuff/projects/constructed-project/chats/786f2329-781a-5901-9dea-619439335a38/chat-messages.json",
+    "lossy": []
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "openhands",
+   "evidence_level": "FIXTURE-CONSTRUCTED",
+   "constructed": true,
+   "fixture_path": "samples/batch5/constructed/openhands/conversations/b5openhands/base_state.json",
+   "source_session_id": "b5openhands",
+   "ir_counts": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "model": "batch5-constructed-model",
+   "messages": 1,
+   "tool_calls": 0,
+   "f0": {
+    "ok": true,
+    "events": 2
+   },
+   "f1": {
+    "ok": true,
+    "steps": 2,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=11 messages=2"
+   },
+   "f2": {
+    "ok": true,
+    "detail": null,
+    "format": "openhands-localfilestore",
+    "artifact": "/tmp/asi-batch5-63/openhands/target/openhands/conversations/69d4ea65-2da3-536e-a2ed-4c0f93cdb47c/base_state.json",
+    "lossy": []
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "vibe",
+   "evidence_level": "FIXTURE-CONSTRUCTED",
+   "constructed": true,
+   "fixture_path": "samples/batch5/constructed/vibe/logs/session/session_20261030_224000_b5vibe.json",
+   "source_session_id": "b5vibe",
+   "ir_counts": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "model": "batch5-constructed-model",
+   "messages": 1,
+   "tool_calls": 0,
+   "f0": {
+    "ok": true,
+    "events": 2
+   },
+   "f1": {
+    "ok": true,
+    "steps": 2,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=11 messages=2"
+   },
+   "f2": {
+    "ok": true,
+    "detail": null,
+    "format": "vibe-legacy-single-json",
+    "artifact": "/tmp/asi-batch5-63/vibe/target/vibe/logs/session/session_19700101_000001_30521d7e.json",
+    "lossy": []
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "codebuddy",
+   "evidence_level": "FIXTURE-LOW",
+   "constructed": true,
+   "fixture_path": "samples/batch5/codebuddy/item-format.jsonl",
+   "source_session_id": "sess-text",
+   "ir_counts": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "model": "",
+   "messages": 1,
+   "tool_calls": 0,
+   "f0": {
+    "ok": true,
+    "events": 2
+   },
+   "f1": {
+    "ok": true,
+    "steps": 2,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=11 messages=2"
+   },
+   "f2": {
+    "ok": true,
+    "detail": null,
+    "format": "codebuddy-jsonl",
+    "artifact": "/tmp/asi-batch5-63/codebuddy/target/codebuddy/session-7ab41b0d-3ff9-50b3-b8ca-67004aefbc2d.jsonl",
+    "lossy": []
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "fx",
+   "evidence_level": "FIXTURE",
+   "constructed": true,
+   "fixture_path": "samples/batch5/agent-sessions/fx/schema4/session.json",
+   "source_session_id": "Fx4FixtureS1",
+   "ir_counts": {
+    "events": 9,
+    "user_messages": 3,
+    "assistant_messages": 3,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 3,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "model": "demo/model-2",
+   "messages": 3,
+   "tool_calls": 0,
+   "f0": {
+    "ok": true,
+    "events": 9
+   },
+   "f1": {
+    "ok": null,
+    "detail": "partial: fx orphan tool_result events are not representable in ATIF (fixture has tool_results without paired tool_calls)",
+    "steps": 6,
+    "lossy": [
+     "fx:orphan-tool-results-not-in-atif"
+    ]
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=25 messages=6"
+   },
+   "f2": {
+    "ok": null,
+    "detail": "partial: fx writer persists text events only; image/tool blocks lossy",
+    "format": "fx-session+events",
+    "artifact": "/tmp/asi-batch5-63/fx/target/fx/session-4e6335b5-3851-5617-a764-431b73e42628/session.json",
+    "lossy": [
+     "fx:image-and-tool-roundtrip-lossy"
+    ]
+   },
+   "status": "partial"
+  },
+  {
+   "harness": "mini-swe-agent",
+   "evidence_level": "FIXTURE",
+   "constructed": true,
+   "fixture_path": "samples/batch5/harbor/mini-swe-agent-trajectory.json",
+   "source_session_id": "mini-swe-agent-trajectory",
+   "ir_counts": {
+    "events": 6,
+    "user_messages": 3,
+    "assistant_messages": 3,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "model": "anthropic/claude-3-5-sonnet-20241022",
+   "messages": 3,
+   "tool_calls": 0,
+   "f0": {
+    "ok": true,
+    "events": 6
+   },
+   "f1": {
+    "ok": true,
+    "steps": 6,
+    "detail": null,
+    "lossy": []
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore",
+    "detail": "Session.fromRestore OK: seq=23 messages=6"
+   },
+   "f2": {
+    "ok": true,
+    "detail": null,
+    "format": "harbor-mini-swe-trajectory-json",
+    "artifact": "/tmp/asi-batch5-63/mini-swe-agent/target/harbor/session-2c044920-9b72-5102-b1fc-611fd37293e4.json",
+    "lossy": []
+   },
+   "status": "pass"
+  },
+  {
+   "harness": "claude-desktop",
+   "evidence_level": "COLLECTED-SPARSE",
+   "constructed": false,
+   "fixture_path": "samples/batch2/oss-add/claude-desktop__claude-opus-5__1de869622a235b91feb5.jsonl",
+   "source_session_id": "1de869622a235b91feb5d7393be9e941",
+   "ir_counts": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 1,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "model": "claude-opus-5",
+   "messages": 1,
+   "tool_calls": 0,
+   "note": "real OSS capture sample, only 2 messages; not counted as full real coverage",
+   "f0": {
+    "ok": true
+   },
+   "f1": {
+    "ok": true,
+    "steps": 2
+   },
+   "f2": {
+    "ok": null,
+    "detail": "N/A: sparse collected sample (schema/low fidelity)"
+   },
+   "f2b": {
+    "ok": true,
+    "tool": "dsh Session.fromRestore"
+   },
+   "status": "pass"
+  }
+ ]
+}

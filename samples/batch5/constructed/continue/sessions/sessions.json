@@ -1,0 +1,10 @@
+{
+ "sessions": [
+  {
+   "id": "b5continue",
+   "title": "Batch 5 constructed sample: list the repository files.",
+   "dateCreated": 1793400000000,
+   "workspaceDirectory": "/tmp/as-agent-lab/batch5/project"
+  }
+ ]
+}

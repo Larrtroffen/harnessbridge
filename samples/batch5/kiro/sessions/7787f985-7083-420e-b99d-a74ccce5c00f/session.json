@@ -1,0 +1,47 @@
+{
+  "session_id": "7787f985-7083-420e-b99d-a74ccce5c00f",
+  "cwd": "/tmp/kprobe/cwd",
+  "created_at": "2026-09-27T11:52:15.670458Z",
+  "updated_at": "2026-09-27T11:54:29.957575Z",
+  "title": null,
+  "session_created_reason": "subagent",
+  "session_state": {
+    "version": "v1",
+    "conversation_metadata": {
+      "user_turn_metadatas": [
+        {
+          "message_ids": [
+            "p1",
+            "a1",
+            "r1",
+            "a2"
+          ],
+          "end_reason": "UserTurnEnd",
+          "end_timestamp": "2026-09-27T11:52:26.709231Z",
+          "input_token_count": 0,
+          "model": "auto"
+        },
+        {
+          "message_ids": [
+            "p2",
+            "a3"
+          ],
+          "end_reason": "UserTurnEnd",
+          "end_timestamp": "2026-09-27T11:54:34Z",
+          "model": "claude-opus-5.5"
+        }
+      ],
+      "last_context_usage": {
+        "percentage": 10.0,
+        "model_id": "claude-opus-5.5"
+      }
+    },
+    "rts_model_state": {
+      "model_info": {
+        "model_id": "claude-opus-5.5",
+        "context_window_tokens": 1000000
+      },
+      "context_usage_percentage": 10.0
+    }
+  }
+}

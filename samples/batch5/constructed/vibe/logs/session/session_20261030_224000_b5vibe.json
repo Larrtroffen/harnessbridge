@@ -1,0 +1,22 @@
+{
+ "session_id": "b5vibe",
+ "metadata": {
+  "title": "Batch 5 constructed sample: list the repository files.",
+  "cwd": "/tmp/as-agent-lab/batch5/project",
+  "model": "batch5-constructed-model",
+  "stats": {
+   "input_tokens": 0,
+   "output_tokens": 0
+  }
+ },
+ "messages": [
+  {
+   "role": "user",
+   "content": "Batch 5 constructed sample: list the repository files."
+  },
+  {
+   "role": "assistant",
+   "content": "Batch 5 constructed sample: the repository contains two files."
+  }
+ ]
+}
