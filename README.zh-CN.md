@@ -85,6 +85,7 @@ App 本身**不包含转换逻辑**：它只是 CLI 之上的一层克制、可�
 
 ```bash
 brew tap Larrtroffen/harnessbridge
+brew trust Larrtroffen/harnessbridge   # Homebrew 7 需要显式信任第三方 tap
 brew install --cask harnessbridge
 ```
 
