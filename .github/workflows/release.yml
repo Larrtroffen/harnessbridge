@@ -1,9 +1,10 @@
 name: Release
 
 on:
-  push:
-    tags:
-      - "v*"
+  # Release builds need the macOS 26 SDK (Liquid Glass APIs). GitHub-hosted
+  # macOS runners currently ship an older SDK, so the release is built locally
+  # on an Apple-silicon Mac with Xcode 26 / CLT 26 and uploaded manually.
+  # This workflow is kept for self-hosted runners or future images with SDK 26.
   workflow_dispatch:
     inputs:
       tag:
