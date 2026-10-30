@@ -416,11 +416,23 @@ struct SessionDetailView: View {
                     .textSelection(.enabled)
                     .foregroundStyle(event.isError ? .red : .primary)
                 if displayText.count > 160 {
-                    Button(expanded ? "收起" : "展开全文") {
+                    Button {
                         Motion.run(Motion.spring) { model.toggleDetailEvent(event.index) }
+                    } label: {
+                        HStack(spacing: 3) {
+                            Text(expanded ? "收起" : "展开全文")
+                            Image(systemName: expanded ? "chevron.up" : "chevron.down")
+                                .font(.system(size: 9, weight: .semibold))
+                        }
+                        .font(.caption)
+                        .padding(.horizontal, 9)
+                        .padding(.vertical, 4)
+                        .background(Color.secondary.opacity(0.10))
+                        .clipShape(Capsule())
+                        .contentShape(Capsule())
                     }
-                    .controlSize(.mini)
-                    .buttonStyle(.borderless)
+                    .buttonStyle(.plain)
+                    .help(expanded ? "收起当前事件全文" : "展开当前事件全文")
                 }
             }
         }

@@ -6,7 +6,7 @@ enum AppInfo {
     static let displayName = "HarnessBridge"
     static let chineseName = ""
     static let tagline = "Agent Session Converter"
-    static let version = "1.5.1"
+    static let version = "1.5.2"
     static let bundleID = "com.deepseek.sessionconverter"
 }
 

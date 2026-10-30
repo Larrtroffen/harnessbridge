@@ -94,7 +94,7 @@ The cask installs the self-contained arm64 app and prints the Gatekeeper caveat.
 
 ### Option B — prebuilt macOS app (Apple Silicon)
 
-1. Download `HarnessBridge-1.5.1-macos-arm64.dmg` from [Releases](https://github.com/Larrtroffen/harnessbridge/releases).
+1. Download `HarnessBridge-1.5.2-macos-arm64.dmg` from [Releases](https://github.com/Larrtroffen/harnessbridge/releases).
 2. Open the DMG and drag **HarnessBridge.app** into `/Applications`.
 3. Because the app is **ad-hoc signed (not notarized by Apple)**, Gatekeeper may block the first launch. Either right-click the app → **Open** → confirm, or run:
    ```bash
@@ -207,7 +207,7 @@ Deeper details — adapter contract, evidence levels, safety invariants and repo
 
 - **Read-only sources.** HarnessBridge never edits or deletes source sessions; `move` is a reversible rename after a verified install.
 - **Writes need consent.** Real-store installs require `--yes` on the CLI and an explicit confirmation in the app that shows the destination store path. `--dry-run` never writes, creates no directories and no journal.
-- **Backups & journals.** Overwrites first move the existing target to `*.asi-backup-<timestamp>`; each migration/restore operation writes an atomic, incremental journal; the `journal_path` field returned by the CLI/app is authoritative. App data lives under `~/Library/Application Support/HarnessBridge/`; the v1.5.1 CLI backend still uses the legacy companion folder `~/Library/Application Support/HarnessBridge/journals/` for its default journal location (a planned rename will align it with `HarnessBridge`). Restore never deletes the installed target copy unless asked.
+- **Backups & journals.** Overwrites first move the existing target to `*.asi-backup-<timestamp>`; each migration/restore operation writes an atomic, incremental journal; the `journal_path` field returned by the CLI/app is authoritative. App data lives under `~/Library/Application Support/HarnessBridge/`; the CLI backend writes journals under `~/Library/Application Support/HarnessBridge/journals/`; the old SessionConverter folder is read-only compatibility. Restore never deletes the installed target copy unless asked.
 - **No network, no telemetry.** The app and CLI do not phone home; no API keys or accounts are required.
 - **App identity / local data.** Bundle id `io.github.larrtroffen.harnessbridge`; app data (history, detect cache, journals) lives in `~/Library/Application Support/HarnessBridge/`, default export folder `~/Documents/HarnessBridgeOut/`.
 - **Lossy by nature.** Not every harness feature has an ATIF equivalent (images/audio, harness-private events, some tool-call pairings). Conversions may be marked `lossy` with explicit warnings; we do not claim “100% lossless.”
@@ -230,7 +230,7 @@ More in [SECURITY.md](SECURITY.md) and [docs/FAQ.md](docs/FAQ.md).
 | Backend deep dive (internal) | [docs/usage.md](docs/usage.md) | — |
 | ATIF interop protocol | [docs/atif-interop-protocol.md](docs/atif-interop-protocol.md) | — |
 | Coverage ledger | [docs/coverage-ledger.md](docs/coverage-ledger.md) | — |
-| Release notes | [RELEASE_NOTES/v1.5.1.md](RELEASE_NOTES/v1.5.1.md) | [RELEASE_NOTES/v1.5.1.zh-CN.md](RELEASE_NOTES/v1.5.1.zh-CN.md) |
+| Release notes | [RELEASE_NOTES/v1.5.2.md](RELEASE_NOTES/v1.5.2.md) | [RELEASE_NOTES/v1.5.2.zh-CN.md](RELEASE_NOTES/v1.5.2.zh-CN.md) |
 
 ## Roadmap
 

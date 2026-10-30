@@ -1,3 +1,10 @@
+## [v1.5.2] — 2026-10-31
+
+### Fixed / 修复
+- **Session detail expand/collapse:** "展开全文" now fetches up to 2,000 characters (previously the backend text-limit was 400, so expanding often looked like nothing happened); the control is larger with a chevron and a proper hit area. / 会话详情「展开全文/收起」现在拉取最多 2000 字符（旧后端 text-limit 400，展开后常看不出变化），按钮加大并带箭头、命中区域更合理。
+- **Sidebar harness counts:** counts now refresh automatically after migration/restore and when the app becomes active, instead of staying at the value captured at launch. / 侧边栏各 Harness 会话数：迁移/恢复完成后、App 重新激活时会自动重新检测刷新，不再停留在启动时的旧数字。
+- Version bump to 1.5.2 for the rebuilt arm64 DMG. / 版本升至 1.5.2，重新构建 arm64 DMG。
+
 ## [v1.5.1] — 2026-10-31
 
 ### First public release / 首次公开版本

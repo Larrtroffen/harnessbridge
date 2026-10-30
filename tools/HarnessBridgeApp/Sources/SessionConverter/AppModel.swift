@@ -334,6 +334,15 @@ final class AppModel: ObservableObject {
         showToast("已重新检测本机工具", kind: .success)
     }
 
+    /// Refresh sidebar counts on app activation / returning to foreground.
+    /// Detection is fast (~0.1s with --fast) but throttle bursts to 2s.
+    private var lastCountRefresh = Date.distantPast
+    func refreshHarnessCountsIfNeeded(force: Bool = false) {
+        if !force, Date().timeIntervalSince(lastCountRefresh) < 2 { return }
+        lastCountRefresh = Date()
+        Task { await detectHarnesses(force: true) }
+    }
+
     func invalidateListCache(source: String? = nil) {
         if let source { listCache.removeValue(forKey: source) } else { listCache.removeAll() }
     }
@@ -708,7 +717,7 @@ final class AppModel: ObservableObject {
         detailError = nil
         do {
             let loaded = try await Task.detached(priority: .userInitiated) { () -> SessionDetail in
-                try backend.sessionDetail(source: source, session: session)
+                try backend.sessionDetail(source: source, session: session, textLimit: 2000)
             }.value
             guard token == detailToken else { return }
             detail = loaded
@@ -1769,6 +1778,7 @@ extension AppModel {
         historySelectedID = record.id
         invalidateListCache()
         detectCacheDate = nil
+        Task { await detectHarnesses(force: true) }
         showToast(migrateAll ? "一键迁移完成：成功 \(ok) / 跳过 \(skipped) / 失败 \(items.count - ok - skipped)"
                             : "迁移完成：成功 \(ok) 个会话",
                   kind: items.contains(where: { !$0.ok }) ? .warning : .success)
@@ -1790,6 +1800,7 @@ extension AppModel {
             }.value
             switch result {
             case .success(let report):
+                Task { await detectHarnesses(force: true) }
                 showToast(report.message, kind: report.failed > 0 ? .warning : .success)
             case .failure(let error):
                 showToast("恢复失败：\(Self.userMessage(for: error))", kind: .error)

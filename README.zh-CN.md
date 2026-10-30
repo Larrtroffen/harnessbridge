@@ -94,7 +94,7 @@ Tap 仓库：[Larrtroffen/homebrew-harnessbridge](https://github.com/Larrtroffen
 
 ### 方式 B — 预编译 macOS 应用（Apple Silicon）
 
-1. 从 [Releases](https://github.com/Larrtroffen/harnessbridge/releases) 下载 `HarnessBridge-1.5.1-macos-arm64.dmg`。
+1. 从 [Releases](https://github.com/Larrtroffen/harnessbridge/releases) 下载 `HarnessBridge-1.5.2-macos-arm64.dmg`。
 2. 打开 DMG，把 **HarnessBridge.app** 拖进 `/Applications`。
 3. 应用是 **ad-hoc 签名、未做 Apple 公证**，首次启动可能被 Gatekeeper 拦截。右键 App → **打开** → 确认，或执行：
    ```bash
@@ -207,7 +207,7 @@ Adapter 契约、证据等级、安全不变量与仓库结构详见[架构文�
 
 - **源会话只读。** HarnessBridge 从不编辑/删除源会话；`move` 是「安装+校验成功后」的可恢复改名。
 - **写入需要明确同意。** 真实 store 安装需要 CLI 的 `--yes` 与 App 中展示写入位置的二次确认。`--dry-run` 不写任何文件、不建目录、不写 journal。
-- **备份与日志。** 覆盖前先把既有目标改名为 `*.asi-backup-<时间戳>`；每次迁移/恢复写原子、增量 journal；CLI/App 返回的 `journal_path` 才是权威位置。App 数据位于 `~/Library/Application Support/HarnessBridge/`；v1.5.1 的 CLI 后端默认 journal 仍使用历史 companion 目录 `~/Library/Application Support/HarnessBridge/journals/`（计划在后续版本与 `HarnessBridge` 对齐）。除非显式要求，恢复不会删除已安装的目标副本。
+- **备份与日志。** 覆盖前先把既有目标改名为 `*.asi-backup-<时间戳>`；每次迁移/恢复写原子、增量 journal；CLI/App 返回的 `journal_path` 才是权威位置。App 数据位于 `~/Library/Application Support/HarnessBridge/`；CLI 后端默认 journal 目录已统一为 `~/Library/Application Support/HarnessBridge/journals/`（旧 SessionConverter 目录仅作读取兼容）。除非显式要求，恢复不会删除已安装的目标副本。
 - **零网络、零遥测。** App 与 CLI 不联网，不需要 API key 或账号。
 - **App 标识与本地数据。** Bundle id `io.github.larrtroffen.harnessbridge`；App 数据（历史、检测缓存、journal）在 `~/Library/Application Support/HarnessBridge/`，默认导出目录 `~/Documents/HarnessBridgeOut/`。
 - **格式本身存在有损。** 并非所有 Harness 特性都有 ATIF 等价表达（图像/音频、私有事件、部分工具调用配对等）；转换可能带 `lossy` 警告，我们不宣称“100% 无损”。
@@ -230,7 +230,7 @@ Adapter 契约、证据等级、安全不变量与仓库结构详见[架构文�
 | 后端深入（内部） | [docs/usage.md](docs/usage.md) | — |
 | ATIF 互转协议 | [docs/atif-interop-protocol.md](docs/atif-interop-protocol.md) | — |
 | 覆盖账本 | [docs/coverage-ledger.md](docs/coverage-ledger.md) | — |
-| 版本说明 | [RELEASE_NOTES/v1.5.1.md](RELEASE_NOTES/v1.5.1.md) | [RELEASE_NOTES/v1.5.1.zh-CN.md](RELEASE_NOTES/v1.5.1.zh-CN.md) |
+| 版本说明 | [RELEASE_NOTES/v1.5.2.md](RELEASE_NOTES/v1.5.2.md) | [RELEASE_NOTES/v1.5.2.zh-CN.md](RELEASE_NOTES/v1.5.2.zh-CN.md) |
 
 ## 路线图
 

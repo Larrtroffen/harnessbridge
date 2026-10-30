@@ -33,6 +33,9 @@ struct ContentView: View {
                     .animation(Motion.spring, value: toast.id)
             }
         }
+        .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
+            model.refreshHarnessCountsIfNeeded()
+        }
         .background(WindowFrameAutosave(name: "HarnessBridgeMainWindow"))
         .background {
             VStack {
