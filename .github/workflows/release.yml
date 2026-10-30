@@ -50,6 +50,17 @@ jobs:
       - name: Install zstd
         run: brew install zstd
 
+      - name: Select newest Xcode toolchain
+        run: |
+          set -euo pipefail
+          if ls /Applications/Xcode*.app >/dev/null 2>&1; then
+            XCODE=$(ls -d /Applications/Xcode*.app | sort -V | tail -1)
+            echo "Using $XCODE"
+            sudo xcode-select -s "$XCODE"
+          fi
+          xcodebuild -version || true
+          xcrun --show-sdk-version || true
+
       - name: Show toolchain
         run: |
           sw_vers
