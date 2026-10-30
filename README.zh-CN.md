@@ -16,8 +16,19 @@
 
 </div>
 
-> **截图说明：** 原生 App（欢迎页、会话浏览、时间线、迁移向导）欢迎直接下载体验。
-> 我们欢迎社区 PR 在 `docs/assets/screenshots/` 下补充带标注的截图；本仓库目前只附 banner。
+## 界面截图
+
+| 首页 | 会话浏览 |
+|---|---|
+| ![首页](docs/assets/screenshots/home.png) | ![会话浏览](docs/assets/screenshots/browser.png) |
+
+| 会话详情与时间线 | 一键全量迁移 |
+|---|---|
+| ![会话详情](docs/assets/screenshots/detail.png) | ![一键迁移](docs/assets/screenshots/one-click-migration.png) |
+
+| 迁移向导 | |
+|---|---|
+| ![迁移向导](docs/assets/screenshots/migration-wizard.png) | 截图使用临时演示 HOME 与合成样本会话，不含真实用户数据。 |
 
 ---
 
@@ -70,7 +81,17 @@ App 本身**不包含转换逻辑**：它只是 CLI 之上的一层克制、可�
 
 ## 安装
 
-### 方式 A — 预编译 macOS 应用（Apple Silicon）
+### 方式 A — Homebrew（Apple Silicon）
+
+```bash
+brew tap Larrtroffen/harnessbridge
+brew install --cask harnessbridge
+```
+
+Tap 仓库：[Larrtroffen/homebrew-harnessbridge](https://github.com/Larrtroffen/homebrew-harnessbridge)。
+安装的是自带运行时的 arm64 App，Homebrew 会打印 Gatekeeper 提示。
+
+### 方式 B — 预编译 macOS 应用（Apple Silicon）
 
 1. 从 [Releases](https://github.com/Larrtroffen/harnessbridge/releases) 下载 `HarnessBridge-1.5.1-macos-arm64.dmg`。
 2. 打开 DMG，把 **HarnessBridge.app** 拖进 `/Applications`。
@@ -86,7 +107,7 @@ App 本身**不包含转换逻辑**：它只是 CLI 之上的一层克制、可�
 shasum -a 256 -c SHA256SUMS.txt
 ```
 
-### 方式 B — 从源码构建
+### 方式 C — 从源码构建
 
 依赖：macOS 13+、Xcode Command Line Tools（`swift --version`）、Python 3.10+；如需处理 DeepSeek Harness 的 zstd 产物，还需要 `zstd` CLI（`brew install zstd`）。
 
@@ -212,7 +233,7 @@ Adapter 契约、证据等级、安全不变量与仓库结构详见[架构文�
 
 ## 路线图
 
-- v1.5.x — 打磨首个公开版本：Developer ID 签名/公证以改善 Gatekeeper 体验、补充截图与文档、修复早期用户反馈。
+- v1.5.x — 打磨首个公开版本：补充截图、Homebrew tap、修复早期用户反馈；签名/公证为可选后续项。
 - v1.6 — 更深度的原生 writer（用真实本机会话验证更多 Harness）、更准确的 Token 口径、安装前的逐会话预览/对比。
 - 更远期 — 可选的 Linux CLI 打包、更丰富的 ATIF round-trip、面向新 reader/writer 的插件接口文档。
 
