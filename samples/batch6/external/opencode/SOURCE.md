@@ -1,0 +1,46 @@
+# opencode fixtures 来源
+
+| 文件 | 证据等级 | 来源仓库 | 原始路径 | commit | license | 说明 |
+|---|---|---|---|---|---|---|
+| `storage_legacy/message/s_stage0_drift/msg_0001.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_legacy/message/s_stage0_drift/msg_0001.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_legacy/message/s_stage0_drift/msg_0002.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_legacy/message/s_stage0_drift/msg_0002.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_legacy/part/prt_0001.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_legacy/part/prt_0001.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_legacy/part/prt_0002.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_legacy/part/prt_0002.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_legacy/session/proj_test/ses_s_stage0_drift.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_legacy/session/proj_test/ses_s_stage0_drift.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `sqlite_v2/session_v2/ses_fixture_v2.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (sqlite_v2/session_v2/ses_fixture_v2.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `sqlite_v2/session_message/synthetic.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (sqlite_v2/session_message/synthetic.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `sqlite_v2/session_message/assistant.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (sqlite_v2/session_message/assistant.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `sqlite_v2/session_message/idle.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (sqlite_v2/session_message/idle.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `sqlite_v2/session_message/assistant-failed.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (sqlite_v2/session_message/assistant-failed.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `sqlite_v2/session_message/synthetic-job.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (sqlite_v2/session_message/synthetic-job.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `sqlite_v2/session_message/user.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (sqlite_v2/session_message/user.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `sqlite_v2/session_message/compaction.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (sqlite_v2/session_message/compaction.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `sqlite_v2/session_message/shell.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (sqlite_v2/session_message/shell.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `sqlite_v2/session_message/model-switched.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (sqlite_v2/session_message/model-switched.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `sqlite_v2/session_message/idle-failed.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (sqlite_v2/session_message/idle-failed.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `sqlite_v2/session_message/system.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (sqlite_v2/session_message/system.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/migration` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/migration)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/message/s_stage0_large/msg_0001.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/message/s_stage0_large/msg_0001.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/message/s_stage0_large/msg_0004.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/message/s_stage0_large/msg_0004.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/message/s_stage0_large/msg_0003.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/message/s_stage0_large/msg_0003.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/message/s_stage0_large/msg_0002.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/message/s_stage0_large/msg_0002.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/message/s_stage0_small/msg_0001.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/message/s_stage0_small/msg_0001.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/message/s_stage0_small/msg_0002.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/message/s_stage0_small/msg_0002.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/part/m_user_large_1/001.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/part/m_user_large_1/001.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/part/m_assistant_large_2/001.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/part/m_assistant_large_2/001.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/part/m_assistant_small/001.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/part/m_assistant_small/001.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/part/m_assistant_small/002.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/part/m_assistant_small/002.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/part/m_user_large_2/001.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/part/m_user_large_2/001.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/part/m_user_small/001.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/part/m_user_small/001.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/part/m_assistant_large_1/007.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/part/m_assistant_large_1/007.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/part/m_assistant_large_1/006.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/part/m_assistant_large_1/006.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/part/m_assistant_large_1/001.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/part/m_assistant_large_1/001.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/part/m_assistant_large_1/003.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/part/m_assistant_large_1/003.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/part/m_assistant_large_1/002.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/part/m_assistant_large_1/002.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/part/m_assistant_large_1/005.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/part/m_assistant_large_1/005.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/part/m_assistant_large_1/008.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/part/m_assistant_large_1/008.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/part/m_assistant_large_1/004.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/part/m_assistant_large_1/004.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/session/proj_test/ses_s_stage0_large.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/session/proj_test/ses_s_stage0_large.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+| `storage_v2/session/proj_test/ses_s_stage0_small.json` | FIXTURE | jazzyalex/agent-sessions | `samples/batch5-style fixture (storage_v2/session/proj_test/ses_s_stage0_small.json)` | 8ca7aa603fe5 | MIT | agent-sessions synthetic stage fixtures |
+
+> 仅用于格式分析与互转测试；不含凭据/个人路径（如源文件含用户名路径，使用前请再脱敏）。

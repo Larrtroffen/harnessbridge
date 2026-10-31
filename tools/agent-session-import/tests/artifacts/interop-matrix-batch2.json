@@ -4,7 +4,7 @@
  "generated_at": "2026-10-29T19:25:43Z",
  "root": "../../samples/batch2/oss",
  "out_dir": "/tmp/asi-batch2-final",
- "target_cwd": "tools/agent-session-import",
+ "target_cwd": "<repo>/tools/agent-session-import",
  "summary": {
   "harnesses": 18,
   "pass": 17,

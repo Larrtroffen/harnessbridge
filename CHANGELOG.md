@@ -1,3 +1,13 @@
+## [v1.6.0] — 2026-10-31
+
+### Coverage expansion / 覆盖扩展
+- **43 source adapters** (40 canonical + iFlow/Zed bonus) and **32 native writer targets**; first `asi matrix-batch6` external-fixture matrix.
+- Canonical fixture-verified format coverage **35/40** (34 pass + 6 partial, 0 reader fail); native writers **32/32 pass**; real-session coverage **22/40** (Continue real Apache-2.0 sample); REAL-EXAMPLE **2** (Harbor openhands/mini-swe-agent).
+- New native readers: WorkBuddy, Windsurf, TRAE (native CLI + codeg ACP fallback), ZCode, Cherry Studio, Claude Desktop/Cowork, OpenCraw; bonus iFlow and Zed readers.
+- Existing adapters upgraded against upstream fixtures (qwen/copilot/roo/kiro/antigravity/grok/fx/openhands/mini-swe-agent/codebuddy/kimi/openclaw/devin/continue/goose/junie/codebuff/vibe/opencode/hermes/cline/kilo-code).
+- Docs: `docs/EXTERNAL-PROJECTS.md`, coverage ledger v0.4, usage §16; external fixtures in `samples/batch6` with per-directory SOURCE/license.
+- Package: self-contained arm64 DMG v1.6.0; app self-test 31 PASS; backend 141 tests green.
+
 ## [v1.5.2] — 2026-10-31
 
 ### Fixed / 修复

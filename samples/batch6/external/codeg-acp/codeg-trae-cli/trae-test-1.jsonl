@@ -1,0 +1,6 @@
+{"v":1,"kind":"header","agent":"codeg-trae-cli","session_id":"trae-test-1","cwd":"/tmp/trae-project","started_at_ms":1735689600000}
+{"t":1735689600100,"k":"prompt","p":[{"type":"text","text":"List the repository files."}]}
+{"t":1735689600200,"k":"update","p":{"sessionUpdate":"agent_message_chunk","content":{"type":"text","text":"I will inspect the repository."}}}
+{"t":1735689600300,"k":"update","p":{"sessionUpdate":"tool_call","toolCallId":"tc-1","title":"list_files","kind":"read","status":"in_progress","rawInput":{"path":"."}}}
+{"t":1735689600400,"k":"update","p":{"sessionUpdate":"tool_call_update","toolCallId":"tc-1","title":"list_files","status":"completed","content":[{"type":"content","content":{"type":"text","text":"README.md","text_file":null}}]}}
+{"t":1735689600500,"k":"turn_end","p":{"stopReason":"end_turn","model":"trae-model","durationMs":500,"usage":{"inputTokens":11,"outputTokens":7,"totalTokens":18}}}

@@ -14,6 +14,7 @@ import sqlite3
 
 from ..common import iso_to_ms
 from ..ir import add_event, finalize, new_ir, normalize_usage, text_block, touch_ts
+from . import external_fixtures as _external
 
 EVIDENCE = {
     "openclaw": "FIXTURE",
@@ -87,6 +88,9 @@ def _files(source, root):
             seen.add(key)
             out.append(path)
     # grok needs its sibling summary.json; DB sources accept .db/.sqlite
+    if not out:
+        # explicit external-fixture root: generic per-source discovery
+        out = _external.files(source, root)
     out.sort()
     return out
 
@@ -224,6 +228,14 @@ def _load_openclaw(path, keep_system=False):
 
 
 # --------------------------------------------------------------------------- kimi code
+_KIMI_IGNORED = {
+    "metadata", "config.update", "tools.set_active_tools", "usage.record",
+    "permission.record_approval_result", "llm.request", "llm.tools_snapshot",
+    "plan_mode.enter", "plan_mode.exit", "full_compaction.begin",
+    "full_compaction.complete", "context.append_loop_event", "turn.steer",
+}
+
+
 def _load_kimi(path, keep_system=False):
     rows, bad = _read_lines(path)
     ir = new_ir("kimi", os.path.basename(path)[:-6], path)
@@ -237,6 +249,60 @@ def _load_kimi(path, keep_system=False):
     for row in rows:
         etype = row.get("type")
         types[etype] = types.get(etype, 0) + 1
+        if etype == "context.append_message" or etype == "turn.prompt":
+            msg = row.get("message") or {}
+            inp = row.get("input")
+            text = ""
+            if isinstance(inp, list):
+                text = "\n".join(b.get("text") or "" for b in inp if isinstance(b, dict))
+            elif isinstance(inp, str):
+                text = inp
+            if not text and isinstance(msg, dict):
+                content = msg.get("content")
+                if isinstance(content, list):
+                    text = "\n".join(b.get("text") or "" for b in content if isinstance(b, dict))
+                elif isinstance(content, str):
+                    text = content
+            if etype == "turn.prompt" and text.strip():
+                add_event(ir, "user_message", int(row.get("time") or last_ts), blocks=[text_block(text)])
+                touch_ts(ir, int(row.get("time") or last_ts))
+            continue
+        env = row.get("message")
+        if not etype and isinstance(env, dict):
+            etype = env.get("type")
+            payload = env.get("payload") or {}
+            ets = int(float(row.get("timestamp") or 0) * 1000) or last_ts
+            if etype in ("TurnBegin", "ContextAppend"):
+                txt = payload.get("user_input") or payload.get("prompt")
+                if isinstance(txt, str) and txt.strip():
+                    add_event(ir, "user_message", ets, blocks=[text_block(txt)])
+                    touch_ts(ir, ets)
+            elif etype in ("AssistantText", "TextPart", "ContentPart"):
+                txt = payload.get("text") or payload.get("content")
+                if isinstance(txt, str) and txt.strip():
+                    add_event(ir, "assistant_message", ets, blocks=[text_block(txt)],
+                              model=ir.get("model") or "", provider="kimi")
+                    touch_ts(ir, ets)
+            elif etype in ("ToolCall", "ToolCallBegin"):
+                cid = payload.get("id") or payload.get("toolCallId") or ""
+                name = payload.get("name") or payload.get("toolName") or "tool"
+                args = payload.get("arguments") or payload.get("args") or {}
+                calls[cid] = name
+                add_event(ir, "assistant_message", ets, blocks=[{
+                    "type": "tool-call", "id": cid, "name": name,
+                    "arguments": json.dumps(args, ensure_ascii=False)}],
+                    model=ir.get("model") or "", provider="kimi")
+                touch_ts(ir, ets)
+            elif etype in ("ToolResult", "ToolCallResult"):
+                cid = payload.get("id") or payload.get("toolCallId") or ""
+                res = payload.get("result", payload.get("output", payload.get("content")))
+                if not isinstance(res, str):
+                    res = json.dumps(res, ensure_ascii=False) if res is not None else ""
+                add_event(ir, "tool_result", ets, call_id=cid,
+                          name=calls.get(cid) or "tool", content=res, is_error=False)
+                touch_ts(ir, ets)
+            last_ts = ets
+            continue
         ts = row.get("time")
         if not isinstance(ts, int):
             ts = None
@@ -310,6 +376,12 @@ def _load_kimi(path, keep_system=False):
                        "tools.set_active_tools"):
             pass
         else:
+            if etype in _KIMI_IGNORED:
+                continue
+            if etype == "context.apply_compaction":
+                add_event(ir, "compaction", int(row.get("time") or last_ts),
+                          summary=str(row.get("summary") or "")[:4000])
+                continue
             warnings.append("kimi:unknown-event:%s" % etype)
     appended = types.get("agent.message.appended", 0)
     if not appended:
@@ -553,6 +625,22 @@ def _load_antigravity(path, keep_system=False, keep_wrappers=False):
             if blocks:
                 add_event(ir, "assistant_message", ts, blocks=blocks,
                           model="", provider="antigravity", usage=usage)
+        elif rtype in ("VIEW_FILE", "RUN_COMMAND", "GREP_SEARCH", "LIST_DIRECTORY",
+                       "WRITE_TO_FILE", "CODE_ACTION", "SEARCH_WEB", "READ_URL_CONTENT",
+                       "MCP_TOOL", "FILE_CHANGE"):
+            if pending_calls:
+                cid = pending_calls.pop(0)
+                add_event(ir, "tool_result", ts, call_id=cid, name=rtype.lower(),
+                          content=content if isinstance(content, str) else json.dumps(content, ensure_ascii=False),
+                          is_error=bool(row.get("error")))
+            elif content:
+                ir["warnings"].append("antigravity:orphan-tool-result:%s" % rtype)
+        elif rtype == "CHECKPOINT":
+            add_event(ir, "compaction", ts,
+                      summary=content if isinstance(content, str) else "")
+        elif rtype in ("CONVERSATION_HISTORY", "SYSTEM_MESSAGE"):
+            if keep_system and isinstance(content, str) and content.strip():
+                add_event(ir, "system_message", ts, text=content, origin="antigravity-%s" % rtype.lower())
         elif rtype == "GENERIC":
             if pending_calls:
                 cid = pending_calls.pop(0)
@@ -932,6 +1020,11 @@ def load_session(source, root=None, session=None, path=None, keep_system=False, 
             path = prim[0] if prim else (_files(source, root) or [None])[0]
     if not path or not os.path.isfile(path):
         raise FileNotFoundError("%s fixture not found (root=%s)" % (source, root))
+    if source == "antigravity" and path.endswith((".db", ".sqlite")):
+        return _external.load_antigravity_db(path, keep_system=keep_system)
+    if source == "opencode" and ("/storage_" in path.replace(os.sep, "/")
+                                 or "session_v2" in path.replace(os.sep, "/")):
+        return _external.load_opencode_storage(path, keep_system=keep_system)
     loader = LOADS[source]
     try:
         ir = loader(path, keep_system=keep_system)

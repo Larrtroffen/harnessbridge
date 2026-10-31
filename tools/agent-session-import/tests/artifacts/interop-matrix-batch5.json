@@ -18,7 +18,7 @@
    "harness": "gemini",
    "evidence_level": "REAL-LOCAL",
    "constructed": false,
-   "fixture_path": "/tmp/home/.gemini/tmp/larr/chats/session-2026-10-14T17-52-e0fcd273.jsonl",
+   "fixture_path": "~/.gemini/tmp/larr/chats/session-2026-10-14T17-52-e0fcd273.jsonl",
    "source_session_id": "e0fcd273-838d-482c-bb77-118d07c644a6",
    "ir_counts": {
     "events": 1,
@@ -62,7 +62,7 @@
    "harness": "pi",
    "evidence_level": "REAL-LOCAL",
    "constructed": false,
-   "fixture_path": "/tmp/home/.pi/agent/sessions/--Users-larr-Research_Assistant-【1014】数字政府报告--/2026-10-14T18-32-47-813Z_01a13bb0-3bc5-74bd-808d-36d65448b80e.jsonl",
+   "fixture_path": "~/.pi/agent/sessions/--Users-larr-Research_Assistant-【1014】数字政府报告--/2026-10-14T18-32-47-813Z_01a13bb0-3bc5-74bd-808d-36d65448b80e.jsonl",
    "source_session_id": "01a13bb0-3bc5-74bd-808d-36d65448b80e",
    "ir_counts": {
     "events": 96,
@@ -106,7 +106,7 @@
    "harness": "goose",
    "evidence_level": "FIXTURE-CONSTRUCTED",
    "constructed": true,
-   "fixture_path": "samples/batch5/constructed/goose/sessions/sessions.db",
+   "fixture_path": "<repo>/samples/batch5/constructed/goose/sessions/sessions.db",
    "source_session_id": "b5goose",
    "ir_counts": {
     "events": 2,
@@ -150,7 +150,7 @@
    "harness": "continue",
    "evidence_level": "FIXTURE-CONSTRUCTED",
    "constructed": true,
-   "fixture_path": "samples/batch5/constructed/continue/sessions/b5continue.json",
+   "fixture_path": "<repo>/samples/batch5/constructed/continue/sessions/b5continue.json",
    "source_session_id": "b5continue",
    "ir_counts": {
     "events": 2,
@@ -194,7 +194,7 @@
    "harness": "junie",
    "evidence_level": "FIXTURE-CONSTRUCTED",
    "constructed": true,
-   "fixture_path": "samples/batch5/constructed/junie/sessions/b5junie/events.jsonl",
+   "fixture_path": "<repo>/samples/batch5/constructed/junie/sessions/b5junie/events.jsonl",
    "source_session_id": "b5junie",
    "ir_counts": {
     "events": 2,
@@ -238,7 +238,7 @@
    "harness": "kiro",
    "evidence_level": "FIXTURE-LOW",
    "constructed": true,
-   "fixture_path": "samples/batch5/kiro/sessions/7787f985-7083-420e-b99d-a74ccce5c00f/session.jsonl",
+   "fixture_path": "<repo>/samples/batch5/kiro/sessions/7787f985-7083-420e-b99d-a74ccce5c00f/session.jsonl",
    "source_session_id": "7787f985-7083-420e-b99d-a74ccce5c00f",
    "ir_counts": {
     "events": 7,
@@ -288,7 +288,7 @@
    "harness": "crush",
    "evidence_level": "FIXTURE-CONSTRUCTED",
    "constructed": true,
-   "fixture_path": "samples/batch5/constructed/crush/project/.crush/crush.db",
+   "fixture_path": "<repo>/samples/batch5/constructed/crush/project/.crush/crush.db",
    "source_session_id": "b5crush",
    "ir_counts": {
     "events": 2,
@@ -332,7 +332,7 @@
    "harness": "cline",
    "evidence_level": "FIXTURE-CONSTRUCTED",
    "constructed": true,
-   "fixture_path": "samples/batch5/constructed/cline/data/sessions/b5cline/b5cline.messages.json",
+   "fixture_path": "<repo>/samples/batch5/constructed/cline/data/sessions/b5cline/b5cline.messages.json",
    "source_session_id": "b5cline",
    "ir_counts": {
     "events": 2,
@@ -376,7 +376,7 @@
    "harness": "roo",
    "evidence_level": "FIXTURE-CONSTRUCTED",
    "constructed": true,
-   "fixture_path": "samples/batch5/constructed/roo/data/sessions/b5roo/b5roo.messages.json",
+   "fixture_path": "<repo>/samples/batch5/constructed/roo/data/sessions/b5roo/b5roo.messages.json",
    "source_session_id": "b5roo",
    "ir_counts": {
     "events": 2,
@@ -420,7 +420,7 @@
    "harness": "kilo-code",
    "evidence_level": "FIXTURE-CONSTRUCTED",
    "constructed": true,
-   "fixture_path": "samples/batch5/constructed/kilo-code/data/sessions/b5kilo-code/b5kilo-code.messages.json",
+   "fixture_path": "<repo>/samples/batch5/constructed/kilo-code/data/sessions/b5kilo-code/b5kilo-code.messages.json",
    "source_session_id": "b5kilo-code",
    "ir_counts": {
     "events": 2,
@@ -464,7 +464,7 @@
    "harness": "codebuff",
    "evidence_level": "FIXTURE-CONSTRUCTED",
    "constructed": true,
-   "fixture_path": "samples/batch5/constructed/codebuff/projects/constructed-project/chats/b5codebuff/chat-messages.json",
+   "fixture_path": "<repo>/samples/batch5/constructed/codebuff/projects/constructed-project/chats/b5codebuff/chat-messages.json",
    "source_session_id": "b5codebuff",
    "ir_counts": {
     "events": 2,
@@ -508,7 +508,7 @@
    "harness": "openhands",
    "evidence_level": "FIXTURE-CONSTRUCTED",
    "constructed": true,
-   "fixture_path": "samples/batch5/constructed/openhands/conversations/b5openhands/base_state.json",
+   "fixture_path": "<repo>/samples/batch5/constructed/openhands/conversations/b5openhands/base_state.json",
    "source_session_id": "b5openhands",
    "ir_counts": {
     "events": 2,
@@ -552,7 +552,7 @@
    "harness": "vibe",
    "evidence_level": "FIXTURE-CONSTRUCTED",
    "constructed": true,
-   "fixture_path": "samples/batch5/constructed/vibe/logs/session/session_20261030_224000_b5vibe.json",
+   "fixture_path": "<repo>/samples/batch5/constructed/vibe/logs/session/session_20261030_224000_b5vibe.json",
    "source_session_id": "b5vibe",
    "ir_counts": {
     "events": 2,
@@ -596,7 +596,7 @@
    "harness": "codebuddy",
    "evidence_level": "FIXTURE-LOW",
    "constructed": true,
-   "fixture_path": "samples/batch5/codebuddy/item-format.jsonl",
+   "fixture_path": "<repo>/samples/batch5/codebuddy/item-format.jsonl",
    "source_session_id": "sess-text",
    "ir_counts": {
     "events": 2,
@@ -640,7 +640,7 @@
    "harness": "fx",
    "evidence_level": "FIXTURE",
    "constructed": true,
-   "fixture_path": "samples/batch5/agent-sessions/fx/schema4/session.json",
+   "fixture_path": "<repo>/samples/batch5/agent-sessions/fx/schema4/session.json",
    "source_session_id": "Fx4FixtureS1",
    "ir_counts": {
     "events": 9,
@@ -688,7 +688,7 @@
    "harness": "mini-swe-agent",
    "evidence_level": "FIXTURE",
    "constructed": true,
-   "fixture_path": "samples/batch5/harbor/mini-swe-agent-trajectory.json",
+   "fixture_path": "<repo>/samples/batch5/harbor/mini-swe-agent-trajectory.json",
    "source_session_id": "mini-swe-agent-trajectory",
    "ir_counts": {
     "events": 6,
@@ -732,7 +732,7 @@
    "harness": "claude-desktop",
    "evidence_level": "COLLECTED-SPARSE",
    "constructed": false,
-   "fixture_path": "samples/batch2/oss-add/claude-desktop__claude-opus-5__1de869622a235b91feb5.jsonl",
+   "fixture_path": "<repo>/samples/batch2/oss-add/claude-desktop__claude-opus-5__1de869622a235b91feb5.jsonl",
    "source_session_id": "1de869622a235b91feb5d7393be9e941",
    "ir_counts": {
     "events": 2,

@@ -13,9 +13,9 @@
  "sessions": {
   "claude": {
    "source_session_id": "b59c58e1-17c5-4758-8d69-2a0e98bd8bee",
-   "path": "/tmp/home/.claude/projects/-Users-larr/b59c58e1-17c5-4758-8d69-2a0e98bd8bee.jsonl",
+   "path": "~/.claude/projects/-Users-larr/b59c58e1-17c5-4758-8d69-2a0e98bd8bee.jsonl",
    "title": "Downloads/tb4-loop-orchestrator/HANDOFF.md 了解一下现在的状况，然后你想一想，能不能比较好地解决目前的卡点问题。就是镜像构建的问题。",
-   "cwd": "/tmp/home",
+   "cwd": "~",
    "ir_stats": {
     "events": 3,
     "user_messages": 2,
@@ -30,7 +30,7 @@
   },
   "codex": {
    "source_session_id": "01a0fc68-e093-77e3-b7a5-4af866e8d83c",
-   "path": "/tmp/home/.codex/sessions/2026/10/02/rollout-2026-10-02T19-38-46-01a0fc68-e093-77e3-b7a5-4af866e8d83c.jsonl",
+   "path": "~/.codex/sessions/2026/10/02/rollout-2026-10-02T19-38-46-01a0fc68-e093-77e3-b7a5-4af866e8d83c.jsonl",
    "title": "Reply with exactly: SMOKE_OK",
    "cwd": "/private/tmp/codex-smoke",
    "ir_stats": {
@@ -47,9 +47,9 @@
   },
   "dsh": {
    "source_session_id": "session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07",
-   "path": "/tmp/home/.dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace--/session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07/session.v4.jsonl.zstd",
+   "path": "~/.dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace--/session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07/session.v4.jsonl.zstd",
    "title": "向上游说明数据要求和文件结构",
-   "cwd": "/tmp/harnessbridge-repo",
+   "cwd": "<repo>",
    "ir_stats": {
     "events": 7,
     "user_messages": 5,
@@ -64,9 +64,9 @@
   },
   "omp": {
    "source_session_id": "01a05c99-970e-7000-bb3c-a304919f20cd",
-   "path": "/tmp/home/.omp/agent/sessions/-Research_Assistant-习思想/2026-09-01T10-52-44-686Z_01a05c99-970e-7000-bb3c-a304919f20cd.jsonl",
+   "path": "~/.omp/agent/sessions/-Research_Assistant-习思想/2026-09-01T10-52-44-686Z_01a05c99-970e-7000-bb3c-a304919f20cd.jsonl",
    "title": "总结一下总书记的人民城市相关论述",
-   "cwd": "/tmp/home/Research_Assistant/习思想",
+   "cwd": "~/Research_Assistant/习思想",
    "ir_stats": {
     "events": 14,
     "user_messages": 1,
@@ -81,9 +81,9 @@
   },
   "qoder": {
    "source_session_id": "9f5ddbce-ab66-4213-9c38-c466301d64d3",
-   "path": "/tmp/home/.qoder/projects/-Users-larr-Documents-Qoder-2026-10-26-9f5ddbce/9f5ddbce-ab66-4213-9c38-c466301d64d3.jsonl",
-   "title": "把https://github.com/Entropyorder/exploitbench-code.git clone到/tmp/home/Entropyorder/projects下，可以用proxy",
-   "cwd": "/tmp/home/Documents/Qoder/2026-10-26/9f5ddbce",
+   "path": "~/.qoder/projects/-Users-larr-Documents-Qoder-2026-10-26-9f5ddbce/9f5ddbce-ab66-4213-9c38-c466301d64d3.jsonl",
+   "title": "把https://github.com/Entropyorder/exploitbench-code.git clone到~/Entropyorder/projects下，可以用proxy",
+   "cwd": "~/Documents/Qoder/2026-10-26/9f5ddbce",
    "ir_stats": {
     "events": 8,
     "user_messages": 1,
@@ -110,7 +110,7 @@
    "from": "claude",
    "to": "codex",
    "source_session_id": "b59c58e1-17c5-4758-8d69-2a0e98bd8bee",
-   "source_path": "/tmp/home/.claude/projects/-Users-larr/b59c58e1-17c5-4758-8d69-2a0e98bd8bee.jsonl",
+   "source_path": "~/.claude/projects/-Users-larr/b59c58e1-17c5-4758-8d69-2a0e98bd8bee.jsonl",
    "ir_counts": {
     "user_message": 2,
     "assistant_message": 1
@@ -150,7 +150,7 @@
    "from": "claude",
    "to": "dsh",
    "source_session_id": "b59c58e1-17c5-4758-8d69-2a0e98bd8bee",
-   "source_path": "/tmp/home/.claude/projects/-Users-larr/b59c58e1-17c5-4758-8d69-2a0e98bd8bee.jsonl",
+   "source_path": "~/.claude/projects/-Users-larr/b59c58e1-17c5-4758-8d69-2a0e98bd8bee.jsonl",
    "ir_counts": {
     "user_message": 2,
     "assistant_message": 1
@@ -201,7 +201,7 @@
    "from": "claude",
    "to": "omp",
    "source_session_id": "b59c58e1-17c5-4758-8d69-2a0e98bd8bee",
-   "source_path": "/tmp/home/.claude/projects/-Users-larr/b59c58e1-17c5-4758-8d69-2a0e98bd8bee.jsonl",
+   "source_path": "~/.claude/projects/-Users-larr/b59c58e1-17c5-4758-8d69-2a0e98bd8bee.jsonl",
    "ir_counts": {
     "user_message": 2,
     "assistant_message": 1
@@ -241,7 +241,7 @@
    "from": "claude",
    "to": "qoder",
    "source_session_id": "b59c58e1-17c5-4758-8d69-2a0e98bd8bee",
-   "source_path": "/tmp/home/.claude/projects/-Users-larr/b59c58e1-17c5-4758-8d69-2a0e98bd8bee.jsonl",
+   "source_path": "~/.claude/projects/-Users-larr/b59c58e1-17c5-4758-8d69-2a0e98bd8bee.jsonl",
    "ir_counts": {
     "user_message": 2,
     "assistant_message": 1
@@ -280,7 +280,7 @@
    "from": "codex",
    "to": "claude",
    "source_session_id": "01a0fc68-e093-77e3-b7a5-4af866e8d83c",
-   "source_path": "/tmp/home/.codex/sessions/2026/10/02/rollout-2026-10-02T19-38-46-01a0fc68-e093-77e3-b7a5-4af866e8d83c.jsonl",
+   "source_path": "~/.codex/sessions/2026/10/02/rollout-2026-10-02T19-38-46-01a0fc68-e093-77e3-b7a5-4af866e8d83c.jsonl",
    "ir_counts": {
     "user_message": 1,
     "assistant_message": 1
@@ -320,7 +320,7 @@
    "from": "codex",
    "to": "dsh",
    "source_session_id": "01a0fc68-e093-77e3-b7a5-4af866e8d83c",
-   "source_path": "/tmp/home/.codex/sessions/2026/10/02/rollout-2026-10-02T19-38-46-01a0fc68-e093-77e3-b7a5-4af866e8d83c.jsonl",
+   "source_path": "~/.codex/sessions/2026/10/02/rollout-2026-10-02T19-38-46-01a0fc68-e093-77e3-b7a5-4af866e8d83c.jsonl",
    "ir_counts": {
     "user_message": 1,
     "assistant_message": 1
@@ -370,7 +370,7 @@
    "from": "codex",
    "to": "omp",
    "source_session_id": "01a0fc68-e093-77e3-b7a5-4af866e8d83c",
-   "source_path": "/tmp/home/.codex/sessions/2026/10/02/rollout-2026-10-02T19-38-46-01a0fc68-e093-77e3-b7a5-4af866e8d83c.jsonl",
+   "source_path": "~/.codex/sessions/2026/10/02/rollout-2026-10-02T19-38-46-01a0fc68-e093-77e3-b7a5-4af866e8d83c.jsonl",
    "ir_counts": {
     "user_message": 1,
     "assistant_message": 1
@@ -410,7 +410,7 @@
    "from": "codex",
    "to": "qoder",
    "source_session_id": "01a0fc68-e093-77e3-b7a5-4af866e8d83c",
-   "source_path": "/tmp/home/.codex/sessions/2026/10/02/rollout-2026-10-02T19-38-46-01a0fc68-e093-77e3-b7a5-4af866e8d83c.jsonl",
+   "source_path": "~/.codex/sessions/2026/10/02/rollout-2026-10-02T19-38-46-01a0fc68-e093-77e3-b7a5-4af866e8d83c.jsonl",
    "ir_counts": {
     "user_message": 1,
     "assistant_message": 1
@@ -449,7 +449,7 @@
    "from": "dsh",
    "to": "claude",
    "source_session_id": "session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07",
-   "source_path": "/tmp/home/.dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace--/session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07/session.v4.jsonl.zstd",
+   "source_path": "~/.dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace--/session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07/session.v4.jsonl.zstd",
    "ir_counts": {
     "user_message": 5,
     "assistant_message": 2
@@ -489,7 +489,7 @@
    "from": "dsh",
    "to": "codex",
    "source_session_id": "session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07",
-   "source_path": "/tmp/home/.dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace--/session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07/session.v4.jsonl.zstd",
+   "source_path": "~/.dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace--/session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07/session.v4.jsonl.zstd",
    "ir_counts": {
     "user_message": 5,
     "assistant_message": 2
@@ -529,7 +529,7 @@
    "from": "dsh",
    "to": "omp",
    "source_session_id": "session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07",
-   "source_path": "/tmp/home/.dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace--/session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07/session.v4.jsonl.zstd",
+   "source_path": "~/.dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace--/session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07/session.v4.jsonl.zstd",
    "ir_counts": {
     "user_message": 5,
     "assistant_message": 2
@@ -569,7 +569,7 @@
    "from": "dsh",
    "to": "qoder",
    "source_session_id": "session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07",
-   "source_path": "/tmp/home/.dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace--/session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07/session.v4.jsonl.zstd",
+   "source_path": "~/.dsh/sessions/--Users-larr-Documents-deepseek-harness-default-workspace--/session-8c6b20c2-b268-4aa1-9f5b-8c4fd117fe07/session.v4.jsonl.zstd",
    "ir_counts": {
     "user_message": 5,
     "assistant_message": 2
@@ -608,7 +608,7 @@
    "from": "omp",
    "to": "claude",
    "source_session_id": "01a05c99-970e-7000-bb3c-a304919f20cd",
-   "source_path": "/tmp/home/.omp/agent/sessions/-Research_Assistant-习思想/2026-09-01T10-52-44-686Z_01a05c99-970e-7000-bb3c-a304919f20cd.jsonl",
+   "source_path": "~/.omp/agent/sessions/-Research_Assistant-习思想/2026-09-01T10-52-44-686Z_01a05c99-970e-7000-bb3c-a304919f20cd.jsonl",
    "ir_counts": {
     "user_message": 1,
     "assistant_message": 6,
@@ -649,7 +649,7 @@
    "from": "omp",
    "to": "codex",
    "source_session_id": "01a05c99-970e-7000-bb3c-a304919f20cd",
-   "source_path": "/tmp/home/.omp/agent/sessions/-Research_Assistant-习思想/2026-09-01T10-52-44-686Z_01a05c99-970e-7000-bb3c-a304919f20cd.jsonl",
+   "source_path": "~/.omp/agent/sessions/-Research_Assistant-习思想/2026-09-01T10-52-44-686Z_01a05c99-970e-7000-bb3c-a304919f20cd.jsonl",
    "ir_counts": {
     "user_message": 1,
     "assistant_message": 6,
@@ -690,7 +690,7 @@
    "from": "omp",
    "to": "dsh",
    "source_session_id": "01a05c99-970e-7000-bb3c-a304919f20cd",
-   "source_path": "/tmp/home/.omp/agent/sessions/-Research_Assistant-习思想/2026-09-01T10-52-44-686Z_01a05c99-970e-7000-bb3c-a304919f20cd.jsonl",
+   "source_path": "~/.omp/agent/sessions/-Research_Assistant-习思想/2026-09-01T10-52-44-686Z_01a05c99-970e-7000-bb3c-a304919f20cd.jsonl",
    "ir_counts": {
     "user_message": 1,
     "assistant_message": 6,
@@ -753,7 +753,7 @@
    "from": "omp",
    "to": "qoder",
    "source_session_id": "01a05c99-970e-7000-bb3c-a304919f20cd",
-   "source_path": "/tmp/home/.omp/agent/sessions/-Research_Assistant-习思想/2026-09-01T10-52-44-686Z_01a05c99-970e-7000-bb3c-a304919f20cd.jsonl",
+   "source_path": "~/.omp/agent/sessions/-Research_Assistant-习思想/2026-09-01T10-52-44-686Z_01a05c99-970e-7000-bb3c-a304919f20cd.jsonl",
    "ir_counts": {
     "user_message": 1,
     "assistant_message": 6,
@@ -793,7 +793,7 @@
    "from": "qoder",
    "to": "claude",
    "source_session_id": "9f5ddbce-ab66-4213-9c38-c466301d64d3",
-   "source_path": "/tmp/home/.qoder/projects/-Users-larr-Documents-Qoder-2026-10-26-9f5ddbce/9f5ddbce-ab66-4213-9c38-c466301d64d3.jsonl",
+   "source_path": "~/.qoder/projects/-Users-larr-Documents-Qoder-2026-10-26-9f5ddbce/9f5ddbce-ab66-4213-9c38-c466301d64d3.jsonl",
    "ir_counts": {
     "user_message": 1,
     "assistant_message": 4,
@@ -823,7 +823,7 @@
     "command": "HOME=/tmp/asi-matrix-t11b/directions/qoder_to_claude/home CLAUDE_CONFIG_DIR=/tmp/asi-matrix-t11b/directions/qoder_to_claude/claude ANTHROPIC_API_KEY=<fake> claude --bare --resume a149a611-aaaa-5f87-9129-2ec8d5be486a.jsonl",
     "detail": "claude TUI rendered source session content (first user text '把https://github.com/Entropyorder/exploit')",
     "evidence": "/tmp/asi-matrix-t11b/directions/qoder_to_claude/claude/projects/-Users-larr-Documents-Qoder-2026-10-26-9f5ddbce/a149a611-aaaa-5f87-9129-2ec8d5be486a.jsonl",
-    "output_excerpt": "78▐▛███▛█ClaudeCodev2.1.308▝▜██████▀Opus5.5·APIUsageBilling▝▝▝▝/private/tmp/asi-matrix-t11b/directions/qoder_to_claude/cwd⚠Remotemanagedsettingsfailedtoload(accessdenied(403))·noremotepolicyapplied·/statusfordetails❯把https://github.com/Entropyorder/exploitbench-code.gitclone到/tmp/home/Entropyorder/projects下，可以用proxyThoughtfor4s,listed1directory⏺目标目录已存在且无同名仓库，用本地代理127.0.0.1:7890克隆。Thoughtfor1m13s"
+    "output_excerpt": "78▐▛███▛█ClaudeCodev2.1.308▝▜██████▀Opus5.5·APIUsageBilling▝▝▝▝/private/tmp/asi-matrix-t11b/directions/qoder_to_claude/cwd⚠Remotemanagedsettingsfailedtoload(accessdenied(403))·noremotepolicyapplied·/statusfordetails❯把https://github.com/Entropyorder/exploitbench-code.gitclone到~/Entropyorder/projects下，可以用proxyThoughtfor4s,listed1directory⏺目标目录已存在且无同名仓库，用本地代理127.0.0.1:7890克隆。Thoughtfor1m13s"
    },
    "lossy": [],
    "warnings": [],
@@ -834,7 +834,7 @@
    "from": "qoder",
    "to": "codex",
    "source_session_id": "9f5ddbce-ab66-4213-9c38-c466301d64d3",
-   "source_path": "/tmp/home/.qoder/projects/-Users-larr-Documents-Qoder-2026-10-26-9f5ddbce/9f5ddbce-ab66-4213-9c38-c466301d64d3.jsonl",
+   "source_path": "~/.qoder/projects/-Users-larr-Documents-Qoder-2026-10-26-9f5ddbce/9f5ddbce-ab66-4213-9c38-c466301d64d3.jsonl",
    "ir_counts": {
     "user_message": 1,
     "assistant_message": 4,
@@ -875,7 +875,7 @@
    "from": "qoder",
    "to": "dsh",
    "source_session_id": "9f5ddbce-ab66-4213-9c38-c466301d64d3",
-   "source_path": "/tmp/home/.qoder/projects/-Users-larr-Documents-Qoder-2026-10-26-9f5ddbce/9f5ddbce-ab66-4213-9c38-c466301d64d3.jsonl",
+   "source_path": "~/.qoder/projects/-Users-larr-Documents-Qoder-2026-10-26-9f5ddbce/9f5ddbce-ab66-4213-9c38-c466301d64d3.jsonl",
    "ir_counts": {
     "user_message": 1,
     "assistant_message": 4,
@@ -920,7 +920,7 @@
       "tool",
       "assistant"
      ],
-     "firstUserText": "把https://github.com/Entropyorder/exploitbench-code.git clone到/tmp/home/Entropyorder/projects下，可以用proxy"
+     "firstUserText": "把https://github.com/Entropyorder/exploitbench-code.git clone到~/Entropyorder/projects下，可以用proxy"
     }
    },
    "lossy": [],
@@ -932,7 +932,7 @@
    "from": "qoder",
    "to": "omp",
    "source_session_id": "9f5ddbce-ab66-4213-9c38-c466301d64d3",
-   "source_path": "/tmp/home/.qoder/projects/-Users-larr-Documents-Qoder-2026-10-26-9f5ddbce/9f5ddbce-ab66-4213-9c38-c466301d64d3.jsonl",
+   "source_path": "~/.qoder/projects/-Users-larr-Documents-Qoder-2026-10-26-9f5ddbce/9f5ddbce-ab66-4213-9c38-c466301d64d3.jsonl",
    "ir_counts": {
     "user_message": 1,
     "assistant_message": 4,

@@ -1,0 +1,5 @@
+{"v":1,"kind":"header","agent":"codeg-zcode-acp","session_id":"zcode-test-1","cwd":"/tmp/zcode-project","started_at_ms":1735689700000}
+{"t":1735689700100,"k":"prompt","p":[{"type":"text","text":"Explain this file."}]}
+{"t":1735689700200,"k":"update","p":{"sessionUpdate":"agent_thought_chunk","content":{"type":"text","text":"I should read the file first."}}}
+{"t":1735689700300,"k":"update","p":{"sessionUpdate":"agent_message_chunk","content":{"type":"text","text":"It is a small README."}}}
+{"t":1735689700400,"k":"turn_end","p":{"stopReason":"end_turn","usage":{"inputTokens":8,"outputTokens":6}}}

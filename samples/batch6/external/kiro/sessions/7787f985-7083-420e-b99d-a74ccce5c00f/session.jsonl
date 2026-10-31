@@ -1,0 +1,8 @@
+{"version":"v1","kind":"Prompt","data":{"message_id":"p1","content":[{"kind":"text","data":"Run the shell command `echo kiro-probe` and then reply DONE."}],"meta":{"timestamp":1790509942}}}
+{"version":"v1","kind":"AssistantMessage","data":{"message_id":"a1","content":[{"kind":"thinking","data":{"text":"","redactedContent":[46,75],"modelId":"auto","toolsDigest":"f1"}},{"kind":"text","data":""},{"kind":"toolUse","data":{"toolUseId":"tooluse_1","name":"shell","input":{"__tool_use_purpose":"Run the requested echo command.","command":"echo kiro-probe"}}}]}}
+{"version":"v1","kind":"ToolResults","data":{"message_id":"r1","content":[{"kind":"toolResult","data":{"toolUseId":"tooluse_1","content":[{"kind":"text","data":"User denied tool execution"}],"status":"error"}}],"results":{}}}
+{"version":"v1","kind":"AssistantMessage","data":{"message_id":"a2","content":[{"kind":"thinking","data":{"text":"","redactedContent":[46],"modelId":"auto","toolsDigest":"f1"}},{"kind":"text","data":"DONE"}]}}
+{"version":"v1","kind":"Prompt","data":{"message_id":"p2","content":[{"kind":"text","data":"Reply with exactly: OK2"}],"meta":{"timestamp":1790510069}}}
+{"version":"v1","kind":"AssistantMessage","data":{"message_id":"a3","content":[{"kind":"thinking","data":{"text":"Short answer.","signature":"sig","redactedContent":[],"modelId":"claude-opus-5.5","toolsDigest":"f1"}},{"kind":"text","data":"OK2"}]}}
+{"version":"v1","kind":"Clear","data":{}}
+{"version":"v1","kind":"Compaction","data":{"summary":"## OBJECTIVE\nEcho a probe string.","strategy":{"message_pairs_to_exclude":2},"messages_snapshot":[]}}

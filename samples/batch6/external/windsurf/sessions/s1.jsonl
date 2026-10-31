@@ -1,0 +1,2 @@
+{"role":"user","content":"Add a health endpoint"}
+{"role":"assistant","content":"Decision: GET /health in app.py"}

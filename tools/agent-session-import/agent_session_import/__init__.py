@@ -8,4 +8,6 @@ SOURCES = ("claude", "codex", "dsh", "omp", "oss", "qoder",
            "hermes", "devin", "opencode",
            "goose", "continue", "junie", "kiro", "crush", "cline", "roo",
            "kilo-code", "codebuff", "openhands", "vibe",
-           "codebuddy", "fx", "mini-swe-agent")
+           "codebuddy", "fx", "mini-swe-agent",
+           "workbuddy", "windsurf", "trae", "zcode", "cherry-studio",
+           "claude-desktop", "opencraw", "iflow", "zed")

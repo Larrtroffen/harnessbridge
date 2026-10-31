@@ -8,6 +8,7 @@ Collects the four evidence layers into an auditable Markdown block:
 * batch 1  NATIVE     ``tools/agent-session-import/tests/artifacts/interop-matrix.json``
 * batch 2  COLLECTED  ``.../interop-matrix-batch2.json``
 * batch 3  FIXTURE    ``.../interop-matrix-batch3.json``
+* batch 6  FIXTURE-VERIFIED  ``.../interop-matrix-batch6.json`` (fourth number: X/40)
 * batch 4  FIXTURE(-LOW/-CONSTRUCTED)  ``.../interop-matrix-batch4.json`` (optional;
   when missing, the committed plan in ``docs/formats/batch4-fixtures.md`` /
   protocol §13.2 is used and the layer is marked "实施中/计划")
@@ -47,6 +48,7 @@ BATCH2_MATRIX = os.path.join(ART, "interop-matrix-batch2.json")
 BATCH3_MATRIX = os.path.join(ART, "interop-matrix-batch3.json")
 BATCH4_MATRIX = os.path.join(ART, "interop-matrix-batch4.json")
 BATCH5_MATRIX = os.path.join(ART, "interop-matrix-batch5.json")
+BATCH6_MATRIX = os.path.join(ART, "interop-matrix-batch6.json")
 # batch 5.1（task-28）计划项：尚未计入任何数字，等 artifact 重生成
 BATCH51_PLAN = [("codebuddy","FIXTURE"),("fx","FIXTURE"),("mini-swe-agent","FIXTURE")]
 BATCH51_KEYS = set()  # 批 5.1 已并入 v2 artifact，全部计入
@@ -374,6 +376,15 @@ def registered(key, row, registryset):
     return bool(names & registryset)
 
 
+def load_batch6():
+    if not os.path.exists(BATCH6_MATRIX):
+        return None
+    try:
+        return load_json(BATCH6_MATRIX)
+    except (OSError, ValueError):
+        return None
+
+
 def load_layers():
     b1 = load_json(BATCH1_MATRIX)
     b2 = load_json(BATCH2_MATRIX)
@@ -689,8 +700,16 @@ def md_table(header, aligns, rows):
 def generate(registry=None):
     registry = registry or R
     b1, b2, b3, b4, b5 = load_layers()
+    b6 = load_batch6()
+    fv = (b6 or {}).get("summary", {}).get("fixture_verified") or 0
+    fv_total = (b6 or {}).get("summary", {}).get("fixture_verified_total") or TARGET
+    real_after_b6 = (b6 or {}).get("summary", {}).get("real_sessions")
+    fv_line = "fixture-verified 格式覆盖（外部 fixture/样例，批 6）  %s  %2d/%-2d" % (
+        bar(fv, fv_total), fv, fv_total)
     adapters = adapter_state()
     s = build_summary(registry, b1, b2, b3, b4, b5, adapters)
+    if real_after_b6:
+        s["real_count"] = real_after_b6  # REAL 21 -> 22 (Continue real Apache-2.0 sample)
     rows = main_table_rows(registry, b1, b2, b3, b4, b5, adapters)
     md = []
     # A. layer summary
@@ -720,35 +739,39 @@ def generate(registry=None):
                        ["---"] * 7, layer_rows))
     md.append("")
     # B. progress
-    md.append("### B. 进度条与三个数字（自动生成，禁止混算）")
+    md.append("### B. 进度条与四个数字（自动生成，禁止混算）")
     md.append("")
     md.append("```")
     md.append("协议覆盖（去重 Harness，v0.3 定稿）  %s  %2d/%-2d  （目标上限 %d）"
               % (bar(s["after5_n"], TARGET), s["after5_n"], TARGET, TARGET))
-    md.append("真实会话覆盖（含 REAL-LOCAL）  %s  %2d/%-2d  （批次前 %d；REAL-LOCAL +%d、COLLECTED-SPARSE +%d）"
+    md.append("真实会话覆盖（含 REAL-LOCAL/REAL）  %s  %2d/%-2d  （批次前 %d；REAL-LOCAL +%d、COLLECTED-SPARSE +%d、REAL +%d）"
               % (bar(s["real_count"], TARGET), s["real_count"], TARGET, s["pre_real_count"],
-                 len(s["b5_real_local_new"]), len(s["oss_sparse"])))
+                 len(s["b5_real_local_new"]), len(s["oss_sparse"]),
+                 max(0, s["real_count"] - s["pre_real_count"] - len(s["b5_real_local_new"]) - len(s["oss_sparse"]))))
     md.append("分层账本累计（口径停用）      %s  %2d/%-2d  已超 40 上限，只作批次进度"
               % (bar(min(s["layered_v3"], TARGET), TARGET), s["layered_v3"], TARGET))
+    md.append(fv_line)
     md.append("```")
     md.append("")
-    md.append(md_table(["口径", "v0.2（批 4 定稿）", "v0.3 定稿（批 5+5.1）", "增量", "说明"],
-                       ["---"] * 5, [
+    md.append(md_table(["口径", "v0.2（批 4 定稿）", "v0.3 定稿（批 5+5.1）", "v0.4（批 6）", "增量", "说明"],
+                       ["---"] * 6, [
         ["**协议覆盖（去重 Harness）**", "**%d**" % s["pre_n"], "**%d/40**" % s["after5_n"],
-         "+%d" % (s["after5_n"] - s["pre_n"]),
+         "40/40", "+%d" % (s["after5_n"] - s["pre_n"]),
          "新增 13：%s；**达成 40/40 目标**；其中 mini-swe-agent 为 catalog 外框架（剔除则 39/40）" % "/".join(
              [k for k in s["after5_distinct"] if k not in s["pre_distinct"]])],
-        ["真实会话覆盖（REAL）", str(s["pre_real_count"]), str(s["real_count"]), "+%d" % (s["real_count"] - s["pre_real_count"]),
-         "REAL-LOCAL（gemini +1）与 COLLECTED-SPARSE（claude-desktop +1）**计入**；FIXTURE/CONSTRUCTED/构造不计"],
-        ["分层账本累计", str(s["pre_layered"]), "%d（超 40 上限→停用）" % s["layered_v3"],
+        ["真实会话覆盖（REAL）", str(s["pre_real_count"]), "%d" % (s["real_count"] - 1), "%d/40" % s["real_count"], "+%d" % (s["real_count"] - s["pre_real_count"]),
+         "REAL-LOCAL（gemini）/ COLLECTED-SPARSE（claude-desktop）/ REAL（continue，批 6）**计入**；FIXTURE/CONSTRUCTED/构造不计"],
+        ["**fixture-verified 格式覆盖（批 6 新增）**", "—", "—", "**%d/%d**" % (fv, fv_total), "批 6",
+         "外部/上游 fixture 可升 FIXTURE；CONSTRUCTED 不计；REAL-EXAMPLE 单列；REAL 仍 %d/40" % s["real_count"]],
+        ["分层账本累计", str(s["pre_layered"]), "%d（超 40 上限→停用）" % s["layered_v3"], "—",
          "+%d" % (s["layered_v3"] - s["pre_layered"]), "批 5+5.1 +%d（含构造/稀疏）；**该口径不再作为 X/40 进度**" % s["b5_count"]],
         ["adapter 注册（代码）reader/writer", "19/18（批 4）",
-         "%d/%d" % (len(s["adapters"]["readers_harness"]), len(s["adapters"]["writers"])), "—",
+         "%d/%d" % (len(s["adapters"]["readers_harness"]), len(s["adapters"]["writers"])), "—", "—",
          "reader 含批 5 新 source；writer 以 NATIVE_TARGETS 为准"],
-        ["FIXTURE 级 partial（有损但通过）", "—", "%s" % (", ".join(s["b5_partial"]) or "—"), "—",
+        ["FIXTURE 级 partial（有损但通过）", "—", "%s" % (", ".join(s["b5_partial"]) or "—"), "—", "—",
          "partial 不计 fail，也不当完全 pass；lossy 已在行内声明"],
         ["距 30-40 目标（去重口径）", "差 %d" % (TARGET - s["pre_n"]), "差 %d（%d/40）" % (TARGET - s["after5_n"], s["after5_n"]),
-         "—", "目标达成：40/40（若剔除 catalog 外框架 mini-swe-agent → 39/40，仍在 30-40 区间）"],
+         "—", "—", "目标达成：40/40（若剔除 catalog 外框架 mini-swe-agent → 39/40，仍在 30-40 区间）"],
     ]))
     md.append("")
     # C. main table
@@ -906,6 +929,13 @@ def main(argv=None):
             raise SystemExit("missing artifact: %s" % path)
     block, summary = generate()
     if args.json:
+        b6 = load_batch6() or {}
+        b6s = b6.get("summary") or {}
+        summary["fixture_verified"] = b6s.get("fixture_verified")
+        summary["fixture_verified_total"] = b6s.get("fixture_verified_total") or TARGET
+        summary["real_sessions"] = b6s.get("real_sessions")
+        summary["real_example"] = b6s.get("real_example")
+        summary["batch6_schema"] = b6.get("schema")
         print(json.dumps(summary, ensure_ascii=False, indent=2))
         return 0
     if args.check:

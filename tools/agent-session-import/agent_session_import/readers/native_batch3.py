@@ -22,6 +22,7 @@ import re
 from ..common import HOME, iso_to_ms
 from ..ir import (MISSING_RESULT_TEXT, add_event, finalize, new_ir, normalize_usage,
                   text_block, touch_ts, warn)
+from . import external_fixtures as _external
 
 FIXTURE_EVIDENCE = "FIXTURE"
 SOURCE_LABELS = {
@@ -94,6 +95,9 @@ def _files(source, root):
             out.append(path)
     if source == "aider":
         out = [p for p in out if p.endswith(".md")]
+    if not out:
+        # explicit external-fixture root (research/external/fixtures/<source>)
+        out = _external.files(source, root)
     out.sort()
     return out
 

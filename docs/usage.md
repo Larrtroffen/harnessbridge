@@ -661,9 +661,14 @@ cd tools/agent-session-import
     暂不支持 move**（`source_move_status:"unsupported"`，源完全不动）。
   - `asi list codex` 在 `CODEX_HOME` 无 `state_5.sqlite` 时也会回退扫描 `sessions/**/rollout-*.jsonl`，
     与 detect/migrate 的发现保持一致（便携/测试环境不再显示 0 会话）。
-- **`--journal <path>`**：默认 `~/Library/Application Support/HarnessBridge/journals/migrate-<YYYYMMDD-HHMMSS-mmm>-<rand6>.json`
-  （**毫秒 + 随机短后缀，绝不冲突**）。日志**每完成一个会话即增量原子写入**（同目录临时文件 + `os.replace`），
-  中途失败/取消仍保留已完成会话的 move/restore 映射；同秒多次迁移互不覆盖。
+- **`--journal <path>`**：默认
+  `~/Library/Application Support/HarnessBridge/journals/migrate-<YYYYMMDD-HHMMSS-mmm>-<rand6>.json`
+  （**毫秒 + 随机短后缀，绝不冲突**；可用 env `HARNESSBRIDGE_APP_SUPPORT` 覆盖 App Support 根目录，
+  日志仍在 `<root>/HarnessBridge/journals/`）。日志**每完成一个会话即增量原子写入**（同目录临时文件 +
+  `os.replace`），中途失败/取消仍保留已完成会话的 move/restore 映射；同秒多次迁移互不覆盖。
+- **旧品牌兼容**：旧目录 `~/Library/Application Support/SessionConverter/journals/` 仅作**读取/恢复兼容**
+  （`migrate-restore --journal <文件名>` 会依次在显式路径、新目录、旧目录中查找）；**新写入默认一律新目录**，
+  不会自动迁移或删除旧 journal。显式 `--journal <绝对路径>` 完全不受品牌变更影响。
   日志记录每个会话的源路径、目标安装文件、备份、移出后路径与结果，供 restore 使用（JSON 顶层返回 `journal_path`）。
 - 失败回滚：安装后 verify 失败会删除本次新建的目标文件、清理本次新建的**空 session 目录**并恢复覆盖前备份；
   源文件永不删除。install 写入采用**同目录 staging（`.asi-tmp-*`）+ 原子 rename**，失败清理临时文件。
@@ -706,7 +711,56 @@ cd tools/agent-session-import
   `move` 依赖源会话文件路径（多文件来源/Directory 型源会记为 move 失败但不删源）；
   真实用户 store 的写入前备份由 `--overwrite` 与 journal 保障，仍建议先 `--dry-run` 预览。
 
-## 16. 参考
+## 16. 批 6：外部 fixture 入库 + `asi matrix-batch6`（fixture-verified 覆盖）
+
+批 6 把「协议覆盖 40/40」升级为**可复现的 fixture 验证覆盖**：外部/上游许可清晰的 fixture 入库
+`samples/batch6/external/<harness>/`（每个目录保留上游 `SOURCE.md`），并新增矩阵命令：
+
+```bash
+cd tools/agent-session-import
+./asi matrix-batch6 --json                    # 生成/覆盖 tests/artifacts/interop-matrix-batch6.json
+./asi matrix-batch6 --only-harness copilot,kiro --verbose
+./asi matrix-batch6 --report /tmp/batch6.json --json
+```
+
+### 16.1 证据等级（不可混淆）
+
+| 等级 | 来源 | 计入 REAL 真实覆盖？ |
+|---|---|---|
+| **NATIVE / REAL-LOCAL / COLLECTED** | 本机真实 store / 真实采集 | ✅（真实覆盖仍 21/40） |
+| **REAL-EXAMPLE** | Harbor RFC 0001 公开真实轨迹样例（openhands / mini-swe-agent） | ❌ 单列 |
+| **FIXTURE / FIXTURE-LOW** | 上游 MIT/Apache 测试 fixture、Codeg 派生（kiro/codebuddy/antigravity） | ❌ |
+| **CONSTRUCTED** | 本仓库按 schema 构造（`samples/batch5/constructed/`） | ❌ |
+
+- 外部 fixture 可把格式证据升到 FIXTURE，但**不得冒充真实用户会话**；Crush（FSL）、Zed（GPL 混合）未复制任何上游文件。
+- 批 6 新增**第四个数字**：**fixture-verified format coverage 35/40**（含 6 个 partial；用外部/本仓库
+  fixture 实跑 `reader → IR → ATIF → IR` 的 canonical 标签数；CONSTRUCTED 不计；REAL-EXAMPLE 单列）。
+- Continue 新增 Apache-2.0 真实样本（`samples/batch6/real/continue/session-28fdaafd.json`，REAL）：
+  真实会话覆盖 21/40 → **22/40**；该样本**不得与 CONSTRUCTED 混淆**，SOURCE.md 已记录 repo/commit/license。
+
+### 16.2 矩阵内容
+
+- **Readers（40 canonical 标签）**：每个标签按其最佳可用 fixture（外部 `samples/batch6` / 仓库批 3-5 fixture /
+  sample 目录 / 本机 store **只读**）→ reader→IR→ATIF→verify；记录 `status`（pass/partial/fail）、
+  `fixture`/`fixture_kind`、`events`、`stats`、ATIF steps/errors/lossy、`warnings`。
+  无 adapter 的标签（cherry-studio/opencraw/trae/windsurf/workbuddy/zcode）记 fail + 原因，不静默 pass。
+- **Writers（32 个 NATIVE_TARGETS）**：以一份 ATIF 文档为输入 → 写 staging（唯一临时目录，结束清理）→
+  对应 reader 读回/文件级 verify；产物只写临时目录，**不写真实用户 store**，不联网。
+- 不跑 40×31 全量；只做「每源一次 reader 校验 + 每 writer 一次自往返」。artifact schema：
+  `asi-batch6-matrix/v1`（`readers[] / writers[] / summary / failures / evidence_rule`）。
+
+### 16.3 已知失败与限制（如实记录）
+
+- **reader**：**34 pass / 6 partial / 0 fail**（batch3-recon 的 workbuddy/windsurf/trae/zcode/
+  cherry-studio/claude-desktop/opencraw 7 个 reader 已接入外部 fixture；opencode 改用可解析的
+  batch3-style fixture；Continue 使用真实样本 REAL）。
+- **reader partial（6）**：`codex / cline / fx / kilo-code / roo / openhands`（ATIF round-trip 有损/
+  compare mismatch，`partial_reason` 记录 lossy 原因，**不算 fail**）。
+- **writer**：**32/32 pass，fail=0**（staging 临时目录，读回验证）。
+- `iFlow` / `Zed` 为 batch3-recon 追加的 bonus source（40 canonical 分母之外，后续任务定稿时再决定是否计入）。
+- 所有外部 fixture ≤200KB、无凭据；只读本机 store；matrix 生成后清理临时目录。
+
+## 17. 参考
 
 - `docs/formats/dsh.md`：DSH v4 格式/最小事件序列/发现与注册/严格校验清单。
 - `docs/formats/codex.md`、`docs/formats/qoder.md`、`docs/formats/omp.md`：源格式逆向规格与坑。

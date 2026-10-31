@@ -2,7 +2,7 @@
  "schema": "asi-batch3-matrix/v1",
  "asi_version": "0.1.0",
  "generated_at": "2026-10-29T19:41:20Z",
- "root": "samples/batch2/public-fixtures",
+ "root": "<repo>/samples/batch2/public-fixtures",
  "out_dir": "/tmp/asi-batch3-final",
  "evidence_level": "FIXTURE",
  "evidence_note": "FIXTURE: public synthetic/trimmed fixtures, not real sessions; no native CLI load is claimed (B3-F2 is DSH-only real load).",
@@ -17,7 +17,7 @@
   {
    "harness": "copilot",
    "evidence_level": "FIXTURE",
-   "fixture_path": "samples/batch2/public-fixtures/atifact/test-fixtures/copilot-cli-simple.jsonl",
+   "fixture_path": "<repo>/samples/batch2/public-fixtures/atifact/test-fixtures/copilot-cli-simple.jsonl",
    "fixture_type": "public-fixture (synthetic/trimmed)",
    "source_session_id": "session-xyz-789",
    "model": "claude-sonnet-4.6",
@@ -78,7 +78,7 @@
   {
    "harness": "gemini",
    "evidence_level": "FIXTURE",
-   "fixture_path": "samples/batch2/public-fixtures/agent-sessions/stage0/gemini/small.json",
+   "fixture_path": "<repo>/samples/batch2/public-fixtures/agent-sessions/stage0/gemini/small.json",
    "fixture_type": "public-fixture (synthetic/trimmed)",
    "source_session_id": "session-2026-01-16T18-34-3739ef95",
    "model": "gemini-3-flash-preview",
@@ -134,7 +134,7 @@
   {
    "harness": "aider",
    "evidence_level": "FIXTURE",
-   "fixture_path": "samples/batch2/public-fixtures/sessionport/tests-fixtures/aider/history/abc123.md",
+   "fixture_path": "<repo>/samples/batch2/public-fixtures/sessionport/tests-fixtures/aider/history/abc123.md",
    "fixture_type": "public-fixture (synthetic/trimmed)",
    "source_session_id": "abc123",
    "model": "",
@@ -188,7 +188,7 @@
   {
    "harness": "cursor",
    "evidence_level": "FIXTURE",
-   "fixture_path": "samples/batch2/public-fixtures/agent-sessions/stage0/cursor/small.jsonl",
+   "fixture_path": "<repo>/samples/batch2/public-fixtures/agent-sessions/stage0/cursor/small.jsonl",
    "fixture_type": "public-fixture (synthetic/trimmed)",
    "source_session_id": "small",
    "model": "",
@@ -247,7 +247,7 @@
   {
    "harness": "qwen",
    "evidence_level": "FIXTURE",
-   "fixture_path": "samples/batch2/public-fixtures/agent-sessions/stage0/qwen/019f0000000070008000000000000003.jsonl",
+   "fixture_path": "<repo>/samples/batch2/public-fixtures/agent-sessions/stage0/qwen/019f0000000070008000000000000003.jsonl",
    "fixture_type": "public-fixture (synthetic/trimmed)",
    "source_session_id": "019f0000000070008000000000000003",
    "model": "",
@@ -298,7 +298,7 @@
   {
    "harness": "pi",
    "evidence_level": "FIXTURE",
-   "fixture_path": "samples/batch2/public-fixtures/agent-sessions/stage0/pi/small.jsonl",
+   "fixture_path": "<repo>/samples/batch2/public-fixtures/agent-sessions/stage0/pi/small.jsonl",
    "fixture_type": "public-fixture (synthetic/trimmed)",
    "source_session_id": "019e19b4-eb48-746a-aa6b-8dfcfa37954b",
    "model": "pi-fixture-model",

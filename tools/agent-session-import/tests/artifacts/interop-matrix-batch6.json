@@ -1,0 +1,1644 @@
+{
+ "schema": "asi-batch6-matrix/v1",
+ "asi_version": "0.1.0",
+ "generated_at": "2026-10-31T13:27:09Z",
+ "canonical": {
+  "total": 40,
+  "labels": [
+   "claude",
+   "codex",
+   "dsh",
+   "omp",
+   "qoder",
+   "copilot",
+   "gemini",
+   "aider",
+   "cursor",
+   "qwen",
+   "pi",
+   "openclaw",
+   "kimi",
+   "grok",
+   "factory-droid",
+   "antigravity",
+   "hermes",
+   "devin",
+   "opencode",
+   "cline",
+   "fx",
+   "cherry-studio",
+   "kilo-code",
+   "opencraw",
+   "trae",
+   "windsurf",
+   "workbuddy",
+   "zcode",
+   "goose",
+   "junie",
+   "vibe",
+   "roo",
+   "kiro",
+   "codebuddy",
+   "openhands",
+   "crush",
+   "mini-swe-agent",
+   "claude-desktop",
+   "continue",
+   "codebuff"
+  ]
+ },
+ "evidence_rule": {
+  "priority": [
+   "NATIVE",
+   "REAL-LOCAL",
+   "COLLECTED",
+   "REAL",
+   "COLLECTED-SPARSE",
+   "REAL-EXAMPLE",
+   "FIXTURE",
+   "FIXTURE-LOW",
+   "FIXTURE-CONSTRUCTED"
+  ],
+  "verified_evidence": [
+   "COLLECTED",
+   "COLLECTED-SPARSE",
+   "FIXTURE",
+   "FIXTURE-LOW",
+   "NATIVE",
+   "REAL",
+   "REAL-EXAMPLE",
+   "REAL-LOCAL"
+  ],
+  "note": "外部 FIXTURE 可升 FIXTURE；CONSTRUCTED 不计入 fixture-verified；REAL-EXAMPLE 单列（不算真实用户会话）；真实会话覆盖 21/40 + Continue REAL = 22/40"
+ },
+ "readers": [
+  {
+   "harness": "claude",
+   "source": "claude",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "~/.claude/projects/-Users-larr/b59c58e1-17c5-4758-8d69-2a0e98bd8bee.jsonl",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "repo",
+   "events": 3,
+   "stats": {
+    "events": 3,
+    "user_messages": 2,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 3,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "codex",
+   "source": "codex",
+   "evidence_level": "FIXTURE",
+   "status": "partial",
+   "fixture": "~/.codex/sessions/2026/10/29/rollout-2026-10-29T02-34-26-01a183ca-c72e-7740-bcbf-27f9daedee43.jsonl",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "repo",
+   "events": 69,
+   "stats": {
+    "events": 69,
+    "user_messages": 4,
+    "assistant_messages": 29,
+    "reasoning_blocks": 6,
+    "tool_calls": 36,
+    "tool_results": 36,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": false,
+   "atif_steps": 33,
+   "atif_errors": [],
+   "atif_compare_ok": false,
+   "atif_lossy": [],
+   "error": "ATIF round-trip/lossy mismatch",
+   "partial_reason": "ATIF compare mismatch/lossy (see atif_compare_ok)"
+  },
+  {
+   "harness": "dsh",
+   "source": "dsh",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "~/.dsh/sessions/--Users-larr-Entropyorder-projects-hle-300--/a0275cc1-c58a-4617-bca6-03bc9da02f90/session.v4.jsonl.zstd",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "repo",
+   "events": 156,
+   "stats": {
+    "events": 156,
+    "user_messages": 11,
+    "assistant_messages": 63,
+    "reasoning_blocks": 57,
+    "tool_calls": 82,
+    "tool_results": 82,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 74,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "omp",
+   "source": "omp",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "~/.omp/agent/sessions/--private-tmp--/2026-10-30T08-01-32-889Z_01a18bd4-0ed9-7583-8a14-e7835619265b.jsonl",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "repo",
+   "events": 1876,
+   "stats": {
+    "events": 1876,
+    "user_messages": 181,
+    "assistant_messages": 899,
+    "reasoning_blocks": 883,
+    "tool_calls": 796,
+    "tool_results": 796,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 1080,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "qoder",
+   "source": "qoder",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "~/.qoder/projects/-Users-larr-Library-Application-Support-com-qoder-app-stable-remote-control-sessions-5fdede168f81c3ffb7e71dabd742ebaf-dce5a5f738324b1782b4577c/8b72c413-af17-85f4-afd8-925e4f8b484a.jsonl",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "repo",
+   "events": 740,
+   "stats": {
+    "events": 740,
+    "user_messages": 38,
+    "assistant_messages": 316,
+    "reasoning_blocks": 313,
+    "tool_calls": 386,
+    "tool_results": 386,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 354,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "copilot",
+   "source": "copilot",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch6/external/copilot/schema_drift.jsonl",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "external",
+   "events": 3,
+   "stats": {
+    "events": 3,
+    "user_messages": 0,
+    "assistant_messages": 2,
+    "reasoning_blocks": 0,
+    "tool_calls": 1,
+    "tool_results": 1,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 2,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "gemini",
+   "source": "gemini",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch2/public-fixtures/agent-sessions/stage0/gemini/small.json",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "repo",
+   "events": 2,
+   "stats": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 1,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [
+    "gemini:thoughts-merged",
+    "gemini:title-derived"
+   ],
+   "atif_ok": true,
+   "atif_steps": 2,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "aider",
+   "source": "aider",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch2/public-fixtures/sessionport/tests-fixtures/aider/history/abc123.md",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "repo",
+   "events": 4,
+   "stats": {
+    "events": 4,
+    "user_messages": 2,
+    "assistant_messages": 2,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [
+    "aider:no-timestamps",
+    "aider:no-tool-events"
+   ],
+   "atif_ok": true,
+   "atif_steps": 4,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "cursor",
+   "source": "cursor",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch2/public-fixtures/agent-sessions/stage0/cursor/small.jsonl",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "repo",
+   "events": 6,
+   "stats": {
+    "events": 6,
+    "user_messages": 2,
+    "assistant_messages": 2,
+    "reasoning_blocks": 0,
+    "tool_calls": 1,
+    "tool_results": 1,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [
+    "cursor:no-timestamps",
+    "cursor:tool-result-missing"
+   ],
+   "atif_ok": true,
+   "atif_steps": 4,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": [
+    "turn_abort_dropped_by_target"
+   ]
+  },
+  {
+   "harness": "qwen",
+   "source": "qwen",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch6/external/qwen/019f0000-0000-7000-8000-000000000007.jsonl",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "external",
+   "events": 7,
+   "stats": {
+    "events": 7,
+    "user_messages": 3,
+    "assistant_messages": 2,
+    "reasoning_blocks": 0,
+    "tool_calls": 1,
+    "tool_results": 2,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 5,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "pi",
+   "source": "pi",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch2/public-fixtures/agent-sessions/stage0/pi/small.jsonl",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "repo",
+   "events": 12,
+   "stats": {
+    "events": 12,
+    "user_messages": 3,
+    "assistant_messages": 5,
+    "reasoning_blocks": 1,
+    "tool_calls": 2,
+    "tool_results": 2,
+    "unpaired_tool_calls": 0,
+    "compactions": 2,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 10,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": [
+    "compaction_dropped_by_target"
+   ]
+  },
+  {
+   "harness": "openclaw",
+   "source": "openclaw",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch6/external/openclaw/schema_drift.jsonl",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "external",
+   "events": 3,
+   "stats": {
+    "events": 3,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 1,
+    "tool_results": 1,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 2,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "kimi",
+   "source": "kimi",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch6/external/kimi/assistant_tools.jsonl",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "external",
+   "events": 83,
+   "stats": {
+    "events": 83,
+    "user_messages": 16,
+    "assistant_messages": 47,
+    "reasoning_blocks": 22,
+    "tool_calls": 19,
+    "tool_results": 19,
+    "unpaired_tool_calls": 0,
+    "compactions": 1,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [
+    "kimi:fallback-channel"
+   ],
+   "atif_ok": true,
+   "atif_steps": 64,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": [
+    "compaction_dropped_by_target"
+   ]
+  },
+  {
+   "harness": "grok",
+   "source": "grok",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch6/external/grok/chat_history.jsonl",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "external",
+   "events": 7,
+   "stats": {
+    "events": 7,
+    "user_messages": 3,
+    "assistant_messages": 2,
+    "reasoning_blocks": 0,
+    "tool_calls": 2,
+    "tool_results": 2,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [
+    "grok:row-ts-derived"
+   ],
+   "atif_ok": true,
+   "atif_steps": 5,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "factory-droid",
+   "source": "droid",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch2/public-fixtures/agent-sessions/stage0/droid/session_store_schema_drift.jsonl",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "repo",
+   "events": 2,
+   "stats": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [
+    "droid:embedded-system-reminder"
+   ],
+   "atif_ok": true,
+   "atif_steps": 2,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "antigravity",
+   "source": "antigravity",
+   "evidence_level": "FIXTURE-LOW",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch6/external/antigravity/cli_small.jsonl",
+   "fixture_kind": "FIXTURE-LOW",
+   "fixture_origin": "external",
+   "events": 10,
+   "stats": {
+    "events": 10,
+    "user_messages": 2,
+    "assistant_messages": 4,
+    "reasoning_blocks": 4,
+    "tool_calls": 3,
+    "tool_results": 3,
+    "unpaired_tool_calls": 0,
+    "compactions": 1,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [
+    "antigravity:inferred-pairing",
+    "antigravity:user-envelope"
+   ],
+   "atif_ok": true,
+   "atif_steps": 7,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": [
+    "compaction_dropped_by_target"
+   ]
+  },
+  {
+   "harness": "hermes",
+   "source": "hermes",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch2/public-fixtures/agent-sessions/stage0/hermes/small.json",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "repo",
+   "events": 2,
+   "stats": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [
+    "hermes:json-projection-not-native"
+   ],
+   "atif_ok": true,
+   "atif_steps": 2,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "devin",
+   "source": "devin",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch6/external/devin/schema_drift.json",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "external",
+   "events": 2,
+   "stats": {
+    "events": 2,
+    "user_messages": 0,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 1,
+    "tool_results": 1,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [
+    "devin:json-projection-not-native"
+   ],
+   "atif_ok": true,
+   "atif_steps": 1,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "opencode",
+   "source": "opencode",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch2/public-fixtures/agent-sessions/stage0/opencode/001.json",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "external",
+   "events": 1,
+   "stats": {
+    "events": 1,
+    "user_messages": 1,
+    "assistant_messages": 0,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [
+    "opencode:orphan-part"
+   ],
+   "atif_ok": true,
+   "atif_steps": 1,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "cline",
+   "source": "cline",
+   "evidence_level": "FIXTURE",
+   "status": "partial",
+   "fixture": "<repo>/samples/batch6/external/roo/tasks/fixture/api_conversation_history.json",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "external",
+   "events": 5,
+   "stats": {
+    "events": 5,
+    "user_messages": 2,
+    "assistant_messages": 2,
+    "reasoning_blocks": 0,
+    "tool_calls": 1,
+    "tool_results": 1,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": false,
+   "atif_steps": 4,
+   "atif_errors": [],
+   "atif_compare_ok": false,
+   "atif_lossy": [],
+   "error": "ATIF round-trip/lossy mismatch",
+   "partial_reason": "ATIF compare mismatch/lossy (see atif_compare_ok)"
+  },
+  {
+   "harness": "fx",
+   "source": "fx",
+   "evidence_level": "FIXTURE",
+   "status": "partial",
+   "fixture": "<repo>/samples/batch6/external/fx/schema4/session.json",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "external",
+   "events": 9,
+   "stats": {
+    "events": 9,
+    "user_messages": 3,
+    "assistant_messages": 3,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 3,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": false,
+   "atif_steps": 6,
+   "atif_errors": [],
+   "atif_compare_ok": false,
+   "atif_lossy": [],
+   "error": "ATIF round-trip/lossy mismatch",
+   "partial_reason": "ATIF compare mismatch/lossy (see atif_compare_ok)"
+  },
+  {
+   "harness": "cherry-studio",
+   "source": "cherry-studio",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch6/external/oss/opencraw__demo.jsonl",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "external",
+   "events": 2,
+   "stats": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 2,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "kilo-code",
+   "source": "kilo-code",
+   "evidence_level": "FIXTURE",
+   "status": "partial",
+   "fixture": "<repo>/samples/batch6/external/roo/tasks/fixture/api_conversation_history.json",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "external",
+   "events": 5,
+   "stats": {
+    "events": 5,
+    "user_messages": 2,
+    "assistant_messages": 2,
+    "reasoning_blocks": 0,
+    "tool_calls": 1,
+    "tool_results": 1,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": false,
+   "atif_steps": 4,
+   "atif_errors": [],
+   "atif_compare_ok": false,
+   "atif_lossy": [],
+   "error": "ATIF round-trip/lossy mismatch",
+   "partial_reason": "ATIF compare mismatch/lossy (see atif_compare_ok)"
+  },
+  {
+   "harness": "opencraw",
+   "source": "opencraw",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch6/external/oss/opencraw__demo.jsonl",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "external",
+   "events": 2,
+   "stats": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 2,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "trae",
+   "source": "trae",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch6/external/codeg-acp/codeg-trae-cli/trae-test-1.jsonl",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "external",
+   "events": 4,
+   "stats": {
+    "events": 4,
+    "user_messages": 1,
+    "assistant_messages": 2,
+    "reasoning_blocks": 0,
+    "tool_calls": 1,
+    "tool_results": 1,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 3,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "windsurf",
+   "source": "windsurf",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch6/external/windsurf/sessions/s1.jsonl",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "external",
+   "events": 2,
+   "stats": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 2,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "workbuddy",
+   "source": "workbuddy",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch6/external/workbuddy/projects/demo/s1.jsonl",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "external",
+   "events": 3,
+   "stats": {
+    "events": 3,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 1,
+    "tool_results": 1,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 2,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "zcode",
+   "source": "zcode",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch6/external/codeg-acp/codeg-zcode-acp/zcode-test-1.jsonl",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "external",
+   "events": 2,
+   "stats": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 1,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 2,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "goose",
+   "source": "goose",
+   "evidence_level": "FIXTURE-CONSTRUCTED",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch5/constructed/goose/sessions/sessions.db",
+   "fixture_kind": "FIXTURE-CONSTRUCTED",
+   "fixture_origin": "repo",
+   "events": 2,
+   "stats": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 2,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "junie",
+   "source": "junie",
+   "evidence_level": "FIXTURE-CONSTRUCTED",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch5/constructed/junie/sessions/b5junie/events.jsonl",
+   "fixture_kind": "FIXTURE-CONSTRUCTED",
+   "fixture_origin": "repo",
+   "events": 2,
+   "stats": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 2,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "vibe",
+   "source": "vibe",
+   "evidence_level": "FIXTURE-CONSTRUCTED",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch5/constructed/vibe/logs/session/session_20261030_224000_b5vibe.json",
+   "fixture_kind": "FIXTURE-CONSTRUCTED",
+   "fixture_origin": "repo",
+   "events": 2,
+   "stats": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 2,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "roo",
+   "source": "roo",
+   "evidence_level": "FIXTURE",
+   "status": "partial",
+   "fixture": "<repo>/samples/batch6/external/roo/tasks/fixture/api_conversation_history.json",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "external",
+   "events": 5,
+   "stats": {
+    "events": 5,
+    "user_messages": 2,
+    "assistant_messages": 2,
+    "reasoning_blocks": 0,
+    "tool_calls": 1,
+    "tool_results": 1,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": false,
+   "atif_steps": 4,
+   "atif_errors": [],
+   "atif_compare_ok": false,
+   "atif_lossy": [],
+   "error": "ATIF round-trip/lossy mismatch",
+   "partial_reason": "ATIF compare mismatch/lossy (see atif_compare_ok)"
+  },
+  {
+   "harness": "kiro",
+   "source": "kiro",
+   "evidence_level": "FIXTURE-LOW",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch6/external/kiro/sessions/7787f985-7083-420e-b99d-a74ccce5c00f/session.jsonl",
+   "fixture_kind": "FIXTURE-LOW",
+   "fixture_origin": "external",
+   "events": 7,
+   "stats": {
+    "events": 7,
+    "user_messages": 2,
+    "assistant_messages": 3,
+    "reasoning_blocks": 1,
+    "tool_calls": 1,
+    "tool_results": 2,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 5,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "codebuddy",
+   "source": "codebuddy",
+   "evidence_level": "FIXTURE-LOW",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch6/external/codebuddy/item-format.jsonl",
+   "fixture_kind": "FIXTURE-LOW",
+   "fixture_origin": "external",
+   "events": 2,
+   "stats": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 2,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "openhands",
+   "source": "openhands",
+   "evidence_level": "REAL-EXAMPLE",
+   "status": "partial",
+   "fixture": "<repo>/samples/batch6/external/openhands/openhands_trajectory.json",
+   "fixture_kind": "REAL-EXAMPLE",
+   "fixture_origin": "external",
+   "events": 9,
+   "stats": {
+    "events": 9,
+    "user_messages": 2,
+    "assistant_messages": 4,
+    "reasoning_blocks": 0,
+    "tool_calls": 1,
+    "tool_results": 3,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": false,
+   "atif_steps": 6,
+   "atif_errors": [],
+   "atif_compare_ok": false,
+   "atif_lossy": [],
+   "error": "ATIF round-trip/lossy mismatch",
+   "partial_reason": "ATIF compare mismatch/lossy (see atif_compare_ok)"
+  },
+  {
+   "harness": "crush",
+   "source": "crush",
+   "evidence_level": "FIXTURE-CONSTRUCTED",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch5/constructed/crush/project/.crush/crush.db",
+   "fixture_kind": "FIXTURE-CONSTRUCTED",
+   "fixture_origin": "repo",
+   "events": 2,
+   "stats": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 2,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "mini-swe-agent",
+   "source": "mini-swe-agent",
+   "evidence_level": "REAL-EXAMPLE",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch6/external/mini-swe-agent/mini-swe-agent-trajectory.json",
+   "fixture_kind": "REAL-EXAMPLE",
+   "fixture_origin": "external",
+   "events": 6,
+   "stats": {
+    "events": 6,
+    "user_messages": 3,
+    "assistant_messages": 3,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 6,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "claude-desktop",
+   "source": "claude-desktop",
+   "evidence_level": "FIXTURE",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch6/external/oss/opencraw__demo.jsonl",
+   "fixture_kind": "FIXTURE",
+   "fixture_origin": "external",
+   "events": 2,
+   "stats": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 2,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "continue",
+   "source": "continue",
+   "evidence_level": "REAL",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch6/real/continue/session-28fdaafd.json",
+   "fixture_kind": "REAL",
+   "fixture_origin": "real-session",
+   "events": 2,
+   "stats": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 2,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  },
+  {
+   "harness": "codebuff",
+   "source": "codebuff",
+   "evidence_level": "FIXTURE-CONSTRUCTED",
+   "status": "pass",
+   "fixture": "<repo>/samples/batch5/constructed/codebuff/projects/constructed-project/chats/b5codebuff/chat-messages.json",
+   "fixture_kind": "FIXTURE-CONSTRUCTED",
+   "fixture_origin": "repo",
+   "events": 2,
+   "stats": {
+    "events": 2,
+    "user_messages": 1,
+    "assistant_messages": 1,
+    "reasoning_blocks": 0,
+    "tool_calls": 0,
+    "tool_results": 0,
+    "unpaired_tool_calls": 0,
+    "compactions": 0,
+    "system_messages": 0
+   },
+   "warnings": [],
+   "lossy": [],
+   "atif_ok": true,
+   "atif_steps": 2,
+   "atif_errors": [],
+   "atif_compare_ok": true,
+   "atif_lossy": []
+  }
+ ],
+ "writers": [
+  {
+   "target": "dsh",
+   "status": "pass",
+   "artifact": "dsh/session.v4.jsonl.zstd",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 6
+  },
+  {
+   "target": "codex",
+   "status": "pass",
+   "artifact": "codex/sessions/2026/10/03/rollout-2026-10-03T06-08-18-batch6-writer.jsonl",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 5
+  },
+  {
+   "target": "qoder",
+   "status": "pass",
+   "artifact": "qoder/-Users-larr-Documents-deepseek-harness-default-workspace/batch6-writer.jsonl",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 5
+  },
+  {
+   "target": "omp",
+   "status": "pass",
+   "artifact": "omp/-Documents-deepseek-harness-default-workspace/2026-10-03T06-08-18-584Z_batch6-writer.jsonl",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 5
+  },
+  {
+   "target": "claude",
+   "status": "pass",
+   "artifact": "claude/-Users-larr-Documents-deepseek-harness-default-workspace/batch6-writer.jsonl",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 5
+  },
+  {
+   "target": "copilot",
+   "status": "pass",
+   "artifact": "copilot/session-state/batch6-writer/events.jsonl",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 6
+  },
+  {
+   "target": "gemini",
+   "status": "pass",
+   "artifact": "gemini/tmp/086c23d16a6585b4e3a759e2cdd0da10eefb469e2b98dd02294140e2e01c0f36/chats/session-2026-10-03T06-08-18-batch6.json",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 5
+  },
+  {
+   "target": "aider",
+   "status": "pass",
+   "artifact": "aider/history/086c23d1.md",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 2
+  },
+  {
+   "target": "cursor",
+   "status": "pass",
+   "artifact": "cursor/projects/-Users-larr-Documents-deepseek-harness-default-workspace/agent-transcripts/batch6-writer/batch6-writer.jsonl",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 6
+  },
+  {
+   "target": "qwen",
+   "status": "pass",
+   "artifact": "qwen/projects/-Users-larr-Documents-deepseek-harness-default-workspace/chats/batch6-writer.jsonl",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 5
+  },
+  {
+   "target": "pi",
+   "status": "pass",
+   "artifact": "pi/sessions/-Users-larr-Documents-deepseek-harness-default-workspace/2026-10-03T06-08-18-584Z_batch6-writer.jsonl",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 5
+  },
+  {
+   "target": "openclaw",
+   "status": "pass",
+   "artifact": "openclaw/sessions/batch6-writer.jsonl",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 5
+  },
+  {
+   "target": "kimi",
+   "status": "pass",
+   "artifact": "kimi/sessions/batch6-writer.jsonl",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 5
+  },
+  {
+   "target": "grok",
+   "status": "pass",
+   "artifact": "grok/sessions/-Users-larr-Documents-deepseek-harness-default-workspace/batch6-writer/chat_history.jsonl",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 5
+  },
+  {
+   "target": "droid",
+   "status": "pass",
+   "artifact": "droid/sessions/batch6-writer.jsonl",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 3
+  },
+  {
+   "target": "hermes",
+   "status": "pass",
+   "artifact": "hermes/constructed/hermes/batch6-writer.db",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 2
+  },
+  {
+   "target": "devin",
+   "status": "pass",
+   "artifact": "devin/constructed/devin/batch6-writer.db",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 5
+  },
+  {
+   "target": "opencode",
+   "status": "pass",
+   "artifact": "opencode/opencode/sqlite_v2/session_v2/ses_fixture_v2.json",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 2
+  },
+  {
+   "target": "goose",
+   "status": "pass",
+   "artifact": "goose/goose/sessions/sessions.db",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 3
+  },
+  {
+   "target": "continue",
+   "status": "pass",
+   "artifact": "continue/continue/sessions/batch6-writer.json",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 3
+  },
+  {
+   "target": "junie",
+   "status": "pass",
+   "artifact": "junie/junie/sessions/batch6-writer/events.jsonl",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 3
+  },
+  {
+   "target": "kiro",
+   "status": "pass",
+   "artifact": "kiro/kiro/sessions/session-batch6-writer/session.jsonl",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 5
+  },
+  {
+   "target": "crush",
+   "status": "pass",
+   "artifact": "crush/crush/project/.crush/crush.db",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 3
+  },
+  {
+   "target": "cline",
+   "status": "pass",
+   "artifact": "cline/cline/data/sessions/batch6-writer/batch6-writer.messages.json",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 3
+  },
+  {
+   "target": "roo",
+   "status": "pass",
+   "artifact": "roo/roo/data/sessions/batch6-writer/batch6-writer.messages.json",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 3
+  },
+  {
+   "target": "kilo-code",
+   "status": "pass",
+   "artifact": "kilo-code/kilo-code/data/sessions/batch6-writer/batch6-writer.messages.json",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 3
+  },
+  {
+   "target": "codebuff",
+   "status": "pass",
+   "artifact": "codebuff/codebuff/projects/constructed-project/chats/batch6-writer/chat-messages.json",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 3
+  },
+  {
+   "target": "openhands",
+   "status": "pass",
+   "artifact": "openhands/openhands/conversations/batch6-writer/base_state.json",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 5
+  },
+  {
+   "target": "vibe",
+   "status": "pass",
+   "artifact": "vibe/vibe/logs/session/session_20261003_060818_batch6-w.json",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 3
+  },
+  {
+   "target": "codebuddy",
+   "status": "pass",
+   "artifact": "codebuddy/codebuddy/session-batch6-writer.jsonl",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 3
+  },
+  {
+   "target": "fx",
+   "status": "pass",
+   "artifact": "fx/fx/session-batch6-writer/session.json",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 3
+  },
+  {
+   "target": "mini-swe-agent",
+   "status": "pass",
+   "artifact": "mini-swe-agent/harbor/session-batch6-writer.json",
+   "verify": {
+    "ok": true,
+    "checked": 1,
+    "failed": 0,
+    "method": "reader read-back"
+   },
+   "events_after": 3
+  }
+ ],
+ "summary": {
+  "readers_total": 40,
+  "readers_pass": 34,
+  "readers_partial": 6,
+  "readers_fail": 0,
+  "fixture_verified": 35,
+  "fixture_verified_total": 40,
+  "real_sessions": 22,
+  "real_example": 2,
+  "writers_total": 32,
+  "writers_pass": 32,
+  "writers_fail": 0,
+  "writer_partial": 0
+ },
+ "failures": {
+  "readers": [],
+  "writers": []
+ }
+}

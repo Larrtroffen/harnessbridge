@@ -50,7 +50,7 @@ The app contains **no conversion logic of its own**: it is a thin, careful front
 - **Direct install by default** — pick a target harness and the session is written into that harness's real local store (auto-detected). No “export to a folder and copy it yourself” detour.
 - **Keep or move, always reversible** — `keep` leaves the source untouched; `move` renames the source session to `*.migrated-<timestamp>.bak` **only after** the target install and verification succeed. Nothing is ever deleted, and `asi migrate-restore` (or the app) can move it back.
 - **One-click full migration** — `asi migrate-all --to <target>` moves every session from all other detected harnesses, with per-source limits, `--since-days`, dry-run plans, duplicate skipping, backups for overwrites, progress, cancellation, per-session results and a recovery journal.
-- **40/40 protocol coverage** — 40 distinct harness formats covered by adapters (see [docs/COMPATIBILITY.md](docs/COMPATIBILITY.md)); 35 import sources and 31 writer targets in this build, with ATIF v1.8 as the hub.
+- **40/40 canonical protocol coverage** — 40 canonical harness formats covered, plus **43 source adapters** (iFlow and Zed are bonus sources) and **32 native writer targets**; ATIF v1.8 remains the hub. See [coverage ledger](docs/coverage-ledger.md) and [external projects research](docs/EXTERNAL-PROJECTS.md).
 - **Safety first** — sources are read-only; writing a real store requires `--yes` plus explicit UI confirmation; overwrites create `.asi-backup-*` files; every migration writes an incremental, atomic journal; `--dry-run` performs zero writes.
 - **Verification** — DSH targets are checked with the native `verify` reader; other targets are read back through the target reader (or file-level fallback), and results report `installed_path`, `verified` and per-item status.
 - **Native experience** — session browser with full-text filter, selection ranges (Shift/⌘A), migration history, session timeline with tool calls, paired results, token statistics, 27 harness logos, Chinese UI, Reduce Motion support.
@@ -74,8 +74,8 @@ The app contains **no conversion logic of its own**: it is a thin, careful front
 ### Read / export coverage
 
 - **Native readers**: Claude Code, Codex, OMP, Qoder, DeepSeek Harness, Pi, Gemini CLI and more.
-- **40 distinct harness formats** covered by the interop protocol/adapters, with evidence levels ranging from **NATIVE** (real local store + native load) through **REAL-LOCAL**, **COLLECTED**, **FIXTURE** and **CONSTRUCTED**.
-- The exact per-harness evidence and limitation matrix lives in [docs/COMPATIBILITY.md](docs/COMPATIBILITY.md) and the generated [coverage ledger](docs/coverage-ledger.md). We deliberately report *protocol coverage* (40/40) separately from *real-conversation coverage* (21/40) — they are not the same thing.
+- **40 canonical harness formats** covered by the interop protocol/adapters, plus bonus **iFlow** and **Zed** readers (43 source adapters, 32 native writers). Evidence levels range from **NATIVE** (real local store + native load) through **REAL-LOCAL**, **COLLECTED**, **REAL**, **REAL-EXAMPLE**, **FIXTURE**, **FIXTURE-LOW** and **CONSTRUCTED**.
+- **Batch 6 (v1.6.0)** added an external-fixture matrix: **35/40 fixture-verified** canonical labels (34 pass + 6 partial, 0 reader fail), **32/32 native writers pass**, and **22/40 real-session coverage** — we deliberately report these as separate numbers (protocol coverage vs. fixture-verified format coverage vs. real user sessions). See [docs/coverage-ledger.md](docs/coverage-ledger.md), [docs/EXTERNAL-PROJECTS.md](docs/EXTERNAL-PROJECTS.md) and [docs/usage.md §16](docs/usage.md).
 
 > Names and logos are trademarks of their respective owners. HarnessBridge is not affiliated with, endorsed by, or sponsored by any harness vendor. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
@@ -94,7 +94,7 @@ The cask installs the self-contained arm64 app and prints the Gatekeeper caveat.
 
 ### Option B — prebuilt macOS app (Apple Silicon)
 
-1. Download `HarnessBridge-1.5.2-macos-arm64.dmg` from [Releases](https://github.com/Larrtroffen/harnessbridge/releases).
+1. Download `HarnessBridge-1.6.0-macos-arm64.dmg` from [Releases](https://github.com/Larrtroffen/harnessbridge/releases).
 2. Open the DMG and drag **HarnessBridge.app** into `/Applications`.
 3. Because the app is **ad-hoc signed (not notarized by Apple)**, Gatekeeper may block the first launch. Either right-click the app → **Open** → confirm, or run:
    ```bash
@@ -230,12 +230,13 @@ More in [SECURITY.md](SECURITY.md) and [docs/FAQ.md](docs/FAQ.md).
 | Backend deep dive (internal) | [docs/usage.md](docs/usage.md) | — |
 | ATIF interop protocol | [docs/atif-interop-protocol.md](docs/atif-interop-protocol.md) | — |
 | Coverage ledger | [docs/coverage-ledger.md](docs/coverage-ledger.md) | — |
-| Release notes | [RELEASE_NOTES/v1.5.2.md](RELEASE_NOTES/v1.5.2.md) | [RELEASE_NOTES/v1.5.2.zh-CN.md](RELEASE_NOTES/v1.5.2.zh-CN.md) |
+| External projects & fixtures | [docs/EXTERNAL-PROJECTS.md](docs/EXTERNAL-PROJECTS.md) | — |
+| Release notes | [RELEASE_NOTES/v1.6.0.md](RELEASE_NOTES/v1.6.0.md) | [RELEASE_NOTES/v1.6.0.zh-CN.md](RELEASE_NOTES/v1.6.0.zh-CN.md) |
 
 ## Roadmap
 
 - v1.5.x — polish the first public release: notarization/Developer ID for smoother Gatekeeper, more screenshots/docs, bug fixes from early adopters.
-- v1.6 — deeper native writers (more harnesses verified with real local sessions), better token accounting, per-session diff/preview before install.
+- v1.7 — closer to 40/40 real-session coverage (install/run more harnesses locally), more native writers, per-session diff/preview before install.
 - Later — optional Linux CLI packaging, richer ATIF round-trips, and a documented plugin interface for new readers/writers.
 
 Roadmap items are intentions, not commitments; priorities follow user reports.
@@ -244,7 +245,7 @@ Roadmap items are intentions, not commitments; priorities follow user reports.
 
 Issues and PRs are welcome — especially **new harness adapters** with fixtures, docs corrections, and translations. Please read [CONTRIBUTING.md](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUCT.md), and report security issues privately per [SECURITY.md](SECURITY.md).
 
-- Run the backend tests (requires local harness data and the sample fixtures used by the suite; not run on hosted CI):
+- Run the public fixture tests (private/local-data tests are skipped automatically):
   `python3 -m unittest discover -s tools/agent-session-import/tests -p 'test_*.py' -v`
 - Run the app self-test: `tools/HarnessBridgeApp/dist/HarnessBridge.app/Contents/MacOS/HarnessBridge --self-test`
 - Never write to a real harness store in tests: use a temporary `HOME` and the documented env overrides.

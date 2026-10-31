@@ -13,6 +13,7 @@ import sqlite3
 
 from ..common import iso_to_ms
 from ..ir import add_event, finalize, new_ir, normalize_usage, text_block, touch_ts
+from . import external_fixtures as _external
 
 CONSTRUCTED = ("goose", "continue", "junie", "kiro", "crush", "cline",
                "roo", "kilo-code", "codebuff", "openhands", "vibe")
@@ -91,12 +92,23 @@ def _files(source, root=None):
     root = os.path.expanduser(root or default_root(source))
     if os.path.isfile(root):
         return [root]
-    base = os.path.join(root, source)
-    if not os.path.isdir(base):
-        return []
+    patterns = PATTERNS.get(source, ("**/*",))
     out = []
-    for pattern in PATTERNS.get(source, ("**/*",)):
-        out.extend(glob.glob(os.path.join(base, pattern), recursive=True))
+    # normal layout: <root>/<source>/<pattern>; external fixtures pass the
+    # harness dir itself as root and nest samples (e.g. <root>/constructed/...)
+    for base in (os.path.join(root, source), root):
+        if not os.path.isdir(base):
+            continue
+        for pattern in patterns:
+            out.extend(glob.glob(os.path.join(base, pattern), recursive=True))
+        if out:
+            break
+    if _external.is_external_root(root, source):
+        # extern fixtures use native layouts the constructed-sample patterns do not
+        # cover (e.g. OpenHands Harbor trajectory export alongside LocalFileStore)
+        out.extend(_external.files(source, root))
+    if not out:
+        out = _external.files(source, root)
     if source == "continue":
         out = [p for p in out if os.path.basename(p) != "sessions.json"]
     return sorted(p for p in set(out) if os.path.isfile(p))
@@ -693,6 +705,30 @@ def load_session(source, root=None, session=None, path=None, keep_system=False, 
             path = files[0] if files else None
     if not path or not os.path.isfile(path):
         raise FileNotFoundError("%s constructed sample not found (root=%s)" % (source, root))
+    norm = path.replace(os.sep, "/")
+    base_name = os.path.basename(path)
+    if source == "openhands" and base_name != "base_state.json" and path.endswith(".json"):
+        try:
+            return _external.load_openhands_harbor(path, keep_system=keep_system)
+        except ValueError:
+            pass
+    if source == "vibe" and base_name == "meta.json":
+        try:
+            return _external.load_vibe_dir(path, keep_system=keep_system)
+        except ValueError:
+            pass
+    if (source in CLINE_FAMILY and base_name.endswith("api_conversation_history.json")
+            and "/research/external/fixtures/" not in norm):
+        try:
+            return _external.load_cline_task(path, source=source, keep_system=keep_system)
+        except ValueError:
+            pass
+    if (_external.is_external_root(root, source)
+            or "/research/external/fixtures/" in norm):
+        try:
+            return _external.load(path, source=source, keep_system=keep_system)
+        except ValueError:
+            pass
     if source in CLINE_FAMILY:
         ir = _load_cline(path, source)
         return _finish(ir, source, path, ir["extra"]["source_format"])
@@ -708,7 +744,7 @@ def list_sessions(source, root=None):
     out = []
     for path in _files(source, root):
         if source in CLINE_FAMILY and not (path.endswith(".messages.json")
-                                          or os.path.basename(path) == "api_conversation_history.json"):
+                                          or os.path.basename(path).endswith("api_conversation_history.json")):
             continue
         if source in ("goose", "crush") and not path.endswith(".db"):
             continue

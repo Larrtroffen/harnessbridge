@@ -12,6 +12,7 @@ import os
 
 from ..common import iso_to_ms
 from ..ir import add_event, finalize, new_ir, normalize_usage, text_block, touch_ts
+from . import external_fixtures as _external
 
 EVIDENCE = {"codebuddy": "FIXTURE-LOW", "fx": "FIXTURE",
             "mini-swe-agent": "FIXTURE", "kiro": "FIXTURE-LOW",
@@ -28,7 +29,16 @@ def _workspace_root():
     return os.path.join(ws, "samples", "batch5")
 
 
-def fixture_paths(source):
+def fixture_paths(source, root=None):
+    if root:
+        root = os.path.expanduser(root)
+        if os.path.isfile(root):
+            return [root]
+        found = _external.files(source, root)
+        if found:
+            if source == "opencode":
+                found = [p for p in found if "session_v2" in p.replace(os.sep, "/")] or found
+            return found
     root = _workspace_root()
     if source == "codebuddy":
         return sorted(glob.glob(os.path.join(root, "codebuddy", "*.jsonl")))
@@ -305,6 +315,19 @@ def load_kiro(path):
                 blocks.append({"type": "tool-call", "id": d.get("toolUseId") or "",
                                "name": d.get("name") or "tool",
                                "arguments": json.dumps(d.get("input") or {}, ensure_ascii=False)})
+        if kind in ("user_message", "user"):
+            blk = _blocks((data.get("content") or data.get("blocks") or ""))
+            if blk:
+                add_event(ir, "user_message", ts, blocks=blk)
+            touch_ts(ir, ts)
+            continue
+        elif kind in ("assistant_message", "assistant"):
+            blk = _blocks((data.get("content") or data.get("blocks") or ""))
+            if blk:
+                add_event(ir, "assistant_message", ts, blocks=blk,
+                          model=ir.get("model") or "", provider="kiro")
+            touch_ts(ir, ts)
+            continue
         if kind and "Prompt" in kind:
             if blocks:
                 add_event(ir, "user_message", ts, blocks=blocks)
@@ -340,8 +363,19 @@ def load_opencode_fixture(path):
             continue
         mtype = m.get("type") or ""
         data = m.get("data") or {}
-        role = "user" if mtype == "user" else "assistant"
+        role = m.get("role") or ("user" if mtype == "user" else "assistant")
         blocks = []
+        # writer output (staging): {role, time_created, parts:[{type:text,text}]}
+        if "parts" in m and "data" not in m:
+            for part in m.get("parts") or []:
+                if isinstance(part, dict) and part.get("type") == "text" and (part.get("text") or "").strip():
+                    blocks.append(text_block(part["text"]))
+            ts0 = m.get("time_created") or ir["created_at_ms"]
+            if blocks:
+                add_event(ir, "user_message" if role == "user" else "assistant_message",
+                          ts0, blocks=blocks)
+                touch_ts(ir, ts0)
+            continue
         txt = data.get("text") if isinstance(data, dict) else None
         if isinstance(txt, str) and txt.strip() and txt != "redacted":
             blocks.append(text_block(txt))
@@ -355,6 +389,10 @@ def load_opencode_fixture(path):
                 if isinstance(t, str) and t.strip() and t != "redacted":
                     blocks.append(text_block(t))
         ts = ((data.get("time") or {}).get("created") if isinstance(data.get("time"), dict) else None)
+        if not blocks and mtype in ("user", "assistant"):
+            # fixture deliberately redacts content; keep the envelope as a structural event
+            blocks = [text_block("[redacted fixture content]")]
+            ir["warnings"].append("opencode:redacted-fixture-content")
         if blocks:
             add_event(ir, "user_message" if role == "user" else "assistant_message",
                       ts or ir["created_at_ms"], blocks=blocks)

@@ -10,7 +10,7 @@ def list_sessions(root=None):
     from . import native_batch5_1 as impl
     import os as _os
     out = []
-    for path in impl.fixture_paths("fx"):
+    for path in impl.fixture_paths("fx", root):
         try:
             ir = load_session(path=path)
         except (OSError, ValueError):
@@ -31,7 +31,7 @@ def load_session(root=None, session=None, path=None, keep_system=False, **kwargs
         if cand and os.path.isfile(cand):
             path = cand
         else:
-            paths = impl.fixture_paths("fx")
+            paths = impl.fixture_paths("fx", root)
             path = paths[0] if paths else None
     if not path or not os.path.isfile(path):
         raise FileNotFoundError("fx fixture not found")

@@ -68,10 +68,10 @@
   }
  ],
  "extra": {
-  "cwd": "/tmp/example-project",
+  "cwd": "~/Entropyorder/ArkEntropy",
   "title": "现有需求系统已经停用了。你重新思考一下。  ",
   "source": "codex",
-  "source_path": "/tmp/harnessbridge-samples/codex/rollout-small-full.jsonl",
+  "source_path": "<repo>/samples/codex/rollout-small-full.jsonl",
   "source_session_id": "01a0fdaa-7f93-75a3-a827-523b20be23df",
   "asi_version": "0.1.0"
  }

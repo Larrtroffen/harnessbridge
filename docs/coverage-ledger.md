@@ -12,13 +12,14 @@
 
 ## 0. 一分钟结论（手写，数字以生成段 B 为准）
 
-**三个数字必须分开报，禁止相加/混算：**
+**四个数字必须分开报，禁止相加/混算（④ 为批 6 新增）：**
 
 | 口径 | **v0.3 定稿** | v0.2（批 4 定稿） | 增量 | 含义 |
 |---|---|---|---|---|
 | **① 协议覆盖（去重 Harness，目标口径）** | **40/40 ✅ 达成** | 27/40 | +13 | 有 adapter + 至少 FIXTURE/构造/REAL-LOCAL 证据的**去重 Harness 数**；30-40 目标已达成 |
 | **② 分层账本累计（协议 §12.4 口径）** | **54/40（已超上限→停用）** | 37/40 | +17 | 按层相加（含跨层重复）；v0.3 起**不再作为 X/40 进度** |
 | **③ 真实会话覆盖（REAL）** | **21/40** | 19/40 | +2 | NATIVE 5 + COLLECTED 14 + REAL-LOCAL 1（gemini）+ COLLECTED-SPARSE 1（claude-desktop）；**FIXTURE/CONSTRUCTED 一律不计** |
+| **④ fixture-verified 格式覆盖（批 6 新增）** | **35/40**（6 partial 计入） | — | 批 6 | 用外部/上游 fixture（MIT/Apache/REAL-EXAMPLE）跑 reader→IR→ATIF 验证通过的 canonical 标签数；**CONSTRUCTED 不计**；REAL-EXAMPLE 单列；真实会话覆盖 22/40 |
 
 - **批 5+5.1 新增去重 13 个**：goose、continue、junie、kiro、crush、roo、codebuff、openhands、vibe（批 5 CONSTRUCTED）+ codebuddy、fx、mini-swe-agent（批 5.1）+ claude-desktop（oss-add SPARSE）。其中 mini-swe-agent 为 catalog 外框架（Harbor 样例），**若剔除则 39/40**（仍在 30-40 区间）。
 - **升级/补层（不新增去重）**：gemini/pi → REAL-LOCAL；kiro → FIXTURE-LOW；opencode → FIXTURE（既有标签，升级见 docs/usage §12.1/matrix-batch5 文档）；cline/kilo-code 补 CONSTRUCTED。
@@ -48,18 +49,20 @@
 
 ## 2. 计数口径与去重规则（手写，冲突清单见生成段 D.4）
 
-### 2.1 三个数字的定义
+### 2.1 四个数字的定义
 
 1. **协议覆盖（去重 Harness）**：各层去重后、达到 FIXTURE 及以上的 Harness 数；目标 `X/40`（**唯一对外进度口径**）。
 2. **分层账本累计**：`批1 5 + 批2 18 + 批3 6 + 批4 8 + 批5 17` = **54**；超过 40 上限后**口径停用**（仅作批次对账）。
 3. **真实会话覆盖（REAL）**：`NATIVE ∪ REAL-LOCAL ∪ COLLECTED(含 SPARSE)` 去重；FIXTURE/CONSTRUCTED 不计。
+4. **fixture-verified 格式覆盖（批 6）**：40 canonical 标签中，用外部/上游 fixture 或本仓库 fixture 实际跑通 `reader → IR → ATIF → IR` 的标签数（**partial 计入**，status 见矩阵；共 34 pass + 6 partial = 35/40）；**CONSTRUCTED 不计入**；REAL-EXAMPLE（Harbor 公开真实轨迹样例）单列，不能算真实用户会话；ROI 是「格式可复现验证」，不是 REAL。`iFlow`/`Zed` 为 40 canonical 之外的 bonus source，不计入分母。
 
 **v0.3 定稿算术（与生成段 D.3 一致）**：
 
 ```
 分层累计   = 37（批1-4）+ 17（批5+5.1）= 54（超 40 上限，口径停用）
 去重 Harness = 27（v0.2）+ 13（批5+5.1+oss-add 新增）= 40/40 ✅
-真实会话覆盖 = 19（v0.2）+ 1（REAL-LOCAL gemini）+ 1（SPARSE claude-desktop）= 21
+真实会话覆盖 = 19（v0.2）+ 1（REAL-LOCAL gemini）+ 1（SPARSE claude-desktop）+ 1（REAL continue）= 22
+fixture-verified = 40 canonical 中 34 pass + 6 partial = 35/40（CONSTRUCTED 不计；iFlow/Zed 为 bonus，不入分母）
 ```
 
 ### 2.2 去重规则（合并 = 同一产品/同一格式；不确定按标签计并记 D.4）
@@ -98,22 +101,24 @@
 | wire 层（HAR/SSE，非 Harness） | FIXTURE-LOW | 1（层） | 0（不占 Harness 名额） | — | `atifact/*.har` | ⏳ 可选路线 |
 | 纯云端/P2（仅 ATIF 导出） | — | 12 | 0（不排期） | — | harness-catalog.md §3.6 | ⏸ 不排期 |
 
-### B. 进度条与三个数字（自动生成，禁止混算）
+### B. 进度条与四个数字（自动生成，禁止混算）
 
 ```
 协议覆盖（去重 Harness，v0.3 定稿）  ██████████████████████████████  40/40  （目标上限 40）
-真实会话覆盖（含 REAL-LOCAL）  ████████████████░░░░░░░░░░░░░░  21/40  （批次前 19；REAL-LOCAL +1、COLLECTED-SPARSE +1）
+真实会话覆盖（含 REAL-LOCAL/REAL）  ████████████████░░░░░░░░░░░░░░  22/40  （批次前 19；REAL-LOCAL +1、COLLECTED-SPARSE +1、REAL +1）
 分层账本累计（口径停用）      ██████████████████████████████  54/40  已超 40 上限，只作批次进度
+fixture-verified 格式覆盖（外部 fixture/样例，批 6）  ██████████████████████████░░░░  35/40
 ```
 
-| 口径 | v0.2（批 4 定稿） | v0.3 定稿（批 5+5.1） | 增量 | 说明 |
-|---|---|---|---|---|
-| **协议覆盖（去重 Harness）** | **27** | **40/40** | +13 | 新增 13：claude-desktop/codebuddy/codebuff/continue/crush/fx/goose/junie/kiro/mini-swe-agent/openhands/roo/vibe；**达成 40/40 目标**；其中 mini-swe-agent 为 catalog 外框架（剔除则 39/40） |
-| 真实会话覆盖（REAL） | 19 | 21 | +2 | REAL-LOCAL（gemini +1）与 COLLECTED-SPARSE（claude-desktop +1）**计入**；FIXTURE/CONSTRUCTED/构造不计 |
-| 分层账本累计 | 37 | 54（超 40 上限→停用） | +17 | 批 5+5.1 +17（含构造/稀疏）；**该口径不再作为 X/40 进度** |
-| adapter 注册（代码）reader/writer | 19/18（批 4） | 33/32 | — | reader 含批 5 新 source；writer 以 NATIVE_TARGETS 为准 |
-| FIXTURE 级 partial（有损但通过） | — | fx | — | partial 不计 fail，也不当完全 pass；lossy 已在行内声明 |
-| 距 30-40 目标（去重口径） | 差 13 | 差 0（40/40） | — | 目标达成：40/40（若剔除 catalog 外框架 mini-swe-agent → 39/40，仍在 30-40 区间） |
+| 口径 | v0.2（批 4 定稿） | v0.3 定稿（批 5+5.1） | v0.4（批 6） | 增量 | 说明 |
+|---|---|---|---|---|---|
+| **协议覆盖（去重 Harness）** | **27** | **40/40** | 40/40 | +13 | 新增 13：claude-desktop/codebuddy/codebuff/continue/crush/fx/goose/junie/kiro/mini-swe-agent/openhands/roo/vibe；**达成 40/40 目标**；其中 mini-swe-agent 为 catalog 外框架（剔除则 39/40） |
+| 真实会话覆盖（REAL） | 19 | 21 | 22/40 | +3 | REAL-LOCAL（gemini）/ COLLECTED-SPARSE（claude-desktop）/ REAL（continue，批 6）**计入**；FIXTURE/CONSTRUCTED/构造不计 |
+| **fixture-verified 格式覆盖（批 6 新增）** | — | — | **35/40** | 批 6 | 外部/上游 fixture 可升 FIXTURE；CONSTRUCTED 不计；REAL-EXAMPLE 单列；REAL 仍 22/40 |
+| 分层账本累计 | 37 | 54（超 40 上限→停用） | — | +17 | 批 5+5.1 +17（含构造/稀疏）；**该口径不再作为 X/40 进度** |
+| adapter 注册（代码）reader/writer | 19/18（批 4） | 42/32 | — | — | reader 含批 5 新 source；writer 以 NATIVE_TARGETS 为准 |
+| FIXTURE 级 partial（有损但通过） | — | fx | — | — | partial 不计 fail，也不当完全 pass；lossy 已在行内声明 |
+| 距 30-40 目标（去重口径） | 差 13 | 差 0（40/40） | — | — | 目标达成：40/40（若剔除 catalog 外框架 mini-swe-agent → 39/40，仍在 30-40 区间） |
 
 ### C. 逐 Harness 主表（自动生成）
 
@@ -129,19 +134,19 @@
 | Gemini CLI | Gemini 系母本（Qwen Code 上游） | ✅ r+w | — | — | ✅ REAL-LOCAL（批 5） | REAL-LOCAL | B5-REAL-LOCAL | interop-matrix-batch3.json / interop-matrix-batch5.json | 批 3 FIXTURE + 批 5 REAL-LOCAL（本机真实 patch 流）；REAL-LOCAL 计入真实会话覆盖但不升 NATIVE |
 | Pi (pi.dev) | pi 系（树状事件流） | ✅ r+w | — | ✅ pi | ✅ REAL-LOCAL（批 5） | REAL-LOCAL | B5-REAL-LOCAL | interop-matrix-batch2.json / batch3 / batch5 | COLLECTED（OSS）+ FIXTURE + 批 5 REAL-LOCAL（本机真实）；与 OMP/OpenClaw 同族 |
 | Aider | 自有（Markdown history） | ✅ r+w | — | ✅ aider | ✅ FIXTURE（批 3） | COLLECTED | B2-L3（DSH 真实加载） / B3-F3 | interop-matrix-batch2.json / interop-matrix-batch3.json | COLLECTED（OSS 真实 96 消息）+ FIXTURE 双证据；Markdown 无工具/时间戳 |
-| Cherry Studio（外部标签） | 外部标签（catalog 未收录） | — | — | ✅ cherry-studio | — | COLLECTED | B2-L3（DSH 真实加载） | interop-matrix-batch2.json | 按标签计；未在 catalog 49 候选中，产品形态与其他标签不同（桌面客户端） |
+| Cherry Studio（外部标签） | 外部标签（catalog 未收录） | ✅ reader | — | ✅ cherry-studio | — | COLLECTED | B2-L3（DSH 真实加载） | interop-matrix-batch2.json | 按标签计；未在 catalog 49 候选中，产品形态与其他标签不同（桌面客户端） |
 | Cline | Cline 族（Cline/Roo/Kilo） | ✅ r+w | — | ✅ cline | ✅ FIXTURE-CONSTRUCTED（批 5） | COLLECTED | B5-F2 | interop-matrix-batch2.json / interop-matrix-batch5.json | COLLECTED + 批 5 CONSTRUCTED（messages 补齐）；Cline 族按标签计（cline/roo/kilo-code 三行） |
 | Cursor（CLI transcript） | 自有（transcript JSONL，两代） | ✅ r+w | — | ✅ cursor | ✅ FIXTURE（批 3） | COLLECTED | B2-L3（DSH 真实加载） / B3-F3 | interop-matrix-batch2.json / interop-matrix-batch3.json | COLLECTED（OSS 1544 消息）+ FIXTURE；原生 adapter 只覆盖 CLI transcript，IDE `state.vscdb` 未支持 |
 | Factory Droid | 自有（CLI stream / session store v2） | ✅ r+w | — | ✅ factory-droid | ✅ FIXTURE（批 4） | COLLECTED | B2-L3（DSH 真实加载） / B4-F2 | interop-matrix-batch2.json / batch4-fixtures.md §B4-04 / interop-matrix-batch4.json | COLLECTED（OSS 479 消息）+ 原生两代格式 fixture；原生 store 路径未核实（catalog E legacy-only） |
 | Hermes | SQLite 类（逻辑投影 fixture） | ✅ r+w | — | ✅ hermes | ✅ FIXTURE-CONSTRUCTED（批 4） | COLLECTED | B2-L3（DSH 真实加载） / B4-F2 | interop-matrix-batch2.json / batch4-fixtures.md §B4-06 / interop-matrix-batch4.json | COLLECTED（OSS 378 消息）+ 批 4 CONSTRUCTED；原生 `state.db` 无样本，列名未核实 |
 | Kilo Code | Cline 族（Cline/Roo/Kilo） | ✅ r+w | — | ✅ kilo-code | ✅ FIXTURE-CONSTRUCTED（批 5） | COLLECTED | B5-F2 | interop-matrix-batch2.json / interop-matrix-batch5.json | COLLECTED + 批 5 CONSTRUCTED（Cline 族按标签计，不与 cline/roo 合并） |
 | OpenCode | SQLite 类 / legacy JSON 树 | ✅ r+w | — | ✅ opencode | ✅ FIXTURE（批 5.1 升级，artifact 未单列） | COLLECTED | B5-F2（文档声明，artifact 未单列） | interop-matrix-batch2/4/5.json / interop-matrix-batch4.json | COLLECTED（OSS 567 消息）+ 批 4 CONSTRUCTED → 批 5.1 升 FIXTURE（sqlite_v2 JSON fixture；artifact 未单列，见 docs/usage §12.1） |
-| OpenCraw（外部标签，疑与 OpenClaw 同名） | 外部标签（待确认） | — | — | ✅ opencraw | — | COLLECTED | B2-L3（DSH 真实加载） | interop-matrix-batch2.json | **名称冲突**：OSS 标签 `opencraw` 疑为 `openclaw` 拼写/别名；按标签计，确认后去重数字 -1 |
-| TRAE | 自有 | — | — | ✅ trae | — | COLLECTED | B2-L3（DSH 真实加载） | interop-matrix-batch2.json | COLLECTED（OSS 612 消息）；catalog 标 P2（无原生导入），有真实采集样本但无原生 adapter |
-| Windsurf | 自有（IDE 内部） | — | — | ✅ windsurf | — | COLLECTED | B2-L3（DSH 真实加载） | interop-matrix-batch2.json | COLLECTED（OSS 144 消息）；原生 fixture 仅简化样本 → BLOCKED；真实路径/格式未核实 |
-| WorkBuddy（外部标签） | 外部标签（catalog 未收录） | — | — | ✅ workbuddy | — | COLLECTED | B2-L3（DSH 真实加载） | interop-matrix-batch2.json | 按标签计；catalog 未收录，真实会话仅以 COLLECTED 层存在 |
-| ZCode (Z.ai) | 自有（经 ACP bridge） | — | — | ✅ zcode | — | COLLECTED | B2-L3（DSH 真实加载） | interop-matrix-batch2.json | COLLECTED（OSS 779 消息）；catalog 标 P2（Codeg 自记 transcript，无原生导入） |
-| Claude Desktop / Cowork | 桌面/云端 | — | — | — | ✅ COLLECTED-SPARSE | COLLECTED-SPARSE | oss-add 采集（2 条消息） | samples/batch2/oss-add/ + oss-trajectory-inventory.md / interop-matrix-batch5.json | oss-add 新采仅 2 条消息（COLLECTED-SPARSE，稀疏但默认计入真实覆盖并标注）；gateway/unknown 为中间件/兜底标签，不计入 30-40 |
+| OpenCraw（外部标签，疑与 OpenClaw 同名） | 外部标签（待确认） | ✅ reader | — | ✅ opencraw | — | COLLECTED | B2-L3（DSH 真实加载） | interop-matrix-batch2.json | **名称冲突**：OSS 标签 `opencraw` 疑为 `openclaw` 拼写/别名；按标签计，确认后去重数字 -1 |
+| TRAE | 自有 | ✅ reader | — | ✅ trae | — | COLLECTED | B2-L3（DSH 真实加载） | interop-matrix-batch2.json | COLLECTED（OSS 612 消息）；catalog 标 P2（无原生导入），有真实采集样本但无原生 adapter |
+| Windsurf | 自有（IDE 内部） | ✅ reader | — | ✅ windsurf | — | COLLECTED | B2-L3（DSH 真实加载） | interop-matrix-batch2.json | COLLECTED（OSS 144 消息）；原生 fixture 仅简化样本 → BLOCKED；真实路径/格式未核实 |
+| WorkBuddy（外部标签） | 外部标签（catalog 未收录） | ✅ reader | — | ✅ workbuddy | — | COLLECTED | B2-L3（DSH 真实加载） | interop-matrix-batch2.json | 按标签计；catalog 未收录，真实会话仅以 COLLECTED 层存在 |
+| ZCode (Z.ai) | 自有（经 ACP bridge） | ✅ reader | — | ✅ zcode | — | COLLECTED | B2-L3（DSH 真实加载） | interop-matrix-batch2.json | COLLECTED（OSS 779 消息）；catalog 标 P2（Codeg 自记 transcript，无原生导入） |
+| Claude Desktop / Cowork | 桌面/云端 | ✅ reader | — | — | ✅ COLLECTED-SPARSE | COLLECTED-SPARSE | oss-add 采集（2 条消息） | samples/batch2/oss-add/ + oss-trajectory-inventory.md / interop-matrix-batch5.json | oss-add 新采仅 2 条消息（COLLECTED-SPARSE，稀疏但默认计入真实覆盖并标注）；gateway/unknown 为中间件/兜底标签，不计入 30-40 |
 | fx (vercel-labs) | 自有事件日志（event_log_v1/event_log schema 4） | ✅ r+w | — | — | ✅ FIXTURE（批 5.1） | FIXTURE | B5.1-F2 | interop-matrix-batch5.json（5.1） | 批 5.1 计划项（task-28）：**尚未计入任何覆盖数字**；批 5 侦察已有 schema4 上游 fixture |
 | GitHub Copilot CLI | 自有（事件 JSONL） | ✅ r+w | — | — | ✅ FIXTURE（批 3） | FIXTURE | B3-F3（自往返） | interop-matrix-batch3.json | B3-F0/F1/F2(DSH)/F3 全通过；status=partial 因声明 lossy（delta 合并、消息分组归一） |
 | Grok Build | 自有多文件（summary+chat_history） | ✅ r+w | — | — | ✅ FIXTURE（批 4） | FIXTURE | B4-F2（自往返/构造） | batch4-fixtures.md §B4-03 / interop-matrix-batch4.json | 多文件组装；events/updates/plan 不迁移；目录编码未核实 |
@@ -161,7 +166,7 @@
 | Mistral Vibe | 自有（JSONL session log） | ✅ r+w | — | — | ✅ FIXTURE-CONSTRUCTED（批 5） | FIXTURE-CONSTRUCTED | B5-F2 | interop-matrix-batch5.json | 批 5 CONSTRUCTED（按 mistral-vibe 源码布局构造：meta.json + messages.jsonl） |
 | OpenHands | 自有（trajectory 导出） | ✅ r+w | — | — | ✅ FIXTURE-CONSTRUCTED（批 5） | FIXTURE-CONSTRUCTED | B5-F2 | interop-matrix-batch5.json | 批 5 CONSTRUCTED（上游真实轨迹样例 + 构造） |
 | Roo Code | Cline 族（Cline/Roo/Kilo） | ✅ r+w | — | — | ✅ FIXTURE-CONSTRUCTED（批 5） | FIXTURE-CONSTRUCTED | B5-F2 | interop-matrix-batch5.json | 批 5 CONSTRUCTED（原 BLOCKED→已构造）；Cline 族按标签计，不与 cline/kilo-code 合并 |
-| iFlow CLI | 疑似 Claude/Gemini 衍生（未核实） | —（待样本） | — | — | — | — | — | harness-catalog.md #21 | catalog P2：本地 store 未核实 |
+| iFlow CLI | 疑似 Claude/Gemini 衍生（未核实） | ✅ reader | — | — | — | — | — | harness-catalog.md #21 | catalog P2：本地 store 未核实 |
 
 ### D. 去重与计数校验（自动生成）
 
@@ -192,7 +197,7 @@
 --------------------------------------------------------
 分层累计（v0.2 / v0.3 / 批 5.1 后）= 37 / 54 / 57  （v0.3 起超 40 上限→停用）
 去重 Harness（v0.2 / v0.3 / 批 5.1 后）= 27 / 40 / 40
-真实会话覆盖（v0.2 / v0.3 / 批 5.1 后）= 19 / 21 / 21（REAL-LOCAL 与 COLLECTED-SPARSE 计入）
+真实会话覆盖（v0.2 / v0.3 / 批 5.1 后）= 19 / 22 / 21（REAL-LOCAL 与 COLLECTED-SPARSE 计入）
 ```
 
 #### D.4 已知计数冲突与待确认（不自动合并）

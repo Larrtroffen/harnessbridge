@@ -684,6 +684,27 @@ def cmd_matrix_batch4(args):
     return 0 if s["fail"] == 0 else 1
 
 
+# --------------------------------------------------------------------------- batch6 matrix
+def cmd_matrix_batch6(args):
+    from . import batch6
+    only = [x.strip() for x in (args.only_harness or "").split(",") if x.strip()] or None
+    report = batch6.run_batch6(report_path=args.report or batch6.DEFAULT_REPORT,
+                               limit=args.limit, only=only, verbose=args.verbose)
+    s = report["summary"]
+    if args.json:
+        print_json(report)
+    else:
+        print("\nbatch6 matrix: readers pass=%d/partial=%d/fail=%d；writers pass=%d/partial=%d/fail=%d"
+              % (s["readers_pass"], s["readers_partial"], s["readers_fail"],
+                 s["writers_pass"], s["writer_partial"], s["writers_fail"]))
+        print("fixture-verified format coverage: %d/%d（REAL sessions=%d，REAL-EXAMPLE=%d）"
+              % (s["fixture_verified"], s["fixture_verified_total"],
+                 s["real_sessions"], s["real_example"]))
+        if report.get("report_path"):
+            print("report: %s" % report["report_path"])
+    return 0
+
+
 # --------------------------------------------------------------------------- batch5 matrix
 def cmd_matrix_batch5(args):
     from . import batch5
@@ -817,6 +838,16 @@ def build_parser():
     b4.add_argument("--only-harness", default=None, help="comma separated harnesses")
     b4.add_argument("--verbose", action="store_true", help="per-harness progress")
     b4.set_defaults(func=cmd_matrix_batch4)
+
+    b6 = sub.add_parser("matrix-batch6",
+                        help="batch-6 external-fixture reader/writer matrix (fixture-verified X/40)")
+    b6.add_argument("--report", default=None,
+                    help="JSON report path (default tests/artifacts/interop-matrix-batch6.json)")
+    b6.add_argument("--json", action="store_true", help="print the full JSON report on stdout")
+    b6.add_argument("--limit", type=int, default=None, help="max canonical reader labels")
+    b6.add_argument("--only-harness", default=None, help="comma separated canonical labels")
+    b6.add_argument("--verbose", action="store_true", help="per-reader/writer progress")
+    b6.set_defaults(func=cmd_matrix_batch6)
 
     b5 = sub.add_parser("matrix-batch5", help="batch-5 REAL-LOCAL + constructed matrix")
     b5.add_argument("--root", default=None); b5.add_argument("--out", default=None)

@@ -126,9 +126,110 @@ HARNESSES = [
                          "preview": True},
         "notes": "Goose SQLite 会话；只读导出（不支持写入）",
     },
+    {
+        "id": "workbuddy", "display_name": "WorkBuddy", "family": "workbuddy",
+        "root": lambda: get_reader("workbuddy").default_root(),
+        "install_root": None,
+        "install_supported": False, "install_experimental": False,
+        "how_to_see": "WorkBuddy 原生 JSONL 会话库；本工具仅支持读取/导出（reader-only）",
+        "session_dir_hint": "projects/**/*.jsonl",
+        "capabilities": {"export": True, "install": False, "install_experimental": False,
+                         "preview": True},
+        "notes": "WorkBuddy 原生 JSONL（agenttrace 格式交叉验证）；无经验证的原生 writer，reader-only/export-only",
+    },
+    {
+        "id": "windsurf", "display_name": "Windsurf", "family": "codeium",
+        "root": lambda: get_reader("windsurf").default_root(),
+        "install_root": None,
+        "install_supported": False, "install_experimental": False,
+        "how_to_see": "Windsurf/Codeium Cascade JSONL 会话；本工具仅支持读取/导出（reader-only）",
+        "session_dir_hint": "~/.windsurf/**/*.jsonl（或 ~/.codeium/windsurf/sessions）",
+        "capabilities": {"export": True, "install": False, "install_experimental": False,
+                         "preview": True},
+        "notes": "Windsurf JSONL（sessionport WindsurfStore 交叉验证）；无经验证 writer，reader-only/export-only",
+    },
+    {
+        "id": "trae", "display_name": "TRAE", "family": "bytedance",
+        "root": lambda: get_reader("trae").default_root(),
+        "install_root": None,
+        "install_supported": False, "install_experimental": False,
+        "how_to_see": "TRAE CLI (TraeX) 原生 rollout 优先读取；无原生会话时读取 codeg ACP transcript 兜底（reader-only）",
+        "session_dir_hint": "~/.trae/cli/sessions/**/rollout-*.jsonl；兜底 <codeg-home>/acp-transcripts/codeg-trae-cli/<session-id>.jsonl",
+        "capabilities": {"export": True, "install": False, "install_experimental": False,
+                         "preview": True},
+        "notes": "TRAE CLI 2.0 (TraeX) 是 codex-rs fork，写 Codex rollout JSONL（复用 Codex reader）；无原生会话时回退 codeg ACP transcript v1；reader-only/export-only",
+    },
+    {
+        "id": "zcode", "display_name": "ZCode (Z.ai)", "family": "zhipu",
+        "root": lambda: get_reader("zcode").default_root(),
+        "install_root": None,
+        "install_supported": False, "install_experimental": False,
+        "how_to_see": "ZCode 无公开原生消息存储契约；读取 codeg ACP transcript 兜底（reader-only）",
+        "session_dir_hint": "<codeg-home>/acp-transcripts/codeg-zcode-acp/<session-id>.jsonl",
+        "capabilities": {"export": True, "install": False, "install_experimental": False,
+                         "preview": True},
+        "notes": "ACP transcript 兜底（codeg acp_transcript v1）；reader-only，原生 ZCode ACP bridge 未实现",
+    },
+    {
+        "id": "cherry-studio", "display_name": "Cherry Studio", "family": "cherry",
+        "root": lambda: get_reader("cherry-studio").default_root(),
+        "install_root": None,
+        "install_supported": False, "install_experimental": False,
+        "how_to_see": "Cherry Studio 本地会话库 schema 未公开；仅支持读取/导出 OSS traj-session 采集",
+        "session_dir_hint": "traj-session/1 captures（cherry-studio__*.jsonl）",
+        "capabilities": {"export": True, "install": False, "install_experimental": False,
+                         "preview": True},
+        "notes": "OSS 采集读出（reader-only/export-only）；本地 SQLite schema 未核实",
+    },
+    {
+        "id": "claude-desktop", "display_name": "Claude Desktop", "family": "anthropic",
+        "root": lambda: get_reader("claude-desktop").default_root(),
+        "install_root": None,
+        "install_supported": False, "install_experimental": False,
+        "how_to_see": "Claude Desktop/Cowork 无公开 transcript 存储；仅支持读取/导出 OSS 稀疏采集",
+        "session_dir_hint": "traj-session/1 captures（claude-desktop__*.jsonl）",
+        "capabilities": {"export": True, "install": False, "install_experimental": False,
+                         "preview": True},
+        "notes": "OSS 稀疏采集（COLLECTED-SPARSE）读出；reader-only/export-only，无原生 store 写入",
+    },
+    {
+        "id": "opencraw", "display_name": "OpenCraw (OpenClaw alias?)", "family": "openclaw",
+        "root": lambda: get_reader("opencraw").default_root(),
+        "install_root": None,
+        "install_supported": False, "install_experimental": False,
+        "how_to_see": "OSS 采集标签（疑为 OpenClaw 拼写别名）；reader-only，不重复计入覆盖",
+        "session_dir_hint": "traj-session/1 captures（opencraw__*.jsonl）",
+        "capabilities": {"export": True, "install": False, "install_experimental": False,
+                         "preview": True},
+        "notes": "opencraw 疑为 openclaw 别名（harness_evidence: system_prompt:openclaw）；不新增去重计数",
+    },
+    {
+        "id": "iflow", "display_name": "iFlow CLI", "family": "iflow",
+        "root": lambda: get_reader("iflow").default_root(),
+        "install_root": None,
+        "install_supported": False, "install_experimental": False,
+        "how_to_see": "iFlow CLI 原生 JSONL 会话库（Claude Code 兼容格式）；本工具仅支持读取/导出（reader-only）",
+        "session_dir_hint": "$IFLOW_HOME/projects/<project>/<sessionId>.jsonl（默认 ~/.iflow/projects）",
+        "capabilities": {"export": True, "install": False, "install_experimental": False,
+                         "preview": True},
+        "notes": "iFlow CLI 原生 JSONL（Claude Code 兼容：uuid/parentUuid/message.content blocks，agentsview MIT fixture 交叉验证）；ACP JSON 兜底；reader-only/export-only（claude writer 可复用但未注册）",
+    },
+    {
+        "id": "zed", "display_name": "Zed", "family": "zed",
+        "root": lambda: get_reader("zed").default_root(),
+        "install_root": None,
+        "install_supported": False, "install_experimental": False,
+        "how_to_see": "Zed 编辑器 Agent Panel 的 threads.db（SQLite）；本工具仅支持读取/导出（reader-only）",
+        "session_dir_hint": "~/Library/Application Support/Zed/threads/threads.db（$ZED_HOME 可覆盖）",
+        "capabilities": {"export": True, "install": False, "install_experimental": False,
+                         "preview": True},
+        "notes": "Zed threads.db（data_type=json|zstd；DbThread/Message JSON）；无 CLI resume 且 DB 为 App 私有，writer 高风险不实现，reader-only/export-only",
+    },
 ]
 HARNESS_BY_ID = {h["id"]: h for h in HARNESSES}
 FILE_SOURCES = {"pi", "gemini", "goose"}  # light scanners: no full reader needed for detect
+NEW_READER_SOURCES = {"workbuddy", "windsurf", "trae", "zcode", "cherry-studio",
+                      "claude-desktop", "opencraw", "iflow", "zed"}
 
 
 def _now_ms():
@@ -141,6 +242,17 @@ def _ts_of(row):
         if isinstance(v, (int, float)) and v > 0:
             return int(v)
     return 0
+
+
+def _session_path_exists(source, row):
+    """True when a reader row points at a real file (or a virtual container path)."""
+    path = row.get("path") or ""
+    if path and os.path.isfile(path):
+        return True
+    if "#" in path:
+        container, _sep, member = path.rpartition("#")
+        return os.path.isfile(container) and bool(member)
+    return False
 
 
 def _file_scan(source, root):
@@ -248,6 +360,14 @@ def _fast_scan(source, root):
         files = glob.glob(os.path.join(root, "*", "chats", "session-*.json*"))
         files = [f for f in files if os.path.isfile(f)]
         return len(files), _max_mtime(files)
+    if source in NEW_READER_SOURCES:
+        try:
+            rows = get_reader(source).list_sessions(root)
+        except (OSError, ValueError, KeyError, RuntimeError):
+            return 0, 0
+        recent = max((_ts_of(r) for r in rows), default=0)
+        paths = [r.get("path") for r in rows if r.get("path")]
+        return len(rows), recent or _max_mtime(paths)
     if source == "goose":
         db = os.path.join(root, "sessions.db")
         if not os.path.isfile(db):
@@ -311,7 +431,7 @@ def detect(fast=True):
                     rows = _file_scan(source, root)
                 else:
                     rows = get_reader(source).list_sessions(root)
-                rows = [r for r in rows if r.get("path") and os.path.isfile(r["path"])]
+                rows = [r for r in rows if _session_path_exists(source, r)]
                 rec["session_count"] = len(rows)
                 recent = max((_ts_of(r) for r in rows), default=0)
                 if not recent:
@@ -1116,7 +1236,7 @@ def migrate_all(to, sources=None, limit=None, since_days=None, session_mode="kee
             rows = get_reader(source).list_sessions(root)
         except (OSError, ValueError, RuntimeError):
             continue
-        rows = [r for r in rows if r.get("path") and os.path.isfile(r["path"])]
+        rows = [r for r in rows if _session_path_exists(source, r)]
         if since_days:
             cutoff = now - int(float(since_days) * 86400 * 1000)
             rows = [r for r in rows

@@ -50,7 +50,7 @@ App 本身**不包含转换逻辑**：它只是 CLI 之上的一层克制、可�
 - **默认直装目标会话库**：选择目标 Harness 后，会话直接写入该工具真实的本机会话库（自动检测路径），不再要求“先导出到文件夹再自己拷”。
 - **保留 / 移出原始会话，永远可恢复**：`keep`（默认）完全不动源会话；`move` 只在**目标安装且校验成功之后**，把源会话改名为 `*.migrated-<时间戳>.bak`——绝不删除，可随时用 `asi migrate-restore` 或 App 恢复。
 - **一键全量迁移**：`asi migrate-all --to <目标>` 把其他所有已检测 Harness 的会话一次迁完，支持逐来源数量上限、`--since-days` 时间过滤、dry-run 计划、重复跳过、覆盖前备份、进度、取消、逐条结果与恢复日志。
-- **40/40 协议覆盖**：40 种 Harness 格式已有 adapter（见[兼容性文档](docs/COMPATIBILITY.zh-CN.md)）；当前构建支持 **35 个导入来源、31 个写出目标**，以 ATIF v1.8 为中枢。
+- **40/40 canonical 协议覆盖**：40 种 canonical Harness 格式全部有 adapter，另有 **43 个 source adapter**（iFlow、Zed 为 bonus source）与 **32 个原生 writer 目标**；以 ATIF v1.8 为中枢。详见[覆盖账本](docs/coverage-ledger.md)与[外部项目调研](docs/EXTERNAL-PROJECTS.md)。
 - **安全优先**：源会话只读；写真实 store 必须 `--yes` + UI 二次确认并展示写入位置；覆盖先备份 `.asi-backup-*`；每次迁移写**增量、原子** journal；`--dry-run` 零写入。
 - **安装后校验**：DSH 目标用原生 `verify` 读回；其他目标用目标 reader 读回（或文件级兜底）；结果含 `installed_path`、`verified` 与逐条状态。
 - **原生体验**：会话浏览与筛选、Shift/⌘A 范围选择、迁移历史、会话时间线与工具调用配对、Token 统计、27 个 Harness Logo、中文界面、Reduce Motion 支持。
@@ -74,8 +74,8 @@ App 本身**不包含转换逻辑**：它只是 CLI 之上的一层克制、可�
 ### 读取 / 导出覆盖
 
 - **原生 reader**：Claude Code、Codex、OMP、Qoder、DeepSeek Harness、Pi、Gemini CLI 等。
-- 互转协议/adapter 覆盖 **40 种 Harness 格式**，证据等级从 **NATIVE**（本机真实 store + 原生加载）到 **REAL-LOCAL**、**COLLECTED**、**FIXTURE**、**CONSTRUCTED** 不等。
-- 逐 Harness 的证据等级与限制见[兼容性文档](docs/COMPATIBILITY.zh-CN.md)与自动生成的[覆盖账本](docs/coverage-ledger.md)。我们刻意把「协议覆盖 40/40」与「真实会话覆盖 21/40」分开报告——两者不是一回事。
+- **40 种 canonical Harness 格式**全部有 adapter，另有 bonus **iFlow**、**Zed** reader（共 **43 个 source adapter**、32 个原生 writer）。证据等级包括 **NATIVE**、**REAL-LOCAL**、**COLLECTED**、**REAL**、**REAL-EXAMPLE**、**FIXTURE**、**FIXTURE-LOW**、**CONSTRUCTED**。
+- **批 6（v1.6.0）**新增外部 fixture 矩阵：**35/40 fixture-verified**（34 pass + 6 partial，0 reader fail）、**32/32 原生 writer 通过**、**真实会话覆盖 22/40**。三个数字刻意分开报告：协议覆盖 / fixture 验证覆盖 / 真实用户会话覆盖。详见[覆盖账本](docs/coverage-ledger.md)、[外部项目调研](docs/EXTERNAL-PROJECTS.md)与 [docs/usage.md §16](docs/usage.md)。
 
 > 名称与 Logo 的商标归各自所有者。HarnessBridge 与任何 Harness 厂商均无关联、背书或赞助关系。详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
@@ -94,7 +94,7 @@ Tap 仓库：[Larrtroffen/homebrew-harnessbridge](https://github.com/Larrtroffen
 
 ### 方式 B — 预编译 macOS 应用（Apple Silicon）
 
-1. 从 [Releases](https://github.com/Larrtroffen/harnessbridge/releases) 下载 `HarnessBridge-1.5.2-macos-arm64.dmg`。
+1. 从 [Releases](https://github.com/Larrtroffen/harnessbridge/releases) 下载 `HarnessBridge-1.6.0-macos-arm64.dmg`。
 2. 打开 DMG，把 **HarnessBridge.app** 拖进 `/Applications`。
 3. 应用是 **ad-hoc 签名、未做 Apple 公证**，首次启动可能被 Gatekeeper 拦截。右键 App → **打开** → 确认，或执行：
    ```bash
@@ -230,7 +230,8 @@ Adapter 契约、证据等级、安全不变量与仓库结构详见[架构文�
 | 后端深入（内部） | [docs/usage.md](docs/usage.md) | — |
 | ATIF 互转协议 | [docs/atif-interop-protocol.md](docs/atif-interop-protocol.md) | — |
 | 覆盖账本 | [docs/coverage-ledger.md](docs/coverage-ledger.md) | — |
-| 版本说明 | [RELEASE_NOTES/v1.5.2.md](RELEASE_NOTES/v1.5.2.md) | [RELEASE_NOTES/v1.5.2.zh-CN.md](RELEASE_NOTES/v1.5.2.zh-CN.md) |
+| 外部项目与 fixture | [docs/EXTERNAL-PROJECTS.md](docs/EXTERNAL-PROJECTS.md) | — |
+| 版本说明 | [RELEASE_NOTES/v1.6.0.md](RELEASE_NOTES/v1.6.0.md) | [RELEASE_NOTES/v1.6.0.zh-CN.md](RELEASE_NOTES/v1.6.0.zh-CN.md) |
 
 ## 路线图
 
@@ -244,7 +245,7 @@ Adapter 契约、证据等级、安全不变量与仓库结构详见[架构文�
 
 欢迎 Issue 与 PR——尤其是**带 fixture 的新 Harness adapter**、文档修正与翻译。请先读 [CONTRIBUTING.md](CONTRIBUTING.md) 与[行为准则](CODE_OF_CONDUCT.md)；安全问题请按 [SECURITY.md](SECURITY.md) 私下报告。
 
-- 跑后端测试（需要本机 Harness 数据与测试样本，hosted CI 不运行）：
+- 跑公开 fixture 测试（依赖本机数据的测试会自动 skip）：
   `python3 -m unittest discover -s tools/agent-session-import/tests -p 'test_*.py' -v`
 - 跑 App 自检：`tools/HarnessBridgeApp/dist/HarnessBridge.app/Contents/MacOS/HarnessBridge --self-test`
 - 测试**绝不**写真实 Harness store：使用临时 `HOME` 与文档中的 env 覆盖。
