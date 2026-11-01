@@ -16,7 +16,7 @@ set -euo pipefail
 
 APP_NAME="HarnessBridge"
 BUNDLE_ID="io.github.larrtroffen.harnessbridge"
-VERSION="1.6.1"
+VERSION="1.6.2"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 

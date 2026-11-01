@@ -75,7 +75,7 @@ The app contains **no conversion logic of its own**: it is a thin, careful front
 
 - **Native readers**: Claude Code, Codex, OMP, Qoder, DeepSeek Harness, Pi, Gemini CLI and more.
 - **40 canonical harness formats** covered by the interop protocol/adapters, plus bonus **iFlow** and **Zed** readers (43 source adapters, 32 native writers). Evidence levels range from **NATIVE** (real local store + native load) through **REAL-LOCAL**, **COLLECTED**, **REAL**, **REAL-EXAMPLE**, **FIXTURE**, **FIXTURE-LOW** and **CONSTRUCTED**.
-- **Latest-version isolation test (v1.6.1)** — installed the missing CLIs in an isolated `$HOME` on a remote Ubuntu host, confirmed their latest versions, and validated the current on-disk stores for **Qwen Code 0.26.5, Goose 1.57.0 and OpenCode 1.19.5**. OpenCode's v1.19 SQLite store is now parsed natively. These are **LOCAL-SMOKE** samples, not real user conversations; the four coverage numbers are unchanged. Details: [docs/latest-version-matrix.md](docs/latest-version-matrix.md).
+- **Latest-version isolation test (v1.6.2)** — installed the missing CLIs in an isolated `$HOME` on a remote Ubuntu host, confirmed their latest versions, and ran each tool's **custom Base URL / OpenAI-compatible configuration against the real DeepSeek API** (`deepseek-flash`). Validated current stores for **Qwen Code 0.26.5, Goose 1.57.0, OpenCode 1.19.5 and iFlow 0.5.19**; OpenCode's v1.19 SQLite store is now parsed natively. These are **LOCAL-DEEPSEEK** samples, not real user conversations; the four coverage numbers are unchanged. Details: [docs/latest-version-matrix.md](docs/latest-version-matrix.md).
 - **Batch 6 (v1.6.0)** added an external-fixture matrix: **35/40 fixture-verified** canonical labels (34 pass + 6 partial, 0 reader fail), **32/32 native writers pass**, and **22/40 real-session coverage** — we deliberately report these as separate numbers (protocol coverage vs. fixture-verified format coverage vs. real user sessions). See [docs/coverage-ledger.md](docs/coverage-ledger.md), [docs/EXTERNAL-PROJECTS.md](docs/EXTERNAL-PROJECTS.md) and [docs/usage.md §16](docs/usage.md).
 
 > Names and logos are trademarks of their respective owners. HarnessBridge is not affiliated with, endorsed by, or sponsored by any harness vendor. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
@@ -95,7 +95,7 @@ The cask installs the self-contained arm64 app and prints the Gatekeeper caveat.
 
 ### Option B — prebuilt macOS app (Apple Silicon)
 
-1. Download `HarnessBridge-1.6.1-macos-arm64.dmg` from [Releases](https://github.com/Larrtroffen/harnessbridge/releases).
+1. Download `HarnessBridge-1.6.2-macos-arm64.dmg` from [Releases](https://github.com/Larrtroffen/harnessbridge/releases).
 2. Open the DMG and drag **HarnessBridge.app** into `/Applications`.
 3. Because the app is **ad-hoc signed (not notarized by Apple)**, Gatekeeper may block the first launch. Either right-click the app → **Open** → confirm, or run:
    ```bash
@@ -233,7 +233,7 @@ More in [SECURITY.md](SECURITY.md) and [docs/FAQ.md](docs/FAQ.md).
 | Coverage ledger | [docs/coverage-ledger.md](docs/coverage-ledger.md) | — |
 | External projects & fixtures | [docs/EXTERNAL-PROJECTS.md](docs/EXTERNAL-PROJECTS.md) | — |
 | Latest-version isolation test | [docs/latest-version-matrix.md](docs/latest-version-matrix.md) | — |
-| Release notes | [RELEASE_NOTES/v1.6.1.md](RELEASE_NOTES/v1.6.1.md) | [RELEASE_NOTES/v1.6.1.zh-CN.md](RELEASE_NOTES/v1.6.1.zh-CN.md) |
+| Release notes | [RELEASE_NOTES/v1.6.2.md](RELEASE_NOTES/v1.6.2.md) | [RELEASE_NOTES/v1.6.2.zh-CN.md](RELEASE_NOTES/v1.6.2.zh-CN.md) |
 
 ## Roadmap
 

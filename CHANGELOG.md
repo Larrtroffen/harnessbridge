@@ -1,3 +1,11 @@
+## [v1.6.2] — 2026-11-01
+
+### Latest-version test with real DeepSeek / 真实 DeepSeek 最新版本测试
+- Replaced mock-model latest-store samples with **real DeepSeek API** runs (`deepseek-flash`, custom Base URL).
+- Validated latest real stores: Qwen Code 0.26.5, Goose 1.57.0, OpenCode 1.19.5 (new SQLite v2 reader), iFlow 0.5.19.
+- Updated `samples/batch7/` (per-directory SOURCE), `tests/test_latest_stores.py`; backend suite **145 tests OK**.
+- Updated `docs/latest-version-matrix.md`; version bump to 1.6.2; DMG rebuilt; coverage numbers unchanged (40/40, 35/40, 22/40, REAL-EXAMPLE 2).
+
 ## [v1.6.1] — 2026-11-01
 
 ### Latest-version isolation test / 最新版本隔离测试
