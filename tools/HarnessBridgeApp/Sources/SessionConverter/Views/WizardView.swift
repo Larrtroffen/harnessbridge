@@ -36,7 +36,7 @@ struct WizardView: View {
             Button("取消", role: .cancel) { model.showMigrationConfirm = false }
             Button("开始迁移") { model.confirmMigrationAndRun() }
         } message: {
-            Text(model.migrationConfirmSummary)
+            Text(L(model.migrationConfirmSummary))
         }
         .alert("确认写入真实 Harness？", isPresented: Binding(
             get: { model.showInstallConfirm },
@@ -105,10 +105,10 @@ struct WizardView: View {
                         .buttonStyle(PressScaleButtonStyle())
                     Button("再迁移一次") { model.startWizard(sourceID: nil) }
                 } else if model.wizard.running {
-                    Text(model.wizard.progressText).font(.caption).foregroundStyle(.secondary)
+                    Text(L(model.wizard.progressText)).font(.caption).foregroundStyle(.secondary)
                 }
             } else {
-                Text("步骤 \(model.wizard.step) / 5").font(.caption).foregroundStyle(.secondary)
+                Text(L("步骤 \(model.wizard.step) / 5")).font(.caption).foregroundStyle(.secondary)
                 Button(model.wizard.step == 4 ? "开始迁移" : "继续") {
                     model.wizardNext()
                 }
@@ -181,7 +181,7 @@ struct WizardView: View {
     private var sessionToolbar: some View {
         HStack(spacing: 8) {
             Image(systemName: "checkmark.circle").foregroundStyle(model.wizardSelectedCount > 0 ? Color.accentColor : .secondary)
-            Text("已选 \(model.wizardSelectedCount) / 共 \(model.wizardFilteredCount)（筛选后）").font(.callout)
+            Text(L("已选 \(model.wizardSelectedCount) / 共 \(model.wizardFilteredCount)（筛选后）")).font(.callout)
             Divider().frame(height: 14)
             Button("全选当前筛选") { model.selectAllWizardFiltered() }
                 .controlSize(.small)
@@ -373,7 +373,7 @@ struct WizardView: View {
                             .font(.caption2.monospaced()).foregroundStyle(.secondary).lineLimit(1)
                     }
                     if let how = harness.howToSee, !how.isEmpty {
-                        Text(how).font(.caption).foregroundStyle(.secondary).lineLimit(2)
+                        Text(L(how)).font(.caption).foregroundStyle(.secondary).lineLimit(2)
                     }
                 }
                 Spacer()
@@ -530,11 +530,11 @@ struct WizardView: View {
                 CardBox(title: "迁移进度", systemImage: "arrow.triangle.2.circlepath") {
                     HStack(spacing: 10) {
                         ProgressView().controlSize(.small)
-                        Text(model.wizard.progressText).font(.callout).foregroundStyle(.secondary)
+                        Text(L(model.wizard.progressText)).font(.callout).foregroundStyle(.secondary)
                     }
                     ProgressBar(value: model.wizard.progressValue)
                         .shimmer()
-                    Text("共 \(model.wizard.selectedIDs.count) 个会话").font(.caption2).foregroundStyle(.secondary)
+                    Text(L("共 \(model.wizard.selectedIDs.count) 个会话")).font(.caption2).foregroundStyle(.secondary)
                 }
             }
         }
@@ -618,16 +618,16 @@ struct WizardView: View {
                                     }
                                 }
                                 if item.skipped, let reason = item.skipReason {
-                                    Text(reason).font(.caption2).foregroundStyle(.orange).lineLimit(3)
+                                    Text(L(reason)).font(.caption2).foregroundStyle(.orange).lineLimit(3)
                                 }
                                 if let error = item.error {
-                                    Text(error).font(.caption2)
+                                    Text(L(error)).font(.caption2)
                                         .foregroundStyle(item.ok ? .orange : .red)
                                         .lineLimit(3)
                                 }
                                 if let source = item.sourcePath {
                                     HStack(spacing: 4) {
-                                        Text("源文件：\(Fmt.shortPath(source, limit: 60))")
+                                        Text(L("源文件：\(Fmt.shortPath(source, limit: 60))"))
                                             .font(.caption2.monospaced())
                                             .foregroundStyle(.secondary).lineLimit(1)
                                         Button("定位") { model.revealInFinder(source) }
@@ -656,8 +656,8 @@ struct WizardView: View {
 
     private func stepHeader(_ title: String, detail: String) -> some View {
         VStack(alignment: .leading, spacing: 2) {
-            Text(title).font(.title2.weight(.bold))
-            Text(detail).font(.callout).foregroundStyle(.secondary)
+            Text(L(title)).font(.title2.weight(.bold))
+            Text(L(detail)).font(.callout).foregroundStyle(.secondary)
         }
         .padding(.bottom, 4)
     }

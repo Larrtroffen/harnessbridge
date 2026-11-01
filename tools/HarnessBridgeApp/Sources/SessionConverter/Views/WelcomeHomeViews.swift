@@ -51,11 +51,10 @@ struct WelcomeView: View {
                             }
                         } else {
                             VStack(alignment: .leading, spacing: 10) {
-                                Text("发现 **\(model.detectedHarnesses.count)** 个工具，共 **\(model.totalSessionCount)** 个会话")
-                                    .font(.title3)
+                                Text(L10n.found(tools: model.detectedHarnesses.count, sessions: model.totalSessionCount)).font(.title3)
                                 HStack(spacing: 8) {
                                     if let time = model.detectCacheTime {
-                                        Text("上次检测：\(Fmt.date(time))")
+                                        Text(L10n.lastDetected(Fmt.date(time)))
                                             .font(.caption2).foregroundStyle(.secondary)
                                     }
                                     if model.detecting {
@@ -186,7 +185,7 @@ struct HomeView: View {
                         if model.detecting {
                             HStack(spacing: 8) {
                                 ProgressView().controlSize(.small)
-                                Text(model.detectionNote).font(.caption).foregroundStyle(.secondary)
+                                Text(L(model.detectionNote)).font(.caption).foregroundStyle(.secondary)
                                 Spacer()
                             }
                         }
@@ -235,8 +234,8 @@ struct HomeView: View {
                 Image(systemName: icon)
                     .font(.system(size: 22))
                     .foregroundStyle(.tint)
-                Text(title).font(.headline)
-                Text(subtitle).font(.caption).foregroundStyle(.secondary)
+                Text(L(title)).font(.headline)
+                Text(L(subtitle)).font(.caption).foregroundStyle(.secondary)
                     .multilineTextAlignment(.leading)
                 Spacer(minLength: 0)
             }

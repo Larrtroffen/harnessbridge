@@ -92,7 +92,7 @@ struct MigrateAllView: View {
             } else if state.step == 4 {
                 Button("取消", role: .destructive) { model.cancelMigrateAll() }
                     .disabled(state.cancelled)
-                Text(state.progressText).font(.caption).foregroundStyle(.secondary)
+                Text(L(state.progressText)).font(.caption).foregroundStyle(.secondary)
             } else if state.step == 5 {
                 if state.journalPath != nil {
                     Button { model.restoreMigrateAllJournal() } label: {
@@ -143,7 +143,7 @@ struct MigrateAllView: View {
                                         .font(.caption2.monospaced()).foregroundStyle(.secondary).lineLimit(1)
                                 }
                                 if let how = harness.howToSee, !how.isEmpty {
-                                    Text(how).font(.caption2).foregroundStyle(.secondary).lineLimit(2)
+                                    Text(L(how)).font(.caption2).foregroundStyle(.secondary).lineLimit(2)
                                 }
                             }
                             .padding(12)
@@ -179,7 +179,7 @@ struct MigrateAllView: View {
                     Button("全选") { model.migrateAllSetAllSources(true) }.controlSize(.small)
                     Button("全不选") { model.migrateAllSetAllSources(false) }.controlSize(.small)
                     Spacer()
-                    Text("目标：\(model.harnessName(state.targetID))").font(.caption).foregroundStyle(.secondary)
+                    Text(L("目标：\(model.harnessName(state.targetID))")).font(.caption).foregroundStyle(.secondary)
                 }
                 if state.sources.isEmpty {
                     Text("没有其他工具包含会话。").foregroundStyle(.secondary)
@@ -197,7 +197,7 @@ struct MigrateAllView: View {
                             HarnessLogoView(harnessID: source.id, size: 20)
                             Text(source.name).font(.callout)
                             Spacer()
-                            Text("\(source.sessionCount) 个会话").font(.caption).foregroundStyle(.secondary)
+                            Text(L10n.sessions(source.sessionCount)).font(.caption).foregroundStyle(.secondary)
                             if let recent = source.recentAtMs {
                                 Text("最近 \(Fmt.time(recent))").font(.caption2).foregroundStyle(.secondary)
                             }
@@ -223,7 +223,7 @@ struct MigrateAllView: View {
                                                        set: { model.migrateAll.limitText = $0 }))
                         .textFieldStyle(.roundedBorder).frame(width: 110)
                 }
-                Text("会话总数：\(state.sources.filter(\.selected).reduce(0) { $0 + $1.sessionCount })（预览计划会按实际读取结果计算）")
+                Text(L("会话总数：\(state.sources.filter(\.selected).reduce(0) { $0 + $1.sessionCount })（预览计划会按实际读取结果计算）"))
                     .font(.caption2).foregroundStyle(.secondary)
             }
             if let error = state.planError {
@@ -277,7 +277,7 @@ struct MigrateAllView: View {
             header("正在迁移", "请保持窗口打开；取消后已完成的会话会保留。")
             CardBox(title: "进度", systemImage: "arrow.triangle.2.circlepath") {
                 ProgressBar(value: state.progressValue).shimmer()
-                Text(state.progressText).font(.callout).foregroundStyle(.secondary).lineLimit(2)
+                Text(L(state.progressText)).font(.callout).foregroundStyle(.secondary).lineLimit(2)
                 if state.cancelled {
                     Text("正在停止后端进程；已完成项与迁移日志会保留…")
                         .font(.caption).foregroundStyle(.orange)
@@ -331,18 +331,18 @@ struct MigrateAllView: View {
                                     VStack(alignment: .leading, spacing: 1) {
                                         Text(item.title).font(.caption).lineLimit(2)
                                         HStack(spacing: 6) {
-                                            if let status = item.installStatus { Text(status).font(.caption2).foregroundStyle(.secondary) }
+                                            if let status = item.installStatus { Text(L(status)).font(.caption2).foregroundStyle(.secondary) }
                                             if item.skipped, let reason = item.skipReason {
-                                                Text(reason).font(.caption2).foregroundStyle(.orange)
+                                                Text(L(reason)).font(.caption2).foregroundStyle(.orange)
                                             }
                                             if let error = item.error {
-                                                Text(error).font(.caption2)
+                                                Text(L(error)).font(.caption2)
                                                     .foregroundStyle(item.ok ? .orange : .red)
                                                     .lineLimit(3)
                                             }
                                             if let source = item.sourcePath {
                                                 HStack(spacing: 4) {
-                                                    Text("源：\(Fmt.shortPath(source, limit: 60))")
+                                                    Text(L("源：\(Fmt.shortPath(source, limit: 60))"))
                                                         .font(.caption2.monospaced())
                                                         .foregroundStyle(.secondary).lineLimit(1)
                                                     Button("定位") { model.revealInFinder(source) }
@@ -380,8 +380,8 @@ struct MigrateAllView: View {
 
     private func header(_ title: String, _ detail: String) -> some View {
         VStack(alignment: .leading, spacing: 2) {
-            Text(title).font(.title2.weight(.bold))
-            Text(detail).font(.callout).foregroundStyle(.secondary)
+            Text(L(title)).font(.title2.weight(.bold))
+            Text(L(detail)).font(.callout).foregroundStyle(.secondary)
         }
         .padding(.bottom, 4)
     }

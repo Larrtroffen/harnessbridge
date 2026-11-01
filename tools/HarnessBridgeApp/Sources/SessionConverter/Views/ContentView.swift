@@ -162,7 +162,7 @@ struct ContentView: View {
     }
 
     private func title(for page: AppPage) -> String {
-        page == .home ? "总览" : page.title
+        page == .home ? L("总览") : L(page.title)
     }
 
     // MARK: sidebar
@@ -175,7 +175,7 @@ struct ContentView: View {
             }
             .padding(.top, 8)
             Divider().padding(.vertical, 6)
-            Text("高级")
+            Text(L("高级"))
                 .font(.caption2.weight(.semibold))
                 .foregroundStyle(.secondary)
                 .padding(.horizontal, 14)
@@ -183,7 +183,7 @@ struct ContentView: View {
             sidebarRow(.advanced)
             if !model.detectedHarnesses.isEmpty {
                 Divider().padding(.vertical, 6)
-                Text("本机工具")
+                Text(L("本机工具"))
                     .font(.caption2.weight(.semibold))
                     .foregroundStyle(.secondary)
                     .padding(.horizontal, 14)
@@ -217,11 +217,11 @@ struct ContentView: View {
                         .foregroundStyle(.orange)
                         .help(error)
                 } else {
-                    Text("已检测 \(model.detectedHarnesses.count) 个工具 · \(model.totalSessionCount) 个会话")
+                    Text(L10n.detected(tools: model.detectedHarnesses.count, sessions: model.totalSessionCount))
                         .font(.caption2)
                         .foregroundStyle(.secondary)
                 }
-                Text("会话默认直接迁移到目标工具会话库")
+                Text(L("会话默认直接迁移到目标工具会话库"))
                     .font(.caption2)
                     .foregroundStyle(.secondary)
             }
@@ -237,7 +237,7 @@ struct ContentView: View {
             HStack(spacing: 9) {
                 Image(systemName: page.systemImage)
                     .frame(width: 18)
-                Text(page.title)
+                Text(L(page.title))
                 Spacer()
                 if page == .history && !model.visibleHistory.isEmpty {
                     Text("\(model.visibleHistory.count)")
@@ -294,14 +294,14 @@ struct ContentView: View {
             if model.isBusy || model.detecting || model.matrixRunning || model.coverageRunning {
                 ProgressView().controlSize(.small)
             }
-            Text(model.statusLine)
+            Text(L(model.statusLine))
                 .font(.caption)
                 .lineLimit(1)
             Spacer()
             if let note = Optional(model.detectionNote), !note.isEmpty, model.harnesses.isEmpty {
-                Text(note).font(.caption2).foregroundStyle(.secondary)
+                Text(L(note)).font(.caption2).foregroundStyle(.secondary)
             }
-            Text("⌘R 刷新 · ⌘F 搜索 · ⌘A 全选 · Esc 返回")
+            Text(L("⌘R 刷新 · ⌘F 搜索 · ⌘A 全选 · Esc 返回"))
                 .font(.caption2)
                 .foregroundStyle(.secondary)
             Text("v\(AppInfo.version)")

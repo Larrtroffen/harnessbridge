@@ -100,7 +100,7 @@ struct ToastView: View {
     var body: some View {
         HStack(spacing: 8) {
             Image(systemName: toast.icon).foregroundStyle(toast.color)
-            Text(toast.message).font(.callout).lineLimit(3)
+            Text(L(toast.message)).font(.callout).lineLimit(3)
         }
         .padding(.horizontal, 14)
         .padding(.vertical, 10)

@@ -1,27 +1,27 @@
 {
   "claude": {
     "file": "claude.png",
-    "name": "Claude Code",
-    "source_url": "https://cdn.jsdelivr.net/gh/spacering-net/codeg@ddd1f09fc5dd2f464e68bb4b5a2bbf51257ecfc5/docs/images/agents/claude-code.svg",
-    "source_repo": "https://github.com/spacering-net/codeg",
-    "license": "Apache-2.0",
-    "fetched_at": "2026-10-31",
+    "name": "Claude / Anthropic",
+    "source_url": "https://avatars.githubusercontent.com/u/76263028?v=4",
+    "source_repo": "https://github.com/anthropics",
+    "license": "official GitHub organization avatar; brand/trademark of owner; used nominatively for identification",
+    "fetched_at": "2026-11-01",
     "fallback": false,
     "transparent_background": true,
     "dimensions": "256x256",
-    "note": "Codeg 收录 SVG"
+    "note": "官方 GitHub 组织/仓库 avatar（用于标识对应产品）"
   },
   "codex": {
     "file": "codex.png",
     "name": "OpenAI Codex",
-    "source_url": "https://cdn.jsdelivr.net/gh/spacering-net/codeg@ddd1f09fc5dd2f464e68bb4b5a2bbf51257ecfc5/docs/images/agents/codex.svg",
-    "source_repo": "https://github.com/spacering-net/codeg",
-    "license": "Apache-2.0",
-    "fetched_at": "2026-10-31",
+    "source_url": "https://avatars.githubusercontent.com/u/14957082?v=4",
+    "source_repo": "https://github.com/openai",
+    "license": "official GitHub organization avatar; brand/trademark of owner; used nominatively for identification",
+    "fetched_at": "2026-11-01",
     "fallback": false,
     "transparent_background": true,
     "dimensions": "256x256",
-    "note": "Codeg 收录 SVG"
+    "note": "官方 GitHub 组织/仓库 avatar（用于标识对应产品）"
   },
   "dsh": {
     "file": "dsh.png",
@@ -146,14 +146,14 @@
   "aider": {
     "file": "aider.png",
     "name": "Aider",
-    "source_url": "https://cdn.jsdelivr.net/gh/Reality-Shifting-Tech/sessionport@173e47e207582c354d06b9141b381143a471cac8/docs/images/agents/aider.png",
-    "source_repo": "https://github.com/Reality-Shifting-Tech/sessionport",
-    "license": "MIT",
-    "fetched_at": "2026-10-31",
+    "source_url": "https://avatars.githubusercontent.com/u/172139148?v=4",
+    "source_repo": "https://github.com/Aider-AI",
+    "license": "official GitHub organization avatar; brand/trademark of owner; used nominatively for identification",
+    "fetched_at": "2026-11-01",
     "fallback": false,
     "transparent_background": true,
     "dimensions": "256x256",
-    "note": "品牌色底方形，去背后保留图形"
+    "note": "官方 GitHub 组织/仓库 avatar（用于标识对应产品）"
   },
   "opencode": {
     "file": "opencode.png",
@@ -230,14 +230,14 @@
   "devin": {
     "file": "devin.png",
     "name": "Devin",
-    "source_url": "https://www.devin.ai/favicon.ico",
-    "source_repo": "https://devin.ai",
-    "license": "未标注（官方站点 favicon）",
-    "fetched_at": "2026-10-31",
+    "source_url": "https://avatars.githubusercontent.com/u/64525449?v=4",
+    "source_repo": "https://github.com/cognition-ai",
+    "license": "official GitHub organization avatar; brand/trademark of owner; used nominatively for identification",
+    "fetched_at": "2026-11-01",
     "fallback": false,
     "transparent_background": true,
     "dimensions": "256x256",
-    "note": "低分辨率 favicon（16–48px），放大偏糊"
+    "note": "官方 GitHub 组织/仓库 avatar（用于标识对应产品）"
   },
   "antigravity": {
     "file": "antigravity.png",
@@ -324,40 +324,40 @@
     "note": ""
   },
   "codebuff": {
-    "file": null,
+    "file": "codebuff.png",
     "name": "Codebuff",
-    "source_url": null,
-    "source_repo": null,
-    "license": null,
-    "fetched_at": "2026-10-31",
-    "fallback": true,
-    "transparent_background": false,
-    "dimensions": null,
-    "note": "官方站点 icon/apple-touch 返回 HTML 而非图片；无 OSS 品牌资产"
+    "source_url": "https://avatars.githubusercontent.com/u/189203002?v=4",
+    "source_repo": "https://github.com/CodebuffAI",
+    "license": "official GitHub organization avatar; brand/trademark of owner; used nominatively for identification",
+    "fetched_at": "2026-11-01",
+    "fallback": false,
+    "transparent_background": true,
+    "dimensions": "256x256",
+    "note": "官方 GitHub 组织/仓库 avatar（用于标识对应产品）"
   },
   "fx": {
-    "file": null,
+    "file": "fx.png",
     "name": "vercel-labs fx",
-    "source_url": null,
-    "source_repo": null,
-    "license": null,
-    "fetched_at": "2026-10-31",
+    "source_url": "https://avatars.githubusercontent.com/u/108547162?v=4",
+    "source_repo": "https://github.com/vercel-labs",
+    "license": "official GitHub organization avatar; brand/trademark of owner; used nominatively for identification",
+    "fetched_at": "2026-11-01",
     "fallback": true,
-    "transparent_background": false,
-    "dimensions": null,
-    "note": "仓库无品牌 logo 资产（仅测试 fixture）"
+    "transparent_background": true,
+    "dimensions": "256x256",
+    "note": "vercel-labs GitHub avatar is the Vercel mark, not an FX logo; using letter fallback"
   },
   "mini-swe-agent": {
-    "file": null,
+    "file": "mini-swe-agent.png",
     "name": "mini-swe-agent",
-    "source_url": null,
-    "source_repo": null,
-    "license": null,
-    "fetched_at": "2026-10-31",
+    "source_url": "https://avatars.githubusercontent.com/u/166046056?v=4",
+    "source_repo": "https://github.com/SWE-agent",
+    "license": "official GitHub organization avatar; brand/trademark of owner; used nominatively for identification",
+    "fetched_at": "2026-11-01",
     "fallback": true,
-    "transparent_background": false,
-    "dimensions": null,
-    "note": "仓库未发现 logo/icon 资产"
+    "transparent_background": true,
+    "dimensions": "256x256",
+    "note": "SWE-agent GitHub avatar is a photo, not a product mark; using letter fallback"
   },
   "oss": {
     "file": null,
@@ -382,5 +382,161 @@
     "transparent_background": false,
     "dimensions": null,
     "note": "协议/规范，无独立 logo（如需要可用 Harbor 图标，另行确认）"
+  },
+  "amp": {
+    "file": "amp.png",
+    "name": "Sourcegraph Amp",
+    "source_url": "https://avatars.githubusercontent.com/u/3979584?v=4",
+    "source_repo": "https://github.com/sourcegraph",
+    "license": "official GitHub organization avatar; brand/trademark of owner; used nominatively for identification",
+    "fetched_at": "2026-11-01",
+    "fallback": false,
+    "transparent_background": true,
+    "dimensions": "256x256",
+    "note": "官方 GitHub 组织/仓库 avatar（用于标识对应产品）"
+  },
+  "cherry-studio": {
+    "file": "cherry-studio.png",
+    "name": "Cherry Studio",
+    "source_url": "https://avatars.githubusercontent.com/u/187777663?v=4",
+    "source_repo": "https://github.com/CherryHQ",
+    "license": "official GitHub organization avatar; brand/trademark of owner; used nominatively for identification",
+    "fetched_at": "2026-11-01",
+    "fallback": false,
+    "transparent_background": true,
+    "dimensions": "256x256",
+    "note": "官方 GitHub 组织/仓库 avatar（用于标识对应产品）"
+  },
+  "claude-desktop": {
+    "file": "claude-desktop.png",
+    "name": "Claude Desktop",
+    "source_url": "https://avatars.githubusercontent.com/u/76263028?v=4",
+    "source_repo": "https://github.com/anthropics",
+    "license": "official GitHub organization avatar; brand/trademark of owner; used nominatively for identification",
+    "fetched_at": "2026-11-01",
+    "fallback": false,
+    "transparent_background": true,
+    "dimensions": "256x256",
+    "note": "官方 GitHub 组织/仓库 avatar（用于标识对应产品）"
+  },
+  "iflow": {
+    "file": "iflow.png",
+    "name": "iFlow CLI",
+    "source_url": "https://avatars.githubusercontent.com/u/223050564?v=4",
+    "source_repo": "https://github.com/iflow-ai",
+    "license": "official GitHub organization avatar; brand/trademark of owner; used nominatively for identification",
+    "fetched_at": "2026-11-01",
+    "fallback": false,
+    "transparent_background": true,
+    "dimensions": "256x256",
+    "note": "官方 GitHub 组织/仓库 avatar（用于标识对应产品）"
+  },
+  "openclaw": {
+    "file": "openclaw.png",
+    "name": "OpenClaw",
+    "source_url": "https://avatars.githubusercontent.com/u/252820863?v=4",
+    "source_repo": "https://github.com/openclaw",
+    "license": "official GitHub organization avatar; brand/trademark of owner; used nominatively for identification",
+    "fetched_at": "2026-11-01",
+    "fallback": false,
+    "transparent_background": true,
+    "dimensions": "256x256",
+    "note": "官方 GitHub 组织/仓库 avatar（用于标识对应产品）"
+  },
+  "opencraw": {
+    "file": "opencraw.png",
+    "name": "OpenCraw (OpenClaw alias)",
+    "source_url": "https://avatars.githubusercontent.com/u/252820863?v=4",
+    "source_repo": "https://github.com/openclaw",
+    "license": "official GitHub organization avatar; brand/trademark of owner; used nominatively for identification",
+    "fetched_at": "2026-11-01",
+    "fallback": false,
+    "transparent_background": true,
+    "dimensions": "256x256",
+    "note": "alias of OpenClaw"
+  },
+  "trae": {
+    "file": "trae.png",
+    "name": "TRAE AI",
+    "source_url": "https://avatars.githubusercontent.com/u/192691831?v=4",
+    "source_repo": "https://github.com/Trae-AI",
+    "license": "official GitHub organization avatar; brand/trademark of owner; used nominatively for identification",
+    "fetched_at": "2026-11-01",
+    "fallback": false,
+    "transparent_background": true,
+    "dimensions": "256x256",
+    "note": "官方 GitHub 组织/仓库 avatar（用于标识对应产品）"
+  },
+  "zcode": {
+    "file": "zcode.png",
+    "name": "ZCode",
+    "source_url": "https://avatars.githubusercontent.com/u/223098841?v=4",
+    "source_repo": "https://github.com/zai-org",
+    "license": "official GitHub organization avatar; brand/trademark of owner; used nominatively for identification",
+    "fetched_at": "2026-11-01",
+    "fallback": false,
+    "transparent_background": true,
+    "dimensions": "256x256",
+    "note": "官方 GitHub 组织/仓库 avatar（用于标识对应产品）"
+  },
+  "droid": {
+    "file": "droid.png",
+    "name": "Factory Droid",
+    "source_url": "https://avatars.githubusercontent.com/u/131064358?v=4",
+    "source_repo": "https://github.com/Factory-AI",
+    "license": "official GitHub organization avatar; brand/trademark of owner; used nominatively for identification",
+    "fetched_at": "2026-11-01",
+    "fallback": false,
+    "transparent_background": true,
+    "dimensions": "256x256",
+    "note": "官方 GitHub 组织/仓库 avatar（用于标识对应产品）"
+  },
+  "grok": {
+    "file": "grok.png",
+    "name": "Grok",
+    "source_url": "https://avatars.githubusercontent.com/u/130314967?v=4",
+    "source_repo": "https://github.com/xai-org",
+    "license": "official GitHub organization avatar; brand/trademark of owner; used nominatively for identification",
+    "fetched_at": "2026-11-01",
+    "fallback": false,
+    "transparent_background": true,
+    "dimensions": "256x256",
+    "note": "官方 GitHub 组织/仓库 avatar（用于标识对应产品）"
+  },
+  "hermes": {
+    "file": "hermes.png",
+    "name": "Hermes",
+    "source_url": "https://avatars.githubusercontent.com/u/134168893?v=4",
+    "source_repo": "https://github.com/NousResearch",
+    "license": "official GitHub organization avatar; brand/trademark of owner; used nominatively for identification",
+    "fetched_at": "2026-11-01",
+    "fallback": false,
+    "transparent_background": true,
+    "dimensions": "256x256",
+    "note": "官方 GitHub 组织/仓库 avatar（用于标识对应产品）"
+  },
+  "pi": {
+    "file": "pi.png",
+    "name": "Pi",
+    "source_url": "https://avatars.githubusercontent.com/u/514052?v=4",
+    "source_repo": "https://github.com/badlogic",
+    "license": "official GitHub organization avatar; brand/trademark of owner; used nominatively for identification",
+    "fetched_at": "2026-11-01",
+    "fallback": true,
+    "transparent_background": true,
+    "dimensions": "256x256",
+    "note": "badlogic GitHub avatar is a personal photo, not a Pi product logo; using letter fallback"
+  },
+  "workbuddy": {
+    "file": "workbuddy.png",
+    "name": "Tencent WorkBuddy",
+    "source_url": "https://cdn.jsdelivr.net/gh/spacering-net/codeg@ddd1f09fc5dd2f464e68bb4b5a2bbf51257ecfc5/docs/images/agents/codebuddy.svg",
+    "source_repo": "https://github.com/spacering-net/codeg",
+    "license": "Apache-2.0",
+    "fetched_at": "2026-10-31",
+    "fallback": false,
+    "transparent_background": true,
+    "dimensions": "256x256",
+    "note": "复用 CodeBuddy 官方资产（WorkBuddy CLI 由腾讯 CodeBuddy 团队发布）"
   }
 }

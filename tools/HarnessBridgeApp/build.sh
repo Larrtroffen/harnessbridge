@@ -18,7 +18,7 @@ set -euo pipefail
 
 APP_NAME="HarnessBridge"
 BUNDLE_ID="io.github.larrtroffen.harnessbridge"
-VERSION="1.6.3"
+VERSION="1.7.0"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
@@ -249,6 +249,11 @@ if [ -n "$LOGOS_SRC" ]; then
   echo "==> logos: $LOGO_COUNT raster file(s)"
 fi
 
+# Localization resources (English + Simplified Chinese)
+if [ -d "$SCRIPT_DIR/Localization" ]; then
+  cp -R "$SCRIPT_DIR/Localization/"*.lproj "$APP/Contents/Resources/" 2>/dev/null || true
+fi
+
 # Optional app icon
 ICON_PLIST=""
 ICON_SRC="$SCRIPT_DIR/Assets/AppIcon.icns"
@@ -273,6 +278,12 @@ cat > "$APP/Contents/Info.plist" <<PLIST
   <key>CFBundleShortVersionString</key><string>$VERSION</string>
   <key>CFBundleVersion</key><string>1</string>
   <key>LSMinimumSystemVersion</key><string>13.0</string>
+  <key>CFBundleDevelopmentRegion</key><string>zh_CN</string>
+  <key>CFBundleLocalizations</key>
+  <array>
+    <string>en</string>
+    <string>zh-Hans</string>
+  </array>
   <key>LSApplicationCategoryType</key><string>public.app-category.developer-tools</string>
   <key>NSHighResolutionCapable</key><true/>
   <key>NSPrincipalClass</key><string>NSApplication</string>

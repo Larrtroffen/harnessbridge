@@ -81,7 +81,7 @@ struct AdvancedToolsView: View {
                 if model.matrixRunning || !model.matrixProgress.isEmpty {
                     HStack(spacing: 8) {
                         if model.matrixRunning { ProgressView().controlSize(.small) }
-                        Text(model.matrixProgress).font(.caption).foregroundStyle(.secondary)
+                        Text(L(model.matrixProgress)).font(.caption).foregroundStyle(.secondary)
                     }
                 }
             }
@@ -101,7 +101,7 @@ struct AdvancedToolsView: View {
                                 HStack(spacing: 8) {
                                     Text(row.harness).font(.caption.monospaced()).frame(width: 150, alignment: .leading)
                                     EvidenceBadge(evidence: row.evidence)
-                                    Text(row.status ?? "—").font(.caption)
+                                    Text(L(row.status ?? "—")).font(.caption)
                                     Text(row.levelText).font(.caption2.monospaced())
                                         .foregroundStyle(.secondary)
                                     Spacer()
@@ -176,7 +176,7 @@ struct AdvancedToolsView: View {
     private func metricCard(_ title: String, _ value: String) -> some View {
         VStack(alignment: .leading, spacing: 2) {
             Text(value).font(.system(size: 26, weight: .bold, design: .rounded))
-            Text(title).font(.caption).foregroundStyle(.secondary)
+            Text(L(title)).font(.caption).foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(12)
@@ -189,7 +189,7 @@ struct AdvancedToolsView: View {
     private var logsTab: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
-                Text("运行日志（\(model.logs.count) 条）").font(.headline)
+                Text(L("运行日志（\(model.logs.count) 条）")).font(.headline)
                 Spacer()
                 Button { model.clearLogs() } label: { Label("清空", systemImage: "trash") }
             }

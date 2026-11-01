@@ -11,7 +11,7 @@ struct SessionsBrowserView: View {
             if model.bulkExportRunning {
                 HStack(spacing: 8) {
                     ProgressView().controlSize(.small)
-                    Text(model.bulkExportProgress).font(.caption).foregroundStyle(.secondary)
+                    Text(L(model.bulkExportProgress)).font(.caption).foregroundStyle(.secondary)
                 }
             }
             selectionToolbar
@@ -88,7 +88,7 @@ struct SessionsBrowserView: View {
             HStack(spacing: 5) {
                 Image(systemName: "checkmark.circle")
                     .foregroundStyle(model.browserSelectedCount > 0 ? Color.accentColor : .secondary)
-                Text("已选 \(model.browserSelectedCount) / 共 \(model.browserFilteredCount)（筛选后）")
+                Text(L("已选 \(model.browserSelectedCount) / 共 \(model.browserFilteredCount)（筛选后）"))
                     .font(.callout)
             }
             Divider().frame(height: 14)
@@ -102,7 +102,7 @@ struct SessionsBrowserView: View {
                 .disabled(model.browserSelectedCount == 0)
             Spacer()
             if model.browserSessions.count > 0 {
-                Text("共 \(model.browserSessions.count) 个会话 · 显示 \(model.browserFilteredSessions.count)")
+                Text(L("共 \(model.browserSessions.count) 个会话 · 显示 \(model.browserFilteredSessions.count)"))
                     .font(.caption2)
                     .foregroundStyle(.secondary)
             }
@@ -317,7 +317,7 @@ struct HistoryView: View {
                 VStack(alignment: .leading, spacing: 1) {
                     Text("\(record.sourceName) → \(record.targetName)")
                         .font(.callout.weight(.medium)).lineLimit(1)
-                    Text("\(Fmt.date(record.date)) · \(record.sessionCount) 个会话 · \(record.statusText)")
+                    Text(L("\(Fmt.date(record.date)) · \(record.sessionCount) 个会话 · \(record.statusText)"))
                         .font(.caption2).foregroundStyle(.secondary)
                 }
                 Spacer()
@@ -402,10 +402,10 @@ struct HistoryView: View {
                                     VStack(alignment: .leading, spacing: 1) {
                                         Text(item.title).font(.caption).lineLimit(2)
                                         if let verify = item.verifyStatus {
-                                            Text(verify).font(.caption2).foregroundStyle(.secondary)
+                                            Text(L(verify)).font(.caption2).foregroundStyle(.secondary)
                                         }
                                         if let error = item.error {
-                                            Text(error).font(.caption2).foregroundStyle(.red).lineLimit(2)
+                                            Text(L(error)).font(.caption2).foregroundStyle(.red).lineLimit(2)
                                         }
                                     }
                                     Spacer()
@@ -425,6 +425,7 @@ struct HistoryView: View {
 // MARK: - Settings
 struct SettingsView: View {
     @EnvironmentObject var model: AppModel
+    @ObservedObject private var language = LanguageManager.shared
 
     var body: some View {
         ScrollView {
@@ -448,7 +449,7 @@ struct SettingsView: View {
                         Circle()
                             .fill(model.backendReady ? Color.green : Color.orange)
                             .frame(width: 7, height: 7)
-                        Text(model.backendReady ? "状态：已连接（自动检测）" : "状态：未连接")
+                        Text(L(model.backendReady ? "状态：已连接（自动检测）" : "状态：未连接"))
                             .font(.caption2).foregroundStyle(.secondary)
                         Spacer()
                         Button("查看环境信息") { model.page = .advanced }
@@ -461,7 +462,14 @@ struct SettingsView: View {
                     HStack {
                         Text("界面语言")
                         Spacer()
-                        Text("简体中文").foregroundStyle(.secondary)
+                        Picker("", selection: $language.language) {
+                            ForEach(AppLanguage.allCases) { lang in
+                                Text(lang.displayName).tag(lang)
+                            }
+                        }
+                        .labelsHidden()
+                        .pickerStyle(.menu)
+                        .frame(maxWidth: 180)
                     }
                     HStack {
                         Text("重新查看欢迎页")
@@ -487,7 +495,7 @@ struct SettingsView: View {
                                         .foregroundStyle(.secondary).lineLimit(1)
                                 }
                                 if let how = harness.howToSee, !how.isEmpty {
-                                    Text(how).font(.caption2).foregroundStyle(.secondary).lineLimit(2)
+                                    Text(L(how)).font(.caption2).foregroundStyle(.secondary).lineLimit(2)
                                 }
                             }
                             Spacer()

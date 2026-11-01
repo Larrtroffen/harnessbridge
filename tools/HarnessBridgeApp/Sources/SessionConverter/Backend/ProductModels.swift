@@ -51,13 +51,13 @@ struct HarnessInfo: Identifiable, Codable, Sendable, Hashable {
     var howToSee: String? = nil
 
     var recentText: String {
-        guard let ms = recentAtMs else { return "暂无会话" }
-        return "最近 " + Fmt.time(ms)
+        guard let ms = recentAtMs else { return L("暂无会话") }
+        return L("最近 ") + Fmt.time(ms)
     }
 
     var summaryText: String {
-        if !detected { return "未检测到" }
-        return sessionCount > 0 ? "\(sessionCount) 个会话" : "已安装 · 暂无会话"
+        if !detected { return L("未检测到") }
+        return sessionCount > 0 ? L10n.sessions(sessionCount) : L("已安装 · 暂无会话")
     }
 }
 
@@ -150,13 +150,13 @@ struct SessionPreview: Sendable {
 enum MigrationMode: String, Sendable, CaseIterable {
     case install     // 写入目标 Harness 的会话库（默认）
     case export      // 仅导出到文件夹（高级）
-    var label: String { self == .install ? "直接迁移" : "仅导出" }
+    var label: String { L(self == .install ? "直接迁移" : "仅导出") }
 }
 
 enum SessionMode: String, Sendable, CaseIterable {
     case keep        // 保留原始会话（默认）
     case move        // 成功安装后把源会话移出为 .bak（可恢复）
-    var label: String { self == .keep ? "保留原始会话" : "移出原始会话" }
+    var label: String { L(self == .keep ? "保留原始会话" : "移出原始会话") }
 }
 
 struct MigrationOptions: Sendable {
@@ -241,9 +241,9 @@ struct MigrationRecord: Codable, Identifiable, Sendable {
     var cancelled: Bool? = nil
 
     var statusText: String {
-        if failCount == 0 { return "全部成功" }
-        if okCount == 0 { return "失败" }
-        return "部分成功"
+        if failCount == 0 { return L("全部成功") }
+        if okCount == 0 { return L("失败") }
+        return L("部分成功")
     }
 }
 

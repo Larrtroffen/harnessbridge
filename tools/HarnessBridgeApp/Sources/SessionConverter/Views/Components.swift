@@ -6,7 +6,7 @@ struct StatusPill: View {
     let text: String
     var color: Color = .secondary
     var body: some View {
-        Text(text)
+        Text(L(text))
             .font(.caption.weight(.semibold))
             .padding(.horizontal, 8)
             .padding(.vertical, 2)
@@ -49,10 +49,10 @@ struct CardBox<Content: View>: View {
         VStack(alignment: .leading, spacing: 8) {
             if let title {
                 HStack(alignment: .firstTextBaseline, spacing: 6) {
-                    Label(title, systemImage: systemImage)
+                    Label(L(title), systemImage: systemImage)
                         .font(.headline)
                     if let subtitle {
-                        Text(subtitle).font(.caption).foregroundStyle(.secondary)
+                        Text(L(subtitle)).font(.caption).foregroundStyle(.secondary)
                     }
                 }
             }
@@ -70,10 +70,10 @@ struct InfoRow: View {
     var mono = false
     var body: some View {
         HStack(alignment: .firstTextBaseline, spacing: 8) {
-            Text(label)
+            Text(L(label))
                 .foregroundStyle(.secondary)
                 .frame(width: 92, alignment: .leading)
-            Text(value)
+            Text(L(value))
                 .font(mono ? .caption.monospaced() : .callout)
                 .textSelection(.enabled)
                 .lineLimit(3)
@@ -94,11 +94,11 @@ struct EmptyHint: View {
             Image(systemName: icon)
                 .font(.system(size: 30))
                 .foregroundStyle(.secondary)
-            Text(text)
+            Text(L(text))
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
             if let actionTitle, let action {
-                Button(actionTitle, action: action).controlSize(.regular)
+                Button(L(actionTitle), action: action).controlSize(.regular)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -134,7 +134,7 @@ struct HarnessCardView: View {
                     .font(.caption2)
                     .foregroundStyle(.secondary)
                 if !harness.storePath.isEmpty {
-                    Text("会话库：\(Fmt.shortPath(harness.storePath, limit: 34))")
+                    Text(L("会话库：") + Fmt.shortPath(harness.storePath, limit: 34))
                         .font(.caption2.monospaced())
                         .foregroundStyle(.secondary)
                         .lineLimit(1)
@@ -144,7 +144,7 @@ struct HarnessCardView: View {
                         StatusPill(text: harness.installExperimental ? "实验性写入" : "支持直接迁移",
                                    color: harness.installExperimental ? .orange : .green)
                         if let how = harness.howToSee, !how.isEmpty {
-                            Text(how).font(.caption2).foregroundStyle(.secondary).lineLimit(1)
+                            Text(L(how)).font(.caption2).foregroundStyle(.secondary).lineLimit(1)
                         }
                     }
                 }
@@ -184,7 +184,7 @@ struct StepIndicator: View {
                                 .foregroundStyle(number == current ? .white : .secondary)
                         }
                     }
-                    Text(title)
+                    Text(L(title))
                         .font(.caption)
                         .foregroundStyle(number == current ? .primary : .secondary)
                         .lineLimit(1)

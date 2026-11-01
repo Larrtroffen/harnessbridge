@@ -1,3 +1,12 @@
+## [v1.7.0] — 2026-11-01
+
+### Localization + official logos / 英中本地化 + 官方 Logo
+- Added English (`en`) and Simplified Chinese (`zh-Hans`) localization; live switch in Settings → Interface Language (Follow System / English / 简体中文), persisted.
+- Localized static UI, generated status/count text, app menus/window title and backend hint strings.
+- Refreshed harness logos from official GitHub organization/repository assets; added missing logos and documented fallbacks/licensing.
+- Rebuilt arm64 and x86_64 portable builds; app self-test 31 PASS; backend 145 tests OK.
+- Data coverage numbers unchanged: protocol 40/40, fixture-verified 35/40, real 22/40, REAL-EXAMPLE 2.
+
 ## [v1.6.3] — 2026-11-01
 
 ### Intel Mac support / 支持 Intel Mac

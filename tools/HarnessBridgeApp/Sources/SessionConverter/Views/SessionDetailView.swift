@@ -105,7 +105,7 @@ struct SessionDetailView: View {
                 .font(.system(size: 30))
                 .foregroundStyle(.orange)
             Text("读取失败").font(.headline)
-            Text(message).foregroundStyle(.secondary).multilineTextAlignment(.center)
+            Text(L(message)).foregroundStyle(.secondary).multilineTextAlignment(.center)
             Button("重试") { Task { await model.loadSessionDetail() } }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -202,8 +202,8 @@ struct SessionDetailView: View {
             Text(value)
                 .font(.system(size: 24, weight: .bold, design: .rounded))
                 .foregroundStyle(accent ?? .primary)
-            Text(title).font(.caption.weight(.semibold))
-            Text(detail).font(.caption2).foregroundStyle(.secondary).lineLimit(2)
+            Text(L(title)).font(.caption.weight(.semibold))
+            Text(L(detail)).font(.caption2).foregroundStyle(.secondary).lineLimit(2)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(12)
@@ -259,7 +259,7 @@ struct SessionDetailView: View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(spacing: 8) {
                 Text("时间线").font(.headline)
-                Text(truncationSummary(detail))
+                Text(L(truncationSummary(detail)))
                     .font(.caption).foregroundStyle(.secondary)
                 Text("· 显示 \(model.detailFilteredEvents.count) / 共 \(model.detailFilteredTotalCount) 条匹配")
                     .font(.caption2).foregroundStyle(.secondary)
@@ -365,8 +365,8 @@ struct SessionDetailView: View {
             Image(systemName: "circle.grid.2x2")
                 .font(.caption)
                 .foregroundStyle(.secondary)
-            Text(group.title).font(.callout.weight(.semibold))
-            Text(group.subtitle).font(.caption2).foregroundStyle(.secondary)
+            Text(L(group.title)).font(.callout.weight(.semibold))
+            Text(L(group.subtitle)).font(.caption2).foregroundStyle(.secondary)
             Spacer()
         }
         .padding(.horizontal, 8)
@@ -386,7 +386,7 @@ struct SessionDetailView: View {
                 }
                 StatusPill(text: event.kindLabel, color: color)
                 if let role = event.role, !role.isEmpty, role != event.kind {
-                    Text(role).font(.caption2).foregroundStyle(.secondary)
+                    Text(L(role)).font(.caption2).foregroundStyle(.secondary)
                 }
                 if let tool = event.tool, let name = tool.name, !name.isEmpty {
                     Text(name).font(.caption.monospaced())

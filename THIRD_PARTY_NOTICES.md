@@ -66,3 +66,12 @@ No third-party Swift packages or Python packages are required to build or run Ha
 ## 7. Reporting attribution issues
 
 If you believe an asset is mis-attributed, improperly licensed, or should not be redistributed, please open a GitHub issue titled “attribution” (or report privately per [SECURITY.md](SECURITY.md)). We will remove or replace it promptly as appropriate.
+
+## Harness logos / 品牌标识
+
+The Harness logo files under `tools/HarnessBridgeApp/Assets/Logos/` are used solely to identify the corresponding third-party tools ("nominative use"). Trademarks remain the property of their respective owners; no endorsement is implied.
+
+- Several assets are the official GitHub organization/repository avatars of the products/companies, fetched from `https://github.com/<owner>.png` on 2026-11-01. GitHub avatar licenses are not separately stated; they are included for identification only.
+- Other assets are from official repository assets or documented CC0/MIT/Apache-2.0 sources; per-file source URL, license and processing notes are recorded in `tools/HarnessBridgeApp/Assets/Logos/SOURCE.md` and `manifest.json`.
+- Products without a reliable product-specific mark use a letter fallback (`pi`, `mini-swe-agent`, `fx`, generic `oss`/`atif`); these are not third-party logos.
+- If you are a brand owner and want an asset removed or replaced with a press-kit asset, please open an issue.

@@ -1,19 +1,17 @@
-# 未解决 / 需回退的 Harness Logo
+# 未解决 / 使用 fallback 的 Harness Logo
 
-以下 5 个 id 在 `manifest.json` 中为 `"fallback": true`（App 端请用首字母图标），原因如下：
+以下 id 在 `manifest.json` 中为 `"fallback": true`（App 使用首字母图标）：
 
-| harness | 名称 | 原因 |
-|---|---|---|
-| codebuff | Codebuff | 官方站点 favicon/apple-touch 返回 HTML 而非图片；仓库无品牌资产；许可未标注 |
-| fx | vercel-labs fx | 仓库仅有测试用 fixture，无品牌 logo 资产 |
-| mini-swe-agent | mini-swe-agent | 官方仓库未发现 logo/icon 资产 |
-| oss | Open Source（通用） | 无品牌主体，不应借用 OSI 等第三方商标 |
-| atif | ATIF | 只是协议规范（Harbor RFC），无独立 logo；若需要可另行评估 Harbor 项目图标 |
+| harness | 原因 |
+|---|---|
+| pi | badlogic 的 GitHub avatar 是个人照片，不是 Pi 产品 logo；未找到官方独立品牌资产 |
+| mini-swe-agent | SWE-agent 的 GitHub avatar 是照片，不是可辨识的产品 mark |
+| fx | vercel-labs 的 GitHub avatar 是 Vercel 三角，不是 fx 产品 logo |
+| oss | 通用 OSS 采集，无品牌主体 |
+| atif | 只是协议规范（Harbor RFC），无独立 logo |
 
-## 需注意的许可/质量风险（已收录但建议复核）
+## 说明
 
-- **Zed**：仓库 license 为 NOASSERTION（GPL-3.0 / Apache-2.0 混合）。打包进 App 前请确认 GPL 合规性。
-- **Crush**：FSL-1.1-MIT；允许非 Competing Use，再分发需附带许可条款链接（已在 SOURCE.md 注明）。
-- **Devin**：官方 favicon，许可未标注；分辨率低（16–48px），放大到 256 会略糊，建议后续换官方品牌资产。
-- **Aider**：来源为品牌色底方形图，去背后保留图形，但来源本身未提供透明版本。
-- 所有厂商 logo 均含**商标权**；若 App 对外分发，建议在产品"关于/致谢"页列出本清单与商标声明。
+- 2026-11-01 已用官方 GitHub 组织/仓库 avatar 补齐 amp、cherry-studio、claude-desktop、codebuff、droid、grok、hermes、iflow、openclaw、opencraw、trae、workbuddy、zcode 等，并替换 claude/codex/aider/devin 的旧第三方图。
+- 部分产品没有独立公开品牌 mark，只能用母公司/组织官方标识（如 Claude→Anthropic、Codex→OpenAI、Amp→Sourcegraph、WorkBuddy→CodeBuddy）；这些在 SOURCE.md 中逐项标注，不应理解为产品级官方 logo。
+- 商标归各所有者；此处仅作识别用途。若需要严格的官方 press-kit 资产，请由各厂商品牌规范确认后再替换。

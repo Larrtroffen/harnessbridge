@@ -76,6 +76,7 @@ App 本身**不包含转换逻辑**：它只是 CLI 之上的一层克制、可�
 - **原生 reader**：Claude Code、Codex、OMP、Qoder、DeepSeek Harness、Pi、Gemini CLI 等。
 - **40 种 canonical Harness 格式**全部有 adapter，另有 bonus **iFlow**、**Zed** reader（共 **43 个 source adapter**、32 个原生 writer）。证据等级包括 **NATIVE**、**REAL-LOCAL**、**COLLECTED**、**REAL**、**REAL-EXAMPLE**、**FIXTURE**、**FIXTURE-LOW**、**CONSTRUCTED**。
 - **最新版本隔离测试（v1.6.2）**：在远程 Ubuntu 主机的隔离 `$HOME` 中安装缺失 CLI，确认最新版本，并通过各自的自定义 Base URL / OpenAI-compatible 配置接入**真实 DeepSeek API**（`deepseek-flash`）。验证 **Qwen Code 0.26.5、Goose 1.57.0、OpenCode 1.19.5、iFlow 0.5.19** 的当前 store；OpenCode v1.19 SQLite store 已原生支持。这些是 **LOCAL-DEEPSEEK** 样本，不是真实用户会话，四个覆盖数字不变。详见 [docs/latest-version-matrix.md](docs/latest-version-matrix.md)。
+- **英语 + 简体中文本地化（v1.7.0）**：App 内置 `en` / `zh-Hans` 两套文案，可在 **设置 → 界面语言** 实时切换（跟随系统 / English / 简体中文）；静态 UI、动态状态、菜单和后端提示均已接入本地化。Harness logo 按优先官方 GitHub 组织/仓库资产做了刷新。上一轮的 Intel 架构支持见 [docs/INTEL-MAC.md](docs/INTEL-MAC.md)。
 - **Intel Mac 支持（v1.6.3）**：arm64 与 **x86_64** 双架构 DMG；Intel 版内嵌 x86_64 Python runtime 与交叉编译的 x86_64 zstd，Homebrew cask 自动按架构选择。详见 [docs/INTEL-MAC.md](docs/INTEL-MAC.md)。
 - **批 6（v1.6.0）**新增外部 fixture 矩阵：**35/40 fixture-verified**（34 pass + 6 partial，0 reader fail）、**32/32 原生 writer 通过**、**真实会话覆盖 22/40**。三个数字刻意分开报告：协议覆盖 / fixture 验证覆盖 / 真实用户会话覆盖。详见[覆盖账本](docs/coverage-ledger.md)、[外部项目调研](docs/EXTERNAL-PROJECTS.md)与 [docs/usage.md §16](docs/usage.md)。
 
@@ -96,7 +97,7 @@ Homebrew 会按你的 Mac 架构自动选择自带运行时的 arm64 或 x86_64 
 
 ### 方式 B — 预编译 macOS 应用（Apple Silicon 或 Intel）
 
-1. 从 [Releases](https://github.com/Larrtroffen/harnessbridge/releases) 下载对应架构的 DMG：Apple Silicon 用 `HarnessBridge-1.6.3-macos-arm64.dmg`，Intel Mac 用 `HarnessBridge-1.6.3-macos-x86_64.dmg`。
+1. 从 [Releases](https://github.com/Larrtroffen/harnessbridge/releases) 下载对应架构的 DMG：Apple Silicon 用 `HarnessBridge-1.7.0-macos-arm64.dmg`，Intel Mac 用 `HarnessBridge-1.7.0-macos-x86_64.dmg`。
 2. 打开 DMG，把 **HarnessBridge.app** 拖进 `/Applications`。
 3. 应用是 **ad-hoc 签名、未做 Apple 公证**，首次启动可能被 Gatekeeper 拦截。右键 App → **打开** → 确认，或执行：
    ```bash
@@ -236,7 +237,8 @@ Adapter 契约、证据等级、安全不变量与仓库结构详见[架构文�
 | 外部项目与 fixture | [docs/EXTERNAL-PROJECTS.md](docs/EXTERNAL-PROJECTS.md) | — |
 | 最新版本隔离测试 | [docs/latest-version-matrix.md](docs/latest-version-matrix.md) | — |
 | Intel Mac 支持 | [docs/INTEL-MAC.md](docs/INTEL-MAC.md) | — |
-| 版本说明 | [RELEASE_NOTES/v1.6.3.md](RELEASE_NOTES/v1.6.3.md) | [RELEASE_NOTES/v1.6.3.zh-CN.md](RELEASE_NOTES/v1.6.3.zh-CN.md) |
+| 本地化 | `Localization/en.lproj`、`Localization/zh-Hans.lproj` | — |
+| 版本说明 | [RELEASE_NOTES/v1.7.0.md](RELEASE_NOTES/v1.7.0.md) | [RELEASE_NOTES/v1.7.0.zh-CN.md](RELEASE_NOTES/v1.7.0.zh-CN.md) |
 
 ## 路线图
 
