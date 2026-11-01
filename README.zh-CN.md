@@ -75,6 +75,7 @@ App 本身**不包含转换逻辑**：它只是 CLI 之上的一层克制、可�
 
 - **原生 reader**：Claude Code、Codex、OMP、Qoder、DeepSeek Harness、Pi、Gemini CLI 等。
 - **40 种 canonical Harness 格式**全部有 adapter，另有 bonus **iFlow**、**Zed** reader（共 **43 个 source adapter**、32 个原生 writer）。证据等级包括 **NATIVE**、**REAL-LOCAL**、**COLLECTED**、**REAL**、**REAL-EXAMPLE**、**FIXTURE**、**FIXTURE-LOW**、**CONSTRUCTED**。
+- **最新版本隔离测试（v1.6.1）**：在远程 Ubuntu 主机的隔离 `$HOME` 中安装缺失 CLI，确认最新版本，并验证 **Qwen Code 0.26.5、Goose 1.57.0、OpenCode 1.19.5** 的当前 store；OpenCode v1.19 SQLite store 已原生支持。这些是 **LOCAL-SMOKE** 样本，不是真实用户会话，四个覆盖数字不变。详见 [docs/latest-version-matrix.md](docs/latest-version-matrix.md)。
 - **批 6（v1.6.0）**新增外部 fixture 矩阵：**35/40 fixture-verified**（34 pass + 6 partial，0 reader fail）、**32/32 原生 writer 通过**、**真实会话覆盖 22/40**。三个数字刻意分开报告：协议覆盖 / fixture 验证覆盖 / 真实用户会话覆盖。详见[覆盖账本](docs/coverage-ledger.md)、[外部项目调研](docs/EXTERNAL-PROJECTS.md)与 [docs/usage.md §16](docs/usage.md)。
 
 > 名称与 Logo 的商标归各自所有者。HarnessBridge 与任何 Harness 厂商均无关联、背书或赞助关系。详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
@@ -94,7 +95,7 @@ Tap 仓库：[Larrtroffen/homebrew-harnessbridge](https://github.com/Larrtroffen
 
 ### 方式 B — 预编译 macOS 应用（Apple Silicon）
 
-1. 从 [Releases](https://github.com/Larrtroffen/harnessbridge/releases) 下载 `HarnessBridge-1.6.0-macos-arm64.dmg`。
+1. 从 [Releases](https://github.com/Larrtroffen/harnessbridge/releases) 下载 `HarnessBridge-1.6.1-macos-arm64.dmg`。
 2. 打开 DMG，把 **HarnessBridge.app** 拖进 `/Applications`。
 3. 应用是 **ad-hoc 签名、未做 Apple 公证**，首次启动可能被 Gatekeeper 拦截。右键 App → **打开** → 确认，或执行：
    ```bash
@@ -231,7 +232,8 @@ Adapter 契约、证据等级、安全不变量与仓库结构详见[架构文�
 | ATIF 互转协议 | [docs/atif-interop-protocol.md](docs/atif-interop-protocol.md) | — |
 | 覆盖账本 | [docs/coverage-ledger.md](docs/coverage-ledger.md) | — |
 | 外部项目与 fixture | [docs/EXTERNAL-PROJECTS.md](docs/EXTERNAL-PROJECTS.md) | — |
-| 版本说明 | [RELEASE_NOTES/v1.6.0.md](RELEASE_NOTES/v1.6.0.md) | [RELEASE_NOTES/v1.6.0.zh-CN.md](RELEASE_NOTES/v1.6.0.zh-CN.md) |
+| 最新版本隔离测试 | [docs/latest-version-matrix.md](docs/latest-version-matrix.md) | — |
+| 版本说明 | [RELEASE_NOTES/v1.6.1.md](RELEASE_NOTES/v1.6.1.md) | [RELEASE_NOTES/v1.6.1.zh-CN.md](RELEASE_NOTES/v1.6.1.zh-CN.md) |
 
 ## 路线图
 

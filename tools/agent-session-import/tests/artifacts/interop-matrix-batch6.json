@@ -1,7 +1,7 @@
 {
  "schema": "asi-batch6-matrix/v1",
  "asi_version": "0.1.0",
- "generated_at": "2026-10-31T13:27:09Z",
+ "generated_at": "2026-11-01T05:01:16Z",
  "canonical": {
   "total": 40,
   "labels": [
@@ -135,17 +135,17 @@
    "source": "dsh",
    "evidence_level": "FIXTURE",
    "status": "pass",
-   "fixture": "~/.dsh/sessions/--Users-larr-Entropyorder-projects-hle-300--/a0275cc1-c58a-4617-bca6-03bc9da02f90/session.v4.jsonl.zstd",
+   "fixture": "~/.dsh/sessions/--Users-larr-Entropyorder-projects-hle-300--/69699cd3-7b9e-4f52-8862-40669737427c/session.v4.jsonl.zstd",
    "fixture_kind": "FIXTURE",
    "fixture_origin": "repo",
-   "events": 156,
+   "events": 193,
    "stats": {
-    "events": 156,
-    "user_messages": 11,
-    "assistant_messages": 63,
-    "reasoning_blocks": 57,
-    "tool_calls": 82,
-    "tool_results": 82,
+    "events": 193,
+    "user_messages": 8,
+    "assistant_messages": 78,
+    "reasoning_blocks": 75,
+    "tool_calls": 107,
+    "tool_results": 107,
     "unpaired_tool_calls": 0,
     "compactions": 0,
     "system_messages": 0
@@ -153,7 +153,7 @@
    "warnings": [],
    "lossy": [],
    "atif_ok": true,
-   "atif_steps": 74,
+   "atif_steps": 86,
    "atif_errors": [],
    "atif_compare_ok": true,
    "atif_lossy": []

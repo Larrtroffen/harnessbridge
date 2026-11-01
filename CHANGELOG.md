@@ -1,3 +1,13 @@
+## [v1.6.1] — 2026-11-01
+
+### Latest-version isolation test / 最新版本隔离测试
+- Installed missing harness CLIs in an isolated `$HOME` on SSH Home (Ubuntu 22.04 x86_64, no sudo) and confirmed latest versions (2026-11-01).
+- OpenCode **1.19.5** SQLite primary store (`opencode.db`: session/message/part) is now parsed natively; legacy storage/v2 JSON fallbacks retained.
+- Validated latest stores for **Qwen Code 0.26.5**, **Goose 1.57.0**, **OpenCode 1.19.5** (LOCAL-SMOKE, mock model; NOT real user coverage).
+- New `tests/test_latest_stores.py`; full backend suite **144 tests OK**.
+- New docs: `docs/latest-version-matrix.md` (versions, sources, store paths, login/GUI blockers, honest accounting).
+- Version bump to 1.6.1; DMG rebuilt; coverage numbers unchanged: protocol 40/40, fixture-verified 35/40, real 22/40, REAL-EXAMPLE 2.
+
 ## [v1.6.0] — 2026-10-31
 
 ### Coverage expansion / 覆盖扩展
