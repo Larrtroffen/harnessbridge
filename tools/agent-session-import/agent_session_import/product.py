@@ -716,7 +716,7 @@ def _install_one(target, ir, sid, *, target_cwd=None, dsh_home=None, fallback_cw
                                            fallback_cwd=fallback_cwd or os.getcwd(),
                                            keep_system=keep_system)
                     reg_status, reg_detail = dsh.register_in_workspace(
-                        dsh_home, plan["cwd"], plan["session_id"])
+                        dsh_home, plan["cwd"], plan["session_id"], create=False)
                     rec["register"] = {"status": reg_status, "detail": reg_detail}
                 except (OSError, ValueError) as exc:
                     rec["register"] = {"status": "failed", "detail": str(exc)}

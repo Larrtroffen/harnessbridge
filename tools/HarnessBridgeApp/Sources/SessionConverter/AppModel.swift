@@ -953,6 +953,27 @@ final class AppModel: ObservableObject {
         revealInFinder(path)
     }
 
+    @Published var dshRepairRunning = false
+
+    func repairDSHWorkspaces() async {
+        guard let backend, !dshRepairRunning else { return }
+        dshRepairRunning = true
+        defer { dshRepairRunning = false }
+        do {
+            let rep = try await offload { try backend.repairDSHWorkspaces() }
+            if rep.ok {
+                showToast("DSH 工作区修复：注册 \(rep.registered) 个，修正 \(rep.repaired) 个，跳过 \(rep.skipped) 个", kind: .success)
+                appendLog(command: "修复 DSH 工作区", ok: true,
+                          detail: "registered=\(rep.registered) repaired=\(rep.repaired) skipped=\(rep.skipped)")
+                await detectHarnesses(force: true)
+            } else {
+                showToast("DSH 工作区修复失败：\(rep.error ?? "未知错误")", kind: .warning)
+            }
+        } catch {
+            showToast("DSH 工作区修复失败：\(Self.userMessage(for: error))", kind: .warning)
+        }
+    }
+
     // MARK: wizard
     func startWizard(sourceID: String? = nil, preselectSession: String? = nil,
                      preselectIDs: [String] = []) {
@@ -961,7 +982,6 @@ final class AppModel: ObservableObject {
         wizard.options.mode = .install
         wizard.options.sessionMode = .keep
         wizard.options.keepSystem = UserDefaults.standard.bool(forKey: "HB.LastKeepSystem")
-        wizard.options.registerToProject = UserDefaults.standard.bool(forKey: "HB.LastRegister")
         wizard.targetID = UserDefaults.standard.string(forKey: "HB.LastTarget") ?? "dsh"
         if !MigrationTarget.all.contains(where: { $0.id == wizard.targetID }) { wizard.targetID = "dsh" }
         if harnessInfo(wizard.targetID)?.installSupported != true {
@@ -973,6 +993,8 @@ final class AppModel: ObservableObject {
                 wizard.options.mode = .export
             }
         }
+        let savedRegister = UserDefaults.standard.object(forKey: "HB.LastRegister") as? Bool
+        wizard.options.registerToProject = savedRegister ?? (wizard.targetID == "dsh")
         wizard.sourceID = sourceID
         page = .wizard
         if let sourceID {
@@ -1982,6 +2004,9 @@ extension AppModel {
     func setWizardTarget(_ id: String) {
         guard MigrationTarget.all.contains(where: { $0.id == id }) else { return }
         Motion.run(Motion.quick) { wizard.targetID = id }
+        if id == "dsh", UserDefaults.standard.object(forKey: "HB.LastRegister") == nil {
+            wizard.options.registerToProject = true
+        }
         persist("HB.LastTarget", id)
     }
 

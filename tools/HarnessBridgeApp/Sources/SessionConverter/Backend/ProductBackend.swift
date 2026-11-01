@@ -942,6 +942,7 @@ final class ProductBackend: @unchecked Sendable {
         if let limit = plan.limit { args += ["--limit", "\(limit)"] }
         if let since = plan.sinceDays { args += ["--since-days", "\(since)"] }
         if overwrite { args += ["--overwrite"] }
+        if plan.targetID == "dsh" { args += ["--register"] }
         let r = try bridge.run(args, timeout: 900, cancellation: cancellation)
 
         func newestJournal() -> String? {
@@ -989,6 +990,21 @@ final class ProductBackend: @unchecked Sendable {
         let journal = value["journal_path"]?.displayString ?? newestJournal()
         return MigrateAllReport(plan: plan, items: items, journalPath: journal,
                                 elapsed: Date().timeIntervalSince(started), cancelled: false)
+    }
+
+    // MARK: - DSH workspace repair
+    func repairDSHWorkspaces() throws -> DSHRepairResult {
+        let r = try bridge.run(["dsh-workspaces", "--fix", "--json"], timeout: 180)
+        guard let data = r.stdout.data(using: .utf8),
+              let value = try? JSONDecoder().decode(JSONValue.self, from: data) else {
+            throw ProductError.backend("DSH 工作区修复结果格式无法识别：\(BackendBridge.tail(r.stderr.isEmpty ? r.stdout : r.stderr))")
+        }
+        return DSHRepairResult(ok: value["ok"]?.boolValue ?? false,
+                               checked: value["checked"]?.intValue ?? 0,
+                               registered: value["registered"]?.intValue ?? 0,
+                               repaired: value["repaired"]?.intValue ?? 0,
+                               skipped: value["skipped"]?.intValue ?? 0,
+                               error: value["error"]?.displayString)
     }
 
     // MARK: - misc

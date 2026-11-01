@@ -477,6 +477,18 @@ struct SettingsView: View {
                         Button("查看") { model.resetWelcomeFlag() }
                     }
                 }
+                CardBox(title: "DeepSeek Harness 工作区", subtitle: "修复未归组的会话", systemImage: "rectangle.3.group") {
+                    Text("退出 DeepSeek Harness 后运行；会把未归属的会话注册到 workspace.json 对应项目。")
+                        .font(.caption).foregroundStyle(.secondary)
+                    HStack {
+                        Button("修复工作区归属") {
+                            Task { await model.repairDSHWorkspaces() }
+                        }
+                        .disabled(model.dshRepairRunning)
+                        if model.dshRepairRunning { ProgressView().controlSize(.small) }
+                        Spacer()
+                    }
+                }
                 CardBox(title: "工具会话库", subtitle: "直接迁移会写入目标工具自己的会话库", systemImage: "internaldrive") {
                     ForEach(model.detectedHarnesses) { harness in
                         HStack(alignment: .top, spacing: 8) {

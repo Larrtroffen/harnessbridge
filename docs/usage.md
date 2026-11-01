@@ -127,7 +127,8 @@ DSH `system/message`（默认丢弃，避免把几十 KB 技能说明塞进对�
   1. `--dry-run` 打印每个会话的 session_id / cwd / 目标路径（全量时加 `--fallback-cwd`）；
   2. 用 `--dsh-home /tmp/dsh-home-test --yes` 在隔离目录演练 + `asi verify`；
   3. 确认 DSH 桌面端**已退出**（运行中的 app 以内存态为准，可能覆盖 workspace.json 或与新文件竞争）后再写真实目录。
-- `--register`：在**先备份** `~/.dsh/storages/workspace.json`（`workspace.json.bak.<epoch_ms>`）后，
+- DSH 目标的 workspace 注册现在**默认开启**（单会话与一键迁移均会尝试把新会话挂到 `cwd` 对应的 workspace；`--no-register` 可关闭）。**先退出 DSH 桌面端**，否则运行中的内存态可能覆盖 workspace.json。
+- `--register`：兼容保留；在**先备份** `~/.dsh/storages/workspace.json`（`workspace.json.bak.<epoch_ms>`）后，
   把 id 前插到 `path` 与目标 cwd 相同的 workspace 的 `sessionIds`，并更新 `updatedAt`（原子替换）。
   **对本次被 skip 的会话（artifact 已存在）同样执行注册**——因此支持"先 `--yes` 批量导入、之后再补
   `--register`"的用法；已注册的 id 幂等跳过（不重复插入、不重复备份）。`--dry-run` 只打印每个会话的
@@ -767,3 +768,15 @@ cd tools/agent-session-import
 - `research/agent-session-interchange-research.md`：ATIF 事实核查与生态。
 - ATIF 规范：<https://github.com/harbor-framework/harbor/blob/main/rfcs/0001-trajectory-format.md>
 - 样本目录：`samples/dsh/`（含官方最小会话模板）、`samples/codex|qoder|omp/`（真实截断样本，含敏感内容，勿外传）。
+
+
+## DSH 工作区修复（v1.7.1）
+
+旧版本迁移到 DSH 的会话可能只写了 session 文件、没有写入 `workspace.json`，在 DSH 侧边栏显示为 **Ungrouped**。先退出 DeepSeek Harness，再运行：
+
+```bash
+./asi dsh-workspaces --dsh-home ~/.dsh --json        # dry-run，查看待注册/不匹配
+./asi dsh-workspaces --dsh-home ~/.dsh --fix         # 写入（会备份 workspace.json）
+```
+
+App 中也可用 **设置 → DeepSeek Harness 工作区 → 修复工作区归属**。修复只处理 `realpath(header.cwd) == workspace.path` 的精确匹配；cwd 位于其他 workspace 子目录的会话会被报告为 `path-mismatch`，不会强行移动（DSH 的 attachSession 会过滤不匹配的 workspace）。

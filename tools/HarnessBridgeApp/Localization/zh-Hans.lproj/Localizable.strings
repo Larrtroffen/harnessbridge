@@ -604,3 +604,15 @@
 "Zed threads.db（data_type=json|zstd；DbThread/Message JSON）；无 CLI resume 且 DB 为 App 私有，writer 高风险不实现，reader-only/export-only；未发现会话" = "Zed threads.db（data_type=json|zstd；DbThread/Message JSON）；无 CLI resume 且 DB 为 App 私有，writer 高风险不实现，reader-only/export-only；未发现会话";
 
 "~/Library/Application Support/Zed/threads/threads.db（$ZED_HOME 可覆盖）" = "~/Library/Application Support/Zed/threads/threads.db（$ZED_HOME 可覆盖）";
+
+"DeepSeek Harness 工作区" = "DeepSeek Harness 工作区";
+
+"修复未归组的会话" = "修复未归组的会话";
+
+"退出 DeepSeek Harness 后运行；会把未归属的会话注册到 workspace.json 对应项目。" = "退出 DeepSeek Harness 后运行；会把未归属的会话注册到 workspace.json 对应项目。";
+
+"修复工作区归属" = "修复工作区归属";
+
+"修复中…" = "修复中…";
+
+"DSH 工作区修复：注册 " = "DSH 工作区修复：注册 ";

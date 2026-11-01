@@ -247,6 +247,15 @@ struct MigrationRecord: Codable, Identifiable, Sendable {
     }
 }
 
+struct DSHRepairResult: Sendable {
+    var ok: Bool
+    var checked: Int
+    var registered: Int
+    var repaired: Int
+    var skipped: Int
+    var error: String? = nil
+}
+
 // MARK: - Session detail (product v1.2)
 struct TokenUsage: Sendable, Equatable {
     var inputTokens: Int?

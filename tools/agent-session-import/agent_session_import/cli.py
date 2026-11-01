@@ -228,6 +228,10 @@ def cmd_import(args):
               "         Quit the DSH desktop app first: while running it keeps workspace state in memory\n"
               "         and may overwrite workspace.json / race on session files." % dsh_home,
               file=sys.stderr)
+    if args.register and args.no_register:
+        print("ERROR: --register and --no-register are mutually exclusive", file=sys.stderr)
+        return 2
+    args.register = bool(args.register or not args.no_register)
     targets = _select(source, args)
     results = {"imported": 0, "overwritten": 0, "skipped": 0, "failed": 0, "fallback_used": 0}
     dry = {"to_import": 0, "to_skip": 0, "failed": 0, "fallback_used": 0}
@@ -319,7 +323,7 @@ def cmd_import(args):
     registered = []
     if args.register and not args.dry_run:
         for cwd, sid in registration:
-            status, detail = dsh.register_in_workspace(dsh_home, cwd, sid)
+            status, detail = dsh.register_in_workspace(dsh_home, cwd, sid, create=True)
             registered.append({"session_id": sid, "status": status, "detail": detail})
             print("[register] %s: %s (%s)" % (sid, status, detail))
     summary = dict(results) if not args.dry_run else {
@@ -488,7 +492,7 @@ def cmd_migrate(args):
         out=args.out,
         mode=args.mode,
         target_cwd=args.target_cwd,
-        register=args.register,
+        register=(args.register or (args.to == "dsh" and not args.no_register)),
         dry_run=args.dry_run,
         yes=args.yes,
         dsh_home=args.dsh_home,
@@ -544,7 +548,7 @@ def cmd_migrate_all(args):
         target_cwd=args.target_cwd,
         dsh_home=args.dsh_home,
         journal=args.journal,
-        register=args.register,
+        register=(args.register or (args.to == "dsh" and not args.no_register)),
         keep_system=args.keep_system,
     )
     if args.json:
@@ -565,6 +569,27 @@ def cmd_migrate_all(args):
     if report.get("requires_yes"):
         print("REFUSING migrate-all without --yes.", file=sys.stderr)
         return 2
+    return 0 if report.get("ok") else 1
+
+
+def cmd_dsh_workspaces(args):
+    dsh_home = os.path.abspath(os.path.expanduser(
+        args.dsh_home or os.environ.get("DSH_HOME") or DEFAULT_DSH_HOME))
+    report = dsh.repair_workspaces(dsh_home, dry_run=not args.fix,
+                                   create_workspaces=bool(getattr(args, "create_workspaces", False)))
+    if args.json:
+        print_json(report)
+    elif not report.get("ok"):
+        print("repair failed: %s" % report.get("error"), file=sys.stderr)
+    else:
+        print("[%s] checked=%d registered=%d mismatched=%d skipped=%d  dsh_home=%s"
+              % ("dry-run" if report.get("dry_run") else "fixed", report["checked"],
+                 report["registered"], report.get("mismatched", 0), report["skipped"], dsh_home))
+        for d in report.get("details") or []:
+            print("  %-15s %s %s" % (d.get("status"), d.get("session_id"),
+                                     d.get("detail") or d.get("cwd") or d.get("reason") or ""))
+        if report.get("dry_run"):
+            print("re-run with --fix to register (quit the DSH desktop app first).")
     return 0 if report.get("ok") else 1
 
 
@@ -778,6 +803,7 @@ def build_parser():
         "(existing source cwd still wins; --target-cwd overrides everything)",
     )
     ip.add_argument("--register", action="store_true", help="also add ids to workspace.json sessionIds")
+    ip.add_argument("--no-register", action="store_true", help="do not touch workspace.json")
     ip.add_argument("--yes", action="store_true", help="confirm writing to the DSH home")
     ip.add_argument("--dry-run", action="store_true", help="print the import plan only")
     ip.add_argument("--overwrite", action="store_true", help="overwrite an existing session file")
@@ -906,7 +932,9 @@ def build_parser():
     mg.add_argument("--target-cwd", default=None)
     mg.add_argument("--fallback-cwd", default=None)
     mg.add_argument("--register", action="store_true",
-                    help="install 到 DSH 时注册到 workspace（自动备份 workspace.json）")
+                    help="install 到 DSH 时注册到 workspace（默认开启；保留兼容）")
+    mg.add_argument("--no-register", action="store_true",
+                    help="不修改 workspace.json（默认会尝试注册 DSH 目标）")
     mg.add_argument("--dry-run", action="store_true", help="只打印计划，零写入")
     mg.add_argument("--yes", action="store_true", help="install 模式二次确认")
     mg.add_argument("--overwrite", action="store_true", help="install 到 DSH 时覆盖已存在会话")
@@ -927,13 +955,23 @@ def build_parser():
     ma.add_argument("--dry-run", action="store_true", help="只打印计划，零写入")
     ma.add_argument("--yes", action="store_true", help="确认真实写入")
     ma.add_argument("--overwrite", action="store_true", help="覆盖目标已存在的同 id 会话（先备份）")
-    ma.add_argument("--register", action="store_true", help="DSH 目标：注册到 workspace")
+    ma.add_argument("--register", action="store_true", help="DSH 目标：注册到 workspace（默认开启）")
+    ma.add_argument("--no-register", action="store_true", help="DSH 目标：不修改 workspace.json")
     ma.add_argument("--target-cwd", default=None)
     ma.add_argument("--keep-system", action="store_true")
     ma.add_argument("--dsh-home", default=None)
     ma.add_argument("--journal", default=None)
     ma.add_argument("--json", action="store_true")
     ma.set_defaults(func=cmd_migrate_all)
+
+    wp = sub.add_parser("dsh-workspaces",
+                        help="扫描并修复 DSH workspace.json 的会话归属（默认 dry-run）")
+    wp.add_argument("--dsh-home", default=None, help="DSH data home (default: $DSH_HOME or ~/.dsh)")
+    wp.add_argument("--fix", action="store_true", help="write workspace.json (quit DSH first)")
+    wp.add_argument("--create-workspaces", action="store_true",
+                    help="create a workspace entry for cwd paths not in workspace.json")
+    wp.add_argument("--json", action="store_true", help="machine-readable JSON on stdout")
+    wp.set_defaults(func=cmd_dsh_workspaces)
 
     mr = sub.add_parser("migrate-restore",
                         help="按迁移日志恢复被移出的源会话（可选删除已安装目标文件）")

@@ -670,10 +670,13 @@ def registration_plan(dsh_home, cwd, session_id):
     return "would-register", "front-insert into workspace %r sessionIds" % match.get("title")
 
 
-def register_in_workspace(dsh_home, cwd, session_id):
+def register_in_workspace(dsh_home, cwd, session_id, create=False):
     """Idempotently front-insert session_id into the workspace.json entry whose path == cwd.
 
     Backs up workspace.json first; edits only the matching workspace; atomic replace.
+    When ``create`` is true and no workspace owns the canonical cwd, a new workspace
+    entry is created and added to ``global.workspaceIds`` (DSH keeps workspaces in
+    this registry; a file-only session otherwise appears under "Ungrouped").
     Requires DSH to be stopped (in-memory state is authoritative while running).
     Idempotent: if the id is already registered, nothing is written and no backup is made.
     """
@@ -681,8 +684,28 @@ def register_in_workspace(dsh_home, cwd, session_id):
     if data is None:
         return "skipped", err
     match = _matching_workspace(data, cwd)
+    created_workspace = None
     if match is None:
-        return "skipped", "no workspace with path==%s; session will appear under Ungrouped" % cwd
+        if not create:
+            return "skipped", "no workspace with path==%s; session will appear under Ungrouped" % cwd
+        if not cwd or not os.path.isdir(cwd):
+            return "skipped", "cwd does not exist, cannot create workspace: %s" % cwd
+        canonical = os.path.realpath(cwd)
+        wid = str(uuid.uuid4())
+        match = {
+            "path": canonical,
+            "title": os.path.basename(canonical.rstrip(os.sep)) or canonical,
+            "sessionIds": [],
+            "createdAt": iso_now(),
+            "updatedAt": iso_now(),
+        }
+        tables = data.setdefault("tables", {})
+        tables.setdefault("workspaces", {})[wid] = match
+        g = data.setdefault("global", {})
+        ids = g.setdefault("workspaceIds", [])
+        if wid not in ids:
+            ids.append(wid)
+        created_workspace = wid
     ids = match.setdefault("sessionIds", [])
     if session_id in ids:
         return "already", "session already registered in workspace %r" % match.get("title")
@@ -702,7 +725,100 @@ def register_in_workspace(dsh_home, cwd, session_id):
         except OSError:
             pass
         raise
-    return "registered", "backup: %s" % backup
+    detail = "backup: %s" % backup
+    if created_workspace:
+        detail += "; created workspace %s for %s" % (created_workspace, match["path"])
+    return "registered", detail
+
+
+def _session_header_paths(dsh_home):
+    """Yield (session_id, header, path) for every DSH v4 session under a home."""
+    root = os.path.join(os.path.expanduser(dsh_home), "sessions")
+    for path in glob.glob(os.path.join(root, "*", "*", "session.v4.jsonl*")):
+        try:
+            with open(path, "rb") as f:
+                raw = f.read()
+            data = zcat(raw) if path.endswith(".zstd") else raw
+            line = next((ln for ln in data.split(b"\n") if ln.strip()), b"")
+            header = json.loads(line.decode("utf-8"))
+        except (OSError, ValueError, StopIteration, UnicodeError):
+            continue
+        yield str(header.get("id") or ""), header, path
+
+
+def repair_workspaces(dsh_home, dry_run=False, create_workspaces=False):
+    """Attach on-disk DSH sessions to their matching workspace.
+
+    Only exact ``realpath(header.cwd) == workspace.path`` matches are safe for DSH's
+    attachSession invariant.  Sessions whose cwd is nested under a different workspace
+    path are reported as ``path-mismatch`` rather than moved (moving them would put them
+    into a workspace DSH would filter out, or create dozens of spurious workspaces).
+    """
+    ws_path, data, err = _workspace_document(dsh_home)
+    if data is None:
+        return {"ok": False, "error": err, "checked": 0, "registered": 0,
+                "repaired": 0, "skipped": 0, "details": []}
+    workspaces = ((data.get("tables") or {}).get("workspaces")) or {}
+    registered_ids = set()
+    for w in workspaces.values():
+        registered_ids.update(w.get("sessionIds") or [])
+    details = []
+    registered = mismatched = skipped = checked = 0
+    for sid, header, path in _session_header_paths(dsh_home):
+        checked += 1
+        cwd = header.get("cwd")
+        if header.get("delegationDepth") not in (None, 0):
+            skipped += 1
+            details.append({"session_id": sid, "status": "subagent-skip",
+                            "reason": "delegationDepth=%s" % header.get("delegationDepth")})
+            continue
+        if not sid or not isinstance(cwd, str) or not os.path.isabs(cwd):
+            skipped += 1
+            details.append({"session_id": sid, "status": "skipped", "reason": "missing/invalid cwd"})
+            continue
+        canonical = os.path.realpath(cwd)
+        owner = None
+        for wid, w in workspaces.items():
+            if sid in (w.get("sessionIds") or []):
+                owner = (wid, w)
+                break
+        if owner:
+            try:
+                owner_ok = os.path.realpath(owner[1].get("path") or "") == canonical
+            except OSError:
+                owner_ok = False
+            if owner_ok:
+                skipped += 1
+                continue
+            mismatched += 1
+            details.append({"session_id": sid, "status": "path-mismatch",
+                            "from_workspace": owner[0],
+                            "workspace_path": owner[1].get("path"),
+                            "cwd": canonical})
+            continue
+        match = _matching_workspace(data, canonical)
+        if match is None and not create_workspaces:
+            skipped += 1
+            details.append({"session_id": sid, "status": "skipped",
+                            "reason": "no exact workspace for cwd", "cwd": canonical})
+            continue
+        if dry_run:
+            registered += 1
+            details.append({"session_id": sid, "status": "would-register", "cwd": canonical})
+            continue
+        status, detail = register_in_workspace(dsh_home, canonical, sid,
+                                               create=create_workspaces)
+        if status in ("registered", "already"):
+            registered += 1
+            if status == "registered":
+                details.append({"session_id": sid, "status": "registered", "detail": detail})
+        else:
+            skipped += 1
+            details.append({"session_id": sid, "status": "skipped", "detail": detail})
+    return {"ok": True, "dsh_home": os.path.expanduser(dsh_home), "dry_run": bool(dry_run),
+            "checked": checked, "registered": registered, "repaired": 0,
+            "mismatched": mismatched, "skipped": skipped,
+            "create_workspaces": bool(create_workspaces), "details": details}
 
 
 # --------------------------------------------------------------------------- verify

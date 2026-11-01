@@ -1,3 +1,11 @@
+## [v1.7.1] — 2026-11-01
+
+### DSH workspace preservation / DSH 工作区归属修复
+- DSH→DSH installs now auto-register new sessions into `workspace.json` (single wizard + one-click migrate-all + CLI default; `--no-register` opt-out).
+- Added `asi dsh-workspaces --fix` / App Settings repair button for sessions migrated by older builds; exact workspace path match only, subagent/nested mismatches are reported without moving.
+- Added `tests/test_dsh_workspace.py`; app self-test unchanged.
+- Docs/README updated; coverage numbers unchanged.
+
 ## [v1.7.0] — 2026-11-01
 
 ### Localization + official logos / 英中本地化 + 官方 Logo

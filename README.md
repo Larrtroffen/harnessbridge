@@ -76,6 +76,7 @@ The app contains **no conversion logic of its own**: it is a thin, careful front
 - **Native readers**: Claude Code, Codex, OMP, Qoder, DeepSeek Harness, Pi, Gemini CLI and more.
 - **40 canonical harness formats** covered by the interop protocol/adapters, plus bonus **iFlow** and **Zed** readers (43 source adapters, 32 native writers). Evidence levels range from **NATIVE** (real local store + native load) through **REAL-LOCAL**, **COLLECTED**, **REAL**, **REAL-EXAMPLE**, **FIXTURE**, **FIXTURE-LOW** and **CONSTRUCTED**.
 - **Latest-version isolation test (v1.6.2)** — installed the missing CLIs in an isolated `$HOME` on a remote Ubuntu host, confirmed their latest versions, and ran each tool's **custom Base URL / OpenAI-compatible configuration against the real DeepSeek API** (`deepseek-flash`). Validated current stores for **Qwen Code 0.26.5, Goose 1.57.0, OpenCode 1.19.5 and iFlow 0.5.19**; OpenCode's v1.19 SQLite store is now parsed natively. These are **LOCAL-DEEPSEEK** samples, not real user conversations; the four coverage numbers are unchanged. Details: [docs/latest-version-matrix.md](docs/latest-version-matrix.md).
+- **DSH workspace preservation (v1.7.1)** — DSH→DSH installs now register the new session in `~/.dsh/storages/workspace.json` automatically (single-session wizard + one-click migrate-all), so imported sessions appear under their project instead of **Ungrouped**. A repair command/button (`asi dsh-workspaces --fix`, or Settings → DeepSeek Harness workspace → Repair workspace membership) can attach sessions migrated by older builds; quit DSH first. `--no-register` remains available for explicit opt-out.
 - **English + Simplified Chinese localization (v1.7.0)** — the app now ships `en` and `zh-Hans` localization; switch live in **Settings → Interface Language** (Follow System / English / 简体中文). Static and generated UI strings are localized, including menus and backend-provided hints. Official harness logos refreshed from official GitHub organization/repository assets where available. See [docs/INTEL-MAC.md](docs/INTEL-MAC.md) for the previous architecture work.
 - **Intel Mac support (v1.6.3)** — per-architecture DMGs: arm64 and **x86_64** (Intel), the latter with an embedded x86_64 Python runtime and cross-compiled x86_64 zstd. Homebrew cask selects automatically. See [docs/INTEL-MAC.md](docs/INTEL-MAC.md).
 - **Batch 6 (v1.6.0)** added an external-fixture matrix: **35/40 fixture-verified** canonical labels (34 pass + 6 partial, 0 reader fail), **32/32 native writers pass**, and **22/40 real-session coverage** — we deliberately report these as separate numbers (protocol coverage vs. fixture-verified format coverage vs. real user sessions). See [docs/coverage-ledger.md](docs/coverage-ledger.md), [docs/EXTERNAL-PROJECTS.md](docs/EXTERNAL-PROJECTS.md) and [docs/usage.md §16](docs/usage.md).
@@ -97,7 +98,7 @@ The cask picks the self-contained arm64 or x86_64 app for your Mac and prints th
 
 ### Option B — prebuilt macOS app (Apple Silicon or Intel)
 
-1. Download the matching DMG from [Releases](https://github.com/Larrtroffen/harnessbridge/releases): `HarnessBridge-1.7.0-macos-arm64.dmg` for Apple Silicon or `HarnessBridge-1.7.0-macos-x86_64.dmg` for Intel Macs.
+1. Download the matching DMG from [Releases](https://github.com/Larrtroffen/harnessbridge/releases): `HarnessBridge-1.7.1-macos-arm64.dmg` for Apple Silicon or `HarnessBridge-1.7.1-macos-x86_64.dmg` for Intel Macs.
 2. Open the DMG and drag **HarnessBridge.app** into `/Applications`.
 3. Because the app is **ad-hoc signed (not notarized by Apple)**, Gatekeeper may block the first launch. Either right-click the app → **Open** → confirm, or run:
    ```bash
@@ -238,7 +239,7 @@ More in [SECURITY.md](SECURITY.md) and [docs/FAQ.md](docs/FAQ.md).
 | Latest-version isolation test | [docs/latest-version-matrix.md](docs/latest-version-matrix.md) | — |
 | Intel Mac support | [docs/INTEL-MAC.md](docs/INTEL-MAC.md) | — |
 | Localization | `Localization/en.lproj`, `Localization/zh-Hans.lproj` | — |
-| Release notes | [RELEASE_NOTES/v1.7.0.md](RELEASE_NOTES/v1.7.0.md) | [RELEASE_NOTES/v1.7.0.zh-CN.md](RELEASE_NOTES/v1.7.0.zh-CN.md) |
+| Release notes | [RELEASE_NOTES/v1.7.1.md](RELEASE_NOTES/v1.7.1.md) | [RELEASE_NOTES/v1.7.1.zh-CN.md](RELEASE_NOTES/v1.7.1.zh-CN.md) |
 
 ## Roadmap
 
