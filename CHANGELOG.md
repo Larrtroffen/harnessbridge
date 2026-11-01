@@ -1,3 +1,12 @@
+## [v1.6.3] — 2026-11-01
+
+### Intel Mac support / 支持 Intel Mac
+- Added `--arch x86_64` / `--intel` portable build; ships `HarnessBridge-1.6.3-macos-x86_64.dmg` with x86_64 Swift app, x86_64 Python 3.12 and cross-compiled x86_64 zstd.
+- arm64 build rebuilt for 1.6.3; Homebrew cask now uses `on_arm` / `on_intel`.
+- New `docs/INTEL-MAC.md`; Intel build structurally verified (Mach-O arch, codesign, DMG mount) but runtime self-test pending Intel hardware.
+- Issue #1 addressed.
+- Coverage numbers unchanged: protocol 40/40, fixture-verified 35/40, real 22/40, REAL-EXAMPLE 2.
+
 ## [v1.6.2] — 2026-11-01
 
 ### Latest-version test with real DeepSeek / 真实 DeepSeek 最新版本测试

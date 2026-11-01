@@ -76,13 +76,14 @@ The app contains **no conversion logic of its own**: it is a thin, careful front
 - **Native readers**: Claude Code, Codex, OMP, Qoder, DeepSeek Harness, Pi, Gemini CLI and more.
 - **40 canonical harness formats** covered by the interop protocol/adapters, plus bonus **iFlow** and **Zed** readers (43 source adapters, 32 native writers). Evidence levels range from **NATIVE** (real local store + native load) through **REAL-LOCAL**, **COLLECTED**, **REAL**, **REAL-EXAMPLE**, **FIXTURE**, **FIXTURE-LOW** and **CONSTRUCTED**.
 - **Latest-version isolation test (v1.6.2)** — installed the missing CLIs in an isolated `$HOME` on a remote Ubuntu host, confirmed their latest versions, and ran each tool's **custom Base URL / OpenAI-compatible configuration against the real DeepSeek API** (`deepseek-flash`). Validated current stores for **Qwen Code 0.26.5, Goose 1.57.0, OpenCode 1.19.5 and iFlow 0.5.19**; OpenCode's v1.19 SQLite store is now parsed natively. These are **LOCAL-DEEPSEEK** samples, not real user conversations; the four coverage numbers are unchanged. Details: [docs/latest-version-matrix.md](docs/latest-version-matrix.md).
+- **Intel Mac support (v1.6.3)** — per-architecture DMGs: arm64 and **x86_64** (Intel), the latter with an embedded x86_64 Python runtime and cross-compiled x86_64 zstd. Homebrew cask selects automatically. See [docs/INTEL-MAC.md](docs/INTEL-MAC.md).
 - **Batch 6 (v1.6.0)** added an external-fixture matrix: **35/40 fixture-verified** canonical labels (34 pass + 6 partial, 0 reader fail), **32/32 native writers pass**, and **22/40 real-session coverage** — we deliberately report these as separate numbers (protocol coverage vs. fixture-verified format coverage vs. real user sessions). See [docs/coverage-ledger.md](docs/coverage-ledger.md), [docs/EXTERNAL-PROJECTS.md](docs/EXTERNAL-PROJECTS.md) and [docs/usage.md §16](docs/usage.md).
 
 > Names and logos are trademarks of their respective owners. HarnessBridge is not affiliated with, endorsed by, or sponsored by any harness vendor. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 ## Install
 
-### Option A — Homebrew (Apple Silicon)
+### Option A — Homebrew (Apple Silicon and Intel)
 
 ```bash
 brew tap Larrtroffen/harnessbridge
@@ -91,17 +92,17 @@ brew install --cask harnessbridge
 ```
 
 The tap lives at [Larrtroffen/homebrew-harnessbridge](https://github.com/Larrtroffen/homebrew-harnessbridge).
-The cask installs the self-contained arm64 app and prints the Gatekeeper caveat.
+The cask picks the self-contained arm64 or x86_64 app for your Mac and prints the Gatekeeper caveat.
 
-### Option B — prebuilt macOS app (Apple Silicon)
+### Option B — prebuilt macOS app (Apple Silicon or Intel)
 
-1. Download `HarnessBridge-1.6.2-macos-arm64.dmg` from [Releases](https://github.com/Larrtroffen/harnessbridge/releases).
+1. Download the matching DMG from [Releases](https://github.com/Larrtroffen/harnessbridge/releases): `HarnessBridge-1.6.3-macos-arm64.dmg` for Apple Silicon or `HarnessBridge-1.6.3-macos-x86_64.dmg` for Intel Macs.
 2. Open the DMG and drag **HarnessBridge.app** into `/Applications`.
 3. Because the app is **ad-hoc signed (not notarized by Apple)**, Gatekeeper may block the first launch. Either right-click the app → **Open** → confirm, or run:
    ```bash
    xattr -dr com.apple.quarantine /Applications/HarnessBridge.app
    ```
-4. Launch HarnessBridge. It requires **macOS 13 (Ventura) or newer** and an Apple-silicon Mac for the prebuilt DMG. Intel Macs can build from source.
+4. Launch HarnessBridge. It requires **macOS 13 (Ventura) or newer**. Intel Macs are supported by the x86_64 DMG; the Intel build is cross-compiled and structurally verified, with an Intel-Mac runtime smoke test still requested in issue #1.
 5. **No Python, zstd or repo checkout is required** for the prebuilt app: it bundles its own Python runtime, the `asi` backend and a `zstd` binary inside `HarnessBridge.app`. Only your harness session stores are read/written (when you ask it to migrate).
 
 Each release also publishes a `.zip` and a `SHA256SUMS.txt`; verify before running:
@@ -124,7 +125,8 @@ python3 tools/agent-session-import/asi --help
 # 2) macOS app (SwiftPM, no Xcode project needed)
 cd tools/HarnessBridgeApp
 swift build -c release
-./build.sh                     # → dist/HarnessBridge.app (ad-hoc signed)
+./build.sh                     # arm64 → dist/HarnessBridge.app + arm64 DMG
+./build.sh --intel             # Intel/x86_64 → dist/HarnessBridge.app + x86_64 DMG
 open dist/HarnessBridge.app
 ```
 
@@ -233,7 +235,8 @@ More in [SECURITY.md](SECURITY.md) and [docs/FAQ.md](docs/FAQ.md).
 | Coverage ledger | [docs/coverage-ledger.md](docs/coverage-ledger.md) | — |
 | External projects & fixtures | [docs/EXTERNAL-PROJECTS.md](docs/EXTERNAL-PROJECTS.md) | — |
 | Latest-version isolation test | [docs/latest-version-matrix.md](docs/latest-version-matrix.md) | — |
-| Release notes | [RELEASE_NOTES/v1.6.2.md](RELEASE_NOTES/v1.6.2.md) | [RELEASE_NOTES/v1.6.2.zh-CN.md](RELEASE_NOTES/v1.6.2.zh-CN.md) |
+| Intel Mac support | [docs/INTEL-MAC.md](docs/INTEL-MAC.md) | — |
+| Release notes | [RELEASE_NOTES/v1.6.3.md](RELEASE_NOTES/v1.6.3.md) | [RELEASE_NOTES/v1.6.3.zh-CN.md](RELEASE_NOTES/v1.6.3.zh-CN.md) |
 
 ## Roadmap
 

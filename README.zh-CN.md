@@ -76,13 +76,14 @@ App 本身**不包含转换逻辑**：它只是 CLI 之上的一层克制、可�
 - **原生 reader**：Claude Code、Codex、OMP、Qoder、DeepSeek Harness、Pi、Gemini CLI 等。
 - **40 种 canonical Harness 格式**全部有 adapter，另有 bonus **iFlow**、**Zed** reader（共 **43 个 source adapter**、32 个原生 writer）。证据等级包括 **NATIVE**、**REAL-LOCAL**、**COLLECTED**、**REAL**、**REAL-EXAMPLE**、**FIXTURE**、**FIXTURE-LOW**、**CONSTRUCTED**。
 - **最新版本隔离测试（v1.6.2）**：在远程 Ubuntu 主机的隔离 `$HOME` 中安装缺失 CLI，确认最新版本，并通过各自的自定义 Base URL / OpenAI-compatible 配置接入**真实 DeepSeek API**（`deepseek-flash`）。验证 **Qwen Code 0.26.5、Goose 1.57.0、OpenCode 1.19.5、iFlow 0.5.19** 的当前 store；OpenCode v1.19 SQLite store 已原生支持。这些是 **LOCAL-DEEPSEEK** 样本，不是真实用户会话，四个覆盖数字不变。详见 [docs/latest-version-matrix.md](docs/latest-version-matrix.md)。
+- **Intel Mac 支持（v1.6.3）**：arm64 与 **x86_64** 双架构 DMG；Intel 版内嵌 x86_64 Python runtime 与交叉编译的 x86_64 zstd，Homebrew cask 自动按架构选择。详见 [docs/INTEL-MAC.md](docs/INTEL-MAC.md)。
 - **批 6（v1.6.0）**新增外部 fixture 矩阵：**35/40 fixture-verified**（34 pass + 6 partial，0 reader fail）、**32/32 原生 writer 通过**、**真实会话覆盖 22/40**。三个数字刻意分开报告：协议覆盖 / fixture 验证覆盖 / 真实用户会话覆盖。详见[覆盖账本](docs/coverage-ledger.md)、[外部项目调研](docs/EXTERNAL-PROJECTS.md)与 [docs/usage.md §16](docs/usage.md)。
 
 > 名称与 Logo 的商标归各自所有者。HarnessBridge 与任何 Harness 厂商均无关联、背书或赞助关系。详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
 ## 安装
 
-### 方式 A — Homebrew（Apple Silicon）
+### 方式 A — Homebrew（Apple Silicon 与 Intel）
 
 ```bash
 brew tap Larrtroffen/harnessbridge
@@ -91,17 +92,17 @@ brew install --cask harnessbridge
 ```
 
 Tap 仓库：[Larrtroffen/homebrew-harnessbridge](https://github.com/Larrtroffen/homebrew-harnessbridge)。
-安装的是自带运行时的 arm64 App，Homebrew 会打印 Gatekeeper 提示。
+Homebrew 会按你的 Mac 架构自动选择自带运行时的 arm64 或 x86_64 App，并打印 Gatekeeper 提示。
 
-### 方式 B — 预编译 macOS 应用（Apple Silicon）
+### 方式 B — 预编译 macOS 应用（Apple Silicon 或 Intel）
 
-1. 从 [Releases](https://github.com/Larrtroffen/harnessbridge/releases) 下载 `HarnessBridge-1.6.2-macos-arm64.dmg`。
+1. 从 [Releases](https://github.com/Larrtroffen/harnessbridge/releases) 下载对应架构的 DMG：Apple Silicon 用 `HarnessBridge-1.6.3-macos-arm64.dmg`，Intel Mac 用 `HarnessBridge-1.6.3-macos-x86_64.dmg`。
 2. 打开 DMG，把 **HarnessBridge.app** 拖进 `/Applications`。
 3. 应用是 **ad-hoc 签名、未做 Apple 公证**，首次启动可能被 Gatekeeper 拦截。右键 App → **打开** → 确认，或执行：
    ```bash
    xattr -dr com.apple.quarantine /Applications/HarnessBridge.app
    ```
-4. 启动 HarnessBridge。要求 **macOS 13（Ventura）或更新版本**；预编译 DMG 为 Apple Silicon（arm64），Intel Mac 请从源码构建。
+4. 启动 HarnessBridge。要求 **macOS 13（Ventura）或更新版本**。Intel Mac 使用 x86_64 DMG；该构建已交叉编译并做结构校验，真实 Intel 运行 smoke test 仍在 issue #1 征集中。
 5. **预编译版无需 Python、zstd，也无需 clone 仓库**：App 内已自带 Python 运行时、`asi` 后端与 `zstd` 二进制；只有在你主动迁移时才会读写目标/来源 Harness 的会话库。
 
 每个 Release 同时提供 `.zip` 与 `SHA256SUMS.txt`，运行前建议校验：
@@ -124,7 +125,8 @@ python3 tools/agent-session-import/asi --help
 # 2) macOS App（SwiftPM，无需 Xcode 工程）
 cd tools/HarnessBridgeApp
 swift build -c release
-./build.sh                     # → dist/HarnessBridge.app（ad-hoc 签名）
+./build.sh                     # arm64 → dist/HarnessBridge.app + arm64 DMG
+./build.sh --intel             # Intel/x86_64 → dist/HarnessBridge.app + x86_64 DMG
 open dist/HarnessBridge.app
 ```
 
@@ -233,7 +235,8 @@ Adapter 契约、证据等级、安全不变量与仓库结构详见[架构文�
 | 覆盖账本 | [docs/coverage-ledger.md](docs/coverage-ledger.md) | — |
 | 外部项目与 fixture | [docs/EXTERNAL-PROJECTS.md](docs/EXTERNAL-PROJECTS.md) | — |
 | 最新版本隔离测试 | [docs/latest-version-matrix.md](docs/latest-version-matrix.md) | — |
-| 版本说明 | [RELEASE_NOTES/v1.6.2.md](RELEASE_NOTES/v1.6.2.md) | [RELEASE_NOTES/v1.6.2.zh-CN.md](RELEASE_NOTES/v1.6.2.zh-CN.md) |
+| Intel Mac 支持 | [docs/INTEL-MAC.md](docs/INTEL-MAC.md) | — |
+| 版本说明 | [RELEASE_NOTES/v1.6.3.md](RELEASE_NOTES/v1.6.3.md) | [RELEASE_NOTES/v1.6.3.zh-CN.md](RELEASE_NOTES/v1.6.3.zh-CN.md) |
 
 ## 路线图
 

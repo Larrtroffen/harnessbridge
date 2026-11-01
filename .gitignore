@@ -44,3 +44,6 @@ hb-test/
 vendor/
 
 # Generated backend coverage artifacts are committed; ignore transient sandboxes
+
+# Per-architecture SwiftPM scratch dirs
+.build-*/
